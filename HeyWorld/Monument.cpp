@@ -7,3 +7,9 @@
 //
 
 #include "Monument.h"
+
+//override
+void Monument::drawSprite()
+{
+
+}

@@ -10,5 +10,18 @@
 #define __HeyWorld__Character__
 
 #include <iostream>
+#include "Sprite.h"
+
+class Character: public Sprite
+{
+    private:
+    std::string name;
+    
+    public:
+    void drawSprite();
+    void setName(std::string nam);
+    std::string getName();
+    
+};
 
 #endif /* defined(__HeyWorld__Character__) */

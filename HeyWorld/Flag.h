@@ -10,5 +10,11 @@
 #define __HeyWorld__Flag__
 
 #include <iostream>
+#include "Sprite.h"
+
+class Flag: public Sprite
+{
+
+};
 
 #endif /* defined(__HeyWorld__Flag__) */

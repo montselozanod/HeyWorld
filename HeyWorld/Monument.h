@@ -10,5 +10,18 @@
 #define __HeyWorld__Monument__
 
 #include <iostream>
+#include "Sprite.h"
+
+class Monument: public Sprite
+{
+    private:
+    std::string name;
+    
+    public:
+    void drawSprite();
+    void setName(std::string nam);
+    std::string getName();
+    
+};
 
 #endif /* defined(__HeyWorld__Monument__) */

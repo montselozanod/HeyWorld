@@ -7,3 +7,9 @@
 //
 
 #include "Flag.h"
+
+//override
+void Flag::drawSprite()
+{
+    
+}

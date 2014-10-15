@@ -48,5 +48,5 @@ void DealGame::showSprite()
 
 bool DealGame::checkSprite()
 {
-
+    return true;
 }

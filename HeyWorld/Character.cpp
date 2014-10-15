@@ -7,3 +7,9 @@
 //
 
 #include "Character.h"
+
+//override
+void Character::drawSprite()
+{
+    
+}

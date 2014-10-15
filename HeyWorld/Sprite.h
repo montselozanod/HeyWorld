@@ -27,7 +27,7 @@ class Sprite
     Country myCountry;
     bool visibility;
     int difficultyLevel;
-    void drawSprite();
+    virtual void drawSprite();
 };
 
 #endif
