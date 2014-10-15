@@ -22,12 +22,19 @@ class Sprite
     private:
     GLfloat x;
     GLfloat y;
+    std::string imgName;
     
     public:
     Country myCountry;
     bool visibility;
     int difficultyLevel;
+    void setImgName(std::string name);
+    std::string getImgName();
     virtual void drawSprite();
+    virtual GLfloat getPosX();
+    virtual GLfloat getPosY();
+    virtual void changePosX();
+    virtual void changePosY();
 };
 
 #endif

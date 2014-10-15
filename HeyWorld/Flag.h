@@ -14,6 +14,14 @@
 
 class Flag: public Sprite
 {
+    private:
+    std::string imgName;
+    public:
+    void drawSprite();
+    GLfloat getPosX();
+    GLfloat getPosY();
+    void changePosX();
+    void changePosY();
 
 };
 
