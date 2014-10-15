@@ -18,6 +18,7 @@
 		B0C994FD19EDD8F30053FE95 /* Character.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B0C994FB19EDD8F30053FE95 /* Character.cpp */; };
 		B0C9950019EDDBBB0053FE95 /* User.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B0C994FE19EDDBBB0053FE95 /* User.cpp */; };
 		B0C9950719EDE0C30053FE95 /* DealGame.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B0C9950519EDE0C30053FE95 /* DealGame.cpp */; };
+		B0C9950C19EE44B50053FE95 /* LevelDeck.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B0C9950A19EE44B50053FE95 /* LevelDeck.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -53,6 +54,8 @@
 		B0C9950519EDE0C30053FE95 /* DealGame.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = DealGame.cpp; sourceTree = "<group>"; };
 		B0C9950619EDE0C30053FE95 /* DealGame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DealGame.h; sourceTree = "<group>"; };
 		B0C9950919EE0CBB0053FE95 /* Sprite.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Sprite.h; sourceTree = "<group>"; };
+		B0C9950A19EE44B50053FE95 /* LevelDeck.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = LevelDeck.cpp; sourceTree = "<group>"; };
+		B0C9950B19EE44B50053FE95 /* LevelDeck.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LevelDeck.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -138,6 +141,8 @@
 			children = (
 				B0C9950519EDE0C30053FE95 /* DealGame.cpp */,
 				B0C9950619EDE0C30053FE95 /* DealGame.h */,
+				B0C9950A19EE44B50053FE95 /* LevelDeck.cpp */,
+				B0C9950B19EE44B50053FE95 /* LevelDeck.h */,
 			);
 			name = Game;
 			sourceTree = "<group>";
@@ -198,6 +203,7 @@
 				B0665F2219ECDE2D007CAAE8 /* World.cpp in Sources */,
 				B0461DD219EB26C300B5EC2C /* main.cpp in Sources */,
 				B0C9950719EDE0C30053FE95 /* DealGame.cpp in Sources */,
+				B0C9950C19EE44B50053FE95 /* LevelDeck.cpp in Sources */,
 				B0C994FD19EDD8F30053FE95 /* Character.cpp in Sources */,
 				B0C994FA19EDD8E30053FE95 /* Flag.cpp in Sources */,
 			);

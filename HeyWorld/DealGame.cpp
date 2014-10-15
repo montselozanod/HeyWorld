@@ -31,7 +31,23 @@ void DealGame::chooseGame(int game)
     typeGame = game;
 }
 
-void createDeck()
+void DealGame::deckMonuments()
+{
+
+}
+
+void DealGame::deckFlags()
+{
+
+}
+
+void DealGame::deckCharacters()
+{
+    
+}
+
+
+void DealGame::createDeck()
 {
     
 }

@@ -27,7 +27,9 @@ struct Country
 
 class World
 {
+    
     public:
+    void drawWorld();
     
 
 };

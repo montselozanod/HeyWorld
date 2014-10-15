@@ -17,6 +17,7 @@ class Monument: public Sprite
     private:
     std::string name;
     
+    
     public:
     void drawSprite();
     void setName(std::string nam);

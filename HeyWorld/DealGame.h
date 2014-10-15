@@ -9,13 +9,19 @@
 #ifndef __HeyWorld__DealGame__
 #define __HeyWorld__DealGame__
 #include "World.h"
+#include "Sprite.h"
 #include <iostream>
+#include <vector>
 
 class DealGame
 {
     private:
+    std::vector<Sprite> gameSprites;
     void shuffleSprites();
     void createDeck();
+    void deckMonuments();
+    void deckFlags();
+    void deckCharacters();
     
     public:
     int typeGame;
