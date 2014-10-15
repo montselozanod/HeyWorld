@@ -21,10 +21,6 @@ class Character: public Sprite
     void drawSprite();
     void setName(std::string nam);
     std::string getName();
-    GLfloat getPosX();
-    GLfloat getPosY();
-    void changePosX();
-    void changePosY();
     
 };
 

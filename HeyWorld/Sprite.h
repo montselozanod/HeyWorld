@@ -31,10 +31,44 @@ class Sprite
     void setImgName(std::string name);
     std::string getImgName();
     virtual void drawSprite();
-    virtual GLfloat getPosX();
-    virtual GLfloat getPosY();
-    virtual void changePosX();
-    virtual void changePosY();
+    GLfloat getPosX();
+    GLfloat getPosY();
+    void changePosX(GLfloat x);
+    void changePosY(GLfloat y);
 };
 
+std::string Sprite::getImgName()
+{
+    return imgName;
+}
+
+void Sprite::setImgName(std::string name)
+{
+    imgName = name;
+}
+
+void Sprite::drawSprite()
+{
+
+}
+
+GLfloat Sprite::getPosX()
+{
+    return x;
+}
+
+GLfloat Sprite::getPosY()
+{
+    return y;
+}
+
+void Sprite::changePosX(GLfloat posX)
+{
+    x = posX;
+}
+
+void Sprite::changePosY(GLfloat posY)
+{
+    y = posY;
+}
 #endif

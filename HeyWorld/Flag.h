@@ -18,11 +18,6 @@ class Flag: public Sprite
     std::string imgName;
     public:
     void drawSprite();
-    GLfloat getPosX();
-    GLfloat getPosY();
-    void changePosX();
-    void changePosY();
-
 };
 
 #endif /* defined(__HeyWorld__Flag__) */

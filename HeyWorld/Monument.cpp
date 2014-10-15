@@ -8,6 +8,16 @@
 
 #include "Monument.h"
 
+void Monument::setName(std::string nam)
+{
+    name = nam;
+}
+
+std::string Monument::getName()
+{
+    return name;
+}
+
 //override
 void Monument::drawSprite()
 {
