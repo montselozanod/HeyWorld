@@ -23,6 +23,7 @@ class LevelDeck
     {
     
     };
+    
     std::vector<Monument> *agentMonuments;
     std::vector<Monument> *guruMonuments;
     //flags

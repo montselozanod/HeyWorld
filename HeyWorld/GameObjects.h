@@ -11,7 +11,7 @@
 
 #include <iostream>
 
-
+#pragma mark MONUMENT CLASS
 //MONUMENT CLASS
 class Monument
 {
@@ -26,6 +26,7 @@ public:
     
 };
 
+#pragma mark FLAG CLASS
 //FLAG CLASS
 class Flag
 {
@@ -34,6 +35,7 @@ public:
     void drawSprite();
 };
 
+#pragma mark CHARACTER CLASS
 //CHARACTER CLASS
 class Character
 {

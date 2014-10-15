@@ -8,6 +8,7 @@
 
 #include "GameObjects.h"
 
+#pragma mark MONUMENT
 void Monument::setName(std::string nam)
 {
     monumentName = nam;
@@ -25,6 +26,7 @@ void Monument::drawSprite()
 }
 
 //FLAG
+#pragma mark FLAG
 
 //override
 void Flag::drawSprite()
@@ -33,6 +35,7 @@ void Flag::drawSprite()
 }
 
 
+#pragma mark Character
 //Character
 
 //override
