@@ -11,8 +11,20 @@
 
 #include <iostream>
 
-class Game
+class DealGame
 {
+    private:
+    void shuffleSprites();
+    void createDeck();
+    
+    public:
+    int typeGame;
+    int difficulty;
+    DealGame(int game, int diff);
+    void startGame();
+    void chooseGame(int g);
+    void showSprite();
+    bool checkSprite();
 
 };
 
