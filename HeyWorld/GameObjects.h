@@ -9,11 +9,38 @@
 #ifndef __HeyWorld__GameObjects__
 #define __HeyWorld__GameObjects__
 
+#ifdef __APPLE__
+#include <GLUT/glut.h>
+#else
+#include <GL/glut.h>
+#endif
 #include <iostream>
+#include "World.h"
+
+#pragma mark SPRITE BASE CLASS
+class Sprite
+{
+private:
+    GLfloat x;
+    GLfloat y;
+    std::string imgName;
+    
+public:
+    Country myCountry;
+    bool visibility;
+    int difficultyLevel;
+    void setImgName(std::string name);
+    std::string getImgName();
+    virtual void drawSprite();
+    GLfloat getPosX();
+    GLfloat getPosY();
+    void changePosX(GLfloat x);
+    void changePosY(GLfloat y);
+};
 
 #pragma mark MONUMENT CLASS
 //MONUMENT CLASS
-class Monument
+class Monument: public Sprite
 {
 private:
     std::string monumentName;
@@ -28,7 +55,7 @@ public:
 
 #pragma mark FLAG CLASS
 //FLAG CLASS
-class Flag
+class Flag: public Sprite
 {
     
 public:
@@ -37,7 +64,7 @@ public:
 
 #pragma mark CHARACTER CLASS
 //CHARACTER CLASS
-class Character
+class Character: public Sprite
 {
 private:
     std::string characterName;

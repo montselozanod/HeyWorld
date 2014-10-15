@@ -8,6 +8,42 @@
 
 #include "GameObjects.h"
 
+#pragma mark Sprite
+std::string Sprite::getImgName()
+{
+    return imgName;
+}
+
+void Sprite::setImgName(std::string name)
+{
+    imgName = name;
+}
+
+void Sprite::drawSprite()
+{
+    
+}
+
+GLfloat Sprite::getPosX()
+{
+    return x;
+}
+
+GLfloat Sprite::getPosY()
+{
+    return y;
+}
+
+void Sprite::changePosX(GLfloat posX)
+{
+    x = posX;
+}
+
+void Sprite::changePosY(GLfloat posY)
+{
+    y = posY;
+}
+
 #pragma mark MONUMENT
 void Monument::setName(std::string nam)
 {
