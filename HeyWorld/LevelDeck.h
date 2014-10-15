@@ -11,30 +11,38 @@
 
 #include <iostream>
 #include <vector>
-#include "Monument.h"
-#include "Flag.h"
-#include "Character.h"
+#include "GameObjects.h"
 
 class LevelDeck
 {
     private:
     
     //monumentos
-    std::vector<Monument> touristMonuments;
-    std::vector<Monument> agentMonuments;
-    std::vector<Monument> guruMonuments;
+    
+    std::vector<Monument> *touristMonuments=
+    {
+    
+    };
+    std::vector<Monument> *agentMonuments;
+    std::vector<Monument> *guruMonuments;
     //flags
-    std::vector<Flag> touristFlag;
-    std::vector<Flag>  agentFlag;
-    std::vector<Flag>  guruFlag;
+    std::vector<Flag> *touristFlag;
+    std::vector<Flag>  *agentFlag;
+    std::vector<Flag>  *guruFlag;
     
     //characters
-    std::vector<Character> touristCharacter;
-    std::vector<Character> agentCharacter;
-    std::vector<Character> guruCharacter;
+    std::vector<Character> *touristCharacter;
+    std::vector<Character> *agentCharacter;
+    std::vector<Character> *guruCharacter;
+    
+    
+    void getMonumentDeck(int d);
+    void getFlagDeck(int d);
+    void getCharacterDeck(int d);
     
     public:
-    std::vector<Sprite> getLevelDeck();
+    //std::vector<Sprite> gameDeck;
+    void getLevelDeck(int gameId, int difficult);
 
 };
 
