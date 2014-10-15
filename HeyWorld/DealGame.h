@@ -8,7 +8,7 @@
 
 #ifndef __HeyWorld__DealGame__
 #define __HeyWorld__DealGame__
-
+#include "World.h"
 #include <iostream>
 
 class DealGame

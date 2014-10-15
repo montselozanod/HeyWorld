@@ -55,6 +55,7 @@
 		B0C9950219EDDC2C0053FE95 /* Player.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Player.h; sourceTree = "<group>"; };
 		B0C9950519EDE0C30053FE95 /* DealGame.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = DealGame.cpp; sourceTree = "<group>"; };
 		B0C9950619EDE0C30053FE95 /* DealGame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DealGame.h; sourceTree = "<group>"; };
+		B0C9950919EE0CBB0053FE95 /* Sprite.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Sprite.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -123,6 +124,7 @@
 				B0C994FC19EDD8F30053FE95 /* Character.h */,
 				B0C9950119EDDC2C0053FE95 /* Player.cpp */,
 				B0C9950219EDDC2C0053FE95 /* Player.h */,
+				B0C9950919EE0CBB0053FE95 /* Sprite.h */,
 			);
 			name = Sprites;
 			sourceTree = "<group>";
