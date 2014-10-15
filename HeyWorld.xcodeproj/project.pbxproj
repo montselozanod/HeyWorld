@@ -9,6 +9,16 @@
 /* Begin PBXBuildFile section */
 		B0461DD219EB26C300B5EC2C /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B0461DD119EB26C300B5EC2C /* main.cpp */; };
 		B0461DD419EB26C300B5EC2C /* HeyWorld.1 in CopyFiles */ = {isa = PBXBuildFile; fileRef = B0461DD319EB26C300B5EC2C /* HeyWorld.1 */; };
+		B0665F1C19ECDD62007CAAE8 /* GLUT.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B0665F1A19ECDD62007CAAE8 /* GLUT.framework */; };
+		B0665F1D19ECDD62007CAAE8 /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B0665F1B19ECDD62007CAAE8 /* OpenGL.framework */; };
+		B0665F1F19ECDD72007CAAE8 /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B0665F1E19ECDD72007CAAE8 /* OpenAL.framework */; };
+		B0665F2219ECDE2D007CAAE8 /* World.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B0665F2019ECDE2D007CAAE8 /* World.cpp */; };
+		B0C994F619EDD8AF0053FE95 /* Monument.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B0C994F419EDD8AF0053FE95 /* Monument.cpp */; };
+		B0C994FA19EDD8E30053FE95 /* Flag.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B0C994F819EDD8E30053FE95 /* Flag.cpp */; };
+		B0C994FD19EDD8F30053FE95 /* Character.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B0C994FB19EDD8F30053FE95 /* Character.cpp */; };
+		B0C9950019EDDBBB0053FE95 /* User.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B0C994FE19EDDBBB0053FE95 /* User.cpp */; };
+		B0C9950319EDDC2C0053FE95 /* Player.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B0C9950119EDDC2C0053FE95 /* Player.cpp */; };
+		B0C9950719EDE0C30053FE95 /* DealGame.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B0C9950519EDE0C30053FE95 /* DealGame.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -28,6 +38,23 @@
 		B0461DCE19EB26C300B5EC2C /* HeyWorld */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = HeyWorld; sourceTree = BUILT_PRODUCTS_DIR; };
 		B0461DD119EB26C300B5EC2C /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		B0461DD319EB26C300B5EC2C /* HeyWorld.1 */ = {isa = PBXFileReference; lastKnownFileType = text.man; path = HeyWorld.1; sourceTree = "<group>"; };
+		B0665F1A19ECDD62007CAAE8 /* GLUT.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLUT.framework; path = System/Library/Frameworks/GLUT.framework; sourceTree = SDKROOT; };
+		B0665F1B19ECDD62007CAAE8 /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = System/Library/Frameworks/OpenGL.framework; sourceTree = SDKROOT; };
+		B0665F1E19ECDD72007CAAE8 /* OpenAL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenAL.framework; path = System/Library/Frameworks/OpenAL.framework; sourceTree = SDKROOT; };
+		B0665F2019ECDE2D007CAAE8 /* World.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = World.cpp; sourceTree = "<group>"; };
+		B0665F2119ECDE2D007CAAE8 /* World.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = World.h; sourceTree = "<group>"; };
+		B0C994F419EDD8AF0053FE95 /* Monument.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Monument.cpp; sourceTree = "<group>"; };
+		B0C994F519EDD8AF0053FE95 /* Monument.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Monument.h; sourceTree = "<group>"; };
+		B0C994F819EDD8E30053FE95 /* Flag.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Flag.cpp; sourceTree = "<group>"; };
+		B0C994F919EDD8E30053FE95 /* Flag.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Flag.h; sourceTree = "<group>"; };
+		B0C994FB19EDD8F30053FE95 /* Character.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Character.cpp; sourceTree = "<group>"; };
+		B0C994FC19EDD8F30053FE95 /* Character.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Character.h; sourceTree = "<group>"; };
+		B0C994FE19EDDBBB0053FE95 /* User.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = User.cpp; sourceTree = "<group>"; };
+		B0C994FF19EDDBBB0053FE95 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
+		B0C9950119EDDC2C0053FE95 /* Player.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Player.cpp; sourceTree = "<group>"; };
+		B0C9950219EDDC2C0053FE95 /* Player.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Player.h; sourceTree = "<group>"; };
+		B0C9950519EDE0C30053FE95 /* DealGame.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = DealGame.cpp; sourceTree = "<group>"; };
+		B0C9950619EDE0C30053FE95 /* DealGame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DealGame.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -35,6 +62,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B0665F1F19ECDD72007CAAE8 /* OpenAL.framework in Frameworks */,
+				B0665F1C19ECDD62007CAAE8 /* GLUT.framework in Frameworks */,
+				B0665F1D19ECDD62007CAAE8 /* OpenGL.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -44,6 +74,9 @@
 		B0461DC519EB26C200B5EC2C = {
 			isa = PBXGroup;
 			children = (
+				B0665F1E19ECDD72007CAAE8 /* OpenAL.framework */,
+				B0665F1A19ECDD62007CAAE8 /* GLUT.framework */,
+				B0665F1B19ECDD62007CAAE8 /* OpenGL.framework */,
 				B0461DD019EB26C300B5EC2C /* HeyWorld */,
 				B0461DCF19EB26C300B5EC2C /* Products */,
 			);
@@ -62,8 +95,54 @@
 			children = (
 				B0461DD119EB26C300B5EC2C /* main.cpp */,
 				B0461DD319EB26C300B5EC2C /* HeyWorld.1 */,
+				B0665F2319ECDE36007CAAE8 /* World Map */,
+				B0C994F719EDD8CA0053FE95 /* Sprites */,
+				B0C9950419EDE09E0053FE95 /* User */,
+				B0C9950819EDE0CE0053FE95 /* Game */,
 			);
 			path = HeyWorld;
+			sourceTree = "<group>";
+		};
+		B0665F2319ECDE36007CAAE8 /* World Map */ = {
+			isa = PBXGroup;
+			children = (
+				B0665F2019ECDE2D007CAAE8 /* World.cpp */,
+				B0665F2119ECDE2D007CAAE8 /* World.h */,
+			);
+			name = "World Map";
+			sourceTree = "<group>";
+		};
+		B0C994F719EDD8CA0053FE95 /* Sprites */ = {
+			isa = PBXGroup;
+			children = (
+				B0C994F419EDD8AF0053FE95 /* Monument.cpp */,
+				B0C994F519EDD8AF0053FE95 /* Monument.h */,
+				B0C994F819EDD8E30053FE95 /* Flag.cpp */,
+				B0C994F919EDD8E30053FE95 /* Flag.h */,
+				B0C994FB19EDD8F30053FE95 /* Character.cpp */,
+				B0C994FC19EDD8F30053FE95 /* Character.h */,
+				B0C9950119EDDC2C0053FE95 /* Player.cpp */,
+				B0C9950219EDDC2C0053FE95 /* Player.h */,
+			);
+			name = Sprites;
+			sourceTree = "<group>";
+		};
+		B0C9950419EDE09E0053FE95 /* User */ = {
+			isa = PBXGroup;
+			children = (
+				B0C994FE19EDDBBB0053FE95 /* User.cpp */,
+				B0C994FF19EDDBBB0053FE95 /* User.h */,
+			);
+			name = User;
+			sourceTree = "<group>";
+		};
+		B0C9950819EDE0CE0053FE95 /* Game */ = {
+			isa = PBXGroup;
+			children = (
+				B0C9950519EDE0C30053FE95 /* DealGame.cpp */,
+				B0C9950619EDE0C30053FE95 /* DealGame.h */,
+			);
+			name = Game;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -117,7 +196,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B0C9950019EDDBBB0053FE95 /* User.cpp in Sources */,
+				B0C9950319EDDC2C0053FE95 /* Player.cpp in Sources */,
+				B0C994F619EDD8AF0053FE95 /* Monument.cpp in Sources */,
+				B0665F2219ECDE2D007CAAE8 /* World.cpp in Sources */,
 				B0461DD219EB26C300B5EC2C /* main.cpp in Sources */,
+				B0C9950719EDE0C30053FE95 /* DealGame.cpp in Sources */,
+				B0C994FD19EDD8F30053FE95 /* Character.cpp in Sources */,
+				B0C994FA19EDD8E30053FE95 /* Flag.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -227,6 +313,7 @@
 				B0461DD919EB26C300B5EC2C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
