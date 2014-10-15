@@ -9,14 +9,22 @@
 #include "GameObjects.h"
 
 #pragma mark Sprite
+
+Sprite::Sprite(std::string imgPath, std::string objName, int c)
+{
+    imgPathName = imgPath;
+    gameObjectName = objName;
+    countryCode = c;
+}
+
 std::string Sprite::getImgName()
 {
-    return imgName;
+    return imgPathName;
 }
 
 void Sprite::setImgName(std::string name)
 {
-    imgName = name;
+    imgPathName = name;
 }
 
 void Sprite::drawSprite()

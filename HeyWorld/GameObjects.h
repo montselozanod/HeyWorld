@@ -21,12 +21,16 @@
 class Sprite
 {
 private:
+    //Country countries[200]; faltan poner todos los paises
     GLfloat x;
     GLfloat y;
-    std::string imgName;
+    std::string imgPathName;
+    std::string gameObjectName;
     
 public:
-    Country myCountry;
+    Sprite(std::string img, std::string object, int countryCode);
+    int countryCode;
+    //Country myCountry;
     bool visibility;
     int difficultyLevel;
     void setImgName(std::string name);
