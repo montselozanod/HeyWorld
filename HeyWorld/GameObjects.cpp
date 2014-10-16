@@ -10,11 +10,12 @@
 
 #pragma mark Sprite
 
-Sprite::Sprite(std::string imgPath, std::string objName, int c)
+Sprite::Sprite(/*std::string imgPath,*/ std::string objName, int c)
 {
-    imgPathName = imgPath;
+    //imgPathName = imgPath;
     gameObjectName = objName;
-    countryCode = c;
+    
+    myCountry = Country(worldCountries[c].name, worldCountries[c].countryCode, worldCountries[c].capital, worldCountries[c].continentCode);
 }
 
 std::string Sprite::getImgName()

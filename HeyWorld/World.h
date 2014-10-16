@@ -33,6 +33,9 @@ struct Country
     std::string capital;
     std::string continentCode;
     
+    Country()
+    {
+    }
     Country(std::string nam, int code, std::string cap, std::string contCode)
     {
         name = nam;

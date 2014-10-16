@@ -28,9 +28,8 @@ private:
     std::string gameObjectName;
     
 public:
-    Sprite(std::string img, std::string object, int countryCode);
-    int countryCode;
-    //Country myCountry;
+    Sprite(/*std::string img,*/ std::string object, int countryCode);
+    Country myCountry;
     bool visibility;
     int difficultyLevel;
     void setImgName(std::string name);
@@ -51,6 +50,11 @@ private:
     
     
 public:
+    Monument(/*std::string img,*/ std::string object, int countryCode):Sprite(object, countryCode)
+    {
+    
+    }
+    
     void drawSprite();
     void setName(std::string nam);
     std::string getName();
@@ -74,6 +78,10 @@ private:
     std::string characterName;
     
 public:
+    Character(/*std::string img,*/ std::string object, int countryCode):Sprite(object, countryCode)
+    {
+        
+    }
     void drawSprite();
     void setName(std::string nam);
     std::string getName();
