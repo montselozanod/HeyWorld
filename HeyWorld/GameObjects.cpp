@@ -15,7 +15,7 @@ Sprite::Sprite(/*std::string imgPath,*/ std::string objName, int c)
     //imgPathName = imgPath;
     gameObjectName = objName;
     
-    myCountry = Country(worldCountries[c].name, worldCountries[c].countryCode, worldCountries[c].capital, worldCountries[c].continentCode);
+    myCountry = Country(theWorld.worldCountries[c].name, theWorld.worldCountries[c].countryCode, theWorld.worldCountries[c].capital, theWorld.worldCountries[c].continentCode);
 }
 
 std::string Sprite::getImgName()

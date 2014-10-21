@@ -44,9 +44,15 @@ void User::addPassportStamp(int stampId)
 {
     switch(stampId)
     {
-        case 0: userPassport.monumentsCompleted = true; break;
-        case 1: userPassport.flagsCompleted = true; break;
-        case 2: userPassport.charactersCompleted = true; break;
+        case 0:
+            userPassport.monumentsCompleted = true;
+            break;
+        case 1:
+            userPassport.flagsCompleted = true;
+            break;
+        case 2:
+            userPassport.charactersCompleted = true;
+            break;
     }
 }
 

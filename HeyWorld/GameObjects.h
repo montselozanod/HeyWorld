@@ -22,6 +22,7 @@ class Sprite
 {
 private:
     //Country countries[200]; faltan poner todos los paises
+    World theWorld;
     GLfloat x;
     GLfloat y;
     std::string imgPathName;
