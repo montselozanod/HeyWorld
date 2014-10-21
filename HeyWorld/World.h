@@ -66,90 +66,91 @@ class World
         Country("Austria", 9, "Vienna", "E"),
         
 #pragma mark Countries B
-        Country("Bélgica", 4, "Bruselas", "E"),
-        Country("Belice", 5, "Belmopán", "CA"),
-        Country("Bielorrusia", 6, "Minsk", "E"),
-        Country("Bolivia", 7, "La Paz", "SA"),
-        Country("Brasil", 8, "Brasilia", "SA"),
-        Country("Bulgaria", 9, "Sofía", "E"),
+        Country("Bélgica", 10, "Bruselas", "E"),
+        Country("Belice", 11, "Belmopán", "CA"),
+        Country("Bielorrusia", 12, "Minsk", "E"),
+        Country("Bolivia", 13, "La Paz", "SA"),
+        Country("Brasil", 14, "Brasilia", "SA"),
+        Country("Bulgaria", 15, "Sofía", "E"),
         
         
 #pragma mark Countries C
-        Country("Canada", 10, "Ottawa", "NA"),
-        Country("Chile", 11, "Santiago de Chile", "SA"),
-        Country("China", 12, "Beijing", "EA"),
-        Country("Colombia", 13, "Bogotá", "SA"),
-        Country("Corea del Sur", 14, "Seúl", "EA"),
-        Country("Costa Rica", 15, "San José", "CA"),
-        Country("Croacia", 16, "Zagreb", "E"),
-        Country("Cuba", 17, "La Habana", "CN"),
+        Country("Canada", 16, "Ottawa", "NA"),
+        Country("Chile", 17, "Santiago de Chile", "SA"),
+        Country("China", 18, "Beijing", "EA"),
+        Country("Colombia", 19, "Bogotá", "SA"),
+        Country("Corea del Sur", 20, "Seúl", "EA"),
+        Country("Costa Rica", 21, "San José", "CA"),
+        Country("Croacia", 22, "Zagreb", "E"),
+        Country("Cuba", 23, "La Habana", "CN"),
         
 #pragma mark Countries D
-        Country("Dinamarca", 18, "Copenhague", "E"),
+        Country("Dinamarca", 24, "Copenhague", "E"),
         
 #pragma mark Countries E
-        Country("Egipto", 19, "Cairo", "WA"),
-        Country("Emiratos Árabes Unidos", 20, "Abu Dabi", "WA"),
-        Country("España", 21, "Madrid", "E"),
-        Country("Estados Unidos", 22, "Washington D.C.", "NA"),
+        Country("Egipto", 25, "Cairo", "WA"),
+        Country("Emiratos Árabes Unidos", 26, "Abu Dabi", "WA"),
+        Country("España", 27, "Madrid", "E"),
+        Country("Estados Unidos", 28, "Washington D.C.", "NA"),
         
 #pragma mark Countries F
-        Country("Francia", 23, "Paris", "E"),
-        Country("Finlandia", 24, "Helsinki", "NE"),
+        Country("Francia", 29, "Paris", "E"),
+        Country("Finlandia", 30, "Helsinki", "NE"),
         
 #pragma mark Countries G
-        Country("Grecia", 25, "Atenas", "E"),
-        Country("Guatemala", 26, "Guatemala", "CA"),
+        Country("Grecia", 31, "Atenas", "E"),
+        Country("Guatemala", 32, "Guatemala", "CA"),
         
 #pragma mark Countries H
-        Country("Holanda", 27, "Amsterdam", "E"),
-        Country("Hungría", 28, "Budapest", "E"),
+        Country("Holanda", 33, "Amsterdam", "E"),
+        Country("Hungría", 34, "Budapest", "E"),
         
 #pragma mark Countries I
-        Country("India", 29, "Nueva Delhi", "SAS"),
-        Country("Italia", 30, "Roma", "E"),
-        Country("Irlanda", 31, "Dublin", "E"),
+        Country("India", 35, "Nueva Delhi", "SAS"),
+        Country("Italia", 36, "Roma", "E"),
+        Country("Irlanda", 37, "Dublin", "E"),
         
 #pragma mark Countries J
-        Country("Japón", 32, "Tokio", "WA"),
-        Country("Jordanía", 33, "Amán", "WA"),
+        Country("Japón", 38, "Tokio", "WA"),
+        Country("Jordanía", 39, "Amán", "WA"),
         
 #pragma mark Countries L
-        Country("Líbano", 34, "Beirut", "EA"),
+        Country("Líbano", 40, "Beirut", "EA"),
         
 #pragma mark Countries M
-        Country("Malasia", 35, "Kuala Lumpur", "EA"),
-        Country("Mexico", 36, "Ciudad de México", "NA"),
-        Country("Marruecos", 37, "Rabat", "A"),
-        Country("Mongolia", 38, "Ulán Bator", "NAS"),
+        Country("Malasia", 41, "Kuala Lumpur", "EA"),
+        Country("Mexico", 42, "Ciudad de México", "NA"),
+        Country("Marruecos", 43, "Rabat", "A"),
+        Country("Mongolia", 44, "Ulán Bator", "NAS"),
         
         
 #pragma mark Countries N
-        Country("Noruega", 39, "Oslo", "NE"),
+        Country("Noruega", 45, "Oslo", "NE"),
         
 #pragma mark Countries P
-        Country("Panamá", 40, "Panamá", "CA"),
-        Country("Perú", 41, "Lima", "SA"),
-        Country("Portugal", 42, "Lisboa", "E"),
-        Country("Polonia", 43, "Varsovia", "E"),
+        Country("Panamá", 46, "Panamá", "CA"),
+        Country("Pakistán", 47, "Islamabad", "WA"),
+        Country("Perú", 48, "Lima", "SA"),
+        Country("Portugal", 49, "Lisboa", "E"),
+        Country("Polonia", 50, "Varsovia", "E"),
         
 #pragma mark Countries R
-        Country("Reino Unido", 44, "Londres", "E"),
-        Country("República Checa", 45, "Praga", "E"),
-        Country("Rusia", 7, "Moscú", "NAS"),
+        Country("Reino Unido", 51, "Londres", "E"),
+        Country("República Checa", 52, "Praga", "E"),
+        Country("Rusia", 53, "Moscú", "NAS"),
         
 #pragma mark Countries S
-        Country("Sudáfrica", 46, "Pretoria", "AF"),
-        Country("Suiza", 47, "Berna", "E"),
+        Country("Sudáfrica", 54, "Pretoria", "AF"),
+        Country("Suiza", 55, "Berna", "E"),
         
 #pragma mark Countries T
-        Country("Turquía", 48, "Ankara", "WA"),
+        Country("Turquía", 56, "Ankara", "WA"),
         
 #pragma mark Countries U
-        Country("Uruguay", 49, "Montevideo", "SA"),
+        Country("Uruguay", 57, "Montevideo", "SA"),
         
 #pragma mark Countries V
-        Country("Venezuela", 50, "Caracas", "SA"),
+        Country("Venezuela", 58, "Caracas", "SA"),
         
     };
     void drawWorld();

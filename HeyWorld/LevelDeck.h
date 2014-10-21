@@ -23,7 +23,7 @@ class LevelDeck
     std::vector<Monument> *agentMonuments;
     std::vector<Monument> *guruMonuments;
     //flags
-    std::vector<Flag> *touristFlag;
+    std::vector<Flag> touristFlag;
     std::vector<Flag>  *agentFlag;
     std::vector<Flag>  *guruFlag;
     

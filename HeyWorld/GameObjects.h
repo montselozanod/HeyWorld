@@ -29,6 +29,7 @@ private:
     std::string gameObjectName;
     
 public:
+    Sprite(/*std::string img,*/ int countryCode);
     Sprite(/*std::string img,*/ std::string object, int countryCode);
     Country myCountry;
     bool visibility;
@@ -68,6 +69,11 @@ class Flag: public Sprite
 {
     
 public:
+    
+    Flag(/*std::string img,*/ int countryCode):Sprite(countryCode)
+    {
+        
+    }
     void drawSprite();
 };
 
