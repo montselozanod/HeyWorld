@@ -9,6 +9,7 @@
 #ifndef __HeyWorld__DealGame__
 #define __HeyWorld__DealGame__
 #include "GameObjects.h"
+
 #include <iostream>
 #include <vector>
 
@@ -21,6 +22,7 @@ class DealGame
     void deckMonuments();
     void deckFlags();
     void deckCharacters();
+    int numRondas;
     
     public:
     int typeGame;
@@ -29,7 +31,7 @@ class DealGame
     void startGame();
     void chooseGame(int g);
     void showSprite();
-    bool checkSprite();
+    bool checkSprite(int codeCountry);
 
 };
 

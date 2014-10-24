@@ -20,17 +20,17 @@ class LevelDeck
     //monumentos
     
     std::vector<Monument> touristMonuments;
-    std::vector<Monument> *agentMonuments;
-    std::vector<Monument> *guruMonuments;
+    std::vector<Monument> agentMonuments;
+    std::vector<Monument> guruMonuments;
     //flags
     std::vector<Flag> touristFlag;
-    std::vector<Flag>  *agentFlag;
-    std::vector<Flag>  *guruFlag;
+    std::vector<Flag>  agentFlag;
+    std::vector<Flag>  guruFlag;
     
     //characters
     std::vector<Character> touristCharacter;
-    std::vector<Character> *agentCharacter;
-    std::vector<Character> *guruCharacter;
+    std::vector<Character> agentCharacter;
+    std::vector<Character> guruCharacter;
     
     
     void getMonumentDeck(int d);

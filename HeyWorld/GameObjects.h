@@ -29,9 +29,19 @@ private:
     std::string gameObjectName;
     
 public:
-    Sprite(/*std::string img,*/ int countryCode);
-    Sprite(/*std::string img,*/ std::string object, int countryCode);
     Country myCountry;
+    Sprite(/*std::string img,*/ int countryCode)
+    {
+        myCountry = Country(theWorld.worldCountries[countryCode].name, theWorld.worldCountries[countryCode].countryCode, theWorld.worldCountries[countryCode].capital, theWorld.worldCountries[countryCode].continentCode);
+    }
+
+    Sprite(/*std::string img,*/ std::string object, int countryCode)
+    {
+        gameObjectName = object;
+        
+        myCountry = Country(theWorld.worldCountries[countryCode].name, theWorld.worldCountries[countryCode].countryCode, theWorld.worldCountries[countryCode].capital, theWorld.worldCountries[countryCode].continentCode);
+    }
+   
     bool visibility;
     int difficultyLevel;
     void setImgName(std::string name);
@@ -69,7 +79,6 @@ class Flag: public Sprite
 {
     
 public:
-    
     Flag(/*std::string img,*/ int countryCode):Sprite(countryCode)
     {
         

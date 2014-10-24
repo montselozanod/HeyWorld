@@ -10,14 +10,6 @@
 
 #pragma mark Sprite
 
-Sprite::Sprite(/*std::string imgPath,*/ std::string objName, int c)
-{
-    //imgPathName = imgPath;
-    gameObjectName = objName;
-    
-    myCountry = Country(theWorld.worldCountries[c].name, theWorld.worldCountries[c].countryCode, theWorld.worldCountries[c].capital, theWorld.worldCountries[c].continentCode);
-}
-
 std::string Sprite::getImgName()
 {
     return imgPathName;
@@ -73,11 +65,11 @@ void Monument::drawSprite()
 //FLAG
 #pragma mark FLAG
 
-//override
-void Flag::drawSprite()
-{
-    
-}
+////override
+//void Flag::drawSprite()
+//{
+//    
+//}
 
 
 #pragma mark Character

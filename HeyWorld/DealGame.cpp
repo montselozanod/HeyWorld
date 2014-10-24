@@ -59,10 +59,15 @@ void DealGame::startGame()
 
 void DealGame::showSprite()
 {
-
+    
 }
 
-bool DealGame::checkSprite()
+bool DealGame::checkSprite(int codeCountry)
 {
-    return true;
+    if(gameSprites[numRondas].myCountry.countryCode == codeCountry)
+    {
+        return true;
+    }else{
+        return false;
+    }
 }

@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		B0461DD219EB26C300B5EC2C /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B0461DD119EB26C300B5EC2C /* main.cpp */; };
 		B0461DD419EB26C300B5EC2C /* HeyWorld.1 in CopyFiles */ = {isa = PBXBuildFile; fileRef = B0461DD319EB26C300B5EC2C /* HeyWorld.1 */; };
+		B05D0D6319FA23BE00EB2A01 /* MenuOption.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B05D0D6119FA23BE00EB2A01 /* MenuOption.cpp */; };
 		B0665F1C19ECDD62007CAAE8 /* GLUT.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B0665F1A19ECDD62007CAAE8 /* GLUT.framework */; };
 		B0665F1D19ECDD62007CAAE8 /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B0665F1B19ECDD62007CAAE8 /* OpenGL.framework */; };
 		B0665F1F19ECDD72007CAAE8 /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B0665F1E19ECDD72007CAAE8 /* OpenAL.framework */; };
@@ -36,6 +37,8 @@
 		B0461DCE19EB26C300B5EC2C /* HeyWorld */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = HeyWorld; sourceTree = BUILT_PRODUCTS_DIR; };
 		B0461DD119EB26C300B5EC2C /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		B0461DD319EB26C300B5EC2C /* HeyWorld.1 */ = {isa = PBXFileReference; lastKnownFileType = text.man; path = HeyWorld.1; sourceTree = "<group>"; };
+		B05D0D6119FA23BE00EB2A01 /* MenuOption.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MenuOption.cpp; sourceTree = "<group>"; };
+		B05D0D6219FA23BE00EB2A01 /* MenuOption.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuOption.h; sourceTree = "<group>"; };
 		B0665F1A19ECDD62007CAAE8 /* GLUT.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLUT.framework; path = System/Library/Frameworks/GLUT.framework; sourceTree = SDKROOT; };
 		B0665F1B19ECDD62007CAAE8 /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = System/Library/Frameworks/OpenGL.framework; sourceTree = SDKROOT; };
 		B0665F1E19ECDD72007CAAE8 /* OpenAL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenAL.framework; path = System/Library/Frameworks/OpenAL.framework; sourceTree = SDKROOT; };
@@ -93,6 +96,8 @@
 				B0C994F719EDD8CA0053FE95 /* Sprites */,
 				B0C9950419EDE09E0053FE95 /* User */,
 				B0C9950819EDE0CE0053FE95 /* Game */,
+				B05D0D6119FA23BE00EB2A01 /* MenuOption.cpp */,
+				B05D0D6219FA23BE00EB2A01 /* MenuOption.h */,
 			);
 			path = HeyWorld;
 			sourceTree = "<group>";
@@ -189,6 +194,7 @@
 				B0C9950019EDDBBB0053FE95 /* User.cpp in Sources */,
 				B0665F2219ECDE2D007CAAE8 /* World.cpp in Sources */,
 				B0C9950F19EEB6440053FE95 /* GameObjects.cpp in Sources */,
+				B05D0D6319FA23BE00EB2A01 /* MenuOption.cpp in Sources */,
 				B0461DD219EB26C300B5EC2C /* main.cpp in Sources */,
 				B0C9950719EDE0C30053FE95 /* DealGame.cpp in Sources */,
 				B0C9950C19EE44B50053FE95 /* LevelDeck.cpp in Sources */,
