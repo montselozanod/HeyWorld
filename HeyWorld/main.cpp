@@ -17,9 +17,9 @@
 
 GLsizei winWidth = 800, winHeight =600; // Tamaño inicial de la ventana
 int gameState = 0;
-
-bool selectMenuPrincipal[3] = {false, false, false};
-bool selectMenuDificultad[3] = {false, false, false};
+int currentIndex = 0; //current indes for menus;
+bool selectMenuPrincipal[3] = {true, false, false};
+bool selectMenuDificultad[3] = {true, false, false};
 
 //Estados
 // Escoger Opcion De Juego = 0
@@ -32,6 +32,7 @@ void init()
 {
     glClearColor(1.0,.6,0,0); //background del display naranja
     gameState = 0;
+    currentIndex = 0;
 }
 
 void menuPrincipal()
@@ -39,9 +40,9 @@ void menuPrincipal()
     Menu menu = Menu("Monumentos");
     menu.drawMenu(400, 100, 0, 100, selectMenuPrincipal[0]);
     Menu menu2 = Menu("Banderas");
-    menu2.drawMenu(400, 100, 0, -100, selectMenuPrincipal[0]);
+    menu2.drawMenu(400, 100, 0, -100, selectMenuPrincipal[1]);
     Menu menu3 = Menu("Personajes");
-    menu3.drawMenu(400, 100, 0, -300, selectMenuPrincipal[0]);
+    menu3.drawMenu(400, 100, 0, -300, selectMenuPrincipal[2]);
 }
 
 void menuDificultad()
@@ -49,9 +50,9 @@ void menuDificultad()
     Menu menu = Menu("Turista");
     menu.drawMenu(400, 100, 0, 100, selectMenuDificultad[0]);
     Menu menu2 = Menu("Agente de Viajes");
-    menu2.drawMenu(400, 100, 0, -100, selectMenuDificultad[0]);
+    menu2.drawMenu(400, 100, 0, -100, selectMenuDificultad[1]);
     Menu menu3 = Menu("Gurú");
-    menu3.drawMenu(400, 100, 0, -300, selectMenuDificultad[0]);
+    menu3.drawMenu(400, 100, 0, -300, selectMenuDificultad[2]);
 }
 
 void display()
@@ -75,6 +76,53 @@ void display()
     glutSwapBuffers();
 }
 
+void teclasUPandDown(int tecla, int x, int y)
+{
+    if(gameState == 0)
+    {
+        switch(tecla)
+        {
+            case GLUT_KEY_DOWN:
+                selectMenuPrincipal[currentIndex] = false;
+                if(currentIndex < 2)
+                    currentIndex++;
+                else
+                    currentIndex = 2;
+                selectMenuPrincipal[currentIndex] = true;
+                glutPostRedisplay();
+                break;
+            case GLUT_KEY_UP:
+                selectMenuPrincipal[currentIndex] = false;
+                if(currentIndex > 0)
+                currentIndex--;
+                else
+                    currentIndex = 0;
+                selectMenuPrincipal[currentIndex] = true;
+                glutPostRedisplay();
+                break;
+        }
+    }else if (gameState == 1)
+    {
+        switch(tecla)
+        {
+            case GLUT_KEY_DOWN:
+                selectMenuDificultad[currentIndex] = false;
+                currentIndex++;
+                selectMenuDificultad[currentIndex] = true;
+                glutPostRedisplay();
+                break;
+            case GLUT_KEY_UP:
+                selectMenuDificultad[currentIndex] = false;
+                    currentIndex--;
+                selectMenuDificultad[currentIndex] = true;
+                glutPostRedisplay();
+                break;
+
+        }
+    
+    }
+}
+
 void ChangeSize(GLsizei w, GLsizei h)
 {
     glViewport (0,0,w,h);
@@ -96,6 +144,7 @@ int main(int argc, char** argv)
     init();
     glutReshapeFunc(ChangeSize);
     glutDisplayFunc(display);
+    glutSpecialFunc(teclasUPandDown);
     //mouse
     glutMainLoop();
     return 0;
