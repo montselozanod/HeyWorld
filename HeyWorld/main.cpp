@@ -36,14 +36,23 @@ void dificultad()
 
 }
 
+void menuPrincipal()
+{
+    Menu menu = Menu("Monumentos");
+    menu.drawMenu(400, 100, 0, 100);
+    Menu menu2 = Menu("Banderas");
+    menu2.drawMenu(400, 100, 0, -100);
+    Menu menu3 = Menu("Personajes");
+    menu2.drawMenu(400, 100, 0, -300);
+}
+
 void display()
 {
     glClear(GL_COLOR_BUFFER_BIT);
     
     if(gameState == 0)
     {
-        Menu menu = Menu("Monumentos");
-        menu.drawMenu(300, 50, 0, 0);
+        menuPrincipal();
     }
     
     glutSwapBuffers();
@@ -66,7 +75,7 @@ int main(int argc, char** argv)
     glutInitDisplayMode(GLUT_DOUBLE | GLUT_RGB);
     glutInitWindowSize(winWidth,winHeight);
     glutInitWindowPosition(200, 400); // 100, 100
-    glutCreateWindow("BlackJack");
+    glutCreateWindow("Hey World!");
     init();
     glutReshapeFunc(ChangeSize);
     glutDisplayFunc(display);

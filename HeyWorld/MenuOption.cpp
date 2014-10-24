@@ -28,12 +28,14 @@ std::string Menu::getName()
     return name;
 }
 
-void drawMenu(int ancho, int alto, int x, int y)
+void Menu::drawMenu(int ancho, int alto, int x, int y)
 {
     glColor3f(0, 1, 0);
     glPushMatrix();
     glTranslatef(x, y, 0.5);
-    glScalef(ancho, alto, 1);
+    glScalef(ancho, alto, 1.3);
     glutSolidCube(1);
+    glColor3f(0, 0, 0);
+    glutWireCube(1);
     glPopMatrix();
 }
