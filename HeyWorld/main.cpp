@@ -12,14 +12,16 @@
 #include <GL/glut.h>
 #endif
 #include <iostream>
+#include <stdio.h>
 #include "MenuOption.h"
 
 
 GLsizei winWidth = 800, winHeight =600; // Tamaño inicial de la ventana
 int gameState = 0;
 int currentIndex = 0; //current indes for menus;
-bool selectMenuPrincipal[3] = {true, false, false};
-bool selectMenuDificultad[3] = {true, false, false};
+bool selectMenuPrincipal[4] = {true, false, false, false};
+bool selectMenuDificultad[4] = {true, false, false, false};
+
 
 //Estados
 // Escoger Opcion De Juego = 0
@@ -37,12 +39,14 @@ void init()
 
 void menuPrincipal()
 {
+    Menu menu1 = Menu("Instrucciones");
+    menu1.drawMenu(400, 100, 0, 300, selectMenuPrincipal[0]);
     Menu menu = Menu("Monumentos");
-    menu.drawMenu(400, 100, 0, 100, selectMenuPrincipal[0]);
+    menu.drawMenu(400, 100, 0, 100, selectMenuPrincipal[1]);
     Menu menu2 = Menu("Banderas");
-    menu2.drawMenu(400, 100, 0, -100, selectMenuPrincipal[1]);
+    menu2.drawMenu(400, 100, 0, -100, selectMenuPrincipal[2]);
     Menu menu3 = Menu("Personajes");
-    menu3.drawMenu(400, 100, 0, -300, selectMenuPrincipal[2]);
+    menu3.drawMenu(400, 100, 0, -300, selectMenuPrincipal[3]);
 }
 
 void menuDificultad()
@@ -84,10 +88,10 @@ void teclasUPandDown(int tecla, int x, int y)
         {
             case GLUT_KEY_DOWN:
                 selectMenuPrincipal[currentIndex] = false;
-                if(currentIndex < 2)
+                if(currentIndex < 3)
                     currentIndex++;
                 else
-                    currentIndex = 2;
+                    currentIndex = 3;
                 selectMenuPrincipal[currentIndex] = true;
                 glutPostRedisplay();
                 break;
