@@ -14,9 +14,12 @@
 #include <iostream>
 #include "MenuOption.h"
 
+
 GLsizei winWidth = 800, winHeight =600; // Tamaño inicial de la ventana
 int gameState = 0;
 
+bool selectMenuPrincipal[3] = {false, false, false};
+bool selectMenuDificultad[3] = {false, false, false};
 
 //Estados
 // Escoger Opcion De Juego = 0
@@ -31,19 +34,24 @@ void init()
     gameState = 0;
 }
 
-void dificultad()
-{
-
-}
-
 void menuPrincipal()
 {
     Menu menu = Menu("Monumentos");
-    menu.drawMenu(400, 100, 0, 100);
+    menu.drawMenu(400, 100, 0, 100, selectMenuPrincipal[0]);
     Menu menu2 = Menu("Banderas");
-    menu2.drawMenu(400, 100, 0, -100);
+    menu2.drawMenu(400, 100, 0, -100, selectMenuPrincipal[0]);
     Menu menu3 = Menu("Personajes");
-    menu2.drawMenu(400, 100, 0, -300);
+    menu3.drawMenu(400, 100, 0, -300, selectMenuPrincipal[0]);
+}
+
+void menuDificultad()
+{
+    Menu menu = Menu("Turista");
+    menu.drawMenu(400, 100, 0, 100, selectMenuDificultad[0]);
+    Menu menu2 = Menu("Agente de Viajes");
+    menu2.drawMenu(400, 100, 0, -100, selectMenuDificultad[0]);
+    Menu menu3 = Menu("Gurú");
+    menu3.drawMenu(400, 100, 0, -300, selectMenuDificultad[0]);
 }
 
 void display()
@@ -53,6 +61,15 @@ void display()
     if(gameState == 0)
     {
         menuPrincipal();
+    }else if(gameState == 1)
+    {
+        menuDificultad();
+    }else if(gameState == 3)
+    {
+    
+    }else
+    {
+    
     }
     
     glutSwapBuffers();

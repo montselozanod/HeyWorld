@@ -96,10 +96,18 @@
 				B0C994F719EDD8CA0053FE95 /* Sprites */,
 				B0C9950419EDE09E0053FE95 /* User */,
 				B0C9950819EDE0CE0053FE95 /* Game */,
+				B05D0D6419FAB01700EB2A01 /* Menus */,
+			);
+			path = HeyWorld;
+			sourceTree = "<group>";
+		};
+		B05D0D6419FAB01700EB2A01 /* Menus */ = {
+			isa = PBXGroup;
+			children = (
 				B05D0D6119FA23BE00EB2A01 /* MenuOption.cpp */,
 				B05D0D6219FA23BE00EB2A01 /* MenuOption.h */,
 			);
-			path = HeyWorld;
+			name = Menus;
 			sourceTree = "<group>";
 		};
 		B0665F2319ECDE36007CAAE8 /* World Map */ = {

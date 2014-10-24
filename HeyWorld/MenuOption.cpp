@@ -28,14 +28,46 @@ std::string Menu::getName()
     return name;
 }
 
-void Menu::drawMenu(int ancho, int alto, int x, int y)
+void Menu::renderBitmapString(float x,float y,float z)
 {
-    glColor3f(0, 1, 0);
+    int i;
+    glMatrixMode(GL_MODELVIEW);
+    glColor3f(1, 1, 1);
     glPushMatrix();
-    glTranslatef(x, y, 0.5);
-    glScalef(ancho, alto, 1.3);
-    glutSolidCube(1);
+    glTranslatef(x, y, z);
+    glScalef(0.3, 0.3, 0.01);
+    
+    for(i = 0; i < name[i] != '\0'; i++)
+    {
+        std::cout<<name[i];
+        glutStrokeCharacter(GLUT_STROKE_ROMAN, name[i]);
+    }
+    glPopMatrix();
+}
+
+void Menu::drawMenu(int ancho, int alto, int x, int y, bool selected)
+{
+    double z = 0.5;
+    
+    glPushMatrix();
+    glTranslatef(x, y, -z/2.0);
+    glScalef(ancho, alto, z);
     glColor3f(0, 0, 0);
     glutWireCube(1);
+    if(selected)
+        glColor3f(0, 1, 1);
+    else
+        glColor3f(0, 1, 0);
+    glutSolidCube(1);
     glPopMatrix();
+    
+    glPushMatrix();
+        glColor3f(0, 0, 0);
+        glTranslatef(x, y, z);
+        glScalef(ancho, alto, 1);
+        glutWireCube(1);
+    glPopMatrix();
+    
+    renderBitmapString(x - ancho / 4.0, y - 12, 0);
+
 }
