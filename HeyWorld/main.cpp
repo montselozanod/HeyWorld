@@ -12,7 +12,7 @@
 #include <GL/glut.h>
 #endif
 #include <iostream>
-#include <stdio.h>
+#include "SOIL.h"
 #include "MenuOption.h"
 
 
@@ -22,12 +22,19 @@ int currentIndex = 0; //current indes for menus;
 bool selectMenuPrincipal[4] = {true, false, false, false};
 bool selectMenuDificultad[4] = {true, false, false, false};
 
-
 //Estados
 // Escoger Opcion De Juego = 0
 // Escoger Dificultad = 1
 // Jugar = 3
 // FIn = 4
+
+GLuint textMundo = SOIL_load_OGL_texture(
+    "mundo.png",
+    SOIL_LOAD_AUTO,
+    SOIL_CREATE_NEW_ID,
+    SOIL_FLAG_MIPMAPS | SOIL_FLAG_INVERT_Y | SOIL_FLAG_NTSC_SAFE_RGB | SOIL_FLAG_COMPRESS_TO_DXT
+);
+
 
 
 void init()
