@@ -12,30 +12,22 @@
 #include <GL/glut.h>
 #endif
 #include <iostream>
-#include "SOIL.h"
+#include "Image.h"
 #include "MenuOption.h"
-
 
 GLsizei winWidth = 800, winHeight =600; // Tamaño inicial de la ventana
 int gameState = 0;
+GLuint texture = 0;
 int currentIndex = 0; //current indes for menus;
 bool selectMenuPrincipal[4] = {true, false, false, false};
 bool selectMenuDificultad[4] = {true, false, false, false};
+Image image;
 
 //Estados
 // Escoger Opcion De Juego = 0
 // Escoger Dificultad = 1
 // Jugar = 3
 // FIn = 4
-
-GLuint textMundo = SOIL_load_OGL_texture(
-    "mundo.png",
-    SOIL_LOAD_AUTO,
-    SOIL_CREATE_NEW_ID,
-    SOIL_FLAG_MIPMAPS | SOIL_FLAG_INVERT_Y | SOIL_FLAG_NTSC_SAFE_RGB | SOIL_FLAG_COMPRESS_TO_DXT
-);
-
-
 
 void init()
 {
@@ -66,12 +58,30 @@ void menuDificultad()
     menu3.drawMenu(400, 100, 0, -300, selectMenuDificultad[2]);
 }
 
+void background()
+{
+    glBindTexture(GL_TEXTURE_2D, texture);
+    
+    glPushMatrix();
+        glBegin(GL_QUADS);
+            glTexCoord2i(0,0); glTexCoord2i(0,0);
+            glTexCoord2i(1, 0); glTexCoord2i(winWidth, 0);
+            glTexCoord2i(1,1); glVertex2i(winWidth, winHeight);
+            glTexCoord2i(0,1); glVertex2i(0, winHeight);
+        glEnd();
+    glPopMatrix();
+}
+
 void display()
 {
     glClear(GL_COLOR_BUFFER_BIT);
     
     if(gameState == 0)
     {
+        texture = image.LoadTexture( "/Users/mariamontserratlozano/Documents/Carrera 7/Graficas/HeyWorld/HeyWorld/mundo.png", winWidth, winHeight); //load the texture
+        glEnable( GL_TEXTURE_2D );
+        image.cube(0);
+        image.FreeTexture(texture);
         menuPrincipal();
     }else if(gameState == 1)
     {

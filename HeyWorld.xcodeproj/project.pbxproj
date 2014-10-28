@@ -34,6 +34,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		B0291B5419FF4C2D0061F2CF /* Image.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Image.h; sourceTree = "<group>"; };
 		B0461DCE19EB26C300B5EC2C /* HeyWorld */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = HeyWorld; sourceTree = BUILT_PRODUCTS_DIR; };
 		B0461DD119EB26C300B5EC2C /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		B0461DD319EB26C300B5EC2C /* HeyWorld.1 */ = {isa = PBXFileReference; lastKnownFileType = text.man; path = HeyWorld.1; sourceTree = "<group>"; };
@@ -44,17 +45,6 @@
 		B0665F1E19ECDD72007CAAE8 /* OpenAL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenAL.framework; path = System/Library/Frameworks/OpenAL.framework; sourceTree = SDKROOT; };
 		B0665F2019ECDE2D007CAAE8 /* World.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = World.cpp; sourceTree = "<group>"; };
 		B0665F2119ECDE2D007CAAE8 /* World.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = World.h; sourceTree = "<group>"; };
-		B068C77819FAF4CC00C57511 /* image_DXT.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = image_DXT.c; sourceTree = "<group>"; };
-		B068C77919FAF4CC00C57511 /* image_DXT.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = image_DXT.h; sourceTree = "<group>"; };
-		B068C77A19FAF4CC00C57511 /* image_helper.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = image_helper.c; sourceTree = "<group>"; };
-		B068C77B19FAF4CC00C57511 /* image_helper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = image_helper.h; sourceTree = "<group>"; };
-		B068C77C19FAF4CC00C57511 /* SOIL.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = SOIL.c; sourceTree = "<group>"; };
-		B068C77D19FAF4CC00C57511 /* SOIL.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SOIL.h; sourceTree = "<group>"; };
-		B068C77E19FAF4CC00C57511 /* stb_image_aug.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = stb_image_aug.c; sourceTree = "<group>"; };
-		B068C77F19FAF4CC00C57511 /* stb_image_aug.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = stb_image_aug.h; sourceTree = "<group>"; };
-		B068C78019FAF4CC00C57511 /* stbi_DDS_aug.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = stbi_DDS_aug.h; sourceTree = "<group>"; };
-		B068C78119FAF4CC00C57511 /* stbi_DDS_aug_c.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = stbi_DDS_aug_c.h; sourceTree = "<group>"; };
-		B068C78219FAF4CC00C57511 /* test_SOIL.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = test_SOIL.cpp; sourceTree = "<group>"; };
 		B068C78319FAF59800C57511 /* mundo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mundo.png; sourceTree = "<group>"; };
 		B0C994FE19EDDBBB0053FE95 /* User.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = User.cpp; sourceTree = "<group>"; };
 		B0C994FF19EDDBBB0053FE95 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
@@ -103,7 +93,6 @@
 			isa = PBXGroup;
 			children = (
 				B068C78419FAF5AA00C57511 /* Fotos */,
-				B068C77719FAF4CC00C57511 /* src */,
 				B0461DD119EB26C300B5EC2C /* main.cpp */,
 				B0461DD319EB26C300B5EC2C /* HeyWorld.1 */,
 				B0665F2319ECDE36007CAAE8 /* World Map */,
@@ -111,6 +100,7 @@
 				B0C9950419EDE09E0053FE95 /* User */,
 				B0C9950819EDE0CE0053FE95 /* Game */,
 				B05D0D6419FAB01700EB2A01 /* Menus */,
+				B0291B5419FF4C2D0061F2CF /* Image.h */,
 			);
 			path = HeyWorld;
 			sourceTree = "<group>";
@@ -131,24 +121,6 @@
 				B0665F2119ECDE2D007CAAE8 /* World.h */,
 			);
 			name = "World Map";
-			sourceTree = "<group>";
-		};
-		B068C77719FAF4CC00C57511 /* src */ = {
-			isa = PBXGroup;
-			children = (
-				B068C77819FAF4CC00C57511 /* image_DXT.c */,
-				B068C77919FAF4CC00C57511 /* image_DXT.h */,
-				B068C77A19FAF4CC00C57511 /* image_helper.c */,
-				B068C77B19FAF4CC00C57511 /* image_helper.h */,
-				B068C77C19FAF4CC00C57511 /* SOIL.c */,
-				B068C77D19FAF4CC00C57511 /* SOIL.h */,
-				B068C77E19FAF4CC00C57511 /* stb_image_aug.c */,
-				B068C77F19FAF4CC00C57511 /* stb_image_aug.h */,
-				B068C78019FAF4CC00C57511 /* stbi_DDS_aug.h */,
-				B068C78119FAF4CC00C57511 /* stbi_DDS_aug_c.h */,
-				B068C78219FAF4CC00C57511 /* test_SOIL.cpp */,
-			);
-			path = src;
 			sourceTree = "<group>";
 		};
 		B068C78419FAF5AA00C57511 /* Fotos */ = {
