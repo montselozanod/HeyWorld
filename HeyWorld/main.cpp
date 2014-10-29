@@ -12,16 +12,17 @@
 #include <GL/glut.h>
 #endif
 #include <iostream>
-#include "Image.h"
+#include "Imageloader.h"
 #include "MenuOption.h"
 
 GLsizei winWidth = 800, winHeight =600; // Tamaño inicial de la ventana
 int gameState = 0;
 GLuint texture = 0;
+static GLuint texName[36];
 int currentIndex = 0; //current indes for menus;
 bool selectMenuPrincipal[4] = {true, false, false, false};
 bool selectMenuDificultad[4] = {true, false, false, false};
-Image image;
+
 
 //Estados
 // Escoger Opcion De Juego = 0
@@ -29,11 +30,65 @@ Image image;
 // Jugar = 3
 // FIn = 4
 
+//Makes the image into a texture, and returns the id of the texture
+void loadTexture(Image* image,int k)
+{
+    
+    glBindTexture(GL_TEXTURE_2D, texName[k]); //Tell OpenGL which texture to edit
+    
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER,GL_NEAREST);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER,GL_NEAREST);
+    
+    
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER,GL_LINEAR);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER,GL_LINEAR);
+    
+    //Map the image to the texture
+    glTexImage2D(GL_TEXTURE_2D,                //Always GL_TEXTURE_2D
+                 0,                            //0 for now
+                 GL_RGB,                       //Format OpenGL uses for image
+                 image->width, image->height,  //Width and height
+                 0,                            //The border of the image
+                 GL_RGB, //GL_RGB, because pixels are stored in RGB format
+                 GL_UNSIGNED_BYTE, //GL_UNSIGNED_BYTE, because pixels are stored
+                 //as unsigned numbers
+                 image->pixels);               //The actual pixel data
+    
+}
+
 void init()
 {
     glClearColor(1.0,.6,0,0); //background del display naranja
     gameState = 0;
     currentIndex = 0;
+}
+
+void initRendering()
+{
+    GLuint i=0;
+    GLfloat ambientLight[] = {0.2f, 0.2f, 0.2f, 1.0f};
+    glLightModelfv(GL_LIGHT_MODEL_AMBIENT, ambientLight);
+    
+    GLfloat directedLight[] = {0.9f, 0.9f, 0.9f, 1.0f};
+    GLfloat directedLightPos[] = {-10.0f, 15.0f, 20.0f, 0.0f};
+//    glLightfv(GL_LIGHT0, GL_DIFFUSE, directedLight);
+//    glLightfv(GL_LIGHT0, GL_POSITION, directedLightPos);
+    glEnable(GL_DEPTH_TEST);
+   // glEnable(GL_LIGHTING);
+//    glEnable(GL_LIGHT0);
+//    glEnable(GL_NORMALIZE); ///Users/mariaroque/Imagenes
+    
+    glEnable(GL_TEXTURE_2D);
+    
+    glClearColor(1.0,1.0,1.0,1.0);
+    
+    // glEnable(GL_COLOR_MATERIAL);
+    glGenTextures(1, texName); //Make room for our texture
+    Image* image;
+    image = loadBMP("/Users/mariamontserratlozano/Documents/Carrera 7/Graficas/HeyWorld/HeyWorld/map.bmp");loadTexture(image,i++);
+     delete image;
 }
 
 void menuPrincipal()
@@ -58,19 +113,6 @@ void menuDificultad()
     menu3.drawMenu(400, 100, 0, -300, selectMenuDificultad[2]);
 }
 
-void background()
-{
-    glBindTexture(GL_TEXTURE_2D, texture);
-    
-    glPushMatrix();
-        glBegin(GL_QUADS);
-            glTexCoord2i(0,0); glTexCoord2i(0,0);
-            glTexCoord2i(1, 0); glTexCoord2i(winWidth, 0);
-            glTexCoord2i(1,1); glVertex2i(winWidth, winHeight);
-            glTexCoord2i(0,1); glVertex2i(0, winHeight);
-        glEnd();
-    glPopMatrix();
-}
 
 void display()
 {
@@ -78,10 +120,22 @@ void display()
     
     if(gameState == 0)
     {
-        texture = image.LoadTexture( "/Users/mariamontserratlozano/Documents/Carrera 7/Graficas/HeyWorld/HeyWorld/mundo.png", winWidth, winHeight); //load the texture
-        glEnable( GL_TEXTURE_2D );
-        image.cube(0);
-        image.FreeTexture(texture);
+        glEnable(GL_TEXTURE_2D);
+        glBindTexture(GL_TEXTURE_2D, texName[0]);
+        glBegin(GL_QUADS);
+        glTexCoord2f(0.0f, 0.0f); //se pega la textura con
+        glVertex3f(-winWidth, -winHeight, 0);
+        
+        glTexCoord2f(1.0f, 0.0f);
+        glVertex3f(winWidth, -winHeight, 0);
+        
+        glTexCoord2f(1.0f, 1.0f);
+        glVertex3f(winWidth, winHeight, 0);
+        
+        glTexCoord2f(0.0f, 1.0f);
+        glVertex3f(-winWidth, winHeight, 0);
+        glEnd();
+        
         menuPrincipal();
     }else if(gameState == 1)
     {
@@ -163,6 +217,7 @@ int main(int argc, char** argv)
     glutInitWindowPosition(200, 400); // 100, 100
     glutCreateWindow("Hey World!");
     init();
+    initRendering();
     glutReshapeFunc(ChangeSize);
     glutDisplayFunc(display);
     glutSpecialFunc(teclasUPandDown);
