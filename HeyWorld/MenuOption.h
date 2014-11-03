@@ -14,13 +14,13 @@
 class Menu{
     private:
     std::string name;
-    void renderBitmapString(float x,float y,float z);
+    void draw3dString (float x, float y, float z);
     
     public:
     Menu(std::string name);
     void setName(std::string name);
     std::string getName();
-    void drawMenu(int ancho, int alto, int x, int y, bool selected);
+    void drawMenu(float ancho, float alto, float x, float y, bool selected);
 };
 
 #endif /* defined(__HeyWorld__MenuOption__) */

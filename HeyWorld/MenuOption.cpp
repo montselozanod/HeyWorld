@@ -28,31 +28,31 @@ std::string Menu::getName()
     return name;
 }
 
-void Menu::renderBitmapString(float x,float y,float z)
+
+void Menu::draw3dString (float x, float y, float z)
 {
     int i;
-    glMatrixMode(GL_MODELVIEW);
-    glColor3f(1, 1, 1);
+    
     glPushMatrix();
     glTranslatef(x, y, z);
-    glScalef(0.3, 0.3, 0.01);
+    glScaled(0.0004, 0.0004, 0.05);
+    glColor3f(1, 1, 1);
     
-    for(i = 0; i < name[i] != '\0'; i++)
-    {
-        std::cout<<name[i];
+    for (i = 0; i < name[i] != '\0'; i++)
         glutStrokeCharacter(GLUT_STROKE_ROMAN, name[i]);
-    }
+    
     glPopMatrix();
 }
 
-void Menu::drawMenu(int ancho, int alto, int x, int y, bool selected)
+void Menu::drawMenu(float ancho, float alto, float x, float y, bool selected)
 {
-    double z = 0.5;
+    
+    double z = .9999;
     
     glPushMatrix();
-    glTranslatef(x, y, -z/2.0);
+    glTranslatef(x, y, 0.0);
     glScalef(ancho, alto, z);
-    glColor3f(0, 0, 0);
+    //glColor3f(0, 0, 0);
     glutWireCube(1);
     if(selected)
         glColor3f(0, 1, 1);
@@ -61,13 +61,6 @@ void Menu::drawMenu(int ancho, int alto, int x, int y, bool selected)
     glutSolidCube(1);
     glPopMatrix();
     
-    glPushMatrix();
-        glColor3f(0, 0, 0);
-        glTranslatef(x, y, z);
-        glScalef(ancho, alto, 1);
-        glutWireCube(1);
-    glPopMatrix();
     
-    renderBitmapString(x - ancho / 4.0, y - 12, 0);
-
+    draw3dString ( - 0.15, y - 0.02, 0.5 ); //nos traemos las letras hacia adelante de 0 a .5
 }
