@@ -13,22 +13,43 @@
 #include <GL/glut.h>
 #endif
 
-Menu::Menu(std::string nam)
+Menu::Menu()
 {
-    name = nam;
+    setPosition(0, 0, .5);
+    setDimensions(400, 100, .5);
 }
 
-void Menu::setName(std::string nam)
+Menu::Menu(std::string name, double x, double y)
 {
-    name = nam;
+    setPosition(x, y, .5);
+    setDimensions(400, 100, .5);
 }
 
-std::string Menu::getName()
+void Menu::setDimensions(double w, double h, double v)
 {
-    return name;
+    width = w;
+    height = h;
+    volume = v;
 }
 
-void Menu::renderBitmapString(float x,float y,float z)
+void Menu::setPosition(double x, double y, double z)
+{
+    this->x = x;
+    this->y = y;
+    this->z = z;
+}
+
+void Menu::setSelected(bool s)
+{
+    selected = s;
+}
+
+bool Menu::getSelected()
+{
+    return selected;
+}
+
+void Menu::renderBitmapString(std::string name, float x,float y,float z)
 {
     int i;
     glMatrixMode(GL_MODELVIEW);
@@ -45,7 +66,7 @@ void Menu::renderBitmapString(float x,float y,float z)
     glPopMatrix();
 }
 
-void Menu::drawMenu(int ancho, int alto, int x, int y, bool selected)
+void Menu::drawMenu(std::string name, int ancho, int alto, int x, int y, bool selected)
 {
     double z = 0.5;
     
@@ -68,6 +89,31 @@ void Menu::drawMenu(int ancho, int alto, int x, int y, bool selected)
         glutWireCube(1);
     glPopMatrix();
     
-    renderBitmapString(x - ancho / 4.0, y - 12, 0);
+    renderBitmapString(name, x - ancho / 4.0, y - 12, 0);
+}
 
+void Menu::drawMenu()
+{
+    double z = 0.5;
+    
+    glPushMatrix();
+    glTranslatef(x, y, -z/2.0);
+    glScalef(width, height, z);
+    glColor3f(0, 0, 0);
+    glutWireCube(1);
+    if(selected)
+        glColor3f(0, 1, 1);
+    else
+        glColor3f(0, 1, 0);
+    glutSolidCube(1);
+    glPopMatrix();
+    
+    glPushMatrix();
+    glColor3f(0, 0, 0);
+    glTranslatef(x, y, z);
+    glScalef(width, height, 1);
+    glutWireCube(1);
+    glPopMatrix();
+    
+    renderBitmapString(name, x - width / 4.0, y - 12, 0);
 }

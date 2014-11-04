@@ -12,6 +12,7 @@
 #include <GL/glut.h>
 #endif
 #include <iostream>
+#include <vector>
 #include "Imageloader.h"
 #include "MenuOption.h"
 
@@ -19,7 +20,11 @@ GLsizei winWidth = 800, winHeight =600; // Tamaño inicial de la ventana
 int gameState = 0;
 GLuint texture = 0;
 static GLuint texName[36];
-int currentIndex = 0; //current indes for menus;
+
+//MENUS
+Menu menu;
+vector<Menu> menuOptions;
+int currentIndex = 0; //current index for menus;
 bool selectMenuPrincipal[4] = {true, false, false, false};
 bool selectMenuDificultad[4] = {true, false, false, false};
 
@@ -73,12 +78,9 @@ void initRendering()
     
     GLfloat directedLight[] = {0.9f, 0.9f, 0.9f, 1.0f};
     GLfloat directedLightPos[] = {-10.0f, 15.0f, 20.0f, 0.0f};
-//    glLightfv(GL_LIGHT0, GL_DIFFUSE, directedLight);
-//    glLightfv(GL_LIGHT0, GL_POSITION, directedLightPos);
+
     glEnable(GL_DEPTH_TEST);
-   // glEnable(GL_LIGHTING);
-//    glEnable(GL_LIGHT0);
-//    glEnable(GL_NORMALIZE); ///Users/mariaroque/Imagenes
+
     
     glEnable(GL_TEXTURE_2D);
     
@@ -91,26 +93,19 @@ void initRendering()
      delete image;
 }
 
-void menuPrincipal()
+void initMenuPrincipal()
 {
-    Menu menu1 = Menu("Instrucciones");
-    menu1.drawMenu(400, 100, 0, 300, selectMenuPrincipal[0]);
-    Menu menu = Menu("Monumentos");
-    menu.drawMenu(400, 100, 0, 100, selectMenuPrincipal[1]);
-    Menu menu2 = Menu("Banderas");
-    menu2.drawMenu(400, 100, 0, -100, selectMenuPrincipal[2]);
-    Menu menu3 = Menu("Personajes");
-    menu3.drawMenu(400, 100, 0, -300, selectMenuPrincipal[3]);
+    menuOptions.push_back(Menu("Instrucciones", 0, 300));
+    menuOptions.push_back(Menu("Monumentos", 0, 100));
+    menuOptions.push_back(Menu("Banderas", 0, -100));
+    menuOptions.push_back(Menu("Personajes", 0, -300));
 }
 
-void menuDificultad()
+void initMenuDificultad()
 {
-    Menu menu = Menu("Turista");
-    menu.drawMenu(400, 100, 0, 100, selectMenuDificultad[0]);
-    Menu menu2 = Menu("Agente de Viajes");
-    menu2.drawMenu(400, 100, 0, -100, selectMenuDificultad[1]);
-    Menu menu3 = Menu("Gurú");
-    menu3.drawMenu(400, 100, 0, -300, selectMenuDificultad[2]);
+    menuOptions.push_back(Menu("Turista", 0, 300));
+    menuOptions.push_back(Menu("Agente de Viajes", 0, 100));
+    menuOptions.push_back(Menu("Gurú", 0, -100));
 }
 
 
