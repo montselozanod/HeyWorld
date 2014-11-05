@@ -70,17 +70,32 @@ void Game::deckCharacters()
 
 void Game::createDeck()
 {
-//    switch (typeGame) {
-//        case 0:
-//            gameSprites = deckLevel.getMonumentDeck(difficulty);
-//            break;
-//        case 1:
-//            gameSprites = deckLevel.getFlagDeck(difficulty);
-//            break;
-//        case 2:
-//            gameSprites = deckLevel.getCharacterDeck(difficulty);
-//            break;
-//    }
+    std::vector<Monument> mon;
+    std::vector<Flag> flag;
+    std::vector<Character> chara;
+
+    switch (typeGame)
+    {
+        case 0:
+             mon = (std::vector<Monument>) deckLevel.getMonumentDeck(difficulty);
+            for (int i = 0; i < mon.size(); i++) {
+                gameSprites.push_back(new Monument(mon[i]));
+            }
+            
+            break;
+        case 1:
+            flag = (std::vector<Flag>) deckLevel.getFlagDeck(difficulty);
+            for (int i = 0; i < flag.size(); i++) {
+                gameSprites.push_back(new Flag(flag[i]));
+            }
+            break;
+        case 2:
+            chara = (std::vector<Character>) deckLevel.getCharacterDeck(difficulty);
+            for (int i = 0; i < chara.size(); i++) {
+                gameSprites.push_back(new Character(chara[i]));
+            }
+            break;
+    }
 }
 
 void Game::startGame()

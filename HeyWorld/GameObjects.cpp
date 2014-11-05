@@ -65,11 +65,11 @@ void Monument::drawSprite()
 //FLAG
 #pragma mark FLAG
 
-////override
-//void Flag::drawSprite()
-//{
-//    
-//}
+//override
+void Flag::drawSprite()
+{
+    
+}
 
 
 #pragma mark Character

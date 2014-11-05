@@ -57,6 +57,7 @@ public:
 //MONUMENT CLASS
 class Monument: public Sprite
 {
+    
 private:
     std::string monumentName;
     
@@ -90,6 +91,7 @@ public:
 //CHARACTER CLASS
 class Character: public Sprite
 {
+    
 private:
     std::string characterName;
     

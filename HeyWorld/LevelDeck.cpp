@@ -52,57 +52,57 @@ std::vector<Monument> LevelDeck::getMonumentDeck(int d)
     return touristMonuments;
 }
 
-//std::vector<Flag> LevelDeck::getFlagDeck(int d)
-//{
-//    switch(d)
-//    {
-//        case 0:
-//    //tourist
-//    touristFlag.push_back(*new Flag(42)); //mexico
-//    touristFlag.push_back(*new Flag( 28)); //estados Uniods
-//    touristFlag.push_back(*new Flag(16)); //canada
-//    touristFlag.push_back(*new Flag(29)); //FRANCIA
-//    touristFlag.push_back(*new Flag(27)); //españa
-//    touristFlag.push_back(*new Flag(14)); //Brasil
-//    touristFlag.push_back(*new Flag(7)); //ARGENTINA
-//    touristFlag.push_back(*new Flag( 4)); //ALEMANIA
-//    touristFlag.push_back(*new Flag(18)); //CHINA
-//    touristFlag.push_back(*new Flag(53)); //RUSIA
-//    touristFlag.push_back(*new Flag(17)); //chile
-//    touristFlag.push_back(*new Flag(57)); //uruguay
-//            return touristFlag;
-//            break;
-//    
-//    //agent
-//        case 1:
-//    agentFlag.push_back(*new Flag(50)); //polonia
-//    agentFlag.push_back(*new Flag(55)); //suiza
-//    agentFlag.push_back(*new Flag(23)); //cuba
-//    agentFlag.push_back(*new Flag(21)); //costa rica
-//    agentFlag.push_back(*new Flag(36)); //italia
-//    agentFlag.push_back(*new Flag(38)); //japón
-//    agentFlag.push_back(*new Flag(35)); //india
-//    agentFlag.push_back(*new Flag(37)); //irlanda
-//    agentFlag.push_back(*new Flag(31)); //grecia
-//            return agentFlag;
-//            break;
-//    
-//    //guru
-//        case 2:
-//    guruFlag.push_back(*new Flag(47)); //pakistan
-//    guruFlag.push_back(*new Flag(45)); //noruega
-//    guruFlag.push_back(*new Flag(40)); //libano
-//    guruFlag.push_back(*new Flag(49)); //portugal
-//    guruFlag.push_back(*new Flag(48)); //peru
-//    guruFlag.push_back(*new Flag(39)); //jordanía
-//    guruFlag.push_back(*new Flag(30)); //finlandia
-//    guruFlag.push_back(*new Flag(54)); //sudafrica
-//    guruFlag.push_back(*new Flag(56)); //turquia
-//            return guruFlag;
-//            break;
-//    }
-//    return touristFlag;
-//}
+std::vector<Flag> LevelDeck::getFlagDeck(int d)
+{
+    switch(d)
+    {
+        case 0:
+    //tourist
+    touristFlag.push_back(*new Flag(42)); //mexico
+    touristFlag.push_back(*new Flag(28)); //estados Uniods
+    touristFlag.push_back(*new Flag(16)); //canada
+    touristFlag.push_back(*new Flag(29)); //FRANCIA
+    touristFlag.push_back(*new Flag(27)); //españa
+    touristFlag.push_back(*new Flag(14)); //Brasil
+    touristFlag.push_back(*new Flag(7)); //ARGENTINA
+    touristFlag.push_back(*new Flag(4)); //ALEMANIA
+    touristFlag.push_back(*new Flag(18)); //CHINA
+    touristFlag.push_back(*new Flag(53)); //RUSIA
+    touristFlag.push_back(*new Flag(17)); //chile
+    touristFlag.push_back(*new Flag(57)); //uruguay
+            return touristFlag;
+            break;
+    
+    //agent
+        case 1:
+    agentFlag.push_back(*new Flag(50)); //polonia
+    agentFlag.push_back(*new Flag(55)); //suiza
+    agentFlag.push_back(*new Flag(23)); //cuba
+    agentFlag.push_back(*new Flag(21)); //costa rica
+    agentFlag.push_back(*new Flag(36)); //italia
+    agentFlag.push_back(*new Flag(38)); //japón
+    agentFlag.push_back(*new Flag(35)); //india
+    agentFlag.push_back(*new Flag(37)); //irlanda
+    agentFlag.push_back(*new Flag(31)); //grecia
+            return agentFlag;
+            break;
+    
+    //guru
+        case 2:
+    guruFlag.push_back(*new Flag(47)); //pakistan
+    guruFlag.push_back(*new Flag(45)); //noruega
+    guruFlag.push_back(*new Flag(40)); //libano
+    guruFlag.push_back(*new Flag(49)); //portugal
+    guruFlag.push_back(*new Flag(48)); //peru
+    guruFlag.push_back(*new Flag(39)); //jordanía
+    guruFlag.push_back(*new Flag(30)); //finlandia
+    guruFlag.push_back(*new Flag(54)); //sudafrica
+    guruFlag.push_back(*new Flag(56)); //turquia
+            return guruFlag;
+            break;
+    }
+    return touristFlag;
+}
 
 std::vector<Character>  LevelDeck::getCharacterDeck(int d)
 {
@@ -143,21 +143,4 @@ std::vector<Character>  LevelDeck::getCharacterDeck(int d)
             break;
     }
     return touristCharacter;
-}
-
-// 0 monuments, 1 flags, 2 characters
-void LevelDeck::getLevelDeck(int gameId, int difficult)
-{
-    switch(gameId)
-    {
-        case 0:
-            getMonumentDeck(difficult);
-            break;
-//        case 1:
-//            getFlagDeck(difficult);
-//            break;
-        case 2:
-            getCharacterDeck(difficult);
-            break;
-    }
 }
