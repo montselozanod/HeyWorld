@@ -9,25 +9,30 @@
 #ifndef __HeyWorld__DealGame__
 #define __HeyWorld__DealGame__
 #include "GameObjects.h"
+#include "LevelDeck.h"
 
 #include <iostream>
 #include <vector>
 
-class DealGame
+class Game
 {
     private:
-    std::vector<Sprite> gameSprites;
+    std::vector<Sprite *> gameSprites;
     void shuffleSprites();
     void createDeck();
     void deckMonuments();
     void deckFlags();
     void deckCharacters();
     int numRondas;
-    
-    public:
     int typeGame;
     int difficulty;
-    DealGame(int game, int diff);
+    LevelDeck deckLevel;
+    
+    public:
+    Game();
+    Game(int game, int diff);
+    void setTypeGame(int type);
+    void setDifficultyGame(int dif);
     void startGame();
     void chooseGame(int g);
     void showSprite();

@@ -23,11 +23,11 @@ class Menu{
     double width;
     double height;
     double volume;
-    
+    void draw3dString (float x, float y, float z);
     void renderBitmapString(std::string name, float x,float y,float z);
     
     public:
-    
+
     Menu(std::string, double x, double y);
     Menu();
     
@@ -37,7 +37,8 @@ class Menu{
     bool getSelected();
     
     void drawMenu();
-    void drawMenu(std::string name, int ancho, int alto, int x, int y, bool selected);
+    void drawMenu(float ancho, float alto, float x, float y, bool selected);
+
 };
 
 #endif /* defined(__HeyWorld__MenuOption__) */
