@@ -9,13 +9,7 @@
 
 /*
  TODO
- --- agregar difficult
- --- agregar visible
- - vector con todos los países
- - vector con monumentos
- - vector con banderas
- - vector con characters
- 
+ --- agregar visible 
  */
 
 /*
@@ -46,27 +40,6 @@ void Game::setTypeGame(int type)
 {
     typeGame = type;
 }
-
-void Game::chooseGame(int game)
-{
-    typeGame = game;
-}
-
-void Game::deckMonuments()
-{
-
-}
-
-void Game::deckFlags()
-{
-
-}
-
-void Game::deckCharacters()
-{
-    
-}
-
 
 void Game::createDeck()
 {
@@ -101,11 +74,28 @@ void Game::createDeck()
 void Game::startGame()
 {
     createDeck();
+    shuffleSprites();
+    
+    for(int i = 0; i < gameSprites.size(); i++)
+    {
+        std::cout<<gameSprites[i]->myCountry.name<<std::endl;
+        //std::cout<<mon->getName()<<std::endl;
+    }
+    
 }
 
 void Game::shuffleSprites()
 {
-
+    srand (time(NULL) );
+    int size = (int)gameSprites.size();
+    
+    for(int i = 0; i < size; i++)
+    {
+        int j = rand()% size;
+        Sprite *tmp = gameSprites[i];
+        gameSprites[i] = gameSprites[j];
+        gameSprites[j] = tmp;
+    }
 }
 
 void Game::showSprite()

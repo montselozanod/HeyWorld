@@ -20,9 +20,6 @@ class Game
     std::vector<Sprite *> gameSprites;
     void shuffleSprites();
     void createDeck();
-    void deckMonuments();
-    void deckFlags();
-    void deckCharacters();
     int numRondas;
     int typeGame;
     int difficulty;
@@ -34,7 +31,6 @@ class Game
     void setTypeGame(int type);
     void setDifficultyGame(int dif);
     void startGame();
-    void chooseGame(int g);
     void showSprite();
     bool checkSprite(int codeCountry);
 

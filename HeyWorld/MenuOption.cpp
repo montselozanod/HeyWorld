@@ -58,8 +58,7 @@ void Menu::draw3dString (float xPos, float yPos, float zPos)
     glTranslatef(xPos, yPos, zPos);
     glScaled(0.0004, 0.0004, 0.05);
     glColor3f(1, 1, 1);
-    //std::cout<<x<<","<<y<<","<<z<<std::endl;
-    std::cout<<name<<std::endl;
+ 
     for (i = 0; i < name[i] != '\0'; i++)
         glutStrokeCharacter(GLUT_STROKE_ROMAN, name[i]);
     

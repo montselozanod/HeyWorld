@@ -30,6 +30,7 @@ bool showInstructions;
 //MENUS
 vector<Menu> menuOptions;
 vector<Menu> menuDif;
+vector<Menu> continents;
 int currentIndex = 0; //current index for menus;
 
 int angulo=45;
@@ -62,6 +63,7 @@ void checkDisplayOption()
     }else if(gameState == 1)
     {
         game.setDifficultyGame(currentIndex);
+        game.startGame();
         
     }
 }
@@ -121,15 +123,25 @@ void loadTexture(Image* image,int k)
 
 void initMenus()
 {
-    
+    //principal
     menuOptions.push_back(Menu("Instrucciones", 0.0, 0.2));
     menuOptions.push_back(Menu("Monumentos", 0.0, 0.1));
     menuOptions.push_back(Menu("Banderas", 0.0, 0.0));
     menuOptions.push_back(Menu("Personajes", 0.0, -0.1));
     menuOptions[0].setSelected(true);
+    
+    //dificultad
     menuDif.push_back(Menu("Turista", 0.0, 0.2));
     menuDif.push_back(Menu("Agente de Viajes", 0.0, 0.1));
     menuDif.push_back(Menu("Guru", 0.0, 0.0));
+    
+    //continentes
+    continents.push_back(Menu("AMERICA", 0.0, 0.2));
+    continents.push_back(Menu("AFRICA", 0.0, 0.2));
+    continents.push_back(Menu("ASIA", 0.0, 0.2));
+    continents.push_back(Menu("EUROPA", 0.0, 0.2));
+    continents.push_back(Menu("OCEANIA", 0.0, 0.2));
+    
 }
 
 void init()
