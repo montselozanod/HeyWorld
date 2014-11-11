@@ -10,6 +10,7 @@
 #define __HeyWorld__DealGame__
 #include "GameObjects.h"
 #include "LevelDeck.h"
+#include "User.h"
 
 #include <iostream>
 #include <vector>
@@ -21,16 +22,22 @@ class Game
     void shuffleSprites();
     void createDeck();
     int numRondas;
-    int typeGame;
+    //int typeGame;
     int difficulty;
     LevelDeck deckLevel;
+    bool endGame;
+    bool win;
+    User user;
     
     public:
     Game();
-    Game(int game, int diff);
-    void setTypeGame(int type);
+    Game(int diff);
+    //void setTypeGame(int type);
     void setDifficultyGame(int dif);
     void startGame();
+    void playGame();
+    void finishGame();
+    void draw();
     void showSprite();
     bool checkSprite(int codeCountry);
 

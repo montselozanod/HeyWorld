@@ -49,21 +49,43 @@ void checkDisplayOption()
 {
     if(gameState == 0)
     {
-        if(currentIndex != 0) //if not click instructions
+        switch(currentIndex)
         {
-            game.setTypeGame(currentIndex-1);
-            currentIndex = 0;
-            menuDif[0].setSelected(true);
-            gameState ++;
-        }else
-        {
-            //show instructions
-            showInstructions = true;
+            case 0:
+                showInstructions = true;
+                break;
+            case 1:
+                gameState = 1;
+                menuOptions[currentIndex].setSelected(false);
+                currentIndex = 0;
+                menuDif[0].setSelected(true);
+                break;
+            case 2:
+                exit(0);
+                break;
         }
     }else if(gameState == 1)
     {
-        game.setDifficultyGame(currentIndex);
-        game.startGame();
+        switch(currentIndex)
+        {
+            case 0: //turista
+                game = Game(currentIndex);
+                break;
+            case 1: //agente
+                game = Game(currentIndex);
+                break;
+            case 2: //guru
+                game = Game(currentIndex);
+                break;
+            case 3: //back
+                gameState = 0;
+                menuDif[currentIndex].setSelected(false);
+                currentIndex = 0;
+                menuOptions[0].setSelected(true);
+                break;
+        }
+        //game.setDifficultyGame(currentIndex);
+        //game.startGame();
         
     }
 }
@@ -124,24 +146,22 @@ void loadTexture(Image* image,int k)
 void initMenus()
 {
     //principal
-    menuOptions.push_back(Menu("Instrucciones", 0.0, 0.2));
-    menuOptions.push_back(Menu("Monumentos", 0.0, 0.1));
-    menuOptions.push_back(Menu("Banderas", 0.0, 0.0));
-    menuOptions.push_back(Menu("Personajes", 0.0, -0.1));
+    menuOptions.push_back(Menu("Instrucciones", 0.0, 0.1));
+    menuOptions.push_back(Menu("Jugar", 0.0, 0.0));
+    menuOptions.push_back(Menu("Salir", 0.0, -0.1));
     menuOptions[0].setSelected(true);
     
     //dificultad
     menuDif.push_back(Menu("Turista", 0.0, 0.2));
-    menuDif.push_back(Menu("Agente de Viajes", 0.0, 0.1));
+    menuDif.push_back(Menu("Agente", 0.0, 0.1));
     menuDif.push_back(Menu("Guru", 0.0, 0.0));
+    menuDif.push_back(Menu("Regresar", 0.0, -0.1));
     
     //continentes
     continents.push_back(Menu("AMERICA", 0.0, 0.2));
     continents.push_back(Menu("AFRICA", 0.0, 0.2));
     continents.push_back(Menu("ASIA", 0.0, 0.2));
     continents.push_back(Menu("EUROPA", 0.0, 0.2));
-    continents.push_back(Menu("OCEANIA", 0.0, 0.2));
-    
 }
 
 void init()
@@ -280,10 +300,10 @@ void teclasUPandDown(int tecla, int x, int y)
         {
             case GLUT_KEY_DOWN:
                 menuOptions[currentIndex].setSelected(false);
-                if(currentIndex < 3)
+                if(currentIndex < 2)
                     currentIndex++;
                 else
-                    currentIndex = 3;
+                    currentIndex = 2;
                 menuOptions[currentIndex].setSelected(true);
                 glutPostRedisplay();
                 break;
@@ -303,10 +323,10 @@ void teclasUPandDown(int tecla, int x, int y)
         {
             case GLUT_KEY_DOWN:
                 menuDif[currentIndex].setSelected(false);
-                if(currentIndex < 2)
+                if(currentIndex < 3)
                     currentIndex++;
                 else
-                    currentIndex = 2;
+                    currentIndex = 3;
                 menuDif[currentIndex].setSelected(true);
                 glutPostRedisplay();
                 break;
