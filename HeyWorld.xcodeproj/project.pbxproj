@@ -18,6 +18,7 @@
 		B0C9950719EDE0C30053FE95 /* DealGame.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B0C9950519EDE0C30053FE95 /* DealGame.cpp */; };
 		B0C9950C19EE44B50053FE95 /* LevelDeck.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B0C9950A19EE44B50053FE95 /* LevelDeck.cpp */; };
 		B0C9950F19EEB6440053FE95 /* GameObjects.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B0C9950D19EEB6440053FE95 /* GameObjects.cpp */; };
+		FD8F12B41A09EA7D001D7732 /* Pin.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FD8F12B31A09EA7D001D7732 /* Pin.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -53,6 +54,12 @@
 		B0C9950B19EE44B50053FE95 /* LevelDeck.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LevelDeck.h; sourceTree = "<group>"; };
 		B0C9950D19EEB6440053FE95 /* GameObjects.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GameObjects.cpp; sourceTree = "<group>"; };
 		B0C9950E19EEB6440053FE95 /* GameObjects.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameObjects.h; sourceTree = "<group>"; };
+		FD8F12B21A09EA6C001D7732 /* Pin.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Pin.h; sourceTree = "<group>"; };
+		FD8F12B31A09EA7D001D7732 /* Pin.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Pin.cpp; sourceTree = "<group>"; };
+		FD8F12B51A0AD85A001D7732 /* africa.bmp */ = {isa = PBXFileReference; lastKnownFileType = image.bmp; path = africa.bmp; sourceTree = "<group>"; };
+		FD8F12B61A0AD85A001D7732 /* america.bmp */ = {isa = PBXFileReference; lastKnownFileType = image.bmp; path = america.bmp; sourceTree = "<group>"; };
+		FD8F12B71A0AD85A001D7732 /* asia.bmp */ = {isa = PBXFileReference; lastKnownFileType = image.bmp; path = asia.bmp; sourceTree = "<group>"; };
+		FD8F12B81A0AD85A001D7732 /* europa.bmp */ = {isa = PBXFileReference; lastKnownFileType = image.bmp; path = europa.bmp; sourceTree = "<group>"; };
 		FDA27E831A0285DE003F4500 /* Mapamundi.bmp */ = {isa = PBXFileReference; lastKnownFileType = image.bmp; path = Mapamundi.bmp; sourceTree = "<group>"; };
 		FDA27E841A0285F7003F4500 /* estrellas.bmp */ = {isa = PBXFileReference; lastKnownFileType = image.bmp; path = estrellas.bmp; sourceTree = "<group>"; };
 		FDA27EBA1A02C429003F4500 /* map.bmp */ = {isa = PBXFileReference; lastKnownFileType = image.bmp; path = map.bmp; sourceTree = "<group>"; };
@@ -101,8 +108,9 @@
 				B0665F2319ECDE36007CAAE8 /* World Map */,
 				B0C994F719EDD8CA0053FE95 /* Sprites */,
 				B0C9950419EDE09E0053FE95 /* User */,
-				B0C9950819EDE0CE0053FE95 /* Game */,
 				B05D0D6419FAB01700EB2A01 /* Menus */,
+				FD8F12B21A09EA6C001D7732 /* Pin.h */,
+				FD8F12B31A09EA7D001D7732 /* Pin.cpp */,
 			);
 			path = HeyWorld;
 			sourceTree = "<group>";
@@ -130,6 +138,10 @@
 			children = (
 				FDA27EBA1A02C429003F4500 /* map.bmp */,
 				FDA27E841A0285F7003F4500 /* estrellas.bmp */,
+				FD8F12B51A0AD85A001D7732 /* africa.bmp */,
+				FD8F12B61A0AD85A001D7732 /* america.bmp */,
+				FD8F12B71A0AD85A001D7732 /* asia.bmp */,
+				FD8F12B81A0AD85A001D7732 /* europa.bmp */,
 				FDA27E831A0285DE003F4500 /* Mapamundi.bmp */,
 			);
 			name = Fotos;
@@ -140,6 +152,7 @@
 			children = (
 				B0C9950D19EEB6440053FE95 /* GameObjects.cpp */,
 				B0C9950E19EEB6440053FE95 /* GameObjects.h */,
+				B0C9950819EDE0CE0053FE95 /* Game */,
 			);
 			name = Sprites;
 			sourceTree = "<group>";
@@ -222,6 +235,7 @@
 				B0461DD219EB26C300B5EC2C /* main.cpp in Sources */,
 				B0C9950719EDE0C30053FE95 /* DealGame.cpp in Sources */,
 				B0C9950C19EE44B50053FE95 /* LevelDeck.cpp in Sources */,
+				FD8F12B41A09EA7D001D7732 /* Pin.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -32,14 +32,14 @@ public:
     Country myCountry;
     Sprite(/*std::string img,*/ int countryCode)
     {
-        myCountry = Country(theWorld.worldCountries[countryCode].name, theWorld.worldCountries[countryCode].countryCode, theWorld.worldCountries[countryCode].capital, theWorld.worldCountries[countryCode].continentCode);
+        myCountry = Country(theWorld.worldCountries[countryCode].name, theWorld.worldCountries[countryCode].countryCode, theWorld.worldCountries[countryCode].capital, theWorld.worldCountries[countryCode].continentCode, theWorld.worldCountries[countryCode].posX, theWorld.worldCountries[countryCode].posY, theWorld.worldCountries[countryCode].rangoX1, theWorld.worldCountries[countryCode].rangoX2, theWorld.worldCountries[countryCode].rangoY1, theWorld.worldCountries[countryCode].rangoY2);
     }
 
     Sprite(/*std::string img,*/ std::string object, int countryCode)
     {
         gameObjectName = object;
         
-        myCountry = Country(theWorld.worldCountries[countryCode].name, theWorld.worldCountries[countryCode].countryCode, theWorld.worldCountries[countryCode].capital, theWorld.worldCountries[countryCode].continentCode);
+        myCountry = Country(theWorld.worldCountries[countryCode].name, theWorld.worldCountries[countryCode].countryCode, theWorld.worldCountries[countryCode].capital, theWorld.worldCountries[countryCode].continentCode, theWorld.worldCountries[countryCode].posX, theWorld.worldCountries[countryCode].posY, theWorld.worldCountries[countryCode].rangoX1, theWorld.worldCountries[countryCode].rangoX2, theWorld.worldCountries[countryCode].rangoY1, theWorld.worldCountries[countryCode].rangoY2);
     }
    
     bool visibility;

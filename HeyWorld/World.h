@@ -9,7 +9,15 @@
 #ifndef __HeyWorld__World__
 #define __HeyWorld__World__
 
+#ifdef __APPLE__
+#include <GLUT/glut.h>
+#else
+#include <GL/glut.h>
+#endif
 #include <iostream>
+#include <vector>
+#include <list>
+
 
 /*continentCode
  NA = North America
@@ -26,23 +34,40 @@
  NAS = North ASia
  AF = Africa
  */
+
+
+
+
+
 struct Country
 {
     std::string name;
     int  countryCode;
     std::string capital;
     std::string continentCode;
+    float posX;
+    float posY;
+    float rangoX1;
+    float rangoX2;
+    float rangoY1;
+    float rangoY2;
     
     Country()
     {
     }
     
-    Country(std::string nam, int code, std::string cap, std::string contCode)
+    Country(std::string nam, int code, std::string cap, std::string contCode, float x, float y, float xx, float xx2, float yy, float yy2)
     {
         name = nam;
         countryCode = code;
         capital = cap;
         continentCode = contCode;
+        posX = x;
+        posY = y;
+        rangoX1 = xx;
+        rangoX2 = xx2;
+        rangoY1 = yy;
+        rangoY2 = yy2;
     }
 };
 
@@ -50,11 +75,22 @@ class World
 {
     
     public:
-    Country worldCountries[60]=
+    // Constructor
+    World();
+    int cont;
+    /*std::string getName(int k);
+    int getCode(int k);
+    std::string getCap(int k);
+    std::string getContCode(int k);
+    float getX(int k);
+    float getY(int k);*/
+    std::vector <Country> _america;
+    std::vector <Country> _asia;
+    Country worldCountries[2]=
     {
         
 #pragma mark Countries A
-        Country("Afganistán", 0, "Kabul", "WA"),
+     /*   Country("Afganistán", 0, "Kabul", "WA"),
         Country("Albania", 1, "Tirana", "E"),
         Country("Andorra", 2, "Andorra la Vieja", "E"),
         Country("Angola", 3, "Luanda", "A"),
@@ -63,29 +99,29 @@ class World
         Country("Argelia", 6, "Argel", "A"),
         Country("Argentina", 7, "Buenos Aires", "SA"),
         Country("Australia", 8, "Canberra", "O"),
-        Country("Austria", 9, "Vienna", "E"),
+        Country("Austria", 9, "Vienna", "E"),*/
         
 #pragma mark Countries B
-        Country("Bélgica", 10, "Bruselas", "E"),
+       /* Country("Bélgica", 10, "Bruselas", "E"),
         Country("Belice", 11, "Belmopán", "CA"),
         Country("Bielorrusia", 12, "Minsk", "E"),
         Country("Bolivia", 13, "La Paz", "SA"),
         Country("Brasil", 14, "Brasilia", "SA"),
-        Country("Bulgaria", 15, "Sofía", "E"),
+        Country("Bulgaria", 15, "Sofía", "E"),*/
         
         
 #pragma mark Countries C
-        Country("Canada", 16, "Ottawa", "NA"),
-        Country("Chile", 17, "Santiago de Chile", "SA"),
+      //  Country("Canada", 16, "Ottawa", "NA", -1.40, 0.60),
+        /*Country("Chile", 17, "Santiago de Chile", "SA"),
         Country("China", 18, "Beijing", "EA"),
         Country("Colombia", 19, "Bogotá", "SA"),
         Country("Corea del Sur", 20, "Seúl", "EA"),
         Country("Costa Rica", 21, "San José", "CA"),
         Country("Croacia", 22, "Zagreb", "E"),
-        Country("Cuba", 23, "La Habana", "CN"),
+        Country("Cuba", 23, "La Habana", "CN"),*/
         
 #pragma mark Countries D
-        Country("Dinamarca", 24, "Copenhague", "E"),
+        /*Country("Dinamarca", 24, "Copenhague", "E"),
         
 #pragma mark Countries E
         Country("Egipto", 25, "Cairo", "WA"),
@@ -118,9 +154,9 @@ class World
         Country("Líbano", 40, "Beirut", "EA"),
         
 #pragma mark Countries M
-        Country("Malasia", 41, "Kuala Lumpur", "EA"),
-        Country("Mexico", 42, "Ciudad de México", "NA"),
-        Country("Marruecos", 43, "Rabat", "A"),
+        Country("Malasia", 41, "Kuala Lumpur", "EA"),*/
+ //       Country("Mexico", 42, "Ciudad de México", "NA", -1.55, 0.16),
+      /*  Country("Marruecos", 43, "Rabat", "A"),
         Country("Mongolia", 44, "Ulán Bator", "NAS"),
         
         
@@ -150,7 +186,7 @@ class World
         Country("Uruguay", 57, "Montevideo", "SA"),
         
 #pragma mark Countries V
-        Country("Venezuela", 58, "Caracas", "SA"),
+        Country("Venezuela", 58, "Caracas", "SA"),*/
         
     };
     void drawWorld();

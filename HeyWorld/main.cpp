@@ -12,20 +12,29 @@
 #include <GL/glut.h>
 #endif
 #include <iostream>
+#include <math.h>
 #include "Imageloader.h"
 #include "MenuOption.h"
+#include "Pin.h"
+#include "World.h"
 
 GLsizei winWidth = 800, winHeight =600; // Tamaño inicial de la ventana
 int gameState = 0;
 GLuint texture = 0;
-static GLuint texName[3];
+static GLuint texName[8];
 int currentIndex = 0; //current indes for menus;
 bool selectMenuPrincipal[4] = {true, false, false, false};
 bool selectMenuDificultad[4] = {true, false, false, false};
 int angulo=45;
-int z=1;
-int x=1;
-int y=1;
+/*Variables para dibujar los pines*/
+bool arrPines[2]={false,false};
+float radiusPin = .03;
+float posX = 0.0;
+float posY = 0.0;
+int numContinente = 0; //1.America 2.Asia 3.Europa 4.Africa.. Esto es para saber qué vector agarramos
+float contPaises = 0; //Variable para utilizar.. tiene la cantidad de paises en base al país seleccionado
+World *continente = new World();
+/**/
 
 
 //Estados
@@ -33,7 +42,6 @@ int y=1;
 // Escoger Dificultad = 1
 // Jugar = 3
 // FIn = 4
-
 
 
 void myKeyboard(unsigned char theKey, int mouseX, int mouseY)
@@ -91,8 +99,10 @@ void loadTexture(Image* image,int k)
 void init()
 {
     glClearColor(1.0,.6,0,0); //background del display naranja
-    gameState = 0;
+    gameState = 4; //lo cambie a 4 solo para ver el mapa
     currentIndex = 0;
+    continente = new World();
+
 }
 
 void initRendering()
@@ -115,11 +125,16 @@ void initRendering()
     //glClearColor(1.0,1.0,1.0,1.0);
     
     // glEnable(GL_COLOR_MATERIAL);
-    glGenTextures(3, texName); //Make room for our texture
+    glGenTextures(8, texName); //Make room for our texture
     Image* image;
     image = loadBMP("/Users/arianacisneros/Desktop/Fotos/estrellas.bmp");loadTexture(image,i++);
     image = loadBMP("/Users/arianacisneros/Desktop/Fotos/map.bmp");loadTexture(image,i++);
     image = loadBMP("/Users/arianacisneros/Desktop/Fotos/Mapamundi.bmp");loadTexture(image,i++);
+    image = loadBMP("/Users/arianacisneros/Desktop/Fotos/pin.bmp");loadTexture(image,i++);
+    image = loadBMP("/Users/arianacisneros/Desktop/Fotos/america.bmp");loadTexture(image,i++);
+    image = loadBMP("/Users/arianacisneros/Desktop/Fotos/asia.bmp");loadTexture(image,i++);
+    image = loadBMP("/Users/arianacisneros/Desktop/Fotos/europa.bmp");loadTexture(image,i++);
+    image = loadBMP("/Users/arianacisneros/Desktop/Fotos/africa.bmp");loadTexture(image,i++);
      delete image;
 }
 
@@ -147,7 +162,202 @@ void menuDificultad()
 }
 
 
+void despliegaPines()
+{
+    
+    for (int i = 0; i< 10/*contPaises*/ ; i++)
+    {
+        glPushMatrix();
+        glEnable(GL_BLEND); // Activamos la transparencia
+        glBlendFunc(GL_SRC_ALPHA, GL_SRC_COLOR); //funcion de blending //GL_ONE_MINUS_SRC_ALPHA
+        glEnable(GL_TEXTURE_2D);
+        glBindTexture(GL_TEXTURE_2D, texName[3]);
+        glEnable(GL_TEXTURE_GEN_S);
+        glEnable(GL_TEXTURE_GEN_T);
+        glTexGeni(GL_S, GL_TEXTURE_GEN_MODE, GL_SPHERE_MAP);
+        glTexGeni(GL_T, GL_TEXTURE_GEN_MODE, GL_SPHERE_MAP);
+        glBindTexture(GL_TEXTURE_2D, texName[3]);
+            glPushMatrix();
+        
+        switch (numContinente) {
+            case 1: //America
+                //posiciones de los pines
+                posX =  continente -> _america[i].posX;
+                posY = continente -> _america[i].posY;
+                break;
+            case 2: //Asia
+                //posiciones de los pines
+                posX =  continente -> _asia[i].posX;
+                posY = continente -> _asia[i].posY;
+                break;
+            case 3: //Europa
+               // posX =  continente -> _europa[i].posX;
+               // posY = continente -> _europa[i].posY;
+                break;
+            case 4: //Africa
+                // posX =  continente -> _africa[i].posX;
+                // posY = continente -> _africa[i].posY;
+                break;
+            default:
+                break;
+        }
 
+        
+                glTranslatef(posX, posY, 0);
+                //glColor3f(0.0f, 0.0f, 0.0f);
+                glColor4f(1.0, 1.0, 1.0, 0.1); //color y alpha del cubo
+                glutSolidSphere(radiusPin, 20, 20);
+        
+            glPopMatrix();
+        
+        glPopMatrix();
+        glDisable(GL_BLEND); //para desactivarlo.
+        glDisable(GL_TEXTURE_2D);
+        glDisable(GL_TEXTURE_GEN_S);
+        glDisable(GL_TEXTURE_GEN_T);
+    }
+
+    
+    /*glColor3f( 1.0f, 0.0f, 0.0f ); //Color para pintar
+    glPointSize(1.0);
+    glBegin(GL_POINTS);
+    //glColor3b(1, 1, 1);
+    glVertex2d(-0.22, 0.31);
+    glEnd();*/
+    
+    
+
+}
+
+void despliegaMapa(int mapa)
+{
+
+    //movemos camara
+    glPushMatrix();
+    glMatrixMode(GL_MODELVIEW);//dejar activa son todas las traslaciones, escalaciones
+    glLoadIdentity();//que no tenga ninguna transformación
+    gluLookAt(0, 0, 3.0, 0, 0, 0, 0, 1, 0);
+    
+    glPushMatrix();
+    glEnable(GL_TEXTURE_2D);
+    
+    //Definir textura
+    switch (mapa) {
+        case 1:
+            glBindTexture(GL_TEXTURE_2D, texName[4]); //Textura
+            numContinente = 1;
+            contPaises = continente -> _america.capacity();
+            //cout << contPaises;
+            break;
+        case 2:
+            glBindTexture(GL_TEXTURE_2D, texName[5]);
+            numContinente = 2;
+            contPaises = continente -> _asia.capacity();
+            break;
+        case 3:
+            glBindTexture(GL_TEXTURE_2D, texName[6]);
+            numContinente = 3;
+            //contPaises = continente -> _europa.capacity();
+            break;
+        case 4:
+            glBindTexture(GL_TEXTURE_2D, texName[7]);
+            numContinente = 4;
+           // contPaises = continente -> _africa.capacity();
+            break;
+            
+        default:
+            break;
+    }
+
+    
+    glTranslated(0.0, -0.11, 0.0);
+    glBegin(GL_QUADS);
+    glTexCoord2f(0.0f, 0.0f); //se pega la textura con
+    glVertex3f(-1, -1, 0);
+    
+    glTexCoord2f(1.0f, 0.0f);
+    glVertex3f(1, -1, 0);
+    
+    glTexCoord2f(1.0f, 1.0f);
+    glVertex3f(1, 1, 0);
+    
+    glTexCoord2f(0.0f, 1.0f);
+    glVertex3f(-1, 1, 0);
+    glEnd();
+    glPopMatrix();
+    glDisable(GL_TEXTURE_2D);
+    
+    glPopMatrix();
+
+
+    despliegaPines();
+
+    
+}
+
+
+int verificaPin(float clicx, float clicy)
+{
+    int codigo= 0;
+    //contPaises cuantos paises hay en el continente
+    for (int i = 0; i <  contPaises ; i++)
+    {
+        
+        switch (numContinente) {
+            case 1: //America
+                if (clicx >= continente -> _america[i].rangoX1 && clicx <= continente -> _america[i].rangoX2 && clicy >= continente -> _america[i].rangoY1 && clicy <= continente -> _america[i].rangoY2
+                    ) {
+                    codigo = continente ->_america[i].countryCode;
+                }
+                break;
+            case 2: //Asia
+                if (clicx >= continente -> _asia[i].rangoX1 && clicx <= continente -> _asia[i].rangoX2 && clicy >= continente -> _asia[i].rangoY1 && clicy <= continente -> _asia[i].rangoY2  ) {
+                    codigo = continente ->_asia[i].countryCode;
+                }
+                break;
+            case 3: //Europa
+                
+                break;
+            case 4: //Africa
+                
+                break;
+            default:
+                break;
+        }
+        
+    }
+ return codigo ;
+
+}
+
+
+void callback(int x, int y)
+{
+    //mapear coordenadas de glut a openGL
+    float openGL_X = (x - 400.00)/400.00;
+    float openGL_Y = (300.00 - y) / 300.00;
+    int code = 0;
+    cout << "En donde di clic: " << openGL_X << ", " << openGL_Y <<"\n";
+    
+    code = verificaPin(openGL_X,openGL_Y);
+    cout << "El codigo es: " << code << "\n";
+    //Aqui se manda llamar la funcion de monste que diga si si esta correcto o no procedimiento(code)
+}
+
+
+
+void mouse(int button, int state, int x, int y){
+
+    if(button == GLUT_LEFT_BUTTON)
+    {
+        if(state == GLUT_DOWN)
+        {
+           callback(x,y);
+           glutPostRedisplay();
+        }
+    }
+    
+}
 
 void display()
 {
@@ -216,9 +426,11 @@ void display()
     }else if(gameState == 3)
     {
     
-    }else
+    }else if (gameState == 4)
     {
-    
+        int mapa = 1; //1 america, 2 asia, 3 europa, 4 africa
+        despliegaMapa(mapa);
+        
     }
     
     glutSwapBuffers();
@@ -292,8 +504,10 @@ int main(int argc, char** argv)
     glutInitWindowSize(winWidth,winHeight);
     glutInitWindowPosition(200, 400); // 100, 100
     glutCreateWindow("Hey World!");
+    
     init();
     glutKeyboardFunc(myKeyboard);
+    glutMouseFunc(mouse);
     initRendering();
     glutReshapeFunc(ChangeSize);
     glutDisplayFunc(display);
