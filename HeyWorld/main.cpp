@@ -30,7 +30,7 @@ bool showInstructions;
 //MENUS
 vector<Menu> menuOptions;
 vector<Menu> menuDif;
-vector<Menu> continents;
+vector<Menu> menuContinents;
 int currentIndex = 0; //current index for menus;
 
 int angulo=45;
@@ -48,11 +48,14 @@ float contPaises = 0; //Variable para utilizar.. tiene la cantidad de paises en 
 World *continente = new World();
 /**/
 
-//Estados
-// Escoger Opcion De Juego = 0
-// Escoger Dificultad = 1
-// Jugar = 3
-// FIn = 4
+// GAMESTATE
+// Menu Principal = 0
+// Menu Dificultad = 1
+    // Juego
+    // Sale opcion con menu mapa = 2
+    // Mapa con pines = 3
+    // Pasaste de nivel
+// FIn = 5
 
 void checkDisplayOption()
 {
@@ -167,17 +170,17 @@ void initMenus()
     menuDif.push_back(Menu("Regresar", 0.0, -0.1));
     
     //continentes
-    continents.push_back(Menu("AMERICA", 0.0, 0.2));
-    continents.push_back(Menu("AFRICA", 0.0, 0.2));
-    continents.push_back(Menu("ASIA", 0.0, 0.2));
-    continents.push_back(Menu("EUROPA", 0.0, 0.2));
+    menuContinents.push_back(Menu("AMERICA", 0.0, 0.2));
+    menuContinents.push_back(Menu("AFRICA", 0.0, 0.2));
+    menuContinents.push_back(Menu("ASIA", 0.0, 0.2));
+    menuContinents.push_back(Menu("EUROPA", 0.0, 0.2));
 }
 
 void init()
 {
     glClearColor(1.0,.6,0,0); //background del display naranja
     initMenus();
-    gameState = 0;
+    gameState = 3;
     currentIndex = 0;
     showInstructions = false;
 }
@@ -200,12 +203,17 @@ void initRendering()
     //glClearColor(1.0,1.0,1.0,1.0);
     
     // glEnable(GL_COLOR_MATERIAL);
-    glGenTextures(3, texName); //Make room for our texture
+    glGenTextures(8, texName); //Make room for our texture
     Image* image;
     image = loadBMP("/Users/mariamontserratlozano/Documents/Carrera 7/Graficas/HeyWorld/HeyWorld/estrellas.bmp");loadTexture(image,i++);
     image = loadBMP("/Users/mariamontserratlozano/Documents/Carrera 7/Graficas/HeyWorld/HeyWorld/map.bmp");loadTexture(image,i++);
     image = loadBMP("/Users/mariamontserratlozano/Documents/Carrera 7/Graficas/HeyWorld/HeyWorld/Mapamundi.bmp");loadTexture(image,i++);
-     delete image;
+    image = loadBMP("/Users/mariamontserratlozano/Documents/Carrera 7/Graficas/HeyWorld/HeyWorld/pin.bmp");loadTexture(image,i++); //ARREGLAR
+    image = loadBMP("/Users/mariamontserratlozano/Documents/Carrera 7/Graficas/HeyWorld/HeyWorld/america.bmp");loadTexture(image,i++);
+    image = loadBMP("/Users/mariamontserratlozano/Documents/Carrera 7/Graficas/HeyWorld/HeyWorld/asia.bmp");loadTexture(image,i++);
+    image = loadBMP("/Users/mariamontserratlozano/Documents/Carrera 7/Graficas/HeyWorld/HeyWorld/europa.bmp");loadTexture(image,i++);
+    image = loadBMP("/Users/mariamontserratlozano/Documents/Carrera 7/Graficas/HeyWorld/HeyWorld/africa.bmp");loadTexture(image,i++);
+    delete image;
 }
 
 void drawMenuPrincipal()
@@ -222,6 +230,14 @@ void drawMenuDificultad()
         menuDif[i].drawMenu();
     }
 
+}
+
+void drawMenuContinente()
+{
+    for(int i = 0; i < menuContinents.size(); i++)
+    {
+        menuContinents[i].drawMenu();
+    }
 }
 
 void fondoPrincipal()
@@ -335,8 +351,6 @@ void despliegaPines()
      //glColor3b(1, 1, 1);
      glVertex2d(-0.22, 0.31);
      glEnd();*/
-    
-    
     
 }
 
@@ -483,10 +497,19 @@ void display()
     {
         fondoPrincipal();
         drawMenuDificultad();
+    }else if(gameState == 2)
+    {
+        //sale sprite y menu continentes
+    
     }else if(gameState == 3)
     {
+        int mapa = 1; //1 america, 2 asia, 3 europa, 4 africa
+        despliegaMapa(mapa);
     
-    }else
+    }else if(gameState == 4)
+    {
+    
+    }else if(gameState == 5)
     {
     
     }
