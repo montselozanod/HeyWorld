@@ -81,7 +81,7 @@ void Game::startGame()
     shuffleSprites();
     for(int i = 0; i < gameSprites.size(); i++)
     {
-        std::cout<<gameSprites[i]->myCountry.name<<std::endl;
+        std::cout<<gameSprites[i]->countryCode<<std::endl;
         //std::cout<<mon->getName()<<std::endl;
     }
     
@@ -138,7 +138,7 @@ void Game::playGame()
 
 bool Game::checkSprite(int codeCountry)
 {
-    if(gameSprites[numRondas]->myCountry.countryCode == codeCountry)
+    if(gameSprites[numRondas]->countryCode == codeCountry)
     {
         user.numberPoints++;
         return true;

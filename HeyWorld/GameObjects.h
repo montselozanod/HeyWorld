@@ -27,21 +27,20 @@ private:
     GLfloat y;
     std::string imgPathName;
     std::string gameObjectName;
+
     
 public:
-    Country myCountry;
-    Sprite(/*std::string img,*/ int countryCode)
+    Sprite(/*std::string img,*/ int code)
     {
-        myCountry = Country(theWorld.worldCountries[countryCode].name, theWorld.worldCountries[countryCode].countryCode, theWorld.worldCountries[countryCode].capital, theWorld.worldCountries[countryCode].continentCode);
+        countryCode = code;
     }
 
-    Sprite(/*std::string img,*/ std::string object, int countryCode)
+    Sprite(/*std::string img,*/ std::string object, int code)
     {
         gameObjectName = object;
-        
-        myCountry = Country(theWorld.worldCountries[countryCode].name, theWorld.worldCountries[countryCode].countryCode, theWorld.worldCountries[countryCode].capital, theWorld.worldCountries[countryCode].continentCode);
+        countryCode = code;
     }
-   
+    int countryCode;
     bool visibility;
     int difficultyLevel;
     void setImgName(std::string name);
