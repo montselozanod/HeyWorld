@@ -46,6 +46,10 @@
 		B0665F1E19ECDD72007CAAE8 /* OpenAL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenAL.framework; path = System/Library/Frameworks/OpenAL.framework; sourceTree = SDKROOT; };
 		B0665F2019ECDE2D007CAAE8 /* World.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = World.cpp; sourceTree = "<group>"; };
 		B0665F2119ECDE2D007CAAE8 /* World.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = World.h; sourceTree = "<group>"; };
+		B06AC32C1A12BE37005BBA63 /* africa.bmp */ = {isa = PBXFileReference; lastKnownFileType = image.bmp; path = africa.bmp; sourceTree = "<group>"; };
+		B06AC32D1A12BE41005BBA63 /* america.bmp */ = {isa = PBXFileReference; lastKnownFileType = image.bmp; path = america.bmp; sourceTree = "<group>"; };
+		B06AC32E1A12BE4A005BBA63 /* asia.bmp */ = {isa = PBXFileReference; lastKnownFileType = image.bmp; path = asia.bmp; sourceTree = "<group>"; };
+		B06AC32F1A12BE69005BBA63 /* europa.bmp */ = {isa = PBXFileReference; lastKnownFileType = image.bmp; path = europa.bmp; sourceTree = "<group>"; };
 		B06C94A11A09A669001951D3 /* Menu.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Menu.cpp; sourceTree = "<group>"; };
 		B06C94A21A09A669001951D3 /* Menu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Menu.h; sourceTree = "<group>"; };
 		B0C994FE19EDDBBB0053FE95 /* User.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = User.cpp; sourceTree = "<group>"; };
@@ -133,6 +137,10 @@
 		B068C78419FAF5AA00C57511 /* Fotos */ = {
 			isa = PBXGroup;
 			children = (
+				B06AC32F1A12BE69005BBA63 /* europa.bmp */,
+				B06AC32E1A12BE4A005BBA63 /* asia.bmp */,
+				B06AC32D1A12BE41005BBA63 /* america.bmp */,
+				B06AC32C1A12BE37005BBA63 /* africa.bmp */,
 				FDA27EBA1A02C429003F4500 /* map.bmp */,
 				FDA27E841A0285F7003F4500 /* estrellas.bmp */,
 				FDA27E831A0285DE003F4500 /* Mapamundi.bmp */,
