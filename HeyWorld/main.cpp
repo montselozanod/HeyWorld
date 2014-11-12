@@ -564,7 +564,7 @@ int verificaPin(float clicx, float clicy)
 void callback(int x, int y)
 {
     //mapear coordenadas de glut a openGL
-    float openGL_X = (x - 400.00)/400.00;
+    float openGL_X = (x - 500.00)/500.00;
     float openGL_Y = (300.00 - y) / 300.00;
     int code = 0;
     cout << "En donde di clic: " << openGL_X << ", " << openGL_Y <<"\n";
@@ -748,7 +748,7 @@ int main(int argc, char** argv)
     glutInitDisplayMode(GLUT_DOUBLE | GLUT_RGB | GLUT_DEPTH);
     
     glutInitWindowSize(winWidth,winHeight);
-    glutInitWindowPosition(200, 400); // 100, 100
+    glutInitWindowPosition(100, 400); // 100, 100
     //MAIN WINDOW
     windowID = glutCreateWindow("Hey World!");
     //DISPLAY CALLBACK
