@@ -19,11 +19,11 @@ Menu::Menu()
     setDimensions(0.4, 0.07, .5);
 }
 
-Menu::Menu(std::string name, double x, double y)
+Menu::Menu(std::string name, double x, double y, double dimX, double dimY, double zPos)
 {
     this->name = name;
     setPosition(x, y, .5);
-    setDimensions(0.4, 0.07, .5);
+    setDimensions(dimX, dimY, zPos);
 }
 
 void Menu::setDimensions(double w, double h, double v)
@@ -50,13 +50,20 @@ bool Menu::getSelected()
     return selected;
 }
 
-void Menu::draw3dString (float xPos, float yPos, float zPos)
+void Menu::draw3dString (int type, float xPos, float yPos, float zPos)
 {
     int i;
     
     glPushMatrix();
     glTranslatef(xPos, yPos, zPos);
-    glScaled(0.0004, 0.0004, 0.05);
+    if(type == 1)
+    {
+        glScaled(0.0003, 0.0003, 0.2);
+    }else
+    {
+        glScaled(0.0004, 0.0004, 0.05);
+    }
+    
     glColor3f(1, 1, 1);
  
     for (i = 0; i < name[i] != '\0'; i++)
@@ -65,13 +72,12 @@ void Menu::draw3dString (float xPos, float yPos, float zPos)
     glPopMatrix();
 }
 
-void Menu::drawMenu()
-{
-    double zPos = .9999;
+void Menu::drawMenu(int type)
+{//.9999;
     
     glPushMatrix();
     glTranslatef(x, y, 0.0);
-    glScalef(width, height, zPos);
+    glScalef(width, height, volume);
     //glColor3f(0, 0, 0);
     glutWireCube(1);
     if(selected)
@@ -80,11 +86,17 @@ void Menu::drawMenu()
         glColor3f(0, 1, 0);
     glutSolidCube(1);
     glPopMatrix();
+ 
     
-
-    draw3dString ( - 0.15, y - 0.02, 0.5); //nos traemos las letras hacia adelante de 0 a .5
-
+    if (type == 1) // menu horizontal
+    {
+        draw3dString ( type, x-volume, y-(height/2.0), 0.05);
+    }
+    else{
+        draw3dString ( type, x - 0.15, y - 0.02, 0.5); //nos traemos las letras hacia adelante de 0 a .5
+    }
 }
+
 
 /*
  double z = 0.5;

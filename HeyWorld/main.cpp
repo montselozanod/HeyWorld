@@ -76,6 +76,7 @@ void checkDisplayOption()
                 exit(0);
                 break;
         }
+
     }else if(gameState == 1)
     {
         switch(currentIndex)
@@ -157,30 +158,31 @@ void loadTexture(Image* image,int k)
 
 void initMenus()
 {
+   
     //principal
-    menuOptions.push_back(Menu("Instrucciones", 0.0, 0.1));
-    menuOptions.push_back(Menu("Jugar", 0.0, 0.0));
-    menuOptions.push_back(Menu("Salir", 0.0, -0.1));
+    menuOptions.push_back(Menu("Instrucciones", 0.0, 0.1 ,0.4, 0.07, 0.9999));
+    menuOptions.push_back(Menu("Jugar", 0.0, 0.0 ,0.4, 0.07, 0.9999));
+    menuOptions.push_back(Menu("Salir", 0.0, -0.1 ,0.4, 0.07, 0.9999));
     menuOptions[0].setSelected(true);
     
     //dificultad
-    menuDif.push_back(Menu("Turista", 0.0, 0.2));
-    menuDif.push_back(Menu("Agente", 0.0, 0.1));
-    menuDif.push_back(Menu("Guru", 0.0, 0.0));
-    menuDif.push_back(Menu("Regresar", 0.0, -0.1));
+    menuDif.push_back(Menu("Turista", 0.0, 0.2 ,0.4, 0.07, 0.9999));
+    menuDif.push_back(Menu("Agente", 0.0, 0.1 ,0.4, 0.07, 0.9999));
+    menuDif.push_back(Menu("Guru", 0.0, 0.0 ,0.4, 0.07, 0.9999));
+    menuDif.push_back(Menu("Regresar", 0.0, -0.1 ,0.4, 0.07, 0.9999));
     
     //continentes
-    menuContinents.push_back(Menu("AMERICA", 0.0, 0.2));
-    menuContinents.push_back(Menu("AFRICA", 0.0, 0.2));
-    menuContinents.push_back(Menu("ASIA", 0.0, 0.2));
-    menuContinents.push_back(Menu("EUROPA", 0.0, 0.2));
+    menuContinents.push_back(Menu("AMERICA", -0.45, 0.52 ,0.23, 0.07, 0.07));
+    menuContinents.push_back(Menu("AFRICA", -0.15, 0.52,0.23, 0.07, 0.07));
+    menuContinents.push_back(Menu("ASIA", 0.15, 0.52 ,0.23, 0.07, 0.07));
+    menuContinents.push_back(Menu("EUROPA", 0.45, 0.52,0.23, 0.07, 0.07));
 }
 
 void init()
 {
     glClearColor(1.0,.6,0,0); //background del display naranja
     initMenus();
-    gameState = 3;
+    gameState = 0;
     currentIndex = 0;
     showInstructions = false;
 }
@@ -220,14 +222,14 @@ void drawMenuPrincipal()
 {
     for (int i = 0; i < menuOptions.size(); i++)
     {
-        menuOptions[i].drawMenu();
+        menuOptions[i].drawMenu(0);
     }
 }
 void drawMenuDificultad()
 {
     for(int i = 0; i < menuDif.size(); i++)
     {
-        menuDif[i].drawMenu();
+        menuDif[i].drawMenu(0);
     }
 
 }
@@ -236,7 +238,7 @@ void drawMenuContinente()
 {
     for(int i = 0; i < menuContinents.size(); i++)
     {
-        menuContinents[i].drawMenu();
+        menuContinents[i].drawMenu(1);
     }
 }
 
@@ -505,6 +507,7 @@ void display()
     {
         int mapa = 1; //1 america, 2 asia, 3 europa, 4 africa
         despliegaMapa(mapa);
+        drawMenuContinente();
     
     }else if(gameState == 4)
     {

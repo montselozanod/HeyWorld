@@ -23,12 +23,12 @@ class Menu{
     double width;
     double height;
     double volume;
-    void draw3dString (float x, float y, float z);
+    void draw3dString (int type,float x, float y, float z);
     void renderBitmapString(std::string name, float x,float y,float z);
     
     public:
 
-    Menu(std::string, double x, double y);
+    Menu(std::string, double x, double y, double dimX, double dimY, double zPos);
     Menu();
     
     void setPosition(double x,double y ,double z);
@@ -36,8 +36,7 @@ class Menu{
     void setSelected(bool s);
     bool getSelected();
     
-    void drawMenu();
-    void drawMenu(float ancho, float alto, float x, float y, bool selected);
+    void drawMenu(int type);
 
 };
 
