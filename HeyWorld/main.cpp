@@ -89,7 +89,7 @@ void checkDisplayOption()
 //                currentIndex = 0;
 //                menuContinents[0].setSelected(true);
 //                gameState = 2;
-                break;
+//                break;
             case 1: //agente
 //                game = Game(currentIndex);
 //                menuDif[currentIndex].setSelected(false);
@@ -331,9 +331,9 @@ void despliegaPines()
                 posY = continente -> _america[i].posY;
                 break;
             case 2: //Asia
-                //posiciones de los pines
-                posX =  continente -> _asia[i].posX;
-                posY = continente -> _asia[i].posY;
+//                //posiciones de los pines
+//                posX =  continente -> _asia[i].posX;
+//                posY = continente -> _asia[i].posY;
                 break;
             case 3: //Europa
                 // posX =  continente -> _europa[i].posX;
@@ -386,7 +386,7 @@ void despliegaMapa(int mapa)
     
     //Definir textura
     switch (mapa) {
-        case 1:
+        case 0:
             glBindTexture(GL_TEXTURE_2D, texName[4]); //Textura
             numContinente = 1;
             contPaises = continente -> _america.capacity();
@@ -402,7 +402,7 @@ void despliegaMapa(int mapa)
             numContinente = 3;
             //contPaises = continente -> _europa.capacity();
             break;
-        case 4:
+        case 1:
             glBindTexture(GL_TEXTURE_2D, texName[7]);
             numContinente = 4;
             // contPaises = continente -> _africa.capacity();
@@ -522,7 +522,7 @@ void display()
     {
         //sale sprite y menu continentes
         int mapa = 1; //1 america, 2 asia, 3 europa, 4 africa
-        despliegaMapa(mapa);
+        despliegaMapa(currentIndex);
         drawMenuContinente();
 //        glutCreateSubWindow (win, 0, 0, 100, 100);
 //        glutDisplayFunc(displayWindow2);
