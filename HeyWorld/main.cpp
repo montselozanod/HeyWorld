@@ -17,6 +17,8 @@
 #include "Imageloader.h"
 #include "MenuOption.h"
 
+#define CONTINENTS 3
+
 GLsizei winWidth = 800, winHeight =600; // Tamaño inicial de la ventana
 int gameState = 0;
 GLuint texture = 0;
@@ -82,15 +84,23 @@ void checkDisplayOption()
         switch(currentIndex)
         {
             case 0: //turista
-                game = Game(currentIndex);
-                gameState = 2;
+//                game = Game(currentIndex);
+//                menuDif[currentIndex].setSelected(false);
+//                currentIndex = 0;
+//                menuContinents[0].setSelected(true);
+//                gameState = 2;
                 break;
             case 1: //agente
-                game = Game(currentIndex);
-                gameState = 2;
-                break;
+//                game = Game(currentIndex);
+//                menuDif[currentIndex].setSelected(false);
+//                currentIndex = 0;
+//                gameState = 2;
+//                break;
             case 2: //guru
                 game = Game(currentIndex);
+                menuDif[currentIndex].setSelected(false);
+                currentIndex = 0;
+                menuContinents[0].setSelected(true);
                 gameState = 2;
                 break;
             case 3: //back
@@ -103,7 +113,7 @@ void checkDisplayOption()
         //game.setDifficultyGame(currentIndex);
         //game.startGame();
         
-    }else if(gameState == 3)
+    }else if(gameState == 2)
     {
         
     }
@@ -477,12 +487,15 @@ void callback(int x, int y)
 
 void mouse(int button, int state, int x, int y){
     
-    if(button == GLUT_LEFT_BUTTON)
+    if(gameState == 2)
     {
-        if(state == GLUT_DOWN)
+        if(button == GLUT_LEFT_BUTTON)
         {
-            callback(x,y);
-            glutPostRedisplay();
+            if(state == GLUT_DOWN)
+            {
+                callback(x,y);
+                glutPostRedisplay();
+            }
         }
     }
     
@@ -579,6 +592,29 @@ void teclasUPandDown(int tecla, int x, int y)
 
         }
     
+    }else if(gameState == 2)
+    {
+        switch(tecla){
+            case GLUT_KEY_LEFT:
+                menuContinents[currentIndex].setSelected(false);
+                if(currentIndex > 0)
+                    currentIndex--;
+                else
+                    currentIndex = 0;
+                menuContinents[currentIndex].setSelected(true);
+                glutPostRedisplay();
+                break;
+        
+            case GLUT_KEY_RIGHT:
+                menuContinents[currentIndex].setSelected(false);
+                if(currentIndex < CONTINENTS)
+                    currentIndex++;
+                else
+                    currentIndex = CONTINENTS;
+                menuContinents[currentIndex].setSelected(true);
+                glutPostRedisplay();
+                break;
+        }
     }
 }
 
