@@ -19,9 +19,11 @@
 
 #define CONTINENTS 3
 
-GLsizei winWidth = 800, winHeight =600; // Tamaño inicial de la ventana
+GLsizei winWidth = 1200, winHeight =600; // Tamaño inicial de la ventana
+int windowID;
 int gameState = 0;
 GLuint texture = 0;
+
 
 static GLuint texName[36];
 
@@ -58,6 +60,16 @@ World *continente = new World();
     // Mapa con pines = 3
     // Pasaste de nivel
 // FIn = 5
+void display();
+void initWindows();
+
+void gameManagement()
+{
+    glutCreateSubWindow(windowID, 0, 0, 600, winHeight);
+    glutDisplayFunc(display);
+    initWindows();
+
+}
 
 void checkDisplayOption()
 {
@@ -102,6 +114,8 @@ void checkDisplayOption()
                 currentIndex = 0;
                 menuContinents[0].setSelected(true);
                 gameState = 2;
+                gameManagement();
+                glutPostRedisplay();
                 break;
             case 3: //back
                 gameState = 0;
@@ -631,10 +645,17 @@ void ChangeSize(GLsizei w, GLsizei h)
     gluLookAt(0, 0, 1.5, 0, 0, 0, 0, 1, 0); //10 alejamos la camara, 6 acercamos la camara
 }
 
-void displayWindow2()
+void initWindows()
 {
+    glutKeyboardFunc(myKeyboard);
+    glutMouseFunc(mouse);
+    initRendering();
+    glutReshapeFunc(ChangeSize);
+    glutDisplayFunc(display);
+    glutSpecialFunc(teclasUPandDown);
 
 }
+
 
 int main(int argc, char** argv)
 {
@@ -644,15 +665,9 @@ int main(int argc, char** argv)
     
     glutInitWindowSize(winWidth,winHeight);
     glutInitWindowPosition(200, 400); // 100, 100
-    int win = glutCreateWindow("Hey World!");
+    windowID = glutCreateWindow("Hey World!");
     init();
-    glutKeyboardFunc(myKeyboard);
-    glutMouseFunc(mouse);
-    initRendering();
-    glutReshapeFunc(ChangeSize);
-    glutDisplayFunc(display);
-    glutSpecialFunc(teclasUPandDown);
-    
+    initWindows();
     //mouse
     glutTimerFunc(0,timer,0);
     glutMainLoop();

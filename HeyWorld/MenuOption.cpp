@@ -72,6 +72,7 @@ void Menu::draw3dString (int type, float xPos, float yPos, float zPos)
     glPopMatrix();
 }
 
+
 void Menu::drawMenu(int type)
 {//.9999;
     
