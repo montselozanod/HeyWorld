@@ -83,12 +83,15 @@ void checkDisplayOption()
         {
             case 0: //turista
                 game = Game(currentIndex);
+                gameState = 2;
                 break;
             case 1: //agente
                 game = Game(currentIndex);
+                gameState = 2;
                 break;
             case 2: //guru
                 game = Game(currentIndex);
+                gameState = 2;
                 break;
             case 3: //back
                 gameState = 0;
@@ -99,6 +102,9 @@ void checkDisplayOption()
         }
         //game.setDifficultyGame(currentIndex);
         //game.startGame();
+        
+    }else if(gameState == 3)
+    {
         
     }
 }
@@ -502,12 +508,15 @@ void display()
     }else if(gameState == 2)
     {
         //sale sprite y menu continentes
-    
-    }else if(gameState == 3)
-    {
         int mapa = 1; //1 america, 2 asia, 3 europa, 4 africa
         despliegaMapa(mapa);
         drawMenuContinente();
+//        glutCreateSubWindow (win, 0, 0, 100, 100);
+//        glutDisplayFunc(displayWindow2);
+    
+    }else if(gameState == 3)
+    {
+
     
     }else if(gameState == 4)
     {
@@ -599,7 +608,7 @@ int main(int argc, char** argv)
     
     glutInitWindowSize(winWidth,winHeight);
     glutInitWindowPosition(200, 400); // 100, 100
-    glutCreateWindow("Hey World!");
+    int win = glutCreateWindow("Hey World!");
     init();
     glutKeyboardFunc(myKeyboard);
     glutMouseFunc(mouse);
@@ -607,7 +616,7 @@ int main(int argc, char** argv)
     glutReshapeFunc(ChangeSize);
     glutDisplayFunc(display);
     glutSpecialFunc(teclasUPandDown);
-
+    
     //mouse
     glutTimerFunc(0,timer,0);
     glutMainLoop();
