@@ -61,6 +61,26 @@
 		B0C9950B19EE44B50053FE95 /* LevelDeck.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LevelDeck.h; sourceTree = "<group>"; };
 		B0C9950D19EEB6440053FE95 /* GameObjects.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GameObjects.cpp; sourceTree = "<group>"; };
 		B0C9950E19EEB6440053FE95 /* GameObjects.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameObjects.h; sourceTree = "<group>"; };
+		B0D306801A12DDB300605C44 /* alemania.bmp */ = {isa = PBXFileReference; lastKnownFileType = image.bmp; path = alemania.bmp; sourceTree = "<group>"; };
+		B0D306811A12DDB300605C44 /* argentina.bmp */ = {isa = PBXFileReference; lastKnownFileType = image.bmp; path = argentina.bmp; sourceTree = "<group>"; };
+		B0D306821A12DDB300605C44 /* bandera guatemala.bmp */ = {isa = PBXFileReference; lastKnownFileType = image.bmp; path = "bandera guatemala.bmp"; sourceTree = "<group>"; };
+		B0D306831A12DDB300605C44 /* bandera inglaterra.bmp */ = {isa = PBXFileReference; lastKnownFileType = image.bmp; path = "bandera inglaterra.bmp"; sourceTree = "<group>"; };
+		B0D306841A12DDB300605C44 /* brasil.bmp */ = {isa = PBXFileReference; lastKnownFileType = image.bmp; path = brasil.bmp; sourceTree = "<group>"; };
+		B0D306851A12DDB300605C44 /* canada.bmp */ = {isa = PBXFileReference; lastKnownFileType = image.bmp; path = canada.bmp; sourceTree = "<group>"; };
+		B0D306861A12DDB300605C44 /* chile.bmp */ = {isa = PBXFileReference; lastKnownFileType = image.bmp; path = chile.bmp; sourceTree = "<group>"; };
+		B0D306871A12DDB300605C44 /* china.bmp */ = {isa = PBXFileReference; lastKnownFileType = image.bmp; path = china.bmp; sourceTree = "<group>"; };
+		B0D306881A12DDB300605C44 /* colombia.bmp */ = {isa = PBXFileReference; lastKnownFileType = image.bmp; path = colombia.bmp; sourceTree = "<group>"; };
+		B0D306891A12DDB300605C44 /* ecuador.bmp */ = {isa = PBXFileReference; lastKnownFileType = image.bmp; path = ecuador.bmp; sourceTree = "<group>"; };
+		B0D3068A1A12DDB300605C44 /* egipto.bmp */ = {isa = PBXFileReference; lastKnownFileType = image.bmp; path = egipto.bmp; sourceTree = "<group>"; };
+		B0D3068B1A12DDB300605C44 /* espana.bmp */ = {isa = PBXFileReference; lastKnownFileType = image.bmp; path = espana.bmp; sourceTree = "<group>"; };
+		B0D3068C1A12DDB300605C44 /* eua.bmp */ = {isa = PBXFileReference; lastKnownFileType = image.bmp; path = eua.bmp; sourceTree = "<group>"; };
+		B0D3068D1A12DDB300605C44 /* francia.bmp */ = {isa = PBXFileReference; lastKnownFileType = image.bmp; path = francia.bmp; sourceTree = "<group>"; };
+		B0D3068E1A12DDB300605C44 /* japon.bmp */ = {isa = PBXFileReference; lastKnownFileType = image.bmp; path = japon.bmp; sourceTree = "<group>"; };
+		B0D3068F1A12DDB300605C44 /* mexico.bmp */ = {isa = PBXFileReference; lastKnownFileType = image.bmp; path = mexico.bmp; sourceTree = "<group>"; };
+		B0D306901A12DDB300605C44 /* peru.bmp */ = {isa = PBXFileReference; lastKnownFileType = image.bmp; path = peru.bmp; sourceTree = "<group>"; };
+		B0D306911A12DDB300605C44 /* portugal.bmp */ = {isa = PBXFileReference; lastKnownFileType = image.bmp; path = portugal.bmp; sourceTree = "<group>"; };
+		B0D306921A12DDB300605C44 /* rusia.bmp */ = {isa = PBXFileReference; lastKnownFileType = image.bmp; path = rusia.bmp; sourceTree = "<group>"; };
+		B0D306931A12DDB300605C44 /* venezuela.bmp */ = {isa = PBXFileReference; lastKnownFileType = image.bmp; path = venezuela.bmp; sourceTree = "<group>"; };
 		FDA27E831A0285DE003F4500 /* Mapamundi.bmp */ = {isa = PBXFileReference; lastKnownFileType = image.bmp; path = Mapamundi.bmp; sourceTree = "<group>"; };
 		FDA27E841A0285F7003F4500 /* estrellas.bmp */ = {isa = PBXFileReference; lastKnownFileType = image.bmp; path = estrellas.bmp; sourceTree = "<group>"; };
 		FDA27EBA1A02C429003F4500 /* map.bmp */ = {isa = PBXFileReference; lastKnownFileType = image.bmp; path = map.bmp; sourceTree = "<group>"; };
@@ -138,6 +158,7 @@
 		B068C78419FAF5AA00C57511 /* Fotos */ = {
 			isa = PBXGroup;
 			children = (
+				B0D3067F1A12DDB300605C44 /* banderas */,
 				B06AC3301A12C7BA005BBA63 /* pin.bmp */,
 				B06AC32F1A12BE69005BBA63 /* europa.bmp */,
 				B06AC32E1A12BE4A005BBA63 /* asia.bmp */,
@@ -177,6 +198,33 @@
 				B0C9950B19EE44B50053FE95 /* LevelDeck.h */,
 			);
 			name = Game;
+			sourceTree = "<group>";
+		};
+		B0D3067F1A12DDB300605C44 /* banderas */ = {
+			isa = PBXGroup;
+			children = (
+				B0D306801A12DDB300605C44 /* alemania.bmp */,
+				B0D306811A12DDB300605C44 /* argentina.bmp */,
+				B0D306821A12DDB300605C44 /* bandera guatemala.bmp */,
+				B0D306831A12DDB300605C44 /* bandera inglaterra.bmp */,
+				B0D306841A12DDB300605C44 /* brasil.bmp */,
+				B0D306851A12DDB300605C44 /* canada.bmp */,
+				B0D306861A12DDB300605C44 /* chile.bmp */,
+				B0D306871A12DDB300605C44 /* china.bmp */,
+				B0D306881A12DDB300605C44 /* colombia.bmp */,
+				B0D306891A12DDB300605C44 /* ecuador.bmp */,
+				B0D3068A1A12DDB300605C44 /* egipto.bmp */,
+				B0D3068B1A12DDB300605C44 /* espana.bmp */,
+				B0D3068C1A12DDB300605C44 /* eua.bmp */,
+				B0D3068D1A12DDB300605C44 /* francia.bmp */,
+				B0D3068E1A12DDB300605C44 /* japon.bmp */,
+				B0D3068F1A12DDB300605C44 /* mexico.bmp */,
+				B0D306901A12DDB300605C44 /* peru.bmp */,
+				B0D306911A12DDB300605C44 /* portugal.bmp */,
+				B0D306921A12DDB300605C44 /* rusia.bmp */,
+				B0D306931A12DDB300605C44 /* venezuela.bmp */,
+			);
+			path = banderas;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
