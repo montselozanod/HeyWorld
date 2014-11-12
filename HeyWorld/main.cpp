@@ -67,12 +67,38 @@ void initWindows();
 void despliegaMapa(int i);
 void drawMenuContinente();
 
+void rectVerdeRojo()
+{
+    
+    //movemos camara
+    glPushMatrix();
+    glMatrixMode(GL_MODELVIEW);//dejar activa son todas las traslaciones, escalaciones
+    glLoadIdentity();//que no tenga ninguna transformación
+    gluLookAt(0, 0, 3, 0, 0, 0, 0, .1, 0);
+    //rectangulo verde/rojo
+    glPushMatrix();
+    glColor3f(0,0,0);
+    //glColor3f(0,1,0);//Verde
+    //glColor3f(1,0,0);//rojo
+    glPointSize(1);
+    glBegin(GL_QUADS);
+    glVertex2f(-1.1,-1.2);
+    glVertex2f(1.1,-1.2);
+    glVertex2f(1.1,1);
+    glVertex2f(-1.1,1);
+    glEnd();
+    glPopMatrix();
+    glPopMatrix();
+    
+}
+
 void renderSubWindow()
 {
    
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-    drawMenuContinente();
     despliegaMapa(currentIndex);
+    rectVerdeRojo();
+    drawMenuContinente();
    
     glutSwapBuffers();
 }
@@ -304,16 +330,16 @@ void fondoPrincipal()
     glBindTexture(GL_TEXTURE_2D, texName[0]);
     glBegin(GL_QUADS);
     glTexCoord2f(0.0f, 0.0f); //se pega la textura con
-    glVertex3f(-1, -1, 0);
+    glVertex3f(-2, -1, 0);
     
     glTexCoord2f(1.0f, 0.0f);
-    glVertex3f(1, -1, 0);
+    glVertex3f(2, -1, 0);
     
     glTexCoord2f(1.0f, 1.0f);
-    glVertex3f(1, 1, 0);
+    glVertex3f(2, 1, 0);
     
     glTexCoord2f(0.0f, 1.0f);
-    glVertex3f(-1, 1, 0);
+    glVertex3f(-2, 1, 0);
     glEnd();
     glPopMatrix();
     glDisable(GL_TEXTURE_2D);
@@ -412,6 +438,31 @@ void despliegaPines()
 
 void despliegaMapa(int mapa)
 {
+    /*Fondo de blocks*/
+    //movemos camara
+    glPushMatrix();
+    glMatrixMode(GL_MODELVIEW);//dejar activa son todas las traslaciones, escalaciones
+    glLoadIdentity();//que no tenga ninguna transformación
+    gluLookAt(0, 0, 3, 0, 0, 0, 0, .1, 0);
+    glPushMatrix();
+    glEnable(GL_TEXTURE_2D);
+    glBindTexture(GL_TEXTURE_2D, texName[9]);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_MIRRORED_REPEAT);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_MIRRORED_REPEAT);
+    glTranslated(0.0, -0.11, -2.0);
+    glBegin(GL_QUADS);
+    glTexCoord2f(0.0f, 0.0f); //se pega la textura con
+    glVertex3f(-4, -2.5, 0);
+    glTexCoord2f(4.0f, 0.0f);
+    glVertex3f(4, -2.5, 0);
+    glTexCoord2f(4.0f, 1.0f);
+    glVertex3f(4, 2.5, 0);
+    glTexCoord2f(0.0f, 1.0f);
+    glVertex3f(-4, 2.5, 0);
+    glEnd();
+    glPopMatrix();
+    glDisable(GL_TEXTURE_2D);
+    glPopMatrix();
     
     //movemos camara
     glPushMatrix();
