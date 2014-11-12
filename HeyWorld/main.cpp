@@ -21,6 +21,8 @@
 
 GLsizei winWidth = 1200, winHeight =600; // Tamaño inicial de la ventana
 int windowID;
+int subWindowMap;
+int subWindowSprite;
 int gameState = 0;
 GLuint texture = 0;
 
@@ -60,15 +62,34 @@ World *continente = new World();
     // Mapa con pines = 3
     // Pasaste de nivel
 // FIn = 5
-void display();
+void displayMain();
 void initWindows();
+void despliegaMapa(int i);
+void drawMenuContinente();
+
+void renderSubWindow()
+{
+   
+    glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+    drawMenuContinente();
+    despliegaMapa(currentIndex);
+   
+    glutSwapBuffers();
+}
 
 void gameManagement()
 {
-    glutCreateSubWindow(windowID, 0, 0, 600, winHeight);
-    glutDisplayFunc(display);
-    initWindows();
+    subWindowMap = glutCreateSubWindow(windowID, 0, 0, 600, winHeight);
+    glutDisplayFunc(renderSubWindow);
+     initWindows();
+    glutSetWindow(subWindowMap);
+    glutPostRedisplay();
 
+    
+//    glutCreateSubWindow(windowID, 600, 0, 600, winHeight);
+//    glutDisplayFunc(renderSubWindow);
+//    initWindows();
+    //game.playGame();
 }
 
 void checkDisplayOption()
@@ -115,6 +136,7 @@ void checkDisplayOption()
                 menuContinents[0].setSelected(true);
                 gameState = 2;
                 gameManagement();
+                game.startGame();
                 glutPostRedisplay();
                 break;
             case 3: //back
@@ -235,7 +257,7 @@ void initRendering()
     //glClearColor(1.0,1.0,1.0,1.0);
     
     // glEnable(GL_COLOR_MATERIAL);
-    glGenTextures(8, texName); //Make room for our texture
+    glGenTextures(10, texName); //Make room for our texture
     Image* image;
     image = loadBMP("/Users/mariamontserratlozano/Documents/Carrera 7/Graficas/HeyWorld/HeyWorld/estrellas.bmp");loadTexture(image,i++);
     image = loadBMP("/Users/mariamontserratlozano/Documents/Carrera 7/Graficas/HeyWorld/HeyWorld/map.bmp");loadTexture(image,i++);
@@ -245,6 +267,8 @@ void initRendering()
     image = loadBMP("/Users/mariamontserratlozano/Documents/Carrera 7/Graficas/HeyWorld/HeyWorld/asia.bmp");loadTexture(image,i++);
     image = loadBMP("/Users/mariamontserratlozano/Documents/Carrera 7/Graficas/HeyWorld/HeyWorld/europa.bmp");loadTexture(image,i++);
     image = loadBMP("/Users/mariamontserratlozano/Documents/Carrera 7/Graficas/HeyWorld/HeyWorld/africa.bmp");loadTexture(image,i++);
+    image = loadBMP("/Users/mariamontserratlozano/Documents/Carrera 7/Graficas/HeyWorld/HeyWorld/blocks.bmp");loadTexture(image,i++);
+    image = loadBMP("/Users/mariamontserratlozano/Documents/Carrera 7/Graficas/HeyWorld/HeyWorld/madera.bmp");loadTexture(image,i++);
     delete image;
 }
 
@@ -515,8 +539,10 @@ void mouse(int button, int state, int x, int y){
     
 }
 
-void display()
+
+void displayMain()
 {
+    glutSetWindow(windowID);
     GLUquadricObj *qobj;
     //glClear(GL_COLOR_BUFFER_BIT);
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
@@ -632,6 +658,14 @@ void teclasUPandDown(int tecla, int x, int y)
     }
 }
 
+void renderSceneAll()
+{
+    if(gameState == 2)
+    {
+        renderSubWindow();
+    }
+}
+
 void ChangeSize(GLsizei w, GLsizei h)
 {
     glViewport (0,0,w,h);
@@ -651,7 +685,6 @@ void initWindows()
     glutMouseFunc(mouse);
     initRendering();
     glutReshapeFunc(ChangeSize);
-    glutDisplayFunc(display);
     glutSpecialFunc(teclasUPandDown);
 
 }
@@ -665,9 +698,13 @@ int main(int argc, char** argv)
     
     glutInitWindowSize(winWidth,winHeight);
     glutInitWindowPosition(200, 400); // 100, 100
+    //MAIN WINDOW
     windowID = glutCreateWindow("Hey World!");
+    //DISPLAY CALLBACK
+    glutDisplayFunc(displayMain);
     init();
-    initWindows();
+    initWindows(); //KEYBOARD AND MOUSE CALLBACKS
+    glutIdleFunc(renderSceneAll);
     //mouse
     glutTimerFunc(0,timer,0);
     glutMainLoop();

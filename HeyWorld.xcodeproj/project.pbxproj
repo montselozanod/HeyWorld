@@ -84,6 +84,8 @@
 		B0D306931A12DDB300605C44 /* venezuela.bmp */ = {isa = PBXFileReference; lastKnownFileType = image.bmp; path = venezuela.bmp; sourceTree = "<group>"; };
 		B0D306941A12E6D200605C44 /* Pin.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Pin.h; sourceTree = "<group>"; };
 		B0D306951A12E6D900605C44 /* Pin.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Pin.cpp; sourceTree = "<group>"; };
+		B0D306981A13AC5B00605C44 /* blocks.bmp */ = {isa = PBXFileReference; lastKnownFileType = image.bmp; path = blocks.bmp; sourceTree = "<group>"; };
+		B0D3069A1A13ACBD00605C44 /* madera.bmp */ = {isa = PBXFileReference; lastKnownFileType = image.bmp; path = madera.bmp; sourceTree = "<group>"; };
 		FDA27E831A0285DE003F4500 /* Mapamundi.bmp */ = {isa = PBXFileReference; lastKnownFileType = image.bmp; path = Mapamundi.bmp; sourceTree = "<group>"; };
 		FDA27E841A0285F7003F4500 /* estrellas.bmp */ = {isa = PBXFileReference; lastKnownFileType = image.bmp; path = estrellas.bmp; sourceTree = "<group>"; };
 		FDA27EBA1A02C429003F4500 /* map.bmp */ = {isa = PBXFileReference; lastKnownFileType = image.bmp; path = map.bmp; sourceTree = "<group>"; };
@@ -162,6 +164,8 @@
 		B068C78419FAF5AA00C57511 /* Fotos */ = {
 			isa = PBXGroup;
 			children = (
+				B0D3069A1A13ACBD00605C44 /* madera.bmp */,
+				B0D306981A13AC5B00605C44 /* blocks.bmp */,
 				B0D3067F1A12DDB300605C44 /* banderas */,
 				B06AC3301A12C7BA005BBA63 /* pin.bmp */,
 				B06AC32F1A12BE69005BBA63 /* europa.bmp */,
