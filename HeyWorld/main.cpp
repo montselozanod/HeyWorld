@@ -583,11 +583,17 @@ void ChangeSize(GLsizei w, GLsizei h)
     gluLookAt(0, 0, 1.5, 0, 0, 0, 0, 1, 0); //10 alejamos la camara, 6 acercamos la camara
 }
 
+void displayWindow2()
+{
+
+}
+
 int main(int argc, char** argv)
 {
     glutInit(&argc, argv);
     //glutInitDisplayMode(GLUT_DOUBLE | GLUT_RGB);
     glutInitDisplayMode(GLUT_DOUBLE | GLUT_RGB | GLUT_DEPTH);
+    
     glutInitWindowSize(winWidth,winHeight);
     glutInitWindowPosition(200, 400); // 100, 100
     glutCreateWindow("Hey World!");
@@ -598,6 +604,7 @@ int main(int argc, char** argv)
     glutReshapeFunc(ChangeSize);
     glutDisplayFunc(display);
     glutSpecialFunc(teclasUPandDown);
+
     //mouse
     glutTimerFunc(0,timer,0);
     glutMainLoop();

@@ -19,6 +19,7 @@
 		B0C9950719EDE0C30053FE95 /* Game.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B0C9950519EDE0C30053FE95 /* Game.cpp */; };
 		B0C9950C19EE44B50053FE95 /* LevelDeck.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B0C9950A19EE44B50053FE95 /* LevelDeck.cpp */; };
 		B0C9950F19EEB6440053FE95 /* GameObjects.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B0C9950D19EEB6440053FE95 /* GameObjects.cpp */; };
+		B0D306961A12E6D900605C44 /* Pin.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B0D306951A12E6D900605C44 /* Pin.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -81,6 +82,8 @@
 		B0D306911A12DDB300605C44 /* portugal.bmp */ = {isa = PBXFileReference; lastKnownFileType = image.bmp; path = portugal.bmp; sourceTree = "<group>"; };
 		B0D306921A12DDB300605C44 /* rusia.bmp */ = {isa = PBXFileReference; lastKnownFileType = image.bmp; path = rusia.bmp; sourceTree = "<group>"; };
 		B0D306931A12DDB300605C44 /* venezuela.bmp */ = {isa = PBXFileReference; lastKnownFileType = image.bmp; path = venezuela.bmp; sourceTree = "<group>"; };
+		B0D306941A12E6D200605C44 /* Pin.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Pin.h; sourceTree = "<group>"; };
+		B0D306951A12E6D900605C44 /* Pin.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Pin.cpp; sourceTree = "<group>"; };
 		FDA27E831A0285DE003F4500 /* Mapamundi.bmp */ = {isa = PBXFileReference; lastKnownFileType = image.bmp; path = Mapamundi.bmp; sourceTree = "<group>"; };
 		FDA27E841A0285F7003F4500 /* estrellas.bmp */ = {isa = PBXFileReference; lastKnownFileType = image.bmp; path = estrellas.bmp; sourceTree = "<group>"; };
 		FDA27EBA1A02C429003F4500 /* map.bmp */ = {isa = PBXFileReference; lastKnownFileType = image.bmp; path = map.bmp; sourceTree = "<group>"; };
@@ -125,6 +128,7 @@
 				B0291B821A016EF10061F2CF /* Imageloader.h */,
 				B068C78419FAF5AA00C57511 /* Fotos */,
 				B0461DD119EB26C300B5EC2C /* main.cpp */,
+				B0D306971A12E6E300605C44 /* Pin */,
 				B0461DD319EB26C300B5EC2C /* HeyWorld.1 */,
 				B0665F2319ECDE36007CAAE8 /* World Map */,
 				B0C994F719EDD8CA0053FE95 /* Sprites */,
@@ -227,6 +231,15 @@
 			path = banderas;
 			sourceTree = "<group>";
 		};
+		B0D306971A12E6E300605C44 /* Pin */ = {
+			isa = PBXGroup;
+			children = (
+				B0D306941A12E6D200605C44 /* Pin.h */,
+				B0D306951A12E6D900605C44 /* Pin.cpp */,
+			);
+			name = Pin;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -278,6 +291,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B0D306961A12E6D900605C44 /* Pin.cpp in Sources */,
 				B0C9950019EDDBBB0053FE95 /* User.cpp in Sources */,
 				B0665F2219ECDE2D007CAAE8 /* World.cpp in Sources */,
 				B0C9950F19EEB6440053FE95 /* GameObjects.cpp in Sources */,
