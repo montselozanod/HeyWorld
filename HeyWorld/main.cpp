@@ -94,12 +94,19 @@ void rectVerdeRojo()
 
 void renderSubWindow()
 {
-   
+
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
     despliegaMapa(currentIndex);
     rectVerdeRojo();
     drawMenuContinente();
    
+    glutSwapBuffers();
+}
+
+void renderSubWindowSprite()
+{
+    glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+    glClearColor(1.0, 0, 0, 0);
     glutSwapBuffers();
 }
 
@@ -110,7 +117,16 @@ void gameManagement()
      initWindows();
     glutSetWindow(subWindowMap);
     glutPostRedisplay();
-
+    
+    glLoadIdentity();
+    
+    subWindowSprite = glutCreateSubWindow(windowID, 600, 0, 600, winHeight);
+    glutDisplayFunc(renderSubWindowSprite);
+    initWindows();
+    glutSetWindow(subWindowSprite);
+    glutPostRedisplay();
+    
+    
     
 //    glutCreateSubWindow(windowID, 600, 0, 600, winHeight);
 //    glutDisplayFunc(renderSubWindow);
@@ -612,9 +628,9 @@ void displayMain()
     }else if(gameState == 2)
     {
         //sale sprite y menu continentes
-        int mapa = 1; //1 america, 2 asia, 3 europa, 4 africa
-        despliegaMapa(currentIndex);
-        drawMenuContinente();
+//        int mapa = 1; //1 america, 2 asia, 3 europa, 4 africa
+//        despliegaMapa(currentIndex);
+//        drawMenuContinente();
 //        glutCreateSubWindow (win, 0, 0, 100, 100);
 //        glutDisplayFunc(displayWindow2);
     
@@ -709,13 +725,6 @@ void teclasUPandDown(int tecla, int x, int y)
     }
 }
 
-void renderSceneAll()
-{
-    if(gameState == 2)
-    {
-        renderSubWindow();
-    }
-}
 
 void ChangeSize(GLsizei w, GLsizei h)
 {
@@ -755,7 +764,7 @@ int main(int argc, char** argv)
     glutDisplayFunc(displayMain);
     init();
     initWindows(); //KEYBOARD AND MOUSE CALLBACKS
-    glutIdleFunc(renderSceneAll);
+
     //mouse
     glutTimerFunc(0,timer,0);
     glutMainLoop();
