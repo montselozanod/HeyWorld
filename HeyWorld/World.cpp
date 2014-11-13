@@ -36,8 +36,6 @@ World::World()
     _africa.push_back(Country("Nigeria", 63, "Abuya", AFRICA, -0.15,0.08,-0.57,-0.518,0.09,0.17667));
 
     
-
-    
    // _africa.push_back(Country("China", 18, "Beijing",AFRICA,0.13, -0.24, -.302,  -.246, -0.44, -0.34333));
     // _asia.push_back(Country("China", 18, "Beijing", "EA",0.0,0.0));
     // _asia.push_back(Country("Mongolia", 44, "Ulán Bator", "NAS", 0.0, 0.0));

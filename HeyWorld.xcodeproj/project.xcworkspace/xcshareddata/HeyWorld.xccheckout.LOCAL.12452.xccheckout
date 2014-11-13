@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>B64CD559-7ECD-4861-8AA9-56F60EE27E14</string>
+	<key>IDESourceControlProjectName</key>
+	<string>HeyWorld</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>2BDC8136F5B6822929D25A4866A4A75AF828091B</key>
+		<string>github.com:montselozanod/HeyWorld.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>HeyWorld.xcodeproj</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>2BDC8136F5B6822929D25A4866A4A75AF828091B</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>github.com:montselozanod/HeyWorld.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>2BDC8136F5B6822929D25A4866A4A75AF828091B</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>2BDC8136F5B6822929D25A4866A4A75AF828091B</string>
+			<key>IDESourceControlWCCName</key>
+			<string>HeyWorld</string>
+		</dict>
+	</array>
+</dict>
+</plist>

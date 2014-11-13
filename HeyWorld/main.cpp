@@ -94,7 +94,6 @@ void rectVerdeRojo()
 
 void renderSubWindow()
 {
-
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
     despliegaMapa(currentIndex);
     rectVerdeRojo();
@@ -102,6 +101,7 @@ void renderSubWindow()
    
     glutSwapBuffers();
 }
+
 
 void renderSubWindowSprite()
 {
@@ -114,7 +114,7 @@ void gameManagement()
 {
     subWindowMap = glutCreateSubWindow(windowID, 0, 0, 600, winHeight);
     glutDisplayFunc(renderSubWindow);
-     initWindows();
+    initWindows();
     glutSetWindow(subWindowMap);
     glutPostRedisplay();
     
@@ -128,11 +128,12 @@ void gameManagement()
     
     
     
-//    glutCreateSubWindow(windowID, 600, 0, 600, winHeight);
-//    glutDisplayFunc(renderSubWindow);
-//    initWindows();
+    //    glutCreateSubWindow(windowID, 600, 0, 600, winHeight);
+    //    glutDisplayFunc(renderSubWindow);
+    //    initWindows();
     //game.playGame();
 }
+
 
 void checkDisplayOption()
 {
@@ -153,7 +154,6 @@ void checkDisplayOption()
                 exit(0);
                 break;
         }
-
     }else if(gameState == 1)
     {
         switch(currentIndex)
@@ -322,6 +322,7 @@ void initRendering()
     image = loadBMP("/Users/arianacisneros/Desktop/Fotos/blocks.bmp");loadTexture(image,i++);
     image = loadBMP("/Users/arianacisneros/Desktop/Fotos/madera.bmp");loadTexture(image,i++);
     
+    // image = loadBMP("/Users/mariamontserratlozano/Documents/Carrera 7/Graficas/HeyWorld/HeyWorld/madera.bmp");loadTexture(image,i++);
     delete image;
 }
 
@@ -520,7 +521,6 @@ void despliegaMapa(int mapa)
         case 0:
             glBindTexture(GL_TEXTURE_2D, texName[7]);
             //numContinente = 4;
-
             break;
             
         default:
@@ -579,7 +579,6 @@ int verificaPin(float clicx, float clicy)
                 if (clicx >= continente -> _africa[i].rangoX1 && clicx <= continente -> _africa[i].rangoX2 && clicy >= continente -> _africa[i].rangoY1 && clicy <= continente -> _africa[i].rangoY2  ) {
                     codigo = continente ->_africa[i].countryCode;
                 }
-                
                 break;
             default:
                 break;
@@ -649,11 +648,9 @@ void displayMain()
     
     }else if(gameState == 3)
     {
-
     
     }else if(gameState == 4)
     {
-    
     }else if(gameState == 5)
     {
     

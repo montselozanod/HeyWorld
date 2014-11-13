@@ -12,7 +12,6 @@
 #include <iostream>
 #include <vector>
 
-
 enum Continent
 {
     AFRICA, //0
@@ -167,13 +166,11 @@ class World
         
 #pragma mark Countries V
         Country("Venezuela", 58, "Caracas", AMERICA ,0.13, -0.1, 0.1275,  0.19, -0.2066, -0.1166),
-        
         Country("Zambia", 59, "Lusaka", AFRICA, 0.15,-0.24,0,0,0,0),
         Country("Sudan", 60, "Jarthum", AFRICA, 0.14,0.18,0,0,0,0),
         Country("Congo", 61, "Brazzaville", AFRICA, 0.13,-0.12,0,0,0,0),
         Country("Ghana", 62, "Acra", AFRICA, 0,0,0,0,0,0),
         Country("Nigeria", 63, "Abuya", AFRICA, 0,0,0,0,0,0),
-        
     };
     void drawWorld();
 
