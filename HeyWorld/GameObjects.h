@@ -27,21 +27,20 @@ private:
     GLfloat y;
     std::string imgPathName;
     std::string gameObjectName;
+
     
 public:
-    Country myCountry;
-    Sprite(/*std::string img,*/ int countryCode)
+    Sprite(/*std::string img,*/ int code)
     {
-        myCountry = Country(theWorld.worldCountries[countryCode].name, theWorld.worldCountries[countryCode].countryCode, theWorld.worldCountries[countryCode].capital, theWorld.worldCountries[countryCode].continentCode, theWorld.worldCountries[countryCode].posX, theWorld.worldCountries[countryCode].posY, theWorld.worldCountries[countryCode].rangoX1, theWorld.worldCountries[countryCode].rangoX2, theWorld.worldCountries[countryCode].rangoY1, theWorld.worldCountries[countryCode].rangoY2);
+        countryCode = code;
     }
 
-    Sprite(/*std::string img,*/ std::string object, int countryCode)
+    Sprite(/*std::string img,*/ std::string object, int code)
     {
         gameObjectName = object;
-        
-        myCountry = Country(theWorld.worldCountries[countryCode].name, theWorld.worldCountries[countryCode].countryCode, theWorld.worldCountries[countryCode].capital, theWorld.worldCountries[countryCode].continentCode, theWorld.worldCountries[countryCode].posX, theWorld.worldCountries[countryCode].posY, theWorld.worldCountries[countryCode].rangoX1, theWorld.worldCountries[countryCode].rangoX2, theWorld.worldCountries[countryCode].rangoY1, theWorld.worldCountries[countryCode].rangoY2);
+        countryCode = code;
     }
-   
+    int countryCode;
     bool visibility;
     int difficultyLevel;
     void setImgName(std::string name);
@@ -57,6 +56,7 @@ public:
 //MONUMENT CLASS
 class Monument: public Sprite
 {
+    
 private:
     std::string monumentName;
     
@@ -90,6 +90,7 @@ public:
 //CHARACTER CLASS
 class Character: public Sprite
 {
+    
 private:
     std::string characterName;
     

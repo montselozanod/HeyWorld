@@ -5,13 +5,21 @@
 	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
 	<false/>
 	<key>IDESourceControlProjectIdentifier</key>
+<<<<<<< HEAD
+	<string>B64CD559-7ECD-4861-8AA9-56F60EE27E14</string>
+=======
 	<string>0101813B-37C1-45CB-8203-6F039CA15B7D</string>
+>>>>>>> 66c4b5c1601239b22425be4a5bd759f93b943170
 	<key>IDESourceControlProjectName</key>
 	<string>HeyWorld</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
 		<key>2BDC8136F5B6822929D25A4866A4A75AF828091B</key>
+<<<<<<< HEAD
+		<string>github.com:montselozanod/HeyWorld.git</string>
+=======
 		<string>https://github.com/montselozanod/HeyWorld.git</string>
+>>>>>>> 66c4b5c1601239b22425be4a5bd759f93b943170
 	</dict>
 	<key>IDESourceControlProjectPath</key>
 	<string>HeyWorld.xcodeproj</string>
@@ -21,7 +29,11 @@
 		<string>../..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
+<<<<<<< HEAD
+	<string>github.com:montselozanod/HeyWorld.git</string>
+=======
 	<string>https://github.com/montselozanod/HeyWorld.git</string>
+>>>>>>> 66c4b5c1601239b22425be4a5bd759f93b943170
 	<key>IDESourceControlProjectVersion</key>
 	<integer>111</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>

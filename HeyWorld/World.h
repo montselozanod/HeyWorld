@@ -9,40 +9,25 @@
 #ifndef __HeyWorld__World__
 #define __HeyWorld__World__
 
-#ifdef __APPLE__
-#include <GLUT/glut.h>
-#else
-#include <GL/glut.h>
-#endif
 #include <iostream>
 #include <vector>
-#include <list>
 
 
-/*continentCode
- NA = North America
- CN = Caribbean Nations
- CA = Central America
- SA = South America
- E = Europe
- NE = North Europe
- A = Africa
- O = Oceania
- EA = East Asia
- WA = West Asia
- SAS = South Asia
- NAS = North ASia
- AF = Africa
- */
-
-
-
-
+enum Continent
+{
+    AFRICA, //0
+    AMERICA, //1
+    ASIA, //2
+    EUROPE, //3
+    OCEANIA,
+    
+};
 
 struct Country
 {
     std::string name;
     int  countryCode;
+    Continent continent;
     std::string capital;
     std::string continentCode;
     float posX;
@@ -56,12 +41,12 @@ struct Country
     {
     }
     
-    Country(std::string nam, int code, std::string cap, std::string contCode, float x, float y, float xx, float xx2, float yy, float yy2)
+    Country(std::string nam, int code, std::string cap, Continent cont, float x, float y, float xx, float xx2, float yy, float yy2)
     {
         name = nam;
         countryCode = code;
         capital = cap;
-        continentCode = contCode;
+        continent = cont;
         posX = x;
         posY = y;
         rangoX1 = xx;
@@ -75,118 +60,119 @@ class World
 {
     
     public:
-    // Constructor
     World();
     int cont;
-    /*std::string getName(int k);
-    int getCode(int k);
-    std::string getCap(int k);
-    std::string getContCode(int k);
-    float getX(int k);
-    float getY(int k);*/
     std::vector <Country> _america;
+    std::vector <Country> _africa;
     std::vector <Country> _asia;
-    Country worldCountries[2]=
+    std::vector <Country> _europa;
+    Country worldCountries[64]=
     {
         
 #pragma mark Countries A
-     /*   Country("Afganistán", 0, "Kabul", "WA"),
-        Country("Albania", 1, "Tirana", "E"),
-        Country("Andorra", 2, "Andorra la Vieja", "E"),
-        Country("Angola", 3, "Luanda", "A"),
-        Country("Alemania", 4, "Berlin", "E"),
-        Country("Arabia Saudita", 5, "Riad", "WA"),
-        Country("Argelia", 6, "Argel", "A"),
-        Country("Argentina", 7, "Buenos Aires", "SA"),
-        Country("Australia", 8, "Canberra", "O"),
-        Country("Austria", 9, "Vienna", "E"),*/
+        Country("Afganistán", 0, "Kabul", ASIA, 0,0,0,0,0,0),
+        Country("Albania", 1, "Tirana", EUROPE, 0,0,0,0,0,0),
+        Country("Andorra", 2, "Andorra la Vieja", EUROPE,0,0,0,0,0,0),
+        Country("Angola", 3, "Luanda", AFRICA, 0,0,0,0,0,0),
+        Country("Alemania", 4, "Berlin", EUROPE , 0,0,0,0,0,0),
+        Country("Arabia Saudita", 5, "Riad", ASIA, 0,0,0,0,0,0),
+        Country("Argelia", 6, "Argel", AFRICA, 0,0,0,0,0,0),
+        Country("Argentina", 7, "Buenos Aires", AMERICA,0.13, -0.36, 0.1225,  0.1925, -0.636667, -0.54),
+        Country("Australia", 8, "Canberra", OCEANIA, 0,0,0,0,0,0),
+        Country("Austria", 9, "Vienna", EUROPE, 0,0,0,0,0,0),
         
 #pragma mark Countries B
-       /* Country("Bélgica", 10, "Bruselas", "E"),
-        Country("Belice", 11, "Belmopán", "CA"),
-        Country("Bielorrusia", 12, "Minsk", "E"),
-        Country("Bolivia", 13, "La Paz", "SA"),
-        Country("Brasil", 14, "Brasilia", "SA"),
-        Country("Bulgaria", 15, "Sofía", "E"),*/
+        Country("Bélgica", 10, "Bruselas", EUROPE, 0,0,0,0,0,0),
+        Country("Belice", 11, "Belmopán", AMERICA, 0,0,0,0,0,0),
+        Country("Bielorrusia", 12, "Minsk", EUROPE, 0,0,0,0,0,0),
+        Country("Bolivia", 13, "La Paz", AMERICA, 0.13, -0.24, 0.12,  0.1925, -0.44, -0.34333),
+        Country("Brasil", 14, "Brasilia", AMERICA,  0.3, -0.25, 0.3275,  0.4025, -0.46, -0.363333),
+        Country("Bulgaria", 15, "Sofía", EUROPE, 0,0,0,0,0,0),
         
         
 #pragma mark Countries C
-      //  Country("Canada", 16, "Ottawa", "NA", -1.40, 0.60),
-        /*Country("Chile", 17, "Santiago de Chile", "SA"),
-        Country("China", 18, "Beijing", "EA"),
-        Country("Colombia", 19, "Bogotá", "SA"),
-        Country("Corea del Sur", 20, "Seúl", "EA"),
-        Country("Costa Rica", 21, "San José", "CA"),
-        Country("Croacia", 22, "Zagreb", "E"),
-        Country("Cuba", 23, "La Habana", "CN"),*/
+        Country("Canada", 16, "Ottawa", AMERICA,-0.22, 0.31, -0.30, -0.23, 0.45, 0.54),
+        Country("Chile", 17, "Santiago de Chile", AMERICA, 0,0,0,0,0,0),
+        Country("China", 18, "Beijing", ASIA, 0,0,0,0,0,0),
+        Country("Colombia", 19, "Bogotá", AMERICA, 0.04, -0.09, 0.015,  0.0825, -0.2, -0.10333),
+        Country("Corea del Sur", 20, "Seúl", ASIA, 0,0,0,0,0,0),
+        Country("Costa Rica", 21, "San José", AMERICA, 0,0,0,0,0,0),
+        Country("Croacia", 22, "Zagreb", EUROPE, 0,0,0,0,0,0),
+        Country("Cuba", 23, "La Habana", AMERICA,0, .010, -0.0275,  0.035, -0.0233, 0.06666 ),
         
 #pragma mark Countries D
-        /*Country("Dinamarca", 24, "Copenhague", "E"),
+        Country("Dinamarca", 24, "Copenhague", EUROPE, 0,0,0,0,0,0),
         
 #pragma mark Countries E
-        Country("Egipto", 25, "Cairo", "WA"),
-        Country("Emiratos Árabes Unidos", 26, "Abu Dabi", "WA"),
-        Country("España", 27, "Madrid", "E"),
-        Country("Estados Unidos", 28, "Washington D.C.", "NA"),
+        Country("Egipto", 25, "Cairo", AFRICA, 0,0,0,0,0,0),
+        Country("Emiratos Árabes Unidos", 26, "Abu Dabi", ASIA, 0,0,0,0,0,0),
+        Country("España", 27, "Madrid", EUROPE, 0,0,0,0,0,0),
+        Country("Estados Unidos", 28, "Washington D.C.", AMERICA,  -0.29, 0.15, -0.385, -0.3125, 0.186667, 0.286667),
         
 #pragma mark Countries F
-        Country("Francia", 29, "Paris", "E"),
-        Country("Finlandia", 30, "Helsinki", "NE"),
+        Country("Francia", 29, "Paris", EUROPE, 0,0,0,0,0,0),
+        Country("Finlandia", 30, "Helsinki", EUROPE, 0,0,0,0,0,0),
         
 #pragma mark Countries G
-        Country("Grecia", 31, "Atenas", "E"),
-        Country("Guatemala", 32, "Guatemala", "CA"),
+        Country("Grecia", 31, "Atenas", EUROPE, 0,0,0,0,0,0),
+        Country("Guatemala", 32, "Guatemala", AMERICA, 0,0,0,0,0,0),
         
 #pragma mark Countries H
-        Country("Holanda", 33, "Amsterdam", "E"),
-        Country("Hungría", 34, "Budapest", "E"),
+        Country("Holanda", 33, "Amsterdam", EUROPE, 0,0,0,0,0,0),
+        Country("Hungría", 34, "Budapest", EUROPE, 0,0,0,0,0,0),
         
 #pragma mark Countries I
-        Country("India", 35, "Nueva Delhi", "SAS"),
-        Country("Italia", 36, "Roma", "E"),
-        Country("Irlanda", 37, "Dublin", "E"),
+        Country("India", 35, "Nueva Delhi", ASIA, 0,0,0,0,0,0),
+        Country("Italia", 36, "Roma", EUROPE, 0,0,0,0,0,0),
+        Country("Irlanda", 37, "Dublin", EUROPE, 0,0,0,0,0,0),
         
 #pragma mark Countries J
-        Country("Japón", 38, "Tokio", "WA"),
-        Country("Jordanía", 39, "Amán", "WA"),
+        Country("Japón", 38, "Tokio", ASIA, 0,0,0,0,0,0),
+        Country("Jordanía", 39, "Amán", ASIA, 0,0,0,0,0,0),
         
 #pragma mark Countries L
-        Country("Líbano", 40, "Beirut", "EA"),
+        Country("Líbano", 40, "Beirut", ASIA, 0,0,0,0,0,0),
         
 #pragma mark Countries M
-        Country("Malasia", 41, "Kuala Lumpur", "EA"),*/
- //       Country("Mexico", 42, "Ciudad de México", "NA", -1.55, 0.16),
-      /*  Country("Marruecos", 43, "Rabat", "A"),
-        Country("Mongolia", 44, "Ulán Bator", "NAS"),
+        Country("Malasia", 41, "Kuala Lumpur", ASIA, 0,0,0,0,0,0),
+        Country("Mexico", 42, "Ciudad de México", AMERICA, -0.22, 0.0, -0.30, -0.23, -0.05, 0.036),
+        Country("Marruecos", 43, "Rabat", AFRICA, 0,0,0,0,0,0),
+        Country("Mongolia", 44, "Ulán Bator", ASIA, 0,0,0,0,0,0),
         
         
 #pragma mark Countries N
-        Country("Noruega", 45, "Oslo", "NE"),
+        Country("Noruega", 45, "Oslo", EUROPE, 0,0,0,0,0,0),
         
 #pragma mark Countries P
-        Country("Panamá", 46, "Panamá", "CA"),
-        Country("Pakistán", 47, "Islamabad", "WA"),
-        Country("Perú", 48, "Lima", "SA"),
-        Country("Portugal", 49, "Lisboa", "E"),
-        Country("Polonia", 50, "Varsovia", "E"),
+        Country("Panamá", 46, "Panamá", AMERICA, 0,0,0,0,0,0),
+        Country("Pakistán", 47, "Islamabad", ASIA, 0,0,0,0,0,0),
+        Country("Perú", 48, "Lima",  AMERICA,  0.02, -0.2, -0.0125,  0.06, -0.37333, -0.276667),
+        Country("Portugal", 49, "Lisboa", EUROPE, 0,0,0,0,0,0),
+        Country("Polonia", 50, "Varsovia", EUROPE, 0,0,0,0,0,0),
         
 #pragma mark Countries R
-        Country("Reino Unido", 51, "Londres", "E"),
-        Country("República Checa", 52, "Praga", "E"),
-        Country("Rusia", 53, "Moscú", "NAS"),
+        Country("Reino Unido", 51, "Londres", EUROPE, 0,0,0,0,0,0),
+        Country("República Checa", 52, "Praga", EUROPE, 0,0,0,0,0,0),
+        Country("Rusia", 53, "Moscú", ASIA, 0,0,0,0,0,0),
         
 #pragma mark Countries S
-        Country("Sudáfrica", 54, "Pretoria", "AF"),
-        Country("Suiza", 55, "Berna", "E"),
+        Country("Sudáfrica", 54, "Pretoria", AFRICA, 0,0,0,0,0,0),
+        Country("Suiza", 55, "Berna", EUROPE, 0,0,0,0,0,0),
         
 #pragma mark Countries T
-        Country("Turquía", 56, "Ankara", "WA"),
+        Country("Turquía", 56, "Ankara", AFRICA, 0,0,0,0,0,0),
         
 #pragma mark Countries U
-        Country("Uruguay", 57, "Montevideo", "SA"),
+        Country("Uruguay", 57, "Montevideo", AMERICA, 0,0,0,0,0,0),
         
 #pragma mark Countries V
-        Country("Venezuela", 58, "Caracas", "SA"),*/
+        Country("Venezuela", 58, "Caracas", AMERICA ,0.13, -0.1, 0.1275,  0.19, -0.2066, -0.1166),
+        
+        Country("Zambia", 59, "Lusaka", AFRICA, 0.15,-0.24,0,0,0,0),
+        Country("Sudan", 60, "Jarthum", AFRICA, 0.14,0.18,0,0,0,0),
+        Country("Congo", 61, "Brazzaville", AFRICA, 0.13,-0.12,0,0,0,0),
+        Country("Ghana", 62, "Acra", AFRICA, 0,0,0,0,0,0),
+        Country("Nigeria", 63, "Abuya", AFRICA, 0,0,0,0,0,0),
         
     };
     void drawWorld();

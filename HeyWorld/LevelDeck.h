@@ -31,14 +31,13 @@ class LevelDeck
     std::vector<Character> touristCharacter;
     std::vector<Character> agentCharacter;
     std::vector<Character> guruCharacter;
-    
-    
-    void getMonumentDeck(int d);
-    void getFlagDeck(int d);
-    void getCharacterDeck(int d);
+
     
     public:
     //std::vector<Sprite> gameDeck;
+    std::vector<Monument> getMonumentDeck(int d);
+    std::vector<Flag> getFlagDeck(int d);
+    std::vector<Character>  getCharacterDeck(int d);
     void getLevelDeck(int gameId, int difficult);
 
 };
