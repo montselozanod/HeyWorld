@@ -11,6 +11,7 @@
 #include "GameObjects.h"
 #include "LevelDeck.h"
 #include "User.h"
+#include "Cube.h"
 
 #include <iostream>
 #include <vector>
@@ -28,6 +29,7 @@ class Game
     bool endGame;
     bool win;
     User user;
+    Cube cubo;
     
     public:
     Game();

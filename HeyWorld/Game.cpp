@@ -24,6 +24,7 @@ Game::Game()
 {
     endGame = false;
     win = false;
+    cubo = Cube();
 }
 
 Game::Game(int diff)
@@ -79,11 +80,13 @@ void Game::startGame()
 {
     createDeck();
     shuffleSprites();
+    cubo.openCube();
     for(int i = 0; i < gameSprites.size(); i++)
     {
         std::cout<<gameSprites[i]->countryCode<<std::endl;
         //std::cout<<mon->getName()<<std::endl;
     }
+    
     
 }
 
@@ -123,6 +126,7 @@ void Game::playGame()
         {
             showSprite();
             
+            
             //llamar a checkSprite
             
             numRondas++;
@@ -150,6 +154,8 @@ bool Game::checkSprite(int codeCountry)
 
 void Game::draw()
 {
+    
+    cubo.drawCube();
     
 }
 

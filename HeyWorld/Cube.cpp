@@ -27,15 +27,15 @@ void Cube::drawCube()
     glPopMatrix();
     
     //parte para abrir
-    glPushMatrix();
-    glRotated(angleTop, 1, 0, 0);
-    glTranslated(0, 0.6, 0);
-    glScalef(1.0, 0.25, 1.0);
-    glColor3f(0.0, 1.00, 0);
-    glutSolidCube(1.0);
-    glColor3f(1.0, 1.0, 1.0);
-    glutWireCube(1.0);
-    glPopMatrix();
+//    glPushMatrix();
+// //   glRotated(angleTop, 1, 0, 0);
+//    glTranslated(0, 0.6, 0);
+//    glScalef(1.0, 0.25, 1.0);
+//    glColor3f(0.0, 1.00, 0);
+//    glutSolidCube(1);
+//    glColor3f(1.0, 1.0, 1.0);
+//    glutWireCube(1);
+//    glPopMatrix();
     
     glPopMatrix();
 }

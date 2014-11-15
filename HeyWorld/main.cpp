@@ -94,6 +94,12 @@ void rectVerdeRojo()
 
 void fondoAzul()
 {
+    
+    glPushMatrix();
+    glMatrixMode(GL_MODELVIEW);//dejar activa son todas las traslaciones, escalaciones
+    glLoadIdentity();//que no tenga ninguna transformación
+    gluLookAt(0, 0, 3, 0, 0, 0, 0, .1, 0);//movemos camara para que se vea el mapa
+    
     glPushMatrix();
     glEnable(GL_TEXTURE_2D);
     glMatrixMode(GL_TEXTURE); //Dejar activa la Textura
@@ -104,19 +110,29 @@ void fondoAzul()
     glColor3f(1.0f, 1.0f, 1.0f);
     glBegin(GL_QUADS);
     glTexCoord2f(0.0f, 0.0f); //se pega la textura con
-    glVertex3f(-1, -1, 0);
+    glVertex3f(-4, -2.5, 0);
     glTexCoord2f(4.0f, 0.0f);
-    glVertex3f(1, -1, 0);
+    glVertex3f(4, -2.5, 0);
     glTexCoord2f(4.0f, 1.0f);
-    glVertex3f(1, 1, 0);
+    glVertex3f(4, 2.5, 0);
     glTexCoord2f(0.0f, 1.0f);
-    glVertex3f(-1, 1, 0);
+    glVertex3f(-4, 2.5, 0);
+    
+//    glTexCoord2f(0.0f, 0.0f); //se pega la textura con
+//    glVertex3f(-1, -1, 0);
+//    glTexCoord2f(4.0f, 0.0f);
+//    glVertex3f(1, -1, 0);
+//    glTexCoord2f(4.0f, 1.0f);
+//    glVertex3f(1, 1, 0);
+//    glTexCoord2f(0.0f, 1.0f);
+//    glVertex3f(-1, 1, 0);
     glEnd();
     
     glPopMatrix();
     glPopMatrix();
     glDisable(GL_TEXTURE_2D);
     
+    glPopMatrix();//camara
     
 }
 
@@ -139,7 +155,8 @@ void renderSubWindowSprite()
     
     //pintar textura de agua
     fondoAzul();
-    //glClearColor(1.0, 0, 0, 0);
+    
+    game.draw(); //Dibujar caja de objetos
     glutSwapBuffers();
     
     glutSetWindow(subWindowMap);
@@ -337,7 +354,7 @@ void initRendering()
     // glEnable(GL_COLOR_MATERIAL);
     glGenTextures(11, texName); //Make room for our texture
     Image* image;
-    image = loadBMP("/Users/mariamontserratlozano/Documents/Carrera 7/Graficas/HeyWorld/HeyWorld/estrellas.bmp");loadTexture(image,i++);
+    /*image = loadBMP("/Users/mariamontserratlozano/Documents/Carrera 7/Graficas/HeyWorld/HeyWorld/estrellas.bmp");loadTexture(image,i++);
     image = loadBMP("/Users/mariamontserratlozano/Documents/Carrera 7/Graficas/HeyWorld/HeyWorld/map.bmp");loadTexture(image,i++);
     image = loadBMP("/Users/mariamontserratlozano/Documents/Carrera 7/Graficas/HeyWorld/HeyWorld/Mapamundi.bmp");loadTexture(image,i++);
     image = loadBMP("/Users/mariamontserratlozano/Documents/Carrera 7/Graficas/HeyWorld/HeyWorld/pin2.bmp");loadTexture(image,i++); //ARREGLAR
@@ -347,19 +364,19 @@ void initRendering()
     image = loadBMP("/Users/mariamontserratlozano/Documents/Carrera 7/Graficas/HeyWorld/HeyWorld/africa.bmp");loadTexture(image,i++);
     image = loadBMP("/Users/mariamontserratlozano/Documents/Carrera 7/Graficas/HeyWorld/HeyWorld/blocks.bmp");loadTexture(image,i++);
     image = loadBMP("/Users/mariamontserratlozano/Documents/Carrera 7/Graficas/HeyWorld/HeyWorld/madera.bmp");loadTexture(image,i++);
-    image = loadBMP("/Users/mariamontserratlozano/Documents/Carrera 7/Graficas/HeyWorld/HeyWorld/water.bmp");loadTexture(image,i++);
-//
-//    image = loadBMP("/Users/arianacisneros/Desktop/Fotos/estrellas.bmp");loadTexture(image,i++);
-//    image = loadBMP("/Users/arianacisneros/Desktop/Fotos/map.bmp");loadTexture(image,i++);
-//    image = loadBMP("/Users/arianacisneros/Desktop/Fotos/Mapamundi.bmp");loadTexture(image,i++);
-//    image = loadBMP("/Users/arianacisneros/Desktop/Fotos/pin2.bmp");loadTexture(image,i++);
-//    image = loadBMP("/Users/arianacisneros/Desktop/Fotos/america.bmp");loadTexture(image,i++);
-//    image = loadBMP("/Users/arianacisneros/Desktop/Fotos/asia.bmp");loadTexture(image,i++);
-//    image = loadBMP("/Users/arianacisneros/Desktop/Fotos/europa.bmp");loadTexture(image,i++);
-//    image = loadBMP("/Users/arianacisneros/Desktop/Fotos/africa.bmp");loadTexture(image,i++);
-//    image = loadBMP("/Users/arianacisneros/Desktop/Fotos/blocks.bmp");loadTexture(image,i++);
-//    image = loadBMP("/Users/arianacisneros/Desktop/Fotos/madera.bmp");loadTexture(image,i++);
-//    image = loadBMP("/Users/arianacisneros/Desktop/Fotos/water.bmp");loadTexture(image,i++);
+    image = loadBMP("/Users/mariamontserratlozano/Documents/Carrera 7/Graficas/HeyWorld/HeyWorld/water.bmp");loadTexture(image,i++);*/
+
+    image = loadBMP("/Users/arianacisneros/Desktop/Fotos/estrellas.bmp");loadTexture(image,i++);
+    image = loadBMP("/Users/arianacisneros/Desktop/Fotos/map.bmp");loadTexture(image,i++);
+    image = loadBMP("/Users/arianacisneros/Desktop/Fotos/Mapamundi.bmp");loadTexture(image,i++);
+    image = loadBMP("/Users/arianacisneros/Desktop/Fotos/pin2.bmp");loadTexture(image,i++);
+    image = loadBMP("/Users/arianacisneros/Desktop/Fotos/america.bmp");loadTexture(image,i++);
+    image = loadBMP("/Users/arianacisneros/Desktop/Fotos/asia.bmp");loadTexture(image,i++);
+    image = loadBMP("/Users/arianacisneros/Desktop/Fotos/europa.bmp");loadTexture(image,i++);
+    image = loadBMP("/Users/arianacisneros/Desktop/Fotos/africa.bmp");loadTexture(image,i++);
+    image = loadBMP("/Users/arianacisneros/Desktop/Fotos/blocks.bmp");loadTexture(image,i++);
+    image = loadBMP("/Users/arianacisneros/Desktop/Fotos/madera.bmp");loadTexture(image,i++);
+    image = loadBMP("/Users/arianacisneros/Desktop/Fotos/water.bmp");loadTexture(image,i++);
     
     delete image;
 }
