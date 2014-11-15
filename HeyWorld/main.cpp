@@ -75,7 +75,7 @@ void rectVerdeRojo()
     glMatrixMode(GL_MODELVIEW);//dejar activa son todas las traslaciones, escalaciones
     glLoadIdentity();//que no tenga ninguna transformación
     gluLookAt(0, 0, 3, 0, 0, 0, 0, .1, 0);
-    //rectangulo verde/rojo
+
     glPushMatrix();
     glColor3f(0,0,0);
     //glColor3f(0,1,0);//Verde
@@ -92,6 +92,34 @@ void rectVerdeRojo()
     
 }
 
+void fondoAzul()
+{
+    glPushMatrix();
+    glEnable(GL_TEXTURE_2D);
+    glMatrixMode(GL_TEXTURE); //Dejar activa la Textura
+    glBindTexture(GL_TEXTURE_2D, texName[10]); //Escogemos la textura
+    
+    glPushMatrix();
+    glRotated(angulo, 0, 1, 0); //se acumula en la matriz de TEXTURE
+    glColor3f(1.0f, 1.0f, 1.0f);
+    glBegin(GL_QUADS);
+    glTexCoord2f(0.0f, 0.0f); //se pega la textura con
+    glVertex3f(-1, -1, 0);
+    glTexCoord2f(4.0f, 0.0f);
+    glVertex3f(1, -1, 0);
+    glTexCoord2f(4.0f, 1.0f);
+    glVertex3f(1, 1, 0);
+    glTexCoord2f(0.0f, 1.0f);
+    glVertex3f(-1, 1, 0);
+    glEnd();
+    
+    glPopMatrix();
+    glPopMatrix();
+    glDisable(GL_TEXTURE_2D);
+    
+    
+}
+
 void renderSubWindow()
 {
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
@@ -100,14 +128,22 @@ void renderSubWindow()
     drawMenuContinente();
    
     glutSwapBuffers();
+    glutSetWindow(subWindowSprite);
+    glutPostRedisplay();
 }
 
 
 void renderSubWindowSprite()
 {
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-    glClearColor(1.0, 0, 0, 0);
+    
+    //pintar textura de agua
+    fondoAzul();
+    //glClearColor(1.0, 0, 0, 0);
     glutSwapBuffers();
+    
+    glutSetWindow(subWindowMap);
+    glutPostRedisplay();
 }
 
 void gameManagement()
@@ -126,7 +162,8 @@ void gameManagement()
     glutSetWindow(subWindowSprite);
     glutPostRedisplay();
     
-    
+
+
     
     //    glutCreateSubWindow(windowID, 600, 0, 600, winHeight);
     //    glutDisplayFunc(renderSubWindow);
@@ -217,7 +254,6 @@ void myKeyboard(unsigned char theKey, int mouseX, int mouseY)
 void timer(int value)
 {
     angulo = (angulo +8) % 360;
-    
     glutPostRedisplay();
     glutTimerFunc(100,timer,0);
 }
@@ -314,13 +350,14 @@ void initRendering()
     image = loadBMP("/Users/arianacisneros/Desktop/Fotos/estrellas.bmp");loadTexture(image,i++);
     image = loadBMP("/Users/arianacisneros/Desktop/Fotos/map.bmp");loadTexture(image,i++);
     image = loadBMP("/Users/arianacisneros/Desktop/Fotos/Mapamundi.bmp");loadTexture(image,i++);
-    image = loadBMP("/Users/arianacisneros/Desktop/Fotos/pin.bmp");loadTexture(image,i++);
+    image = loadBMP("/Users/arianacisneros/Desktop/Fotos/pin2.bmp");loadTexture(image,i++);
     image = loadBMP("/Users/arianacisneros/Desktop/Fotos/america.bmp");loadTexture(image,i++);
     image = loadBMP("/Users/arianacisneros/Desktop/Fotos/asia.bmp");loadTexture(image,i++);
     image = loadBMP("/Users/arianacisneros/Desktop/Fotos/europa.bmp");loadTexture(image,i++);
     image = loadBMP("/Users/arianacisneros/Desktop/Fotos/africa.bmp");loadTexture(image,i++);
     image = loadBMP("/Users/arianacisneros/Desktop/Fotos/blocks.bmp");loadTexture(image,i++);
     image = loadBMP("/Users/arianacisneros/Desktop/Fotos/madera.bmp");loadTexture(image,i++);
+    image = loadBMP("/Users/arianacisneros/Desktop/Fotos/water.bmp");loadTexture(image,i++);
     
     // image = loadBMP("/Users/mariamontserratlozano/Documents/Carrera 7/Graficas/HeyWorld/HeyWorld/madera.bmp");loadTexture(image,i++);
     delete image;
@@ -466,18 +503,19 @@ void despliegaPines()
 
 void despliegaMapa(int mapa)
 {
-    /*Fondo de blocks*/
-    //movemos camara
+    /*Fondo azul con negro*/
     glPushMatrix();
     glMatrixMode(GL_MODELVIEW);//dejar activa son todas las traslaciones, escalaciones
     glLoadIdentity();//que no tenga ninguna transformación
-    gluLookAt(0, 0, 3, 0, 0, 0, 0, .1, 0);
-    glPushMatrix();
+    gluLookAt(0, 0, 3, 0, 0, 0, 0, .1, 0);//movemos camara para que se vea el mapa
     glEnable(GL_TEXTURE_2D);
-    glBindTexture(GL_TEXTURE_2D, texName[9]);
-    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_MIRRORED_REPEAT);
-    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_MIRRORED_REPEAT);
-    glTranslated(0.0, -0.11, -2.0);
+    glTranslated(0.0, 0.0, -2.0);
+    glMatrixMode(GL_TEXTURE);//Activar matriz de textura
+    glBindTexture(GL_TEXTURE_2D, texName[10]); //Seleccion de textura
+    //glLoadIdentity(); //Limpia matriz de Texturas
+    glPushMatrix();
+    glRotated(angulo, 0, 1, 0); //se acumula en la matriz de TEXTURE
+    glColor3f(1.0f, 1.0f, 1.0f);
     glBegin(GL_QUADS);
     glTexCoord2f(0.0f, 0.0f); //se pega la textura con
     glVertex3f(-4, -2.5, 0);
@@ -489,9 +527,11 @@ void despliegaMapa(int mapa)
     glVertex3f(-4, 2.5, 0);
     glEnd();
     glPopMatrix();
+    glPopMatrix(); //pop de camara
     glDisable(GL_TEXTURE_2D);
-    glPopMatrix();
     
+   
+    //MAPA
     //movemos camara
     glPushMatrix();
     glMatrixMode(GL_MODELVIEW);//dejar activa son todas las traslaciones, escalaciones
