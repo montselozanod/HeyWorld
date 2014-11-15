@@ -54,20 +54,20 @@ void Game::createDeck()
     switch (difficulty)
     {
         case 0:
-            flag = (std::vector<Flag>) deckLevel.getFlagDeck(difficulty);
+            flag = (std::vector<Flag>) deckLevel.getTouristDeck();
             for (int i = 0; i < flag.size(); i++) {
                 gameSprites.push_back(new Flag(flag[i]));
             }
             break;
             
         case 1:
-            chara = (std::vector<Character>) deckLevel.getCharacterDeck(difficulty);
+            chara = (std::vector<Character>) deckLevel.getAgentDeck();
             for (int i = 0; i < chara.size(); i++) {
                 gameSprites.push_back(new Character(chara[i]));
             }
             break;
         case 2:
-            mon = (std::vector<Monument>) deckLevel.getMonumentDeck(difficulty);
+            mon = (std::vector<Monument>) deckLevel.getGuruDeck();
             for (int i = 0; i < mon.size(); i++) {
                 gameSprites.push_back(new Monument(mon[i]));
             }

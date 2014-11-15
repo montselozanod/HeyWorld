@@ -19,26 +19,17 @@ class LevelDeck
     
     //monumentos
     
-    std::vector<Monument> touristMonuments;
-    std::vector<Monument> agentMonuments;
-    std::vector<Monument> guruMonuments;
-    //flags
-    std::vector<Flag> touristFlag;
-    std::vector<Flag>  agentFlag;
-    std::vector<Flag>  guruFlag;
-    
-    //characters
-    std::vector<Character> touristCharacter;
-    std::vector<Character> agentCharacter;
-    std::vector<Character> guruCharacter;
+    std::vector<Flag> touristDeck;
+    std::vector<Character> agentDeck;
+    std::vector<Monument> guruDeck;
 
-    
     public:
     //std::vector<Sprite> gameDeck;
-    std::vector<Monument> getMonumentDeck(int d);
-    std::vector<Flag> getFlagDeck(int d);
-    std::vector<Character>  getCharacterDeck(int d);
-    void getLevelDeck(int gameId, int difficult);
+    std::vector<Flag> getTouristDeck();
+    std::vector<Character> getAgentDeck();
+    std::vector<Monument> getGuruDeck();
+    
+    //void getLevelDeck(int gameId, int difficult);
 
 };
 
