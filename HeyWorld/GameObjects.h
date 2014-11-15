@@ -30,16 +30,19 @@ private:
 
     
 public:
-    Sprite(/*std::string img,*/ int code)
+    Sprite(std::string img, int code)
     {
         countryCode = code;
+        imgPathName = img;
     }
 
-    Sprite(/*std::string img,*/ std::string object, int code)
+    Sprite(std::string img, std::string object, int code)
     {
+        imgPathName = img;
         gameObjectName = object;
         countryCode = code;
     }
+    
     int countryCode;
     bool visibility;
     int difficultyLevel;
@@ -79,7 +82,7 @@ class Flag: public Sprite
 {
     
 public:
-    Flag(/*std::string img,*/ int countryCode):Sprite(countryCode)
+    Flag(std::string img, int countryCode):Sprite(img,countryCode)
     {
         
     }
