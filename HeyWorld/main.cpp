@@ -154,8 +154,8 @@ void renderSubWindowSprite()
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
     
     //pintar textura de agua
-    fondoAzul();
-    
+    //fondoAzul();
+
     game.draw(); //Dibujar caja de objetos
     glutSwapBuffers();
     

@@ -81,6 +81,9 @@ void Game::startGame()
     createDeck();
     shuffleSprites();
     cubo.openCube();
+   // cubo.rotateCube();
+    
+    
     for(int i = 0; i < gameSprites.size(); i++)
     {
         std::cout<<gameSprites[i]->countryCode<<std::endl;

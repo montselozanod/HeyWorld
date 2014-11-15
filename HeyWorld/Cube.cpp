@@ -27,15 +27,15 @@ void Cube::drawCube()
     glPopMatrix();
     
     //parte para abrir
-//    glPushMatrix();
-// //   glRotated(angleTop, 1, 0, 0);
-//    glTranslated(0, 0.6, 0);
-//    glScalef(1.0, 0.25, 1.0);
-//    glColor3f(0.0, 1.00, 0);
-//    glutSolidCube(1);
-//    glColor3f(1.0, 1.0, 1.0);
-//    glutWireCube(1);
-//    glPopMatrix();
+    glPushMatrix();
+    glRotated(angleTop, 1, 0, 0);
+    glTranslated(0, 0.6, 0);
+    glScalef(1.0, 0.25, 1.0);
+    glColor3f(0.0, 1.00, 0);
+    glutSolidCube(1);
+    glColor3f(1.0, 1.0, 1.0);
+    glutWireCube(1);
+    glPopMatrix();
     
     glPopMatrix();
 }
@@ -54,7 +54,7 @@ void Cube::animationBox(int v)
             angleTop = 0;
     }else if (v == 1) //rotar caja
     {
-        if(angleBox < 360)
+        if(angleBox < 90)
         {
             angleBox++;
             glutTimerFunc(50, animationBox, 1);
@@ -78,5 +78,5 @@ void Cube::closeCube()
 
 void Cube::rotateCube()
 {
-     glutTimerFunc(100, animationBox, 1);
+     glutTimerFunc(50, animationBox, 1);
 }
