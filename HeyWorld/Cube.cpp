@@ -22,7 +22,7 @@ void Cube::drawCube()
     // Parte de Atras del cubo
     glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE_SGIS);
     glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
-    //glBindTexture(GL_TEXTURE_2D,texName[7]);
+
     glBegin(GL_QUADS);
     glNormal3f( 0.0f, 0.0f,-1.0f);
     glTexCoord2f(0.0f, 0.0f);
@@ -40,7 +40,7 @@ void Cube::drawCube()
     // Parte de Abajo del cubo
     glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE_SGIS);
     glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);
-   // glBindTexture(GL_TEXTURE_2D,texName[9]);
+   
     glBegin(GL_QUADS);
     glNormal3f( 0.0f,-1.0f, 0.0f);
     glTexCoord2f(0.0f, 0.0f);
@@ -57,7 +57,6 @@ void Cube::drawCube()
     glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE_SGIS);
     glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE_SGIS);
     
-    //glBindTexture(GL_TEXTURE_2D,texName[10]);
     glBegin(GL_QUADS);
     glNormal3f( 1.0f, 0.0f, 0.0f);
     glTexCoord2f(0.0f, 0.0f);
