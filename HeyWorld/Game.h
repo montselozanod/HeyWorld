@@ -12,6 +12,7 @@
 #include "LevelDeck.h"
 #include "User.h"
 #include "Cube.h"
+#include "Imageloader.h"
 
 #include <iostream>
 #include <vector>
@@ -22,12 +23,15 @@ class Game
     std::vector<Sprite *> gameSprites;
     void shuffleSprites();
     void createDeck();
+    void initRenderImages();
+    void loadTexture(Image* image, int k);
     int numRondas;
     //int typeGame;
     int difficulty;
     LevelDeck deckLevel;
     bool endGame;
     bool win;
+    GLuint textures[30];
     User user;
     Cube cubo;
     
