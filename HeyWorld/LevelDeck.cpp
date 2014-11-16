@@ -80,18 +80,18 @@ std::vector<Flag> LevelDeck::getTouristDeck()
 
 std::vector<Character>  LevelDeck::getAgentDeck()
 {
-    agentDeck.push_back(*new Character("Peter Pan", 51));
-    agentDeck.push_back(*new Character("Walt Disney", 28));
-    agentDeck.push_back(*new Character("Albert Einstein", 4));
-    agentDeck.push_back(*new Character("Nelson Mandela", 54));
-    agentDeck.push_back(*new Character("Juan Pablo II", 50));
-    agentDeck.push_back(*new Character("Fidel Castro", 23));
-    agentDeck.push_back(*new Character("Salvador Dalí", 27));
-    agentDeck.push_back(*new Character("Octavio Paz", 42));
+    agentDeck.push_back(*new Character("Peter Pan", 51)); //internet
+    agentDeck.push_back(*new Character("Walt Disney", 28)); //internet
+    agentDeck.push_back(*new Character("Albert Einstein", 4)); //LISTO
+    agentDeck.push_back(*new Character("Nelson Mandela", 54)); //Listo
+    agentDeck.push_back(*new Character("Juan Pablo II", 50)); //internet
+    agentDeck.push_back(*new Character("Fidel Castro", 23)); //Listo
+    agentDeck.push_back(*new Character("Salvador Dalí", 27));//LISTO
+    agentDeck.push_back(*new Character("Octavio Paz", 42)); //LISTO
     
     
     agentDeck.push_back(*new Character("Simón Bolívar", 58));
-    agentDeck.push_back(*new Character("Vladimir Putin", 53));
+    agentDeck.push_back(*new Character("Vladimir Putin", 53)); //LIsto
     agentDeck.push_back(*new Character("Socrates", 31));
     agentDeck.push_back(*new Character("Mahatma Gandhi", 35));
     agentDeck.push_back(*new Character("Ernesto 'Che' Guevara", 7));
@@ -103,6 +103,12 @@ std::vector<Character>  LevelDeck::getAgentDeck()
     agentDeck.push_back(*new Character("Leonardo da Vinci", 36));
     agentDeck.push_back(*new Character("Malala Yousafzai", 47));
     agentDeck.push_back(*new Character("Mao ZeDong", 18));
+    
+    //Kim Jong Un - Corea del norte
+    //Barack Obama E.U
+    //Steve Jobs E.U
+    //Margaret Thatcher - Inglaterra
+    //Charlie Chaplin - Inglaterra Londres
     
     return agentDeck;
 }
