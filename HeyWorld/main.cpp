@@ -100,9 +100,9 @@ void fondoAzul()
     glPushMatrix();
     glMatrixMode(GL_MODELVIEW);//dejar activa son todas las traslaciones, escalaciones
     glLoadIdentity();//que no tenga ninguna transformación
-    gluLookAt(0, 0, 3, 0, 0, 0, 0, .1, 0);//movemos camara para que se vea el mapa
+    gluLookAt(0, 0, 7, 0, 0, 0, 0, .1, 0);//movemos camara para que se vea el mapa
     
-    glPushMatrix();
+    //glPushMatrix();
     glEnable(GL_TEXTURE_2D);
     glMatrixMode(GL_TEXTURE); //Dejar activa la Textura
     glBindTexture(GL_TEXTURE_2D, texName[10]); //Escogemos la textura
@@ -110,31 +110,25 @@ void fondoAzul()
     glPushMatrix();
     glRotated(angulo, 0, 1, 0); //se acumula en la matriz de TEXTURE
     glColor3f(1.0f, 1.0f, 1.0f);
+    
     glBegin(GL_QUADS);
     glTexCoord2f(0.0f, 0.0f); //se pega la textura con
-    glVertex3f(-4, -2.5, 0);
+    glVertex3f(-4, -3, 0);
     glTexCoord2f(4.0f, 0.0f);
-    glVertex3f(4, -2.5, 0);
+    glVertex3f(4, -3, 0);
     glTexCoord2f(4.0f, 1.0f);
-    glVertex3f(4, 2.5, 0);
+    glVertex3f(4, 3, 0);
     glTexCoord2f(0.0f, 1.0f);
-    glVertex3f(-4, 2.5, 0);
+    glVertex3f(-4, 3, 0);
     
-//    glTexCoord2f(0.0f, 0.0f); //se pega la textura con
-//    glVertex3f(-1, -1, 0);
-//    glTexCoord2f(4.0f, 0.0f);
-//    glVertex3f(1, -1, 0);
-//    glTexCoord2f(4.0f, 1.0f);
-//    glVertex3f(1, 1, 0);
-//    glTexCoord2f(0.0f, 1.0f);
-//    glVertex3f(-1, 1, 0);
     glEnd();
     
+    //glPopMatrix();
     glPopMatrix();
-    glPopMatrix();
+    glPopMatrix();//camara
     glDisable(GL_TEXTURE_2D);
     
-    glPopMatrix();//camara
+    
     
 }
 
