@@ -25,26 +25,35 @@ private:
     World theWorld;
     GLfloat x;
     GLfloat y;
-    std::string imgPathName;
+    char* imgPathName;
     std::string gameObjectName;
 
     
 public:
-    Sprite(/*std::string img,*/ int code)
+    Sprite(char* img, int code)
     {
         countryCode = code;
+        imgPathName = img;
+    }
+    
+    Sprite(std::string img, int code)
+    {
+        countryCode = code;
+        gameObjectName= img;
     }
 
-    Sprite(/*std::string img,*/ std::string object, int code)
+    Sprite(char* img, std::string object, int code)
     {
+        imgPathName = img;
         gameObjectName = object;
         countryCode = code;
     }
+    
     int countryCode;
     bool visibility;
     int difficultyLevel;
-    void setImgName(std::string name);
-    std::string getImgName();
+    void setImgName(char* name);
+    char* getImgName();
     virtual void drawSprite();
     GLfloat getPosX();
     GLfloat getPosY();
@@ -79,7 +88,7 @@ class Flag: public Sprite
 {
     
 public:
-    Flag(/*std::string img,*/ int countryCode):Sprite(countryCode)
+    Flag(char* img, int countryCode):Sprite(img,countryCode)
     {
         
     }

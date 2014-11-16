@@ -16,6 +16,7 @@
 		B0665F2219ECDE2D007CAAE8 /* World.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B0665F2019ECDE2D007CAAE8 /* World.cpp */; };
 		B06C94A31A09A669001951D3 /* Menu.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B06C94A11A09A669001951D3 /* Menu.cpp */; };
 		B0BF8DA51A17F43500A61B44 /* Cube.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B0BF8DA31A17F43500A61B44 /* Cube.cpp */; };
+		B0BF8DAC1A182EE100A61B44 /* imageloader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B0BF8DAB1A182EE100A61B44 /* imageloader.cpp */; };
 		B0C9950019EDDBBB0053FE95 /* User.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B0C994FE19EDDBBB0053FE95 /* User.cpp */; };
 		B0C9950719EDE0C30053FE95 /* Game.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B0C9950519EDE0C30053FE95 /* Game.cpp */; };
 		B0C9950C19EE44B50053FE95 /* LevelDeck.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B0C9950A19EE44B50053FE95 /* LevelDeck.cpp */; };
@@ -37,7 +38,6 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		B0291B821A016EF10061F2CF /* Imageloader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Imageloader.h; sourceTree = "<group>"; };
 		B0461DCE19EB26C300B5EC2C /* HeyWorld */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = HeyWorld; sourceTree = BUILT_PRODUCTS_DIR; };
 		B0461DD119EB26C300B5EC2C /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		B0461DD319EB26C300B5EC2C /* HeyWorld.1 */ = {isa = PBXFileReference; lastKnownFileType = text.man; path = HeyWorld.1; sourceTree = "<group>"; };
@@ -57,6 +57,8 @@
 		B06C94A21A09A669001951D3 /* Menu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Menu.h; sourceTree = "<group>"; };
 		B0BF8DA31A17F43500A61B44 /* Cube.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Cube.cpp; sourceTree = "<group>"; };
 		B0BF8DA41A17F43500A61B44 /* Cube.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Cube.h; sourceTree = "<group>"; };
+		B0BF8DAA1A182EDB00A61B44 /* imageloader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = imageloader.h; sourceTree = "<group>"; };
+		B0BF8DAB1A182EE100A61B44 /* imageloader.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = imageloader.cpp; sourceTree = "<group>"; };
 		B0C994FE19EDDBBB0053FE95 /* User.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = User.cpp; sourceTree = "<group>"; };
 		B0C994FF19EDDBBB0053FE95 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
 		B0C9950519EDE0C30053FE95 /* Game.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Game.cpp; sourceTree = "<group>"; };
@@ -132,8 +134,9 @@
 		B0461DD019EB26C300B5EC2C /* HeyWorld */ = {
 			isa = PBXGroup;
 			children = (
+				B0BF8DAB1A182EE100A61B44 /* imageloader.cpp */,
+				B0BF8DAA1A182EDB00A61B44 /* imageloader.h */,
 				B0BF8DA61A17F44200A61B44 /* Cubo */,
-				B0291B821A016EF10061F2CF /* Imageloader.h */,
 				B068C78419FAF5AA00C57511 /* Fotos */,
 				B0461DD119EB26C300B5EC2C /* main.cpp */,
 				B0D306971A12E6E300605C44 /* Pin */,
@@ -321,6 +324,7 @@
 				B0461DD219EB26C300B5EC2C /* main.cpp in Sources */,
 				B0C9950719EDE0C30053FE95 /* Game.cpp in Sources */,
 				B06C94A31A09A669001951D3 /* Menu.cpp in Sources */,
+				B0BF8DAC1A182EE100A61B44 /* imageloader.cpp in Sources */,
 				B0C9950C19EE44B50053FE95 /* LevelDeck.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

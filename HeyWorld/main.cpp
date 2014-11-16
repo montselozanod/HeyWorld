@@ -34,9 +34,9 @@ Game game;
 bool showInstructions;
 
 //MENUS
-vector<Menu> menuOptions;
-vector<Menu> menuDif;
-vector<Menu> menuContinents;
+std::vector<Menu> menuOptions;
+std::vector<Menu> menuDif;
+std::vector<Menu> menuContinents;
 int currentIndex = 0; //current index for menus;
 
 int angulo=45;
@@ -231,18 +231,7 @@ void checkDisplayOption()
         switch(currentIndex)
         {
             case 0: //turista
-//                game = Game(currentIndex);
-//                menuDif[currentIndex].setSelected(false);
-//                currentIndex = 0;
-//                menuContinents[0].setSelected(true);
-//                gameState = 2;
-//                break;
             case 1: //agente
-//                game = Game(currentIndex);
-//                menuDif[currentIndex].setSelected(false);
-//                currentIndex = 0;
-//                gameState = 2;
-//                break;
             case 2: //guru
                 game = Game(currentIndex);
                 menuDif[currentIndex].setSelected(false);
@@ -383,7 +372,6 @@ void initRendering()
     image = loadBMP("/Users/mariamontserratlozano/Documents/Carrera 7/Graficas/HeyWorld/HeyWorld/blocks.bmp");loadTexture(image,i++);
     image = loadBMP("/Users/mariamontserratlozano/Documents/Carrera 7/Graficas/HeyWorld/HeyWorld/madera.bmp");loadTexture(image,i++);
     image = loadBMP("/Users/mariamontserratlozano/Documents/Carrera 7/Graficas/HeyWorld/HeyWorld/water.bmp");loadTexture(image,i++);*/
-
     image = loadBMP("/Users/arianacisneros/Desktop/Fotos/estrellas.bmp");loadTexture(image,i++);
     image = loadBMP("/Users/arianacisneros/Desktop/Fotos/map.bmp");loadTexture(image,i++);
     image = loadBMP("/Users/arianacisneros/Desktop/Fotos/Mapamundi.bmp");loadTexture(image,i++);
@@ -395,6 +383,7 @@ void initRendering()
     image = loadBMP("/Users/arianacisneros/Desktop/Fotos/blocks.bmp");loadTexture(image,i++);
     image = loadBMP("/Users/arianacisneros/Desktop/Fotos/madera.bmp");loadTexture(image,i++);
     image = loadBMP("/Users/arianacisneros/Desktop/Fotos/water.bmp");loadTexture(image,i++);
+
     
     delete image;
 }
@@ -671,12 +660,12 @@ void callback(int x, int y)
     float openGL_X = (x - 500.00)/500.00;
     float openGL_Y = (300.00 - y) / 300.00;
     int code = 0;
-    
-    cout << "En donde di clic: " << openGL_X << ", " << openGL_Y <<"\n";
+
+    std::cout << "En donde di clic: " << openGL_X << ", " << openGL_Y <<"\n";
     
     code = verificaPin(openGL_X,openGL_Y);
-    cout << "El codigo es: " << code << "\n";
-    //Aqui se manda llamar la funcion de montse que diga si si esta correcto o no procedimiento(code)
+    std::cout << "El codigo es: " << code << "\n";
+    //Aqui se manda llamar la funcion de monste que diga si si esta correcto o no procedimiento(code)
 }
 
 void mouse(int button, int state, int x, int y){
@@ -703,9 +692,10 @@ void displayMain()
     //glClear(GL_COLOR_BUFFER_BIT);
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
     glColor3f(1.0f, 1.0f, 1.0f); //resetaear. Esto es para que no se guarden los otros colores activados
-    
+   
     if(gameState == 0)
     {
+        
         fondoPrincipal();
         /*Menu principal*/
         drawMenuPrincipal();
@@ -849,9 +839,13 @@ int main(int argc, char** argv)
     windowID = glutCreateWindow("Hey World!");
     //DISPLAY CALLBACK
     glutDisplayFunc(displayMain);
+    
     init();
     initWindows(); //KEYBOARD AND MOUSE CALLBACKS
 
+    //cursor
+     glutSetCursor(GLUT_CURSOR_INFO);
+    
     //mouse
     glutTimerFunc(0,timer,0);
     glutMainLoop();

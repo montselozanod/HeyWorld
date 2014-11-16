@@ -54,20 +54,20 @@ void Game::createDeck()
     switch (difficulty)
     {
         case 0:
-            flag = (std::vector<Flag>) deckLevel.getFlagDeck(difficulty);
+            flag = (std::vector<Flag>) deckLevel.getTouristDeck();
             for (int i = 0; i < flag.size(); i++) {
                 gameSprites.push_back(new Flag(flag[i]));
             }
             break;
             
         case 1:
-            chara = (std::vector<Character>) deckLevel.getCharacterDeck(difficulty);
+            chara = (std::vector<Character>) deckLevel.getAgentDeck();
             for (int i = 0; i < chara.size(); i++) {
                 gameSprites.push_back(new Character(chara[i]));
             }
             break;
         case 2:
-            mon = (std::vector<Monument>) deckLevel.getMonumentDeck(difficulty);
+            mon = (std::vector<Monument>) deckLevel.getGuruDeck();
             for (int i = 0; i < mon.size(); i++) {
                 gameSprites.push_back(new Monument(mon[i]));
             }
@@ -76,14 +76,59 @@ void Game::createDeck()
     }
 }
 
+//Makes the image into a texture, and returns the id of the texture
+void Game::loadTexture(Image* image,int k)
+{
+    
+    glBindTexture(GL_TEXTURE_2D, textures[k]); //Tell OpenGL which texture to edit
+    
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER,GL_NEAREST);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER,GL_NEAREST);
+    
+    
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER,GL_LINEAR);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER,GL_LINEAR);
+    
+    //Map the image to the texture
+    glTexImage2D(GL_TEXTURE_2D,                //Always GL_TEXTURE_2D
+                 0,                            //0 for now
+                 GL_RGB,                       //Format OpenGL uses for image
+                 image->width, image->height,  //Width and height
+                 0,                            //The border of the image
+                 GL_RGB, //GL_RGB, because pixels are stored in RGB format
+                 GL_UNSIGNED_BYTE, //GL_UNSIGNED_BYTE, because pixels are stored
+                 //as unsigned numbers
+                 image->pixels);               //The actual pixel data
+    
+}
+
+void Game::initRenderImages()
+{
+    GLuint i=0;
+    GLfloat ambientLight[] = {0.2f, 0.2f, 0.2f, 1.0f};
+    glLightModelfv(GL_LIGHT_MODEL_AMBIENT, ambientLight);
+    glEnable(GL_DEPTH_TEST);
+    
+    glGenTextures(11, textures); //Make room for our texture
+   Image* image;
+    for(int i = 0; i < gameSprites.size(); i++)
+    {
+        std::cout<<gameSprites[i]->getImgName()<<std::endl;
+        
+        image = loadBMP(gameSprites[i]->getImgName());loadTexture(image,i++);
+    }
+}
+
 void Game::startGame()
 {
     createDeck();
     shuffleSprites();
+    initRenderImages();
     //cubo.openCube();
-    cubo.rotateCube(); //Empezar a rotar el cubo del lado derecho
-    
-    
+   cubo.rotateCube();
+
     for(int i = 0; i < gameSprites.size(); i++)
     {
         std::cout<<gameSprites[i]->countryCode<<std::endl;
