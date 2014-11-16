@@ -15,29 +15,120 @@ Cube::Cube()
 
 void Cube::drawCube()
 {
-    //toda la caja
+    
     glPushMatrix();
     glRotated(angleBox, 0, 1, 0);
-    //parta baja
-    glPushMatrix();
-    // glColor3f(0.0, 1.0, 0.0);
-    // glutSolidCube(1.0);
-    glColor3f(1.0, 1.0, 1.0);
-    glutWireCube(1.0);
-    glPopMatrix();
+    
+    // Parte de Atras del cubo
+    glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE_SGIS);
+    glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
+    //glBindTexture(GL_TEXTURE_2D,texName[7]);
+    glBegin(GL_QUADS);
+    glNormal3f( 0.0f, 0.0f,-1.0f);
+    glTexCoord2f(0.0f, 0.0f);
+    glVertex3f(-1.0f, -1.0f, -1.0f);
+    glTexCoord2f(1.0f, 0.0f);
+    glVertex3f(-1.0f,  1.0f, -1.0f);
+    glTexCoord2f(1.0f, 1.0f);
+    glVertex3f( 1.0f,  1.0f, -1.0f);
+    glTexCoord2f(0.0f, 1.0f);
+    glVertex3f( 1.0f, -1.0f, -1.0f);
+    glEnd();
+    
+
+    
+    // Parte de Abajo del cubo
+    glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE_SGIS);
+    glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);
+   // glBindTexture(GL_TEXTURE_2D,texName[9]);
+    glBegin(GL_QUADS);
+    glNormal3f( 0.0f,-1.0f, 0.0f);
+    glTexCoord2f(0.0f, 0.0f);
+    glVertex3f(-1.0f, -1.0f, -1.0f);
+    glTexCoord2f(1.0f, 0.0f);
+    glVertex3f( 1.0f, -1.0f, -1.0f);
+    glTexCoord2f(1.0f, 1.0f);
+    glVertex3f( 1.0f, -1.0f,  1.0f);
+    glTexCoord2f(0.0f, 1.0f);
+    glVertex3f(-1.0f, -1.0f,  1.0f);
+    glEnd();
+    
+    // Parte de lado Derecho del cubo
+    glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE_SGIS);
+    glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE_SGIS);
+    
+    //glBindTexture(GL_TEXTURE_2D,texName[10]);
+    glBegin(GL_QUADS);
+    glNormal3f( 1.0f, 0.0f, 0.0f);
+    glTexCoord2f(0.0f, 0.0f);
+    glVertex3f( 1.0f, -1.0f, -1.0f);
+    glTexCoord2f(1.0f, 0.0f);
+    glVertex3f( 1.0f,  1.0f, -1.0f);
+    glTexCoord2f(1.0f, 1.0f);
+    glVertex3f( 1.0f,  1.0f,  1.0f);
+    glTexCoord2f(0.0f, 1.0f);
+    glVertex3f( 1.0f, -1.0f,  1.0f);
+    glEnd();
+    
+    // Lado Izquierdo del cubo
+    glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_MIRRORED_REPEAT);
+    glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_MIRRORED_REPEAT);
+    //glBindTexture(GL_TEXTURE_2D,texName[11]);
+    glBegin(GL_QUADS);
+    glNormal3f(-1.0f, 0.0f, 0.0f);
+    glTexCoord2f(0.0f,0.0f);
+    glVertex3f(-1.0f, -1.0f, -1.0f);
+    glTexCoord2f(0.0f,1.0f);
+    glVertex3f(-1.0f, -1.0f,  1.0f);
+    glTexCoord2f(1.0f,1.0f);
+    glVertex3f(-1.0f,  1.0f,  1.0f);
+    glTexCoord2f(0.0f,1.0f);
+    glVertex3f(-1.0f,  1.0f, -1.0f);
+    glEnd();
+    
+
+
+    
+//    //toda la caja
+//    glPushMatrix();
+//    glRotated(angleBox, 0, 1, 0);
+//    //parta baja
+//    glPushMatrix();
+//    // glColor3f(0.0, 1.0, 0.0);
+//    // glutSolidCube(1.0);
+//    glColor3f(1.0, 1.0, 1.0);
+//    glutWireCube(1.0);
+//    glPopMatrix();
     
     //parte para abrir
     glPushMatrix();
     glRotated(angleTop, 1, 0, 0);
     glTranslated(0, 0.6, 0);
     glScalef(1.0, 0.25, 1.0);
-    glColor3f(0.0, 1.00, 0);
-    glutSolidCube(1);
-    glColor3f(1.0, 1.0, 1.0);
-    glutWireCube(1);
-    glPopMatrix();
+    
+    glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE_SGIS);
+    glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);
+    //glBindTexture(GL_TEXTURE_2D,texName[8]);
+    glBegin(GL_QUADS);
+    glNormal3f( 0.0f, 1.0f, 0.0f);
+    glTexCoord2f(0.0f, 0.0f);
+    glVertex3f(-1.0f,  1.0f, -1.0f);
+    glTexCoord2f(1.0f, 0.0f);
+    glVertex3f(-1.0f,  1.0f,  1.0f);
+    glTexCoord2f(1.0f, 1.0f);
+    glVertex3f( 1.0f,  1.0f,  1.0f);
+    glTexCoord2f(0.0f,1.0f);
+    glVertex3f( 1.0f,  1.0f, -1.0f);
+    glEnd();
+    
+    //glPopMatrix();
     
     glPopMatrix();
+     glPopMatrix();
+    
+    
+    
+    
 }
 
 void Cube::animationBox(int v)
@@ -46,21 +137,24 @@ void Cube::animationBox(int v)
     {
         if(angleTop > 0)
         {
-            angleTop--;
-            glutTimerFunc(50, animationBox, 0);
+            angleTop=angleTop-5;
+            glutTimerFunc(10, animationBox, 0);
             
         }
         else
             angleTop = 0;
     }else if (v == 1) //rotar caja
     {
-        if(angleBox < 90)
+        if(angleBox < 180)
         {
-            angleBox++;
-            glutTimerFunc(50, animationBox, 1);
+            angleBox=angleBox+10;
+            glutTimerFunc(10, animationBox, 1);
         }
         else
+        {
             angleBox = 0;
+            openCube();
+        }
     }
     glutPostRedisplay();
 }

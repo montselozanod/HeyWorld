@@ -80,8 +80,8 @@ void Game::startGame()
 {
     createDeck();
     shuffleSprites();
-    cubo.openCube();
-   // cubo.rotateCube();
+    //cubo.openCube();
+    cubo.rotateCube(); //Empezar a rotar el cubo del lado derecho
     
     
     for(int i = 0; i < gameSprites.size(); i++)
@@ -158,7 +158,7 @@ bool Game::checkSprite(int codeCountry)
 void Game::draw()
 {
     
-    cubo.drawCube();
+    cubo.drawCube(); //Dibujar cubo del lado derecho
     
 }
 

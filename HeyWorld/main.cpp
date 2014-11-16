@@ -52,6 +52,8 @@ float posY = 0.0;
 int numContinente = 0; //1.America 2.Asia 3.Europa 4.Africa.. Esto es para saber qué vector agarramos
 float contPaises = 10; //Variable para utilizar.. tiene la cantidad de paises en base al país seleccionado
 World *continente = new World();
+bool correcto;
+
 /**/
 
 // GAMESTATE
@@ -156,7 +158,23 @@ void renderSubWindowSprite()
     //pintar textura de agua
     //fondoAzul();
 
+    glPushMatrix();
+    glMatrixMode(GL_MODELVIEW);//dejar activa son todas las traslaciones, escalaciones
+    glLoadIdentity();//que no tenga ninguna transformación
+    gluLookAt(0, 0, 3, 0, 0, 0, 0, .1, 0);//movemos camara para que se vea el mapa
+
+    
+    glPushMatrix();
+    glEnable(GL_TEXTURE_2D);
+    glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE_SGIS);
+    glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
+    glBindTexture(GL_TEXTURE_2D,texName[9]);
+    
     game.draw(); //Dibujar caja de objetos
+    glPopMatrix();
+    glPopMatrix();
+    glDisable(GL_TEXTURE_2D);
+    
     glutSwapBuffers();
     
     glutSetWindow(subWindowMap);
@@ -653,11 +671,12 @@ void callback(int x, int y)
     float openGL_X = (x - 500.00)/500.00;
     float openGL_Y = (300.00 - y) / 300.00;
     int code = 0;
+    
     cout << "En donde di clic: " << openGL_X << ", " << openGL_Y <<"\n";
     
     code = verificaPin(openGL_X,openGL_Y);
     cout << "El codigo es: " << code << "\n";
-    //Aqui se manda llamar la funcion de monste que diga si si esta correcto o no procedimiento(code)
+    //Aqui se manda llamar la funcion de montse que diga si si esta correcto o no procedimiento(code)
 }
 
 void mouse(int button, int state, int x, int y){

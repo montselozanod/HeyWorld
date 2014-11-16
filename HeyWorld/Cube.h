@@ -20,10 +20,11 @@ class Cube
 {
 private:
     static void animationBox(int v);
+    static void openCube();
 public:
     Cube();
     void drawCube();
-    void openCube();
+    //void openCube();
     void closeCube();
     void rotateCube();
 };
