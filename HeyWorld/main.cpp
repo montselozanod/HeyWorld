@@ -510,7 +510,6 @@ void despliegaPines()
 
 void despliegaMapa(int mapa)
 {
-    glutSetCursor(GLUT_CURSOR_INFO); //cursor manita
     /*Fondo azul con negro*/
     glPushMatrix();
     glMatrixMode(GL_MODELVIEW);//dejar activa son todas las traslaciones, escalaciones
@@ -674,17 +673,16 @@ void displayMain()
     //glClear(GL_COLOR_BUFFER_BIT);
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
     glColor3f(1.0f, 1.0f, 1.0f); //resetaear. Esto es para que no se guarden los otros colores activados
-    
+   
     if(gameState == 0)
     {
-        glutSetCursor(GLUT_CURSOR_INFO);
+        
         fondoPrincipal();
         /*Menu principal*/
         drawMenuPrincipal();
         
     }else if(gameState == 1)
     {
-        glutSetCursor(GLUT_CURSOR_INFO);
         fondoPrincipal();
         drawMenuDificultad();
     }else if(gameState == 2)
@@ -822,9 +820,13 @@ int main(int argc, char** argv)
     windowID = glutCreateWindow("Hey World!");
     //DISPLAY CALLBACK
     glutDisplayFunc(displayMain);
+    
     init();
     initWindows(); //KEYBOARD AND MOUSE CALLBACKS
 
+    //cursor
+     glutSetCursor(GLUT_CURSOR_INFO);
+    
     //mouse
     glutTimerFunc(0,timer,0);
     glutMainLoop();
