@@ -205,6 +205,13 @@ void Game::draw()
     
     cubo.drawCube(); //Dibujar cubo del lado derecho
     
+    //Mandar llamar una bandera
+    glPushMatrix();
+    glEnable(GL_TEXTURE_2D);
+    glBindTexture(GL_TEXTURE_2D, textures[0]);
+    gameSprites[0] -> drawSprite();
+    glPopMatrix();
+    glDisable(GL_TEXTURE_2D);
 }
 
 void Game::finishGame()

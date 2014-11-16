@@ -70,7 +70,6 @@
 		B0D306801A12DDB300605C44 /* alemania.bmp */ = {isa = PBXFileReference; lastKnownFileType = image.bmp; path = alemania.bmp; sourceTree = "<group>"; };
 		B0D306811A12DDB300605C44 /* argentina.bmp */ = {isa = PBXFileReference; lastKnownFileType = image.bmp; path = argentina.bmp; sourceTree = "<group>"; };
 		B0D306821A12DDB300605C44 /* bandera guatemala.bmp */ = {isa = PBXFileReference; lastKnownFileType = image.bmp; path = "bandera guatemala.bmp"; sourceTree = "<group>"; };
-		B0D306831A12DDB300605C44 /* bandera inglaterra.bmp */ = {isa = PBXFileReference; lastKnownFileType = image.bmp; path = "bandera inglaterra.bmp"; sourceTree = "<group>"; };
 		B0D306841A12DDB300605C44 /* brasil.bmp */ = {isa = PBXFileReference; lastKnownFileType = image.bmp; path = brasil.bmp; sourceTree = "<group>"; };
 		B0D306851A12DDB300605C44 /* canada.bmp */ = {isa = PBXFileReference; lastKnownFileType = image.bmp; path = canada.bmp; sourceTree = "<group>"; };
 		B0D306861A12DDB300605C44 /* chile.bmp */ = {isa = PBXFileReference; lastKnownFileType = image.bmp; path = chile.bmp; sourceTree = "<group>"; };
@@ -234,7 +233,6 @@
 				B0D306801A12DDB300605C44 /* alemania.bmp */,
 				B0D306811A12DDB300605C44 /* argentina.bmp */,
 				B0D306821A12DDB300605C44 /* bandera guatemala.bmp */,
-				B0D306831A12DDB300605C44 /* bandera inglaterra.bmp */,
 				B0D306841A12DDB300605C44 /* brasil.bmp */,
 				B0D306851A12DDB300605C44 /* canada.bmp */,
 				B0D306861A12DDB300605C44 /* chile.bmp */,
