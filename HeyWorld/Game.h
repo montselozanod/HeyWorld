@@ -26,12 +26,14 @@ class Game
     void initRenderImages();
     void loadTexture(Image* image, int k);
     int numRondas;
+    bool userClicked;
     //int typeGame;
     int difficulty;
     LevelDeck deckLevel;
     bool endGame;
     bool win;
     GLuint textures[30];
+    bool checkSprite(int codeCountry);
     User user;
     Cube cubo;
     
@@ -45,7 +47,7 @@ class Game
     void finishGame();
     void draw();
     void showSprite();
-    bool checkSprite(int codeCountry);
+    void mapClick(int codeCountry);
 
 };
 

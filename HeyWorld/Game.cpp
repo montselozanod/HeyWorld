@@ -25,6 +25,7 @@ Game::Game()
     endGame = false;
     win = false;
     cubo = Cube();
+    userClicked = false;
 }
 
 Game::Game(int diff)
@@ -33,6 +34,7 @@ Game::Game(int diff)
     difficulty = diff;
     endGame = false;
     win = false;
+    userClicked = false;
 }
 
 void Game::setDifficultyGame(int dif)
@@ -126,16 +128,7 @@ void Game::startGame()
     createDeck();
     shuffleSprites();
     initRenderImages();
-    //cubo.openCube();
-   cubo.rotateCube();
-
-    for(int i = 0; i < gameSprites.size(); i++)
-    {
-        std::cout<<gameSprites[i]->countryCode<<std::endl;
-        //std::cout<<mon->getName()<<std::endl;
-    }
-    
-    
+    playGame();
 }
 
 void Game::shuffleSprites()
@@ -168,34 +161,38 @@ void Game::showSprite()
 
 void Game::playGame()
 {
-    while(!endGame)
-    {
+    if(!endGame)
+      {
         if(user.isPlayerAlive())
         {
-            showSprite();
-            
-            
-            //llamar a checkSprite
-            
-            numRondas++;
+            cubo.rotateCube();
+
         }else
         {
             endGame = true;
         }
     
-    }
-    
-    finishGame();
+      }else
+          finishGame();
+}
+
+void Game::mapClick(int codeCountry)
+{
+    userClicked = true;
+    checkSprite(codeCountry);
 }
 
 bool Game::checkSprite(int codeCountry)
 {
-    if(gameSprites[numRondas]->countryCode == codeCountry)
+    Sprite *current = gameSprites.front();
+    if(current->countryCode == codeCountry)
     {
         user.numberPoints++;
+        std::cout<<"correct";
         return true;
     }else{
         user.deleteVisa();
+        std::cout<<"wrong";
         return false;
     }
 }

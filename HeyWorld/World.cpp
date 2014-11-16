@@ -21,6 +21,8 @@ World::World()
     _america.push_back(Country("Brasil", 14, "Brasilia", AMERICA, 0.3, -0.25, -.14,  -.08, -0.46, -0.363333 ));
     _america.push_back(Country("Argentina", 7, "Buenos Aires", AMERICA, 0.13, -0.36, -.304,  -.244, -0.636667, -0.54 ));
     _america.push_back(Country("Chile", 17, "Santiago de Chile", AMERICA, 0.07, -0.36, -0.356,  -0.318, -0.63, -0.5266 ));
+    _america.push_back(Country("Ecuador", 64, "Quito", AMERICA, 0.0, -0.16, -.428,  -.376, -0.2933, -0.22 ));
+
     
     
     
@@ -34,7 +36,8 @@ World::World()
     _africa.push_back(Country("Congo", 61, "Brazzaville", AFRICA, 0.13,-0.12,-0.3,-0.246,-0.25,-0.153));
     _africa.push_back(Country("Ghana", 62, "Acra", AFRICA, -0.26,0.06,-0.676,-0.622,0.0433,0.13));
     _africa.push_back(Country("Nigeria", 63, "Abuya", AFRICA, -0.15,0.08,-0.57,-0.518,0.09,0.17667));
-
+    
+    _asia.push_back(Country("Rusia", 53, "Moscú", ASIA, 0,0,0,0,0,0));
     
    // _africa.push_back(Country("China", 18, "Beijing",AFRICA,0.13, -0.24, -.302,  -.246, -0.44, -0.34333));
     // _asia.push_back(Country("China", 18, "Beijing", "EA",0.0,0.0));

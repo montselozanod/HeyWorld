@@ -50,7 +50,7 @@ float radiusPin = .03;
 float posX = 0.0;
 float posY = 0.0;
 int numContinente = 0; //1.America 2.Asia 3.Europa 4.Africa.. Esto es para saber qué vector agarramos
-float contPaises = 10; //Variable para utilizar.. tiene la cantidad de paises en base al país seleccionado
+float contPaises = 11; //Variable para utilizar.. tiene la cantidad de paises en base al país seleccionado
 World *continente = new World();
 bool correcto;
 
@@ -150,12 +150,12 @@ void renderSubWindowSprite()
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
     
     //pintar textura de agua
-    //fondoAzul();
+    fondoAzul();
 
     glPushMatrix();
     glMatrixMode(GL_MODELVIEW);//dejar activa son todas las traslaciones, escalaciones
     glLoadIdentity();//que no tenga ninguna transformación
-    gluLookAt(0, 0, 3, 0, 0, 0, 0, .1, 0);//movemos camara para que se vea el mapa
+    gluLookAt(0, 0, 5, 0, 0, 0, 0, .1, 0);//movemos camara para que se vea el mapa
 
     
     glPushMatrix();
@@ -355,17 +355,17 @@ void initRendering()
     // glEnable(GL_COLOR_MATERIAL);
     glGenTextures(11, texName); //Make room for our texture
     Image* image;
-    /*image = loadBMP("/Users/mariamontserratlozano/Documents/Carrera 7/Graficas/HeyWorld/HeyWorld/estrellas.bmp");loadTexture(image,i++);
-    image = loadBMP("/Users/mariamontserratlozano/Documents/Carrera 7/Graficas/HeyWorld/HeyWorld/map.bmp");loadTexture(image,i++);
-    image = loadBMP("/Users/mariamontserratlozano/Documents/Carrera 7/Graficas/HeyWorld/HeyWorld/Mapamundi.bmp");loadTexture(image,i++);
-    image = loadBMP("/Users/mariamontserratlozano/Documents/Carrera 7/Graficas/HeyWorld/HeyWorld/pin2.bmp");loadTexture(image,i++); //ARREGLAR
-    image = loadBMP("/Users/mariamontserratlozano/Documents/Carrera 7/Graficas/HeyWorld/HeyWorld/america.bmp");loadTexture(image,i++);
-    image = loadBMP("/Users/mariamontserratlozano/Documents/Carrera 7/Graficas/HeyWorld/HeyWorld/asia.bmp");loadTexture(image,i++);
-    image = loadBMP("/Users/mariamontserratlozano/Documents/Carrera 7/Graficas/HeyWorld/HeyWorld/europa.bmp");loadTexture(image,i++);
-    image = loadBMP("/Users/mariamontserratlozano/Documents/Carrera 7/Graficas/HeyWorld/HeyWorld/africa.bmp");loadTexture(image,i++);
-    image = loadBMP("/Users/mariamontserratlozano/Documents/Carrera 7/Graficas/HeyWorld/HeyWorld/blocks.bmp");loadTexture(image,i++);
-    image = loadBMP("/Users/mariamontserratlozano/Documents/Carrera 7/Graficas/HeyWorld/HeyWorld/madera.bmp");loadTexture(image,i++);
-    image = loadBMP("/Users/mariamontserratlozano/Documents/Carrera 7/Graficas/HeyWorld/HeyWorld/water.bmp");loadTexture(image,i++);*/
+//    image = loadBMP("/Users/mariamontserratlozano/Documents/Carrera 7/Graficas/HeyWorld/HeyWorld/estrellas.bmp");loadTexture(image,i++);
+//    image = loadBMP("/Users/mariamontserratlozano/Documents/Carrera 7/Graficas/HeyWorld/HeyWorld/map.bmp");loadTexture(image,i++);
+//    image = loadBMP("/Users/mariamontserratlozano/Documents/Carrera 7/Graficas/HeyWorld/HeyWorld/Mapamundi.bmp");loadTexture(image,i++);
+//    image = loadBMP("/Users/mariamontserratlozano/Documents/Carrera 7/Graficas/HeyWorld/HeyWorld/pin2.bmp");loadTexture(image,i++); //ARREGLAR
+//    image = loadBMP("/Users/mariamontserratlozano/Documents/Carrera 7/Graficas/HeyWorld/HeyWorld/america.bmp");loadTexture(image,i++);
+//    image = loadBMP("/Users/mariamontserratlozano/Documents/Carrera 7/Graficas/HeyWorld/HeyWorld/asia.bmp");loadTexture(image,i++);
+//    image = loadBMP("/Users/mariamontserratlozano/Documents/Carrera 7/Graficas/HeyWorld/HeyWorld/europa.bmp");loadTexture(image,i++);
+//    image = loadBMP("/Users/mariamontserratlozano/Documents/Carrera 7/Graficas/HeyWorld/HeyWorld/africa.bmp");loadTexture(image,i++);
+//    image = loadBMP("/Users/mariamontserratlozano/Documents/Carrera 7/Graficas/HeyWorld/HeyWorld/blocks.bmp");loadTexture(image,i++);
+//    image = loadBMP("/Users/mariamontserratlozano/Documents/Carrera 7/Graficas/HeyWorld/HeyWorld/madera.bmp");loadTexture(image,i++);
+//    image = loadBMP("/Users/mariamontserratlozano/Documents/Carrera 7/Graficas/HeyWorld/HeyWorld/water.bmp");loadTexture(image,i++);
     image = loadBMP("/Users/arianacisneros/Desktop/Fotos/estrellas.bmp");loadTexture(image,i++);
     image = loadBMP("/Users/arianacisneros/Desktop/Fotos/map.bmp");loadTexture(image,i++);
     image = loadBMP("/Users/arianacisneros/Desktop/Fotos/Mapamundi.bmp");loadTexture(image,i++);
@@ -480,8 +480,8 @@ void despliegaPines()
                 break;
             case 2: //Asia
                 //posiciones de los pines
-               // posX =  continente -> _asia[i].posX;
-               // posY = continente -> _asia[i].posY;
+                posX =  continente -> _asia[i].posX;
+                posY = continente -> _asia[i].posY;
                 break;
             case 3: //Europa
                 // posX =  continente -> _europa[i].posX;
@@ -650,16 +650,20 @@ int verificaPin(float clicx, float clicy)
 
 void callback(int x, int y)
 {
-    //mapear coordenadas de glut a openGL
-    float openGL_X = (x - 500.00)/500.00;
-    float openGL_Y = (300.00 - y) / 300.00;
-    int code = 0;
+    if(gameState == 2)
+    {
+        //mapear coordenadas de glut a openGL
+        float openGL_X = (x - 500.00)/500.00;
+        float openGL_Y = (300.00 - y) / 300.00;
+        int code = 0;
 
-    std::cout << "En donde di clic: " << openGL_X << ", " << openGL_Y <<"\n";
+        std::cout << "En donde di clic: " << openGL_X << ", " << openGL_Y <<"\n";
     
-    code = verificaPin(openGL_X,openGL_Y);
-    std::cout << "El codigo es: " << code << "\n";
-    //Aqui se manda llamar la funcion de monste que diga si si esta correcto o no procedimiento(code)
+        code = verificaPin(openGL_X,openGL_Y);
+        std::cout << "El codigo es: " << code << "\n";
+        //Aqui se manda llamar la funcion de monste que diga si si esta correcto o no procedimiento(code)
+        game.mapClick(code);
+    }
 }
 
 void mouse(int button, int state, int x, int y){

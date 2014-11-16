@@ -35,26 +35,27 @@ std::vector<Flag> LevelDeck::getTouristDeck()
     touristDeck.push_back(*new Flag("/Users/arianacisneros/Desktop/GraficasComputacionales/proyecto/HeyWorld/HeyWorld/banderas/venezuela.bmp",58)); //venezuela
 
     
-//    //tourist
-//    touristDeck.push_back(*new Flag("/Users/mariamontserratlozano/Documents/Carrera 7/Graficas/HeyWorld/HeyWorld/banderas/mexico.bmp",42)); //mexico
-//    touristDeck.push_back(*new Flag("/Users/mariamontserratlozano/Documents/Carrera 7/Graficas/HeyWorld/HeyWorld/banderas/eua.bmp",28)); //estados Uniods
-//    touristDeck.push_back(*new Flag("/Users/mariamontserratlozano/Documents/Carrera 7/Graficas/HeyWorld/HeyWorld/banderas/canada.bmp",16)); //canada
-//    touristDeck.push_back(*new Flag("/Users/mariamontserratlozano/Documents/Carrera 7/Graficas/HeyWorld/HeyWorld/banderas/francia.bmp",29)); //FRANCIA
-//    touristDeck.push_back(*new Flag("/Users/mariamontserratlozano/Documents/Carrera 7/Graficas/HeyWorld/HeyWorld/banderas/espana.bmp",27)); //españa
-//    touristDeck.push_back(*new Flag("/Users/mariamontserratlozano/Documents/Carrera 7/Graficas/HeyWorld/HeyWorld/banderas/brasil.bmp",14)); //Brasil
-//    touristDeck.push_back(*new Flag("/Users/mariamontserratlozano/Documents/Carrera 7/Graficas/HeyWorld/HeyWorld/banderas/argentina.bmp",7)); //ARGENTINA
-//    touristDeck.push_back(*new Flag("/Users/mariamontserratlozano/Documents/Carrera 7/Graficas/HeyWorld/HeyWorld/banderas/alemania.bmp",4)); //ALEMANIA
-//    touristDeck.push_back(*new Flag("/Users/mariamontserratlozano/Documents/Carrera 7/Graficas/HeyWorld/HeyWorld/banderas/china.bmp",18)); //CHINA
-//    touristDeck.push_back(*new Flag("/Users/mariamontserratlozano/Documents/Carrera 7/Graficas/HeyWorld/HeyWorld/banderas/rusia.bmp",53)); //RUSIA
-//    touristDeck.push_back(*new Flag("/Users/mariamontserratlozano/Documents/Carrera 7/Graficas/HeyWorld/HeyWorld/banderas/chile.bmp",17)); //chile
-//     touristDeck.push_back(*new Flag("/Users/mariamontserratlozano/Documents/Carrera 7/Graficas/HeyWorld/HeyWorld/banderas/egipto.bmp",25)); //egipto
-//    touristDeck.push_back(*new Flag("/Users/mariamontserratlozano/Documents/Carrera 7/Graficas/HeyWorld/HeyWorld/banderas/peru.bmp",48)); //peru
-//    touristDeck.push_back(*new Flag("/Users/mariamontserratlozano/Documents/Carrera 7/Graficas/HeyWorld/HeyWorld/banderas/portugal.bmp",49)); //portugal
-//    touristDeck.push_back(*new Flag("/Users/mariamontserratlozano/Documents/Carrera 7/Graficas/HeyWorld/HeyWorld/banderas/inglaterra.bmp",51)); //inglaterra
-//    touristDeck.push_back(*new Flag("/Users/mariamontserratlozano/Documents/Carrera 7/Graficas/HeyWorld/HeyWorld/banderas/japon.bmp",38)); //japón
-//    touristDeck.push_back(*new Flag("/Users/mariamontserratlozano/Documents/Carrera 7/Graficas/HeyWorld/HeyWorld/banderas/colombia.bmp",19)); //colombia
-//    touristDeck.push_back(*new Flag("/Users/mariamontserratlozano/Documents/Carrera 7/Graficas/HeyWorld/HeyWorld/banderas/ecuador.bmp",64)); //ecuador
-//    touristDeck.push_back(*new Flag("/Users/mariamontserratlozano/Documents/Carrera 7/Graficas/HeyWorld/HeyWorld/banderas/venezuela.bmp",58)); //venezuela
+    //tourist
+  /*  touristDeck.push_back(*new Flag("/Users/mariamontserratlozano/Documents/Carrera 7/Graficas/HeyWorld/HeyWorld/banderas/mexico.bmp",42)); //mexico
+    touristDeck.push_back(*new Flag("/Users/mariamontserratlozano/Documents/Carrera 7/Graficas/HeyWorld/HeyWorld/banderas/eua.bmp",28)); //estados Uniods
+    touristDeck.push_back(*new Flag("/Users/mariamontserratlozano/Documents/Carrera 7/Graficas/HeyWorld/HeyWorld/banderas/canada.bmp",16)); //canada
+    touristDeck.push_back(*new Flag("/Users/mariamontserratlozano/Documents/Carrera 7/Graficas/HeyWorld/HeyWorld/banderas/francia.bmp",29)); //FRANCIA
+    touristDeck.push_back(*new Flag("/Users/mariamontserratlozano/Documents/Carrera 7/Graficas/HeyWorld/HeyWorld/banderas/espana.bmp",27)); //españa
+    touristDeck.push_back(*new Flag("/Users/mariamontserratlozano/Documents/Carrera 7/Graficas/HeyWorld/HeyWorld/banderas/brasil.bmp",14)); //Brasil
+    touristDeck.push_back(*new Flag("/Users/mariamontserratlozano/Documents/Carrera 7/Graficas/HeyWorld/HeyWorld/banderas/argentina.bmp",7)); //ARGENTINA
+    touristDeck.push_back(*new Flag("/Users/mariamontserratlozano/Documents/Carrera 7/Graficas/HeyWorld/HeyWorld/banderas/alemania.bmp",4)); //ALEMANIA
+    touristDeck.push_back(*new Flag("/Users/mariamontserratlozano/Documents/Carrera 7/Graficas/HeyWorld/HeyWorld/banderas/china.bmp",18)); //CHINA
+    touristDeck.push_back(*new Flag("/Users/mariamontserratlozano/Documents/Carrera 7/Graficas/HeyWorld/HeyWorld/banderas/rusia.bmp",53)); //RUSIA
+    touristDeck.push_back(*new Flag("/Users/mariamontserratlozano/Documents/Carrera 7/Graficas/HeyWorld/HeyWorld/banderas/chile.bmp",17)); //chile
+     touristDeck.push_back(*new Flag("/Users/mariamontserratlozano/Documents/Carrera 7/Graficas/HeyWorld/HeyWorld/banderas/egipto.bmp",25)); //egipto
+    touristDeck.push_back(*new Flag("/Users/mariamontserratlozano/Documents/Carrera 7/Graficas/HeyWorld/HeyWorld/banderas/peru.bmp",48)); //peru
+    touristDeck.push_back(*new Flag("/Users/mariamontserratlozano/Documents/Carrera 7/Graficas/HeyWorld/HeyWorld/banderas/portugal.bmp",49)); //portugal
+    touristDeck.push_back(*new Flag("/Users/mariamontserratlozano/Documents/Carrera 7/Graficas/HeyWorld/HeyWorld/banderas/inglaterra.bmp",51)); //inglaterra
+    touristDeck.push_back(*new Flag("/Users/mariamontserratlozano/Documents/Carrera 7/Graficas/HeyWorld/HeyWorld/banderas/japon.bmp",38)); //japón
+    touristDeck.push_back(*new Flag("/Users/mariamontserratlozano/Documents/Carrera 7/Graficas/HeyWorld/HeyWorld/banderas/colombia.bmp",19)); //colombia
+    touristDeck.push_back(*new Flag("/Users/mariamontserratlozano/Documents/Carrera 7/Graficas/HeyWorld/HeyWorld/banderas/ecuador.bmp",64)); //ecuador
+    touristDeck.push_back(*new Flag("/Users/mariamontserratlozano/Documents/Carrera 7/Graficas/HeyWorld/HeyWorld/banderas/venezuela.bmp",58)); //venezuela
+    */
 //    touristDeck.push_back(*new Flag(50)); //polonia
 //    touristDeck.push_back(*new Flag(55)); //suiza
 //    touristDeck.push_back(*new Flag(23)); //cuba
