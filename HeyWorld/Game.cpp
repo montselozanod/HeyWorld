@@ -161,6 +161,7 @@ void Game::showSprite()
 
 void Game::playGame()
 {
+<<<<<<< HEAD
     if(!endGame)
       {
         if(user.isPlayerAlive())
@@ -174,6 +175,22 @@ void Game::playGame()
     
       }else
           finishGame();
+=======
+//    while(!endGame)
+//    {
+//        if(user.isPlayerAlive())
+//        {
+            cubo.rotateCube();
+
+//        }else
+//        {
+//            endGame = true;
+//        }
+//    
+//    }
+//    
+//    finishGame();
+>>>>>>> 980077a5fca7f9e6ea6dbea21ef2099bc372973f
 }
 
 void Game::mapClick(int codeCountry)
