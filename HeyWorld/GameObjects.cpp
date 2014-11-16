@@ -10,12 +10,12 @@
 
 #pragma mark Sprite
 
-std::string Sprite::getImgName()
+char* Sprite::getImgName()
 {
     return imgPathName;
 }
 
-void Sprite::setImgName(std::string name)
+void Sprite::setImgName(char* name)
 {
     imgPathName = name;
 }

@@ -6,8 +6,8 @@
 //  Copyright (c) 2014 Montserrat Lozano Dieck. All rights reserved.
 //
 
-#ifndef __HeyWorld__DealGame__
-#define __HeyWorld__DealGame__
+#ifndef __HeyWorld__Game__
+#define __HeyWorld__Game__
 #include "GameObjects.h"
 #include "LevelDeck.h"
 #include "User.h"

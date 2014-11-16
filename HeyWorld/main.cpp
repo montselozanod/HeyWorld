@@ -34,9 +34,9 @@ Game game;
 bool showInstructions;
 
 //MENUS
-vector<Menu> menuOptions;
-vector<Menu> menuDif;
-vector<Menu> menuContinents;
+std::vector<Menu> menuOptions;
+std::vector<Menu> menuDif;
+std::vector<Menu> menuContinents;
 int currentIndex = 0; //current index for menus;
 
 int angulo=45;
@@ -642,10 +642,10 @@ void callback(int x, int y)
     float openGL_X = (x - 500.00)/500.00;
     float openGL_Y = (300.00 - y) / 300.00;
     int code = 0;
-    cout << "En donde di clic: " << openGL_X << ", " << openGL_Y <<"\n";
+    std::cout << "En donde di clic: " << openGL_X << ", " << openGL_Y <<"\n";
     
     code = verificaPin(openGL_X,openGL_Y);
-    cout << "El codigo es: " << code << "\n";
+    std::cout << "El codigo es: " << code << "\n";
     //Aqui se manda llamar la funcion de monste que diga si si esta correcto o no procedimiento(code)
 }
 
