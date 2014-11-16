@@ -650,16 +650,20 @@ int verificaPin(float clicx, float clicy)
 
 void callback(int x, int y)
 {
-    //mapear coordenadas de glut a openGL
-    float openGL_X = (x - 500.00)/500.00;
-    float openGL_Y = (300.00 - y) / 300.00;
-    int code = 0;
+    if(gameState == 2)
+    {
+        //mapear coordenadas de glut a openGL
+        float openGL_X = (x - 500.00)/500.00;
+        float openGL_Y = (300.00 - y) / 300.00;
+        int code = 0;
 
-    std::cout << "En donde di clic: " << openGL_X << ", " << openGL_Y <<"\n";
+        std::cout << "En donde di clic: " << openGL_X << ", " << openGL_Y <<"\n";
     
-    code = verificaPin(openGL_X,openGL_Y);
-    std::cout << "El codigo es: " << code << "\n";
-    //Aqui se manda llamar la funcion de monste que diga si si esta correcto o no procedimiento(code)
+        code = verificaPin(openGL_X,openGL_Y);
+        std::cout << "El codigo es: " << code << "\n";
+        //Aqui se manda llamar la funcion de monste que diga si si esta correcto o no procedimiento(code)
+        game.mapClick(code);
+    }
 }
 
 void mouse(int button, int state, int x, int y){
