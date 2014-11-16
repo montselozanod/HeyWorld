@@ -213,18 +213,7 @@ void checkDisplayOption()
         switch(currentIndex)
         {
             case 0: //turista
-//                game = Game(currentIndex);
-//                menuDif[currentIndex].setSelected(false);
-//                currentIndex = 0;
-//                menuContinents[0].setSelected(true);
-//                gameState = 2;
-//                break;
             case 1: //agente
-//                game = Game(currentIndex);
-//                menuDif[currentIndex].setSelected(false);
-//                currentIndex = 0;
-//                gameState = 2;
-//                break;
             case 2: //guru
                 game = Game(currentIndex);
                 menuDif[currentIndex].setSelected(false);
@@ -521,6 +510,7 @@ void despliegaPines()
 
 void despliegaMapa(int mapa)
 {
+    glutSetCursor(GLUT_CURSOR_INFO); //cursor manita
     /*Fondo azul con negro*/
     glPushMatrix();
     glMatrixMode(GL_MODELVIEW);//dejar activa son todas las traslaciones, escalaciones
@@ -687,12 +677,14 @@ void displayMain()
     
     if(gameState == 0)
     {
+        glutSetCursor(GLUT_CURSOR_INFO);
         fondoPrincipal();
         /*Menu principal*/
         drawMenuPrincipal();
         
     }else if(gameState == 1)
     {
+        glutSetCursor(GLUT_CURSOR_INFO);
         fondoPrincipal();
         drawMenuDificultad();
     }else if(gameState == 2)
