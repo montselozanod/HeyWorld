@@ -154,7 +154,7 @@ void Game::playGame()
         if(user.isPlayerAlive())
         {
             cubo.rotateCube();
-            glutPostRedisplay();
+            //glutPostRedisplay();
 
         }else
         {
@@ -205,9 +205,14 @@ void Game::draw()
     //Mandar llamar una bandera
     glPushMatrix();
     glEnable(GL_TEXTURE_2D);
+    /*if (numSprite == 17) {
+        numSprite = 16;
+    }*/
     glBindTexture(GL_TEXTURE_2D, textures[numSprite]);
+    //std::cout << numSprite;
     //Sprite *current = gameSprites.back();
     gameSprites[0]-> drawSprite();
+    glutPostRedisplay();
     glPopMatrix();
     glDisable(GL_TEXTURE_2D);
 }

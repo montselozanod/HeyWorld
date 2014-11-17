@@ -87,7 +87,6 @@ void rectVerdeRojo()
     
     if(correcto && !nostart)
     glColor3f(0,1,0);//Verde
-    
     if(!correcto && !nostart)
     glColor3f(1,0,0);//rojo
     
@@ -159,12 +158,12 @@ void renderSubWindowSprite()
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
     
     //pintar textura de agua
-    fondoAzul();
+    //fondoAzul();
 
     glPushMatrix();
     glMatrixMode(GL_MODELVIEW);//dejar activa son todas las traslaciones, escalaciones
     glLoadIdentity();//que no tenga ninguna transformación
-    gluLookAt(0, 0, 5, 0, 0, 0, 0, .1, 0);//movemos camara para que se vea el mapa
+    gluLookAt(0, 0, 3, 0, 0, 0, 0, .1, 0);//movemos camara para que se vea el mapa
 
     
     glPushMatrix();
