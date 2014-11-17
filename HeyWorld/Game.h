@@ -25,7 +25,7 @@ class Game
     void createDeck();
     void initRenderImages();
     void loadTexture(Image* image, int k);
-    int numRondas;
+    int numSprite;
     bool userClicked;
     //int typeGame;
     int difficulty;
@@ -46,8 +46,7 @@ class Game
     void playGame();
     void finishGame();
     void draw();
-    void showSprite();
-    void mapClick(int codeCountry);
+    bool mapClick(int codeCountry);
 
 };
 
