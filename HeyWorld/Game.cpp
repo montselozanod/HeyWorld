@@ -127,6 +127,7 @@ void Game::startGame()
 {
     createDeck();
     shuffleSprites();
+    numSprite = (int)gameSprites.size()-1;
     initRenderImages();
     playGame();
 }
@@ -145,32 +146,20 @@ void Game::shuffleSprites()
     }
 }
 
-void Game::showSprite()
-{
-    if(!gameSprites.empty())
-    {
-        gameSprites.pop_back();
-    }
-    else
-    {
-        endGame = true;
-        win = true;
-    }
-        
-}
-
 void Game::playGame()
 {
-
     if(!endGame)
       {
+
         if(user.isPlayerAlive())
         {
             cubo.rotateCube();
+            glutPostRedisplay();
 
         }else
         {
             endGame = true;
+
         }
     
       }else
@@ -178,37 +167,47 @@ void Game::playGame()
 
 }
 
-void Game::mapClick(int codeCountry)
+bool Game::mapClick(int codeCountry)
 {
     userClicked = true;
-    checkSprite(codeCountry);
+    if(checkSprite(codeCountry))
+    {
+        //gameSprites.pop_back();
+        numSprite--;
+        glutPostRedisplay();
+        return true;
+    }else
+    {
+        std::cout<<"end";
+        return false;
+    }
 }
 
 bool Game::checkSprite(int codeCountry)
 {
-    Sprite *current = gameSprites.front();
+    Sprite *current = gameSprites[numSprite];
     if(current->countryCode == codeCountry)
     {
         user.numberPoints++;
-        std::cout<<"correct";
+        std::cout<<"correct"<<std::endl;
         return true;
     }else{
         user.deleteVisa();
-        std::cout<<"wrong";
+        std::cout<<"wrong"<<std::endl;
         return false;
     }
 }
 
 void Game::draw()
 {
-    
     cubo.drawCube(); //Dibujar cubo del lado derecho
     
     //Mandar llamar una bandera
     glPushMatrix();
     glEnable(GL_TEXTURE_2D);
-    glBindTexture(GL_TEXTURE_2D, textures[0]);
-    gameSprites[0] -> drawSprite();
+    glBindTexture(GL_TEXTURE_2D, textures[numSprite]);
+    //Sprite *current = gameSprites.back();
+    gameSprites[0]-> drawSprite();
     glPopMatrix();
     glDisable(GL_TEXTURE_2D);
 }

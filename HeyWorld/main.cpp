@@ -52,7 +52,9 @@ float posY = 0.0;
 int numContinente = 0; //1.America 2.Asia 3.Europa 4.Africa.. Esto es para saber qué vector agarramos
 float contPaises = 11; //Variable para utilizar.. tiene la cantidad de paises en base al país seleccionado
 World *continente = new World();
+////***** cambio de color rectango
 bool correcto;
+bool nostart;
 
 /**/
 
@@ -79,9 +81,16 @@ void rectVerdeRojo()
     gluLookAt(0, 0, 3, 0, 0, 0, 0, .1, 0);
 
     glPushMatrix();
+    
+    if(!correcto && nostart)
     glColor3f(0,0,0);
-    //glColor3f(0,1,0);//Verde
-    //glColor3f(1,0,0);//rojo
+    
+    if(correcto && !nostart)
+    glColor3f(0,1,0);//Verde
+    
+    if(!correcto && !nostart)
+    glColor3f(1,0,0);//rojo
+    
     glPointSize(1);
     glBegin(GL_QUADS);
     glVertex2f(-1.1,-1.2);
@@ -234,6 +243,7 @@ void checkDisplayOption()
                 gameState = 2;
                 gameManagement();
                 game.startGame();
+                nostart = true;
                 glutPostRedisplay();
                 break;
             case 3: //back
@@ -664,7 +674,8 @@ void callback(int x, int y)
         code = verificaPin(openGL_X,openGL_Y);
         std::cout << "El codigo es: " << code << "\n";
         //Aqui se manda llamar la funcion de monste que diga si si esta correcto o no procedimiento(code)
-        game.mapClick(code);
+        correcto = game.mapClick(code);
+        nostart = false;
     }
 }
 
