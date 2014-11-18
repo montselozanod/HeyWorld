@@ -115,7 +115,7 @@ void Game::initRenderImages()
 
     glGenTextures(19, textures); //Make room for our texture
    Image* image;
-    for(int j = 0; j < 19; j++)
+    for(int j = 0; j < gameSprites.size(); j++)
     {
         std::cout<<gameSprites[j]->getImgName()<<std::endl;
         
@@ -181,7 +181,6 @@ bool Game::mapClick(int codeCountry)
     {
         showSprite();
         playGame();
-        glutPostRedisplay();
         return true;
     }else
     {
