@@ -671,7 +671,7 @@ void mouse(int button, int state, int x, int y){
             if(state == GLUT_DOWN)
             {
                 callback(x,y);
-                glutPostRedisplay();
+                //glutPostRedisplay();
             }
         }
     }

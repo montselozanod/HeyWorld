@@ -179,6 +179,7 @@ bool Game::mapClick(int codeCountry)
     userClicked = true;
     if(checkSprite(codeCountry))
     {
+        cubo.closeCube();
         showSprite();
         playGame();
         return true;
