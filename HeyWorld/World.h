@@ -60,7 +60,6 @@ class World
     
     public:
     World();
-    int cont;
     std::vector <Country> _america;
     std::vector <Country> _africa;
     std::vector <Country> _asia;
