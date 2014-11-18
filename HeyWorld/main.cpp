@@ -49,8 +49,7 @@ bool arrPines[2]={false,false};
 float radiusPin = .03;
 float posX = 0.0;
 float posY = 0.0;
-int numContinente = 0; //1.America 2.Asia 3.Europa 4.Africa.. Esto es para saber qué vector agarramos
-float contPaises = 11; //Variable para utilizar.. tiene la cantidad de paises en base al país seleccionado
+float contPaises = 0; //Variable para utilizar.. tiene la cantidad de paises en base al país seleccionado
 World *continente = new World();
 ////***** cambio de color rectango
 bool correcto;
@@ -451,7 +450,6 @@ void fondoPrincipal()
 
 void despliegaPines()
 {
-    
     for (int i = 0; i< contPaises ; i++)
     {
         glPushMatrix();
@@ -469,20 +467,20 @@ void despliegaPines()
         switch (currentIndex) {
             case 1: //America
                 //posiciones de los pines
-                posX =  continente -> _america[i].posX;
+                posX = continente -> _america[i].posX;
                 posY = continente -> _america[i].posY;
                 break;
             case 2: //Asia
                 //posiciones de los pines
-                posX =  continente -> _asia[i].posX;
+                posX = continente -> _asia[i].posX;
                 posY = continente -> _asia[i].posY;
                 break;
             case 3: //Europa
-                 posX =  continente -> _europa[i].posX;
+                 posX = continente -> _europa[i].posX;
                  posY = continente -> _europa[i].posY;
                 break;
             case 0: //Africa
-                 posX =  continente -> _africa[i].posX;
+                 posX = continente -> _africa[i].posX;
                  posY = continente -> _africa[i].posY;
                 break;
             default:
@@ -556,24 +554,21 @@ void despliegaMapa(int mapa)
     
     //Definir textura
     switch (mapa) {
-        case 1:
-            glBindTexture(GL_TEXTURE_2D, texName[4]); //Textura
-            //numContinente = 1;
-
+        case 1: //America
+            glBindTexture(GL_TEXTURE_2D, texName[4]);
+            contPaises = 11;
             break;
-        case 2:
+        case 2: //Asia
             glBindTexture(GL_TEXTURE_2D, texName[5]);
-            //numContinente = 2;
-
+            contPaises = 9;
             break;
-        case 3:
+        case 3: //Europa
             glBindTexture(GL_TEXTURE_2D, texName[6]);
-           // numContinente = 3;
-
+            contPaises = 8;
             break;
-        case 0:
+        case 0: //Africa
             glBindTexture(GL_TEXTURE_2D, texName[7]);
-            //numContinente = 4;
+            contPaises = 10;
             break;
             
         default:
@@ -621,10 +616,10 @@ int verificaPin(float clicx, float clicy)
                 }
                 break;
             case 2: //Asia
-               /* if (clicx >= continente -> _asia[i].rangoX1 && clicx <= continente -> _asia[i].rangoX2 && clicy >= continente -> _asia[i].rangoY1 && clicy <= continente -> _asia[i].rangoY2  ) {
+                if (clicx >= continente -> _asia[i].rangoX1 && clicx <= continente -> _asia[i].rangoX2 && clicy >= continente -> _asia[i].rangoY1 && clicy <= continente -> _asia[i].rangoY2  ) {
                     codigo = continente ->_asia[i].countryCode;
                 }
-                break;*/
+                break;
             case 3: //Europa
                 if (clicx >= continente -> _europa[i].rangoX1 && clicx <= continente -> _europa[i].rangoX2 && clicy >= continente -> _europa[i].rangoY1 && clicy <= continente -> _europa[i].rangoY2  ) {
                     codigo = continente ->_europa[i].countryCode;
