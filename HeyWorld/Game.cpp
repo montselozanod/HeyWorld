@@ -112,14 +112,14 @@ void Game::initRenderImages()
     GLfloat ambientLight[] = {0.2f, 0.2f, 0.2f, 1.0f};
     glLightModelfv(GL_LIGHT_MODEL_AMBIENT, ambientLight);
     glEnable(GL_DEPTH_TEST);
-    
-    glGenTextures(11, textures); //Make room for our texture
+
+    glGenTextures(19, textures); //Make room for our texture
    Image* image;
-    for(int i = 0; i < gameSprites.size(); i++)
+    for(int j = 0; j < 19; j++)
     {
-        std::cout<<gameSprites[i]->getImgName()<<std::endl;
+        std::cout<<gameSprites[j]->getImgName()<<std::endl;
         
-        image = loadBMP(gameSprites[i]->getImgName());loadTexture(image,i++);
+        image = loadBMP(gameSprites[j]->getImgName());loadTexture(image,i++);
     }
 }
 
