@@ -8,11 +8,6 @@
 
 
 /*
- TODO
- --- agregar visible 
- */
-
-/*
     Monumentos = 0
     Banderas = 1
     Personajes = 2
