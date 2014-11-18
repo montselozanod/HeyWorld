@@ -39,6 +39,16 @@ World::World()
     
     _asia.push_back(Country("Rusia", 53, "Moscú", ASIA, 0,0,0,0,0,0));
     
+    _europa.push_back(Country("Francia", 29, "Paris", EUROPE, -0.25,-0.16,-0.674,-0.612,-0.31333,-0.216667));
+    _europa.push_back(Country("España", 27, "Madrid", EUROPE, -0.37,-0.22,-0.792,-0.734,-0.4033,-0.31));
+    _europa.push_back(Country("Alemania", 4, "Berlin", EUROPE , -0.14,-0.09,-0.568,-0.504,-0.196667,-0.09));
+    _europa.push_back(Country("Portugal", 49, "Lisboa", EUROPE, -0.45,-0.22,-0.86,-0.81,-0.4,-0.3133));
+    _europa.push_back( Country("Inglaterra", 51, "Londres", EUROPE, -0.28,0.05,-0.698,-0.644,0.02333,0.13333));
+    _europa.push_back(Country("Italia", 36, "Roma", EUROPE , -0.11,-0.27,-0.534,-0.48,-0.4866,-0.396667));
+    _europa.push_back(Country("Noruega", 45, "Oslo", EUROPE , -0.11,0.2,-0.542,-0.476,0.27333,0.37));
+    _europa.push_back(Country("Finlandia", 30, "Helsinki", EUROPE , 0.07,0.25,-0.366,-0.304,0.343333,0.446667));
+    
+ 
    // _africa.push_back(Country("China", 18, "Beijing",AFRICA,0.13, -0.24, -.302,  -.246, -0.44, -0.34333));
     // _asia.push_back(Country("China", 18, "Beijing", "EA",0.0,0.0));
     // _asia.push_back(Country("Mongolia", 44, "Ulán Bator", "NAS", 0.0, 0.0));

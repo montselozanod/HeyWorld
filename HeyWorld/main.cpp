@@ -83,8 +83,7 @@ void rectVerdeRojo()
     glPushMatrix();
     
     if(!correcto && nostart)
-    glColor3f(0,0,0);
-    
+    glColor3f(0,0,0); //negro
     if(correcto && !nostart)
     glColor3f(0,1,0);//Verde
     if(!correcto && !nostart)
@@ -479,8 +478,8 @@ void despliegaPines()
                 posY = continente -> _asia[i].posY;
                 break;
             case 3: //Europa
-                // posX =  continente -> _europa[i].posX;
-                // posY = continente -> _europa[i].posY;
+                 posX =  continente -> _europa[i].posX;
+                 posY = continente -> _europa[i].posY;
                 break;
             case 0: //Africa
                  posX =  continente -> _africa[i].posX;
@@ -627,7 +626,9 @@ int verificaPin(float clicx, float clicy)
                 }
                 break;*/
             case 3: //Europa
-                
+                if (clicx >= continente -> _europa[i].rangoX1 && clicx <= continente -> _europa[i].rangoX2 && clicy >= continente -> _europa[i].rangoY1 && clicy <= continente -> _europa[i].rangoY2  ) {
+                    codigo = continente ->_europa[i].countryCode;
+                }
                 break;
             case 0: //Africa
                 if (clicx >= continente -> _africa[i].rangoX1 && clicx <= continente -> _africa[i].rangoX2 && clicy >= continente -> _africa[i].rangoY1 && clicy <= continente -> _africa[i].rangoY2  ) {
@@ -659,6 +660,7 @@ void callback(int x, int y)
         //Aqui se manda llamar la funcion de monste que diga si si esta correcto o no procedimiento(code)
         correcto = game.mapClick(code);
         nostart = false;
+
     }
 }
 
