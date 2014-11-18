@@ -34,12 +34,14 @@ public:
     {
         countryCode = code;
         imgPathName = img;
+        visibility = false;
     }
     
     Sprite(std::string img, int code)
     {
         countryCode = code;
         gameObjectName= img;
+        visibility = false;
     }
 
     Sprite(char* img, std::string object, int code)
@@ -47,6 +49,7 @@ public:
         imgPathName = img;
         gameObjectName = object;
         countryCode = code;
+        visibility = false;
     }
     
     int countryCode;

@@ -27,6 +27,7 @@ class Game
     void loadTexture(Image* image, int k);
     int numSprite;
     bool userClicked;
+    void showSprite();
     //int typeGame;
     int difficulty;
     LevelDeck deckLevel;
