@@ -17,6 +17,7 @@ Menu::Menu()
 {
     setPosition(0, 0, .5);
     setDimensions(0.4, 0.07, .5);
+    selected = false;
 }
 
 Menu::Menu(std::string name, double x, double y, double dimX, double dimY, double zPos)
@@ -24,6 +25,7 @@ Menu::Menu(std::string name, double x, double y, double dimX, double dimY, doubl
     this->name = name;
     setPosition(x, y, .5);
     setDimensions(dimX, dimY, zPos);
+    selected = false;
 }
 
 void Menu::setDimensions(double w, double h, double v)

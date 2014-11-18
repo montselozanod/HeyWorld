@@ -199,9 +199,6 @@ void gameManagement()
     glutSetWindow(subWindowSprite);
     glutPostRedisplay();
     
-
-
-    
     //    glutCreateSubWindow(windowID, 600, 0, 600, winHeight);
     //    glutDisplayFunc(renderSubWindow);
     //    initWindows();
