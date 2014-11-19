@@ -222,6 +222,7 @@ void Game::draw()
         current = gameSprites[j];
         if(current->visibility)
         {
+            
             glPushMatrix();
             glEnable(GL_TEXTURE_2D);
             glBindTexture(GL_TEXTURE_2D, textures[j]);

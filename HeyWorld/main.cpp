@@ -16,6 +16,7 @@
 #include "Game.h"
 #include "Imageloader.h"
 #include "MenuOption.h"
+#include "Sound.h"
 
 #define CONTINENTS 3
 
@@ -25,6 +26,7 @@ int subWindowMap;
 int subWindowSprite;
 int gameState = 0;
 GLuint texture = 0;
+
 
 
 static GLuint texName[36];
@@ -54,6 +56,8 @@ World *continente = new World();
 ////***** cambio de color rectango
 bool correcto;
 bool nostart;
+Sound sonido = Sound("song.wav");
+bool musicaOn = true;
 
 /**/
 
@@ -70,6 +74,32 @@ void initWindows();
 void despliegaMapa(int i);
 void drawMenuContinente();
 
+void playSonido(){
+    if (musicaOn) {
+        sonido.PlaySound();
+        
+    }else{
+        sonido.PauseSound();
+    }
+    
+}
+
+void miSonido(){
+    if (musicaOn) {
+        musicaOn = false;
+    }else {
+        musicaOn = true;
+    }
+    playSonido();
+}
+
+void sound(int i)
+{
+    playSonido();
+    glutTimerFunc(50000, sound, 0);
+}
+
+
 void rectVerdeRojo()
 {
     
@@ -78,16 +108,14 @@ void rectVerdeRojo()
     glMatrixMode(GL_MODELVIEW);//dejar activa son todas las traslaciones, escalaciones
     glLoadIdentity();//que no tenga ninguna transformación
     gluLookAt(0, 0, 3, 0, 0, 0, 0, .1, 0);
-
-    glPushMatrix();
     
+    glPushMatrix();
     if(!correcto && nostart)
     glColor3f(0,0,0); //negro
     if(correcto && !nostart)
     glColor3f(0,1,0);//Verde
     if(!correcto && !nostart)
     glColor3f(1,0,0);//rojo
-    
     glPointSize(1);
     glBegin(GL_QUADS);
     glVertex2f(-1.1,-1.2);
@@ -260,6 +288,10 @@ void myKeyboard(unsigned char theKey, int mouseX, int mouseY)
         case 27: //esc
             exit(0);
             break;
+        case 'p':
+        case 'P':
+            miSonido();
+            break;
         case 13: //enter
             checkDisplayOption();
 
@@ -333,6 +365,8 @@ void init()
     gameState = 0;
     currentIndex = 0;
     showInstructions = false;
+   
+    glutTimerFunc(0,sound,0);//timer de la musica
 }
 
 void initRendering()
@@ -397,6 +431,7 @@ void drawMenuContinente()
 
 void fondoPrincipal()
 {
+    
     /*Fondo de estrellas*/
     glPushMatrix();
     glEnable(GL_TEXTURE_2D);
@@ -404,13 +439,10 @@ void fondoPrincipal()
     glBegin(GL_QUADS);
     glTexCoord2f(0.0f, 0.0f); //se pega la textura con
     glVertex3f(-2, -1, 0);
-    
     glTexCoord2f(1.0f, 0.0f);
     glVertex3f(2, -1, 0);
-    
     glTexCoord2f(1.0f, 1.0f);
     glVertex3f(2, 1, 0);
-    
     glTexCoord2f(0.0f, 1.0f);
     glVertex3f(-2, 1, 0);
     glEnd();
@@ -422,26 +454,21 @@ void fondoPrincipal()
     glTranslatef(0, -.25, -.25);
     glRotated(angulo, 0, 1, 0);
     glEnable(GL_TEXTURE_2D);
-    
     glBindTexture(GL_TEXTURE_2D, texName[1]);
-    
     glEnable(GL_TEXTURE_GEN_S);
     glEnable(GL_TEXTURE_GEN_T);
-    
     glTexGeni(GL_S, GL_TEXTURE_GEN_MODE, GL_SPHERE_MAP);
     glTexGeni(GL_T, GL_TEXTURE_GEN_MODE, GL_SPHERE_MAP);
-    
     glBindTexture(GL_TEXTURE_2D, texName[1]);
-    
     glPushMatrix();
     glTranslatef(.25, .25, 0);
     glutSolidSphere(0.5, 30, 30);
     glPopMatrix();
-    
     glPopMatrix();
     glDisable(GL_TEXTURE_2D);
     glDisable(GL_TEXTURE_GEN_S);
     glDisable(GL_TEXTURE_GEN_T);
+
 }
 
 void despliegaPines()
