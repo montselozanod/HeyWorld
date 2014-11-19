@@ -20,7 +20,8 @@ Game::Game()
     endGame = false;
     win = false;
     cubo = Cube();
-    userClicked = false;
+ 
+    answeredCorrect = false;
 }
 
 Game::Game(int diff)
@@ -29,7 +30,7 @@ Game::Game(int diff)
     difficulty = diff;
     endGame = false;
     win = false;
-    userClicked = false;
+    answeredCorrect = false;
 }
 
 void Game::setDifficultyGame(int dif)
@@ -149,7 +150,12 @@ void Game::playGame()
 
         if(user.isPlayerAlive())
         {
+            cubo.closeCube();
+            showSprite();
             cubo.rotateCube();
+            answeredCorrect = false;
+            countTimer = 0;
+            glutTimerFunc(1000, timerQuestion, 0);
 
         }else
         {
@@ -171,17 +177,13 @@ void Game::showSprite()
 
 bool Game::mapClick(int codeCountry)
 {
-    userClicked = true;
+
     if(checkSprite(codeCountry))
     {
-        cubo.closeCube();
-        showSprite();
         playGame();
         return true;
     }else
     {
-        user.deleteVisa();
-        std::cout<<"end";
         return false;
     }
 }
@@ -193,10 +195,10 @@ bool Game::checkSprite(int codeCountry)
     {
         user.numberPoints++;
         std::cout<<"correct"<<std::endl;
+        answeredCorrect = true;
         return true;
     }else{
-        user.deleteVisa();
-        std::cout<<"wrong"<<std::endl;
+        lostQuestion(0);
         return false;
     }
 }
@@ -218,6 +220,41 @@ void Game::draw()
             glPopMatrix();
             glDisable(GL_TEXTURE_2D);
         }
+    }
+}
+
+void Game::timerQuestion(int v)
+{
+    if(v == 0)
+    {
+        if(countTimer < 10 && !answeredCorrect)
+        {
+            countTimer++;
+            std::cout<<countTimer<<std::endl;
+            glutTimerFunc(1000, timerQuestion, 0);
+        }else if(countTimer == 10 && !answeredCorrect)
+        {
+            Game* game;
+            game->lostQuestion(1);
+        }else if(answeredCorrect)
+        {
+            return;
+        }
+    }
+}
+
+
+void Game::lostQuestion(int type)
+{
+    user.deleteVisa();
+    
+    if(type == 1)
+    {
+        std::cout<<"wrong -- lost time"<<std::endl;
+        playGame();
+    }else if(type == 0)
+    {
+        std::cout<<"wrong -- wrong answer.. you still have time"<<std::endl;
     }
 }
 
