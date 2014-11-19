@@ -34,6 +34,7 @@ class Game
     void createDeck();
     void initRenderImages();
     void loadTexture(Image* image, int k);
+
    
 
     void showSprite();
