@@ -118,6 +118,7 @@
 		FDC03B111A1B41FE00D8BAA3 /* albert.bmp */ = {isa = PBXFileReference; lastKnownFileType = image.bmp; path = albert.bmp; sourceTree = "<group>"; };
 		FDC03B121A1B41FE00D8BAA3 /* walt.bmp */ = {isa = PBXFileReference; lastKnownFileType = image.bmp; path = walt.bmp; sourceTree = "<group>"; };
 		FDC03B131A1B41FE00D8BAA3 /* peter.bmp */ = {isa = PBXFileReference; lastKnownFileType = image.bmp; path = peter.bmp; sourceTree = "<group>"; };
+		FDC03B151A1C5AEE00D8BAA3 /* map2.bmp */ = {isa = PBXFileReference; lastKnownFileType = image.bmp; path = map2.bmp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -195,6 +196,7 @@
 		B068C78419FAF5AA00C57511 /* Fotos */ = {
 			isa = PBXGroup;
 			children = (
+				FDC03B151A1C5AEE00D8BAA3 /* map2.bmp */,
 				FDC03B141A1B423700D8BAA3 /* personajes */,
 				FDC03AC61A17F04B00D8BAA3 /* pin2.bmp */,
 				FDC03AC51A17F03100D8BAA3 /* water.bmp */,
