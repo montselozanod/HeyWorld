@@ -107,7 +107,7 @@ private:
     std::string characterName;
     
 public:
-    Character(/*std::string img,*/ std::string object, int countryCode):Sprite(object, countryCode)
+    Character(char *img, std::string object, int countryCode):Sprite(img, object, countryCode)
     {
         
     }

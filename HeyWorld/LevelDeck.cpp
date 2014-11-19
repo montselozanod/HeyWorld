@@ -57,32 +57,32 @@ std::vector<Flag> LevelDeck::getTouristDeck()
 
 std::vector<Character>  LevelDeck::getAgentDeck()
 {
-    agentDeck.push_back(*new Character("Peter Pan", 51));
-    agentDeck.push_back(*new Character("Walt Disney", 28));
-    agentDeck.push_back(*new Character("Albert Einstein", 4));
-    agentDeck.push_back(*new Character("Nelson Mandela", 54));
-    agentDeck.push_back(*new Character("Juan Pablo II", 50));
-    agentDeck.push_back(*new Character("Fidel Castro", 23));
-    agentDeck.push_back(*new Character("Salvador Dalí", 27));
-    agentDeck.push_back(*new Character("Octavio Paz", 42));
+    agentDeck.push_back(*new Character("personajes/peter.bmp","Peter Pan", 51));
+    agentDeck.push_back(*new Character("personajes/walt.bmp","Walt Disney", 28));
+    agentDeck.push_back(*new Character("personajes/albert.bmp","Albert Einstein", 4));
+    agentDeck.push_back(*new Character("personajes/mandela.bmp","Nelson Mandela", 54));
+    agentDeck.push_back(*new Character("personajes/juanpablo.bmp","Juan Pablo II", 50));
+    agentDeck.push_back(*new Character("personajes/fidel.bmp","Fidel Castro", 23));
+    agentDeck.push_back(*new Character("personajes/dali.bmp","Salvador Dalí", 27));
+    agentDeck.push_back(*new Character("personajes/octaviopaz.bmp", "Octavio Paz", 42));
     
-    agentDeck.push_back(*new Character("Simón Bolívar", 58));
-    agentDeck.push_back(*new Character("Vladimir Putin", 53));
-    agentDeck.push_back(*new Character("Socrates", 31));
-    agentDeck.push_back(*new Character("Mahatma Gandhi", 35));
-    agentDeck.push_back(*new Character("Ernesto 'Che' Guevara", 7));
-    agentDeck.push_back(*new Character("Eva Perón", 7));
-    agentDeck.push_back(*new Character("Mario Vargas Llosa", 48));
-    agentDeck.push_back(*new Character("Vincent Van Gogh", 33));
+    agentDeck.push_back(*new Character("personajes/simon.bmp","Simón Bolívar", 58));
+    agentDeck.push_back(*new Character("personajes/vladimir.bmp","Vladimir Putin", 53));
+    agentDeck.push_back(*new Character("personajes/socrates.bmp","Socrates", 31));
+    agentDeck.push_back(*new Character("personajes/gandhi.bmp","Mahatma Gandhi", 35));
+    agentDeck.push_back(*new Character("personajes/guevara.bmp","Ernesto 'Che' Guevara", 7));
+    agentDeck.push_back(*new Character("personajes/evaperon.bmp","Eva Perón", 7));
+    agentDeck.push_back(*new Character("personajes/mariovargas.bmp","Mario Vargas Llosa", 48));
+    agentDeck.push_back(*new Character("personajes/van.bmp","Vincent Van Gogh", 33));
     
-    agentDeck.push_back(*new Character("Nikola Tesla", 22));
-    agentDeck.push_back(*new Character("Leonardo da Vinci", 36));
-    agentDeck.push_back(*new Character("Malala Yousafzai", 47));
-    agentDeck.push_back(*new Character("Mao ZeDong", 18));
+    agentDeck.push_back(*new Character("personajes/tesla.bmp","Nikola Tesla", 22));
+    agentDeck.push_back(*new Character("personajes/leo.bmp","Leonardo da Vinci", 36));
+    agentDeck.push_back(*new Character("personajes/malala.bmp","Malala Yousafzai", 47));
+    agentDeck.push_back(*new Character("personajes/mao.bmp","Mao ZeDong", 18));
     
-    agentDeck.push_back(*new Character("Barack Obama", 28));
-    agentDeck.push_back(*new Character("Steve Jobs", 28));
-    agentDeck.push_back(*new Character("Charlie Chaplin", 51));
+    agentDeck.push_back(*new Character("personajes/barack.bmp","Barack Obama", 28));
+    agentDeck.push_back(*new Character("personajes/steve.bmp","Steve Jobs", 28));
+    agentDeck.push_back(*new Character("personajes/chaplin.bmp","Charlie Chaplin", 51));
 
     
     return agentDeck;
