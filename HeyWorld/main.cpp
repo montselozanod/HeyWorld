@@ -318,10 +318,10 @@ void initMenus()
     menuOptions[0].setSelected(true);
     
     //dificultad
-    menuDif.push_back(Menu("Turista", 0.0, 0.2 ,0.4, 0.07, 0.9999));
-    menuDif.push_back(Menu("Agente", 0.0, 0.1 ,0.4, 0.07, 0.9999));
-    menuDif.push_back(Menu("Guru", 0.0, 0.0 ,0.4, 0.07, 0.9999));
-    menuDif.push_back(Menu("Regresar", 0.0, -0.1 ,0.4, 0.07, 0.9999));
+    menuDif.push_back(Menu("Turista", 0.0, 0.1 ,0.4, 0.07, 0.9999));
+    menuDif.push_back(Menu("Agente", 0.0, 0.0 ,0.4, 0.07, 0.9999));
+    menuDif.push_back(Menu("Guru", 0.0, -0.1 ,0.4, 0.07, 0.9999));
+    menuDif.push_back(Menu("Regresar", 0.0, -0.2 ,0.4, 0.07, 0.9999));
     
     //continentes
     menuContinents.push_back(Menu("AFRICA", -0.45, 0.52 ,0.23, 0.07, 0.07));
