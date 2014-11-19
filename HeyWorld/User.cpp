@@ -58,12 +58,15 @@ void User::addPassportStamp(int stampId)
 
 void User::deleteVisa()
 {
-    for (int i = 2; i == 0; i--)
+    for (int i = 2; i >= 0; i--)
     {
         if(userVisas[i].alive)
         {
             userVisas[i].alive = false;
             return;
+        }else
+        {
+            std::cout<<"hola"<<std::endl;
         }
     }
 }
