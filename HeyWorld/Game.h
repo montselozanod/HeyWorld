@@ -17,31 +17,42 @@
 #include <iostream>
 #include <vector>
 
+static bool answeredCorrect;
+static int countTimer;
+static std::vector<Sprite *> gameSprites;
+static int numSprite;
+static Cube cubo;
+static User user;
+static int difficulty;
+static bool endGame;
+static bool win;
+
 class Game
 {
     private:
-    std::vector<Sprite *> gameSprites;
-    void shuffleSprites();
+        void shuffleSprites();
     void createDeck();
     void initRenderImages();
     void loadTexture(Image* image, int k);
-    int numSprite;
-    bool userClicked;
+   
+
     void showSprite();
+   
+    void lostQuestion(int type); //0 contaste mal pero aun hay tiempo, 1 se acabo el tiempo y cambio a siguiente pregunta
+    static void timerQuestion(int v);
     //int typeGame;
-    int difficulty;
+    
     LevelDeck deckLevel;
-    bool endGame;
-    bool win;
+
     GLuint textures[30];
     bool checkSprite(int codeCountry);
-    User user;
-    Cube cubo;
+
     
     public:
     Game();
     Game(int diff);
     //void setTypeGame(int type);
+
     void setDifficultyGame(int dif);
     void startGame();
     void playGame();
