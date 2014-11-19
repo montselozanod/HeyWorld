@@ -120,6 +120,9 @@ void Game::initRenderImages()
         
         image = loadBMP(gameSprites[j]->getImgName());loadTexture(image,i++);
     }
+    
+    image = loadBMP("gameover.bmp");loadTexture(image,30);
+    
 }
 
 void Game::startGame()
@@ -298,12 +301,40 @@ void Game::lostQuestion(int type)
 
 void Game::finishGame()
 {
-    if(win)
-    {
     
-    }
-    else
-    {
+    /*Fondo azul con negro*/
+    glPushMatrix();
+    glMatrixMode(GL_MODELVIEW);//dejar activa son todas las traslaciones, escalaciones
+    glLoadIdentity();//que no tenga ninguna transformación
+    gluLookAt(0, 0, 20, 0, 0, 0, 0, .1, 0);//movemos camara para que se vea el mapa
+    glEnable(GL_TEXTURE_2D);
     
-    }
+    glMatrixMode(GL_TEXTURE);//Activar matriz de textura
+    glBindTexture(GL_TEXTURE_2D, textures[30]); //Seleccion de textura
+    glPushMatrix();
+    glTranslated(0.0, 0.0, -2.0);
+    glBegin(GL_QUADS);
+    glTexCoord2f(0.0f, 0.0f); //se pega la textura con
+    glVertex3f(0,0, 0);
+    glTexCoord2f(1.0f, 0.0f);
+    glVertex3f(4, 0, 0);
+    glTexCoord2f(1.0f, 1.0f);
+    glVertex3f(4, 4, 0);
+    glTexCoord2f(0.0f, 1.0f);
+    glVertex3f(0, 4, 0);
+    glEnd();
+    glPopMatrix();
+    glPopMatrix(); //pop de camara
+    glDisable(GL_TEXTURE_2D);
+    
+    
+    
+//    if(win)
+//    {
+//    
+//    }
+//    else
+//    {
+//    
+//    }
 }

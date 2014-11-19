@@ -47,6 +47,7 @@ class Game
     LevelDeck deckLevel;
 
     GLuint textures[30];
+    GLuint textureGameOver[1];
     bool checkSprite(int codeCountry);
 
     
