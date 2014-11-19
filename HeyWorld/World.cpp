@@ -38,16 +38,21 @@ World::World()
     _europa.push_back(Country("España", 27, "Madrid", EUROPE, -0.37,-0.22,-0.792,-0.734,-0.4033,-0.31));
     _europa.push_back(Country("Alemania", 4, "Berlin", EUROPE , -0.14,-0.09,-0.568,-0.504,-0.196667,-0.09));
     _europa.push_back(Country("Portugal", 49, "Lisboa", EUROPE, -0.45,-0.22,-0.86,-0.81,-0.4,-0.3133));
-    _europa.push_back( Country("Inglaterra", 51, "Londres", EUROPE, -0.28,0.05,-0.698,-0.644,0.02333,0.13333));
+    _europa.push_back(Country("Inglaterra", 51, "Londres", EUROPE, -0.28,0.05,-0.698,-0.644,0.02333,0.13333));
     _europa.push_back(Country("Italia", 36, "Roma", EUROPE , -0.11,-0.27,-0.534,-0.48,-0.4866,-0.396667));
     _europa.push_back(Country("Noruega", 45, "Oslo", EUROPE , -0.11,0.2,-0.542,-0.476,0.27333,0.37));
     _europa.push_back(Country("Finlandia", 30, "Helsinki", EUROPE , 0.07,0.25,-0.366,-0.304,0.343333,0.446667));
-    
-    //    Country("Polonia", 50, "Varsovia", EUROPE, 0,0,0,0,0,0),
-    //    Country("Grecia", 31, "Atenas", EUROPE, 0,0,0,0,0,0),
-    //    Country("Holanda", 33, "Amsterdam", EUROPE, 0,0,0,0,0,0),
-    //    Country("Croacia", 22, "Zagreb", EUROPE, 0,0,0,0,0,0),
-    
+    _europa.push_back(Country("Grecia", 31, "Atenas", EUROPE , 0.03,-0.33,-0.402,-0.344,-0.593333,-0.496667));
+    _europa.push_back(Country("Polonia", 50, "Varsovia", EUROPE , 0,0,-0.436,-0.37,-0.0633333,0.05));
+    _europa.push_back(Country("Holanda", 33, "Amsterdam", EUROPE , -0.19,0,-0.61,-0.564,-0.05,0.04));
+    _europa.push_back(Country("Croacia", 22, "Zagreb", EUROPE , -0.07,-0.21,-0.49,-0.446,-0.386667,-0.296667));
+    _europa.push_back(Country("República Checa", 52, "Praga", EUROPE , -0.07,-0.09,-0.496,-0.442,-0.2,-0.11));
+    _europa.push_back(Country("Ucrania", 65, "Kiev", EUROPE , 0.13,-0.06,-0.306,-0.248,-0.166667,-0.0566667));
+    _europa.push_back(Country("Irlanda", 37, "Dublin", EUROPE, -0.35,0.08,-0.77,-0.716,0.0933333,0.163333));
+    _europa.push_back(Country("Suecia", 66, "Stockholm", EUROPE , -0.03,0.25,-0.46,-0.398,0.353333,0.453333));
+    _europa.push_back(Country("Austria", 9, "Vienna", EUROPE , -0.07,-0.13,-0.5,-0.444,-0.26,-0.186667));
+    _europa.push_back(Country("Hungría", 34, "Budapest", EUROPE , -0.02,-0.15,-0.448,-0.4,-0.276667,-0.216667));
+
     _asia.push_back(Country("China", 18, "Beijing", ASIA,0.1,0.01,-0.334,-0.266,-0.05,0.0566667));
     _asia.push_back(Country("Mongolia", 44, "Ulán Bator", ASIA, 0.05, 0.1,-0.386,-0.324,0.113333,0.206667));
     _asia.push_back(Country("Rusia", 53, "Moscú", ASIA, -0.11,0.25,-0.546,-0.462,0.313333,0.466667));
@@ -57,6 +62,13 @@ World::World()
     _asia.push_back(Country("Pakistán", 47, "Islamabad", ASIA, -0.13,-0.06,-0.552,-0.498,-0.146667,-0.0533333));
     _asia.push_back(Country("Malasia", 41, "Kuala Lumpur", ASIA,0.14,-0.35,-0.296,-0.24,-0.62,-0.51));
     _asia.push_back(Country("Corea del Sur", 20, "Seúl", ASIA, 0.27,-0.01,-0.166,-0.116,-0.0633333,0.0366667));
+    _asia.push_back(Country("Turquía", 56, "Ankara", ASIA,-0.37,0.03,-0.792,-0.728,-0.00333333,0.103333));
+    _asia.push_back(Country("Siria", 67, "Damascus", ASIA,-0.35,-0.02,-0.764,-0.712,-0.0733333,0.00666667));
+    
+    _asia.push_back(Country("Afganistán", 68, "Kabul", ASIA, -0.16,-0.02,-0.59,-0.534,-0.08,0.01));
+
+
+ //   Afghanistan
 
 
 };

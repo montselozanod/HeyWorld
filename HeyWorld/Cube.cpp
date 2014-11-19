@@ -22,7 +22,6 @@ void Cube::drawCube()
     // Parte de Atras del cubo
     glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE_SGIS);
     glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
-
     glBegin(GL_QUADS);
     glNormal3f( 0.0f, 0.0f,-1.0f);
     glTexCoord2f(0.0f, 0.0f);
@@ -40,7 +39,6 @@ void Cube::drawCube()
     // Parte de Abajo del cubo
     glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE_SGIS);
     glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);
-   
     glBegin(GL_QUADS);
     glNormal3f( 0.0f,-1.0f, 0.0f);
     glTexCoord2f(0.0f, 0.0f);
@@ -56,7 +54,6 @@ void Cube::drawCube()
     // Parte de lado Derecho del cubo
     glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE_SGIS);
     glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE_SGIS);
-    
     glBegin(GL_QUADS);
     glNormal3f( 1.0f, 0.0f, 0.0f);
     glTexCoord2f(0.0f, 0.0f);
@@ -72,7 +69,6 @@ void Cube::drawCube()
     // Lado Izquierdo del cubo
     glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_MIRRORED_REPEAT);
     glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_MIRRORED_REPEAT);
-    //glBindTexture(GL_TEXTURE_2D,texName[11]);
     glBegin(GL_QUADS);
     glNormal3f(-1.0f, 0.0f, 0.0f);
     glTexCoord2f(0.0f,0.0f);
@@ -84,21 +80,7 @@ void Cube::drawCube()
     glTexCoord2f(0.0f,1.0f);
     glVertex3f(-1.0f,  1.0f, -1.0f);
     glEnd();
-    
 
-
-    
-//    //toda la caja
-//    glPushMatrix();
-//    glRotated(angleBox, 0, 1, 0);
-//    //parta baja
-//    glPushMatrix();
-//    // glColor3f(0.0, 1.0, 0.0);
-//    // glutSolidCube(1.0);
-//    glColor3f(1.0, 1.0, 1.0);
-//    glutWireCube(1.0);
-//    glPopMatrix();
-    
     //parte para abrir
     glPushMatrix();
     glRotated(angleTop, 1, 0, 0);
@@ -107,7 +89,6 @@ void Cube::drawCube()
     
     glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE_SGIS);
     glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);
-    //glBindTexture(GL_TEXTURE_2D,texName[8]);
     glBegin(GL_QUADS);
     glNormal3f( 0.0f, 1.0f, 0.0f);
     glTexCoord2f(0.0f, 0.0f);
@@ -120,7 +101,6 @@ void Cube::drawCube()
     glVertex3f( 1.0f,  1.0f, -1.0f);
     glEnd();
     
-    //glPopMatrix();
     
     glPopMatrix();
      glPopMatrix();
