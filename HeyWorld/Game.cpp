@@ -155,11 +155,12 @@ void Game::playGame()
             cubo.rotateCube();
             answeredCorrect = false;
             countTimer = 0;
-            glutTimerFunc(1000, timerQuestion, 0);
+            glutTimerFunc(1000, timerQuestion, numSprite);
 
         }else
         {
             endGame = true;
+            std::cout<<"LOST ALL GAMEEE::: AM SORRY!!! TRY AGAIN"<<std::endl;
 
         }
     
@@ -171,8 +172,16 @@ void Game::playGame()
 void Game::showSprite()
 {
     gameSprites[numSprite]->visibility = false;
-    numSprite--;
-    gameSprites[numSprite]->visibility = true;
+    if(numSprite - 1 < 0)
+    {
+        endGame = true;
+        win = true;
+        return;
+    }else
+    {
+        numSprite--;
+        gameSprites[numSprite]->visibility = true;
+    }
 }
 
 bool Game::mapClick(int codeCountry)
@@ -225,20 +234,17 @@ void Game::draw()
 
 void Game::timerQuestion(int v)
 {
-    if(v == 0)
+    if(v == numSprite)
     {
-        if(countTimer < 10 && !answeredCorrect)
+        if(countTimer < 10 && !answeredCorrect && !endGame)
         {
             countTimer++;
             std::cout<<countTimer<<std::endl;
-            glutTimerFunc(1000, timerQuestion, 0);
-        }else if(countTimer == 10 && !answeredCorrect)
+            glutTimerFunc(1000, timerQuestion, numSprite);
+        }else if(countTimer == 10 && !answeredCorrect && !endGame)
         {
             Game* game;
             game->lostQuestion(1);
-        }else if(answeredCorrect)
-        {
-            return;
         }
     }
 }
@@ -257,6 +263,19 @@ void Game::lostQuestion(int type)
         std::cout<<"wrong -- wrong answer.. you still have time"<<std::endl;
     }
 }
+
+//void Game::waitForAnswer()
+//{
+//    while(!answeredCorrect && countTimer < 10)
+//    {
+//        countTimer++;
+//    }
+//    
+//    if(countTimer == 10 && !answeredCorrect)
+//    {
+//        lostQuestion(1);
+//    }
+//}
 
 void Game::finishGame()
 {
