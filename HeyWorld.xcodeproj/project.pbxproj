@@ -14,6 +14,7 @@
 		B0665F1D19ECDD62007CAAE8 /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B0665F1B19ECDD62007CAAE8 /* OpenGL.framework */; };
 		B0665F1F19ECDD72007CAAE8 /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B0665F1E19ECDD72007CAAE8 /* OpenAL.framework */; };
 		B0665F2219ECDE2D007CAAE8 /* World.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B0665F2019ECDE2D007CAAE8 /* World.cpp */; };
+		B069A5081A1CA54D008F7D83 /* vec3f.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B069A5071A1CA54D008F7D83 /* vec3f.cpp */; };
 		B06C94A31A09A669001951D3 /* Menu.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B06C94A11A09A669001951D3 /* Menu.cpp */; };
 		B0BF8DA51A17F43500A61B44 /* Cube.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B0BF8DA31A17F43500A61B44 /* Cube.cpp */; };
 		B0BF8DAC1A182EE100A61B44 /* imageloader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B0BF8DAB1A182EE100A61B44 /* imageloader.cpp */; };
@@ -49,6 +50,10 @@
 		B0665F1E19ECDD72007CAAE8 /* OpenAL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenAL.framework; path = System/Library/Frameworks/OpenAL.framework; sourceTree = SDKROOT; };
 		B0665F2019ECDE2D007CAAE8 /* World.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = World.cpp; sourceTree = "<group>"; };
 		B0665F2119ECDE2D007CAAE8 /* World.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = World.h; sourceTree = "<group>"; };
+		B069A5071A1CA54D008F7D83 /* vec3f.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = vec3f.cpp; sourceTree = "<group>"; };
+		B069A5091A1CA553008F7D83 /* vec3f.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = vec3f.h; sourceTree = "<group>"; };
+		B069A50B1A1CA56E008F7D83 /* circle.bmp */ = {isa = PBXFileReference; lastKnownFileType = image.bmp; path = circle.bmp; sourceTree = "<group>"; };
+		B069A50C1A1CA57C008F7D83 /* circlealpha.bmp */ = {isa = PBXFileReference; lastKnownFileType = image.bmp; path = circlealpha.bmp; sourceTree = "<group>"; };
 		B06AC32C1A12BE37005BBA63 /* africa.bmp */ = {isa = PBXFileReference; lastKnownFileType = image.bmp; path = africa.bmp; sourceTree = "<group>"; };
 		B06AC32D1A12BE41005BBA63 /* america.bmp */ = {isa = PBXFileReference; lastKnownFileType = image.bmp; path = america.bmp; sourceTree = "<group>"; };
 		B06AC32E1A12BE4A005BBA63 /* asia.bmp */ = {isa = PBXFileReference; lastKnownFileType = image.bmp; path = asia.bmp; sourceTree = "<group>"; };
@@ -161,11 +166,10 @@
 		B0461DD019EB26C300B5EC2C /* HeyWorld */ = {
 			isa = PBXGroup;
 			children = (
+				B069A50A1A1CA55A008F7D83 /* vec3F */,
 				FDC03B261A1C930800D8BAA3 /* song.wav */,
-				FDC03B231A1C92F300D8BAA3 /* Sound.cpp */,
-				FDC03B241A1C92F300D8BAA3 /* Sound.h */,
-				B0BF8DAB1A182EE100A61B44 /* imageloader.cpp */,
-				B0BF8DAA1A182EDB00A61B44 /* imageloader.h */,
+				B069A50D1A1CA6D3008F7D83 /* Sound */,
+				B069A50E1A1CA6DE008F7D83 /* ImageLoading */,
 				B0BF8DA61A17F44200A61B44 /* Cubo */,
 				B068C78419FAF5AA00C57511 /* Fotos */,
 				B0461DD119EB26C300B5EC2C /* main.cpp */,
@@ -203,6 +207,8 @@
 		B068C78419FAF5AA00C57511 /* Fotos */ = {
 			isa = PBXGroup;
 			children = (
+				B069A50C1A1CA57C008F7D83 /* circlealpha.bmp */,
+				B069A50B1A1CA56E008F7D83 /* circle.bmp */,
 				FDC03B161A1C5E2900D8BAA3 /* map2.bmp */,
 				FDC03B141A1B423700D8BAA3 /* personajes */,
 				FDC03AC61A17F04B00D8BAA3 /* pin2.bmp */,
@@ -220,6 +226,33 @@
 				FDA27E831A0285DE003F4500 /* Mapamundi.bmp */,
 			);
 			name = Fotos;
+			sourceTree = "<group>";
+		};
+		B069A50A1A1CA55A008F7D83 /* vec3F */ = {
+			isa = PBXGroup;
+			children = (
+				B069A5091A1CA553008F7D83 /* vec3f.h */,
+				B069A5071A1CA54D008F7D83 /* vec3f.cpp */,
+			);
+			name = vec3F;
+			sourceTree = "<group>";
+		};
+		B069A50D1A1CA6D3008F7D83 /* Sound */ = {
+			isa = PBXGroup;
+			children = (
+				FDC03B231A1C92F300D8BAA3 /* Sound.cpp */,
+				FDC03B241A1C92F300D8BAA3 /* Sound.h */,
+			);
+			name = Sound;
+			sourceTree = "<group>";
+		};
+		B069A50E1A1CA6DE008F7D83 /* ImageLoading */ = {
+			isa = PBXGroup;
+			children = (
+				B0BF8DAB1A182EE100A61B44 /* imageloader.cpp */,
+				B0BF8DAA1A182EDB00A61B44 /* imageloader.h */,
+			);
+			name = ImageLoading;
 			sourceTree = "<group>";
 		};
 		B0BF8DA61A17F44200A61B44 /* Cubo */ = {
@@ -385,6 +418,7 @@
 				B0461DD219EB26C300B5EC2C /* main.cpp in Sources */,
 				B0C9950719EDE0C30053FE95 /* Game.cpp in Sources */,
 				B06C94A31A09A669001951D3 /* Menu.cpp in Sources */,
+				B069A5081A1CA54D008F7D83 /* vec3f.cpp in Sources */,
 				B0BF8DAC1A182EE100A61B44 /* imageloader.cpp in Sources */,
 				B0C9950C19EE44B50053FE95 /* LevelDeck.cpp in Sources */,
 				FDC03B251A1C92F300D8BAA3 /* Sound.cpp in Sources */,

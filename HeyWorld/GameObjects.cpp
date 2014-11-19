@@ -72,7 +72,7 @@ void Monument::drawSprite()
 //override
 void Flag::drawSprite()
 {
- 
+    glPushMatrix();
     glShadeModel(GL_SMOOTH);
     glClearDepth(1.0f);
     glEnable(GL_DEPTH_TEST);
@@ -81,8 +81,8 @@ void Flag::drawSprite()
     glEnable(GL_BLEND);
     glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
     glHint(GL_PERSPECTIVE_CORRECTION_HINT, GL_NICEST);	// Really Nice Perspective Calculations
-    glPolygonMode( GL_BACK, GL_FILL ); //cara solida
-    glPolygonMode( GL_FRONT, GL_LINE ); //lineas enfrente
+    //glPolygonMode( GL_BACK, GL_FILL ); //cara solida
+    //glPolygonMode( GL_FRONT, GL_LINE ); //lineas enfrente
     
     for(int k=0; k<VALMAY; k++)
     {
@@ -114,16 +114,16 @@ void Flag::drawSprite()
             float_yb = float(y+1)/VALMENDEC;
             
             glTexCoord2f( float_x, float_y);
-            glVertex3f( points[x][y][0], points[x][y][1], points[x][y][2]+25);
+            glVertex3f( points[x][y][0], points[x][y][1], points[x][y][2]+20);
             
             glTexCoord2f( float_x, float_yb );
-            glVertex3f( points[x][y+1][0], points[x][y+1][1], points[x][y+1][2]+25);
+            glVertex3f( points[x][y+1][0], points[x][y+1][1], points[x][y+1][2]+20);
             
             glTexCoord2f( float_xb, float_yb );
-            glVertex3f( points[x+1][y+1][0], points[x+1][y+1][1], points[x+1][y+1][2]+25);
+            glVertex3f( points[x+1][y+1][0], points[x+1][y+1][1], points[x+1][y+1][2]+20);
             
             glTexCoord2f( float_xb, float_y );
-            glVertex3f( points[x+1][y][0], points[x+1][y][1], points[x+1][y][2]+25);
+            glVertex3f( points[x+1][y][0], points[x+1][y][1], points[x+1][y][2]+20);
         }
     }
     
@@ -144,6 +144,7 @@ void Flag::drawSprite()
     }
     
     wiggle++;
+    
     
     //xrot+=0.3f;
     //yrot+=0.2f;
@@ -175,7 +176,9 @@ void Flag::drawSprite()
 //    glTexCoord2f(0.0f, 1.0f);
 //    glVertex3f(-0.5, 0.5, 0);
 //    glEnd();
-    
+    glDisable(GL_BLEND);
+    glDisable(GL_COLOR_MATERIAL);
+    glPopMatrix();
 }
 
 
