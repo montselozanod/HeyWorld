@@ -108,7 +108,7 @@ void Game::initRenderImages()
     glLightModelfv(GL_LIGHT_MODEL_AMBIENT, ambientLight);
     glEnable(GL_DEPTH_TEST);
 
-    glGenTextures(19, textures); //Make room for our texture
+    glGenTextures(30, textures); //Make room for our texture
    Image* image;
     for(int j = 0; j < gameSprites.size(); j++)
     {
