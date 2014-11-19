@@ -439,7 +439,7 @@ void fondoPrincipal()
     
     glPushMatrix();
     glTranslatef(.25, .25, 0);
-    glutSolidSphere(.5, 20, 20);
+    glutSolidSphere(0.5, 30, 30);
     glPopMatrix();
     
     glPopMatrix();
@@ -560,11 +560,11 @@ void despliegaMapa(int mapa)
             break;
         case 2: //Asia
             glBindTexture(GL_TEXTURE_2D, texName[5]);
-            contPaises = 9;
+            contPaises = 12;
             break;
         case 3: //Europa
             glBindTexture(GL_TEXTURE_2D, texName[6]);
-            contPaises = 8;
+            contPaises = 18;
             break;
         case 0: //Africa
             glBindTexture(GL_TEXTURE_2D, texName[7]);

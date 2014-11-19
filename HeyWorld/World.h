@@ -64,11 +64,11 @@ class World
     std::vector <Country> _africa;
     std::vector <Country> _asia;
     std::vector <Country> _europa;
-    Country worldCountries[65]=
+    Country worldCountries[68]=
     {
         
 #pragma mark Countries A
-        Country("Afganistán", 0, "Kabul", ASIA, 0,0,0,0,0,0),
+        
         Country("Albania", 1, "Tirana", EUROPE, 0,0,0,0,0,0),
         Country("Andorra", 2, "Andorra la Vieja", EUROPE,0,0,0,0,0,0),
         Country("Angola", 3, "Luanda", AFRICA, 0,0,0,0,0,0),
@@ -171,6 +171,11 @@ class World
         Country("Ghana", 62, "Acra", AFRICA, 0,0,0,0,0,0),
         Country("Nigeria", 63, "Abuya", AFRICA, 0,0,0,0,0,0),
         Country("Ecuador", 64, "Quito", AMERICA, 0,0,0,0,0,0),
+        Country("Ucrania", 65, "Kiev", EUROPE, 0,0,0,0,0,0),
+        Country("Suecia", 66, "Stockholm", EUROPE, 0,0,0,0,0,0),
+        Country("Siria", 67, "Damascus", ASIA, 0,0,0,0,0,0),
+        Country("Afganistán", 68, "Kabul", ASIA, 0,0,0,0,0,0),
+        
     };
     void drawWorld();
 
