@@ -136,11 +136,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "HeyWorld/main.cpp"
-            timestampString = "438081150.116001"
+            timestampString = "438082399.310202"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "579"
-            endingLineNumber = "579"
+            startingLineNumber = "585"
+            endingLineNumber = "585"
             landmarkName = "despliegaMapa(int mapa)"
             landmarkType = "7">
          </BreakpointContent>
@@ -152,44 +152,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "HeyWorld/main.cpp"
-            timestampString = "438081150.116001"
+            timestampString = "438082399.310202"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "474"
-            endingLineNumber = "474"
+            startingLineNumber = "480"
+            endingLineNumber = "480"
             landmarkName = "despliegaPines()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "HeyWorld/main.cpp"
-            timestampString = "438081174.989248"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "86"
-            endingLineNumber = "86"
-            landmarkName = "stop()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "HeyWorld/main.cpp"
-            timestampString = "438081186.947802"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "92"
-            endingLineNumber = "92"
-            landmarkName = "stop()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

@@ -57,7 +57,7 @@ World *continente = new World();
 bool correcto;
 bool nostart;
 Sound sonido = Sound("song.wav");
-bool _stop;
+bool musicaOn = true;
 
 /**/
 
@@ -74,25 +74,31 @@ void initWindows();
 void despliegaMapa(int i);
 void drawMenuContinente();
 
-void sound (int value){
-    
-    sonido.PlaySound();
-    glutTimerFunc(50000,sound,0);
+void playSonido(){
+    if (musicaOn) {
+        sonido.PlaySound();
+        
+    }else{
+        sonido.PauseSound();
+    }
     
 }
 
-void stop()
-{
-    if(!_stop)
-    {
-        _stop = true;
-        sonido.PauseSound();
-    }else
-    {
-        _stop = false;
-        sonido.PlaySound();
+void miSonido(){
+    if (musicaOn) {
+        musicaOn = false;
+    }else {
+        musicaOn = true;
     }
+    playSonido();
 }
+
+void sound(int i)
+{
+    playSonido();
+    glutTimerFunc(50000, sound, 0);
+}
+
 
 void rectVerdeRojo()
 {
@@ -288,7 +294,7 @@ void myKeyboard(unsigned char theKey, int mouseX, int mouseY)
             break;
         case 'p':
         case 'P':
-            stop();
+            miSonido();
             break;
         case 13: //enter
             checkDisplayOption();
@@ -363,7 +369,7 @@ void init()
     gameState = 0;
     currentIndex = 0;
     showInstructions = false;
-    _stop = true;
+   
     glutTimerFunc(0,sound,0);//timer de la musica
 }
 
