@@ -439,7 +439,7 @@ void fondoPrincipal()
     
     glPushMatrix();
     glTranslatef(.25, .25, 0);
-    glutSolidSphere(.5, 20, 20);
+    glutSolidSphere(0.5, 30, 30);
     glPopMatrix();
     
     glPopMatrix();
