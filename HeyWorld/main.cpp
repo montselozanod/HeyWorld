@@ -161,7 +161,7 @@ void renderSubWindowSprite()
     glPushMatrix();
     glMatrixMode(GL_MODELVIEW);//dejar activa son todas las traslaciones, escalaciones
     glLoadIdentity();//que no tenga ninguna transformación
-    gluLookAt(0, 0, 3, 0, 0, 0, 0, .1, 0);//movemos camara para que se vea el mapa
+    gluLookAt(0, 0, 38, 0, 0, 0, 0, 1, 0);//movemos camara para que se vea el mapa
 
     
     glPushMatrix();
@@ -197,10 +197,6 @@ void gameManagement()
     glutSetWindow(subWindowSprite);
     glutPostRedisplay();
     
-    //    glutCreateSubWindow(windowID, 600, 0, 600, winHeight);
-    //    glutDisplayFunc(renderSubWindow);
-    //    initWindows();
-    //game.playGame();
 }
 
 

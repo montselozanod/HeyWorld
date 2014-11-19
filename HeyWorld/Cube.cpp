@@ -7,10 +7,11 @@
 //
 
 #include "Cube.h"
+#define SIZE 11.0f
 
 Cube::Cube()
 {
-
+    
 }
 
 void Cube::drawCube()
@@ -25,16 +26,16 @@ void Cube::drawCube()
     glBegin(GL_QUADS);
     glNormal3f( 0.0f, 0.0f,-1.0f);
     glTexCoord2f(0.0f, 0.0f);
-    glVertex3f(-1.0f, -1.0f, -1.0f);
+    glVertex3f(-SIZE, -SIZE, -SIZE);
     glTexCoord2f(1.0f, 0.0f);
-    glVertex3f(-1.0f,  1.0f, -1.0f);
+    glVertex3f(-SIZE,  SIZE, -SIZE);
     glTexCoord2f(1.0f, 1.0f);
-    glVertex3f( 1.0f,  1.0f, -1.0f);
+    glVertex3f( SIZE,  SIZE, -SIZE);
     glTexCoord2f(0.0f, 1.0f);
-    glVertex3f( 1.0f, -1.0f, -1.0f);
+    glVertex3f( SIZE, -SIZE, -SIZE);
     glEnd();
     
-
+    
     
     // Parte de Abajo del cubo
     glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE_SGIS);
@@ -42,13 +43,13 @@ void Cube::drawCube()
     glBegin(GL_QUADS);
     glNormal3f( 0.0f,-1.0f, 0.0f);
     glTexCoord2f(0.0f, 0.0f);
-    glVertex3f(-1.0f, -1.0f, -1.0f);
+    glVertex3f(-SIZE, -SIZE, -SIZE);
     glTexCoord2f(1.0f, 0.0f);
-    glVertex3f( 1.0f, -1.0f, -1.0f);
+    glVertex3f( SIZE, -SIZE, -SIZE);
     glTexCoord2f(1.0f, 1.0f);
-    glVertex3f( 1.0f, -1.0f,  1.0f);
+    glVertex3f( SIZE, -SIZE,  SIZE);
     glTexCoord2f(0.0f, 1.0f);
-    glVertex3f(-1.0f, -1.0f,  1.0f);
+    glVertex3f(-SIZE, -SIZE,  SIZE);
     glEnd();
     
     // Parte de lado Derecho del cubo
@@ -57,13 +58,13 @@ void Cube::drawCube()
     glBegin(GL_QUADS);
     glNormal3f( 1.0f, 0.0f, 0.0f);
     glTexCoord2f(0.0f, 0.0f);
-    glVertex3f( 1.0f, -1.0f, -1.0f);
+    glVertex3f( SIZE, -SIZE, -SIZE);
     glTexCoord2f(1.0f, 0.0f);
-    glVertex3f( 1.0f,  1.0f, -1.0f);
+    glVertex3f( SIZE,  SIZE, -SIZE);
     glTexCoord2f(1.0f, 1.0f);
-    glVertex3f( 1.0f,  1.0f,  1.0f);
+    glVertex3f( SIZE,  SIZE,  SIZE);
     glTexCoord2f(0.0f, 1.0f);
-    glVertex3f( 1.0f, -1.0f,  1.0f);
+    glVertex3f( SIZE, -SIZE,  SIZE);
     glEnd();
     
     // Lado Izquierdo del cubo
@@ -72,15 +73,15 @@ void Cube::drawCube()
     glBegin(GL_QUADS);
     glNormal3f(-1.0f, 0.0f, 0.0f);
     glTexCoord2f(0.0f,0.0f);
-    glVertex3f(-1.0f, -1.0f, -1.0f);
+    glVertex3f(-SIZE, -SIZE, -SIZE);
     glTexCoord2f(0.0f,1.0f);
-    glVertex3f(-1.0f, -1.0f,  1.0f);
+    glVertex3f(-SIZE, -SIZE,  SIZE);
     glTexCoord2f(1.0f,1.0f);
-    glVertex3f(-1.0f,  1.0f,  1.0f);
+    glVertex3f(-SIZE,  SIZE,  SIZE);
     glTexCoord2f(0.0f,1.0f);
-    glVertex3f(-1.0f,  1.0f, -1.0f);
+    glVertex3f(-SIZE,  SIZE, -SIZE);
     glEnd();
-
+    
     //parte para abrir
     glPushMatrix();
     glRotated(angleTop, 1, 0, 0);
@@ -92,18 +93,19 @@ void Cube::drawCube()
     glBegin(GL_QUADS);
     glNormal3f( 0.0f, 1.0f, 0.0f);
     glTexCoord2f(0.0f, 0.0f);
-    glVertex3f(-1.0f,  1.0f, -1.0f);
+    glVertex3f(-SIZE,  SIZE+30, -SIZE);
     glTexCoord2f(1.0f, 0.0f);
-    glVertex3f(-1.0f,  1.0f,  1.0f);
+    glVertex3f(-SIZE,  SIZE+30,  SIZE);
     glTexCoord2f(1.0f, 1.0f);
-    glVertex3f( 1.0f,  1.0f,  1.0f);
+    glVertex3f( SIZE,  SIZE+30,  SIZE);
     glTexCoord2f(0.0f,1.0f);
-    glVertex3f( 1.0f,  1.0f, -1.0f);
+    glVertex3f( SIZE,  SIZE+30, -SIZE);
     glEnd();
     
     
+    
     glPopMatrix();
-     glPopMatrix();
+    glPopMatrix();
     
     
     
@@ -151,5 +153,5 @@ void Cube::closeCube()
 
 void Cube::rotateCube()
 {
-     glutTimerFunc(50, animationBox, 1);
+    glutTimerFunc(50, animationBox, 1);
 }
