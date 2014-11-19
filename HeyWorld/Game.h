@@ -27,6 +27,7 @@ static int difficulty;
 static bool endGame;
 static bool win;
 
+
 class Game
 {
     private:

@@ -15,6 +15,9 @@
 
 #include "Game.h"
 
+
+
+
 Game::Game()
 {
     endGame = false;
@@ -143,6 +146,7 @@ void Game::shuffleSprites()
     }
 }
 
+
 void Game::playGame()
 {
     if(!endGame)
@@ -161,6 +165,7 @@ void Game::playGame()
         {
             endGame = true;
             std::cout<<"LOST ALL GAMEEE::: AM SORRY!!! TRY AGAIN"<<std::endl;
+            //pintar que se perdio
 
         }
     
