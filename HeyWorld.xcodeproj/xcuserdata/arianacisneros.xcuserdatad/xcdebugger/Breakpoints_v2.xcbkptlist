@@ -109,7 +109,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "176"
             endingLineNumber = "176"
-            landmarkName = "Game::mapClick(int codeCountry)"
+            landmarkName = "Game::showSprite()"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -125,7 +125,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "177"
             endingLineNumber = "177"
-            landmarkName = "Game::mapClick(int codeCountry)"
+            landmarkName = "Game::showSprite()"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
