@@ -186,11 +186,17 @@ void Game::showSprite()
 
 bool Game::mapClick(int codeCountry)
 {
-
-    if(checkSprite(codeCountry))
+    if(!endGame)
     {
-        playGame();
-        return true;
+
+        if(checkSprite(codeCountry))
+        {
+            playGame();
+            return true;
+        }else
+        {
+        return false;
+        }
     }else
     {
         return false;
@@ -214,6 +220,7 @@ bool Game::checkSprite(int codeCountry)
 
 void Game::draw()
 {
+    if(!endGame){
     cubo.drawCube(); //Dibujar cubo del lado derecho
     
     Sprite *current;
@@ -230,6 +237,10 @@ void Game::draw()
             glPopMatrix();
             glDisable(GL_TEXTURE_2D);
         }
+    }
+    }else
+    {
+        finishGame();
     }
 }
 
@@ -277,6 +288,8 @@ void Game::lostQuestion(int type)
 //        lostQuestion(1);
 //    }
 //}
+
+
 
 void Game::finishGame()
 {
