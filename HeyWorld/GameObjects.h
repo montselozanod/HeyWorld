@@ -89,11 +89,19 @@ public:
 //FLAG CLASS
 class Flag: public Sprite
 {
-    
+    GLfloat	xrot;
+    GLfloat	yrot;
+    GLfloat	zrot;
+    GLfloat hold;
+    float points [45][45][3];
+    int wiggle;
+    bool dirRight;
 public:
     Flag(char* img, int countryCode):Sprite(img,countryCode)
     {
-        
+        wiggle = 0;
+        yrot = 0;
+        dirRight = true;
     }
     void drawSprite();
 };
