@@ -54,7 +54,7 @@ class Game
     Game();
     Game(int diff);
     //void setTypeGame(int type);
-
+    bool isGameFinished();
     void setDifficultyGame(int dif);
     void startGame();
     void playGame();
