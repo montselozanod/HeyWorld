@@ -369,9 +369,7 @@ void initRendering()
     image = loadBMP("blocks.bmp");loadTexture(image,i++);
     image = loadBMP("madera.bmp");loadTexture(image,i++);
     image = loadBMP("water.bmp");loadTexture(image,i++);
-    image = loadBMP("verde.bmp");loadTexture(image,i++);
-    image = loadBMP("amarillo.bmp");loadTexture(image,i++);
-
+    
     delete image;
 }
 
