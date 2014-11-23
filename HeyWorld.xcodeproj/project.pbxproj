@@ -23,6 +23,14 @@
 		B0C9950C19EE44B50053FE95 /* LevelDeck.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B0C9950A19EE44B50053FE95 /* LevelDeck.cpp */; };
 		B0C9950F19EEB6440053FE95 /* GameObjects.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B0C9950D19EEB6440053FE95 /* GameObjects.cpp */; };
 		B0D306961A12E6D900605C44 /* Pin.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B0D306951A12E6D900605C44 /* Pin.cpp */; };
+		B0E9403E1A225FA200861A95 /* glm_util.c in Sources */ = {isa = PBXBuildFile; fileRef = B0E940341A225FA200861A95 /* glm_util.c */; };
+		B0E9403F1A225FA200861A95 /* glm.c in Sources */ = {isa = PBXBuildFile; fileRef = B0E940351A225FA200861A95 /* glm.c */; };
+		B0E940401A225FA200861A95 /* glmimg_devil.c in Sources */ = {isa = PBXBuildFile; fileRef = B0E940371A225FA200861A95 /* glmimg_devil.c */; };
+		B0E940411A225FA200861A95 /* glmimg_jpg.c in Sources */ = {isa = PBXBuildFile; fileRef = B0E940381A225FA200861A95 /* glmimg_jpg.c */; };
+		B0E940421A225FA200861A95 /* glmimg_png.c in Sources */ = {isa = PBXBuildFile; fileRef = B0E940391A225FA200861A95 /* glmimg_png.c */; };
+		B0E940431A225FA200861A95 /* glmimg_sdl.c in Sources */ = {isa = PBXBuildFile; fileRef = B0E9403A1A225FA200861A95 /* glmimg_sdl.c */; };
+		B0E940441A225FA200861A95 /* glmimg_sim.c in Sources */ = {isa = PBXBuildFile; fileRef = B0E9403B1A225FA200861A95 /* glmimg_sim.c */; };
+		B0E940451A225FA200861A95 /* glmimg.c in Sources */ = {isa = PBXBuildFile; fileRef = B0E9403C1A225FA200861A95 /* glmimg.c */; };
 		FDC03B251A1C92F300D8BAA3 /* Sound.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FDC03B231A1C92F300D8BAA3 /* Sound.cpp */; };
 /* End PBXBuildFile section */
 
@@ -96,6 +104,16 @@
 		B0D306951A12E6D900605C44 /* Pin.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Pin.cpp; sourceTree = "<group>"; };
 		B0D306981A13AC5B00605C44 /* blocks.bmp */ = {isa = PBXFileReference; lastKnownFileType = image.bmp; path = blocks.bmp; sourceTree = "<group>"; };
 		B0D3069A1A13ACBD00605C44 /* madera.bmp */ = {isa = PBXFileReference; lastKnownFileType = image.bmp; path = madera.bmp; sourceTree = "<group>"; };
+		B0E940341A225FA200861A95 /* glm_util.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = glm_util.c; sourceTree = "<group>"; };
+		B0E940351A225FA200861A95 /* glm.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = glm.c; sourceTree = "<group>"; };
+		B0E940361A225FA200861A95 /* glm.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = glm.h; sourceTree = "<group>"; };
+		B0E940371A225FA200861A95 /* glmimg_devil.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = glmimg_devil.c; sourceTree = "<group>"; };
+		B0E940381A225FA200861A95 /* glmimg_jpg.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = glmimg_jpg.c; sourceTree = "<group>"; };
+		B0E940391A225FA200861A95 /* glmimg_png.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = glmimg_png.c; sourceTree = "<group>"; };
+		B0E9403A1A225FA200861A95 /* glmimg_sdl.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = glmimg_sdl.c; sourceTree = "<group>"; };
+		B0E9403B1A225FA200861A95 /* glmimg_sim.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = glmimg_sim.c; sourceTree = "<group>"; };
+		B0E9403C1A225FA200861A95 /* glmimg.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = glmimg.c; sourceTree = "<group>"; };
+		B0E9403D1A225FA200861A95 /* glmint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = glmint.h; sourceTree = "<group>"; };
 		FD2502BB1A21E89100C17CB4 /* gameoverColor.bmp */ = {isa = PBXFileReference; lastKnownFileType = image.bmp; path = gameoverColor.bmp; sourceTree = "<group>"; };
 		FD2502BC1A21EB0000C17CB4 /* youwon.bmp */ = {isa = PBXFileReference; lastKnownFileType = image.bmp; path = youwon.bmp; sourceTree = "<group>"; };
 		FD2502BD1A226CE900C17CB4 /* verde.bmp */ = {isa = PBXFileReference; lastKnownFileType = image.bmp; path = verde.bmp; sourceTree = "<group>"; };
@@ -171,6 +189,7 @@
 		B0461DD019EB26C300B5EC2C /* HeyWorld */ = {
 			isa = PBXGroup;
 			children = (
+				B0E940461A225FAC00861A95 /* GLM */,
 				B069A50A1A1CA55A008F7D83 /* vec3F */,
 				FDC03B261A1C930800D8BAA3 /* song.wav */,
 				B069A50D1A1CA6D3008F7D83 /* Sound */,
@@ -338,6 +357,23 @@
 			name = Pin;
 			sourceTree = "<group>";
 		};
+		B0E940461A225FAC00861A95 /* GLM */ = {
+			isa = PBXGroup;
+			children = (
+				B0E940341A225FA200861A95 /* glm_util.c */,
+				B0E940351A225FA200861A95 /* glm.c */,
+				B0E940361A225FA200861A95 /* glm.h */,
+				B0E940371A225FA200861A95 /* glmimg_devil.c */,
+				B0E940381A225FA200861A95 /* glmimg_jpg.c */,
+				B0E940391A225FA200861A95 /* glmimg_png.c */,
+				B0E9403A1A225FA200861A95 /* glmimg_sdl.c */,
+				B0E9403B1A225FA200861A95 /* glmimg_sim.c */,
+				B0E9403C1A225FA200861A95 /* glmimg.c */,
+				B0E9403D1A225FA200861A95 /* glmint.h */,
+			);
+			name = GLM;
+			sourceTree = "<group>";
+		};
 		FDC03B141A1B423700D8BAA3 /* personajes */ = {
 			isa = PBXGroup;
 			children = (
@@ -419,6 +455,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B0E9403E1A225FA200861A95 /* glm_util.c in Sources */,
 				B0D306961A12E6D900605C44 /* Pin.cpp in Sources */,
 				B0C9950019EDDBBB0053FE95 /* User.cpp in Sources */,
 				B0665F2219ECDE2D007CAAE8 /* World.cpp in Sources */,
@@ -426,12 +463,19 @@
 				B0BF8DA51A17F43500A61B44 /* Cube.cpp in Sources */,
 				B05D0D6319FA23BE00EB2A01 /* MenuOption.cpp in Sources */,
 				B0461DD219EB26C300B5EC2C /* main.cpp in Sources */,
+				B0E940451A225FA200861A95 /* glmimg.c in Sources */,
+				B0E940421A225FA200861A95 /* glmimg_png.c in Sources */,
+				B0E940431A225FA200861A95 /* glmimg_sdl.c in Sources */,
 				B0C9950719EDE0C30053FE95 /* Game.cpp in Sources */,
 				B06C94A31A09A669001951D3 /* Menu.cpp in Sources */,
 				B069A5081A1CA54D008F7D83 /* vec3f.cpp in Sources */,
 				B0BF8DAC1A182EE100A61B44 /* imageloader.cpp in Sources */,
+				B0E940441A225FA200861A95 /* glmimg_sim.c in Sources */,
+				B0E9403F1A225FA200861A95 /* glm.c in Sources */,
 				B0C9950C19EE44B50053FE95 /* LevelDeck.cpp in Sources */,
+				B0E940411A225FA200861A95 /* glmimg_jpg.c in Sources */,
 				FDC03B251A1C92F300D8BAA3 /* Sound.cpp in Sources */,
+				B0E940401A225FA200861A95 /* glmimg_devil.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
