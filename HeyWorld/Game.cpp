@@ -110,7 +110,7 @@ void Game::initRenderImages()
     glLightModelfv(GL_LIGHT_MODEL_AMBIENT, ambientLight);
     glEnable(GL_DEPTH_TEST);
 
-    glGenTextures(30, textures); //Make room for our texture
+    glGenTextures(40, textures); //Make room for our texture
    Image* image;
     for(int j = 0; j < gameSprites.size(); j++)
     {
@@ -121,7 +121,7 @@ void Game::initRenderImages()
     
     image = loadBMP("gameoverColor.bmp");loadTexture(image,30);
     image = loadBMP("youwon.bmp");loadTexture(image,31);
-    image = loadBMP("carafeliz1.bmp");loadTexture(image,32);
+    //image = loadBMP("carafeliz1.bmp");loadTexture(image,32);
     
 }
 
