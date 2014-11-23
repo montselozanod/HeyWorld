@@ -29,6 +29,8 @@ static bool win;
 static float rot_angle_y;
 static float rot_angle_x;
 static float rot_angle;
+static int _num;
+static char tiempo[200];
 
 
 class Game
@@ -46,6 +48,7 @@ class Game
     void lostQuestion(int type); //0 contaste mal pero aun hay tiempo, 1 se acabo el tiempo y cambio a siguiente pregunta
     static void timerQuestion(int v);
     static void timerFinishGame(int v);
+    
     //int typeGame;
     
     LevelDeck deckLevel;
@@ -62,8 +65,10 @@ class Game
     bool isGameFinished();
     void setDifficultyGame(int dif);
     void startGame();
+    void initReloj();
     void playGame();
     void finishGame();
+    void displayTiempo();
     void draw();
     bool mapClick(int codeCountry);
 
