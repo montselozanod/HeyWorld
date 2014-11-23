@@ -122,6 +122,8 @@ void Game::initRenderImages()
     }
     
     image = loadBMP("gameoverColor.bmp");loadTexture(image,30);
+    image = loadBMP("youwon.bmp");loadTexture(image,31);
+    image = loadBMP("carafeliz1.bmp");loadTexture(image,32);
     
 }
 
@@ -226,7 +228,7 @@ bool Game::checkSprite(int codeCountry)
 
 void Game::draw()
 {
-   
+
     if(!endGame){
     cubo.drawCube(); //Dibujar cubo del lado derecho
     
@@ -309,52 +311,6 @@ void Game::lostQuestion(int type)
 
 void Game::finishGame()
 {
-    glutTimerFunc(0, timerFinishGame, 1);
-
-    float mat_emissionG [] = {1.0,1.0,1.0,1.0};
-    glPushMatrix();
-    glMatrixMode(GL_MODELVIEW);//dejar activa son todas las traslaciones, escalaciones
-    glLoadIdentity();//que no tenga ninguna transformación
-    gluLookAt(0, 0, 1, 0, 0, 0, 0, .1, 0);//movemos camara para que se vea el mapa
-    
-    glEnable(GL_BLEND); // Activamos la transparencia
-    glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA); //GL_DST_COLOR, GL_ONE
-    glEnable(GL_TEXTURE_2D);
-    glColor4fv(mat_emissionG);
-    glMatrixMode(GL_TEXTURE);//Activar matriz de textura
-     glBindTexture(GL_TEXTURE_2D, textures[30]); //Seleccion de textura
-
-    glPushMatrix();
-    glRotated(rot_angle, 1, 1, 1); //se acumula en la matriz de TEXTURE
-    glColor3f(1.0f, 1.0f, 1.0f);
-    
-    glBegin(GL_QUADS);
-    glTexCoord2f(0.0f, 0.0f); //se pega la textura con
-    glVertex3f(-0.3, -0.3, 0);
-    glTexCoord2f(1.0f, 0.0f);
-    glVertex3f(0.3, -0.3, 0);
-    glTexCoord2f(1.0f, 1.0f);
-    glVertex3f(0.3, 0.3, 0);
-    glTexCoord2f(0.0f, 1.0f);
-    glVertex3f(-0.3, 0.3, 0);
-    glEnd();
-    glPopMatrix();
-    
-    glPopMatrix(); //pop de camara
-    glDisable(GL_BLEND); //para desactivarlo.
-    glDisable(GL_TEXTURE_2D);
-    
-   
-    
-    //FONDO DE COLORES
-    
-    //glShadeModel(GL_FLAT);
-    //movemos camara
-    glPushMatrix();
-    glMatrixMode(GL_MODELVIEW);//dejar activa son todas las traslaciones, escalaciones
-    glLoadIdentity();//que no tenga ninguna transformación
-    gluLookAt(0, 0, 1, 0, 0, 0, 0, .1, 0);
-    
     float mat_ambient_diffuse [] = {1,1,1.0,1.0};
     float mat_specular [] = {0.0,0.2,0.7,1.0};
     float mat_emission [] = {1.0,0.0,0.0,1.0};
@@ -369,82 +325,219 @@ void Game::finishGame()
     float spot_dir [] = {0.0,0.0,-1.0};
     float spot_cutoff = 20.0;
     float spot_exponent = 1.0;
+    glutTimerFunc(0, timerFinishGame, 1);
     
-    glPushMatrix();
-    glEnable(GL_DEPTH_TEST);
-    glClearColor(1.0,1.0,1.0,0.0);
-    glLightModeli(GL_LIGHT_MODEL_TWO_SIDE,GL_FALSE);
-    glEnable(GL_LIGHTING);
-    glLightfv(GL_LIGHT0,GL_AMBIENT,light_ambient);
-    glLightfv(GL_LIGHT0,GL_DIFFUSE,light_diffuse_specular);
-    glLightfv(GL_LIGHT0,GL_SPECULAR,light_diffuse_specular);
-    glLightf(GL_LIGHT0,GL_SPOT_CUTOFF,spot_cutoff);
-    glLightf(GL_LIGHT0,GL_SPOT_EXPONENT,spot_exponent);
-    glEnable(GL_LIGHT0);
-    glLightfv(GL_LIGHT1,GL_AMBIENT,light_ambient);
-    glLightfv(GL_LIGHT1,GL_DIFFUSE,light_diffuse_specular2);
-    glLightfv(GL_LIGHT1,GL_SPECULAR,light_diffuse_specular2);
-    glLightf(GL_LIGHT1,GL_SPOT_CUTOFF,spot_cutoff);
-    glLightf(GL_LIGHT1,GL_SPOT_EXPONENT,spot_exponent);
-    glEnable(GL_LIGHT1);
+    if(win)
+    {
     
-    glMaterialfv(GL_FRONT,GL_AMBIENT_AND_DIFFUSE, mat_ambient_diffuse);
-    glMaterialfv(GL_FRONT,GL_SPECULAR,mat_specular);
-    glMaterialf(GL_FRONT,GL_SHININESS,mat_shininess);
+        /*TEXTURA YOU WON!*/
+        float mat_emissionG [] = {1.0,1.0,1.0,1.0};
+        glPushMatrix();
+        glMatrixMode(GL_MODELVIEW);//dejar activa son todas las traslaciones, escalaciones
+        glLoadIdentity();//que no tenga ninguna transformación
+        gluLookAt(0, 0, 1, 0, 0, 0, 0, .1, 0);//movemos camara para que se vea el mapa
     
     
+        glEnable(GL_BLEND); // Activamos la transparencia
+        glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA); //GL_DST_COLOR, GL_ONE
+        glEnable(GL_TEXTURE_2D);
+        glColor4fv(mat_emissionG);
+        glMatrixMode(GL_TEXTURE);//Activar matriz de textura
+        glBindTexture(GL_TEXTURE_2D, textures[30]); //Seleccion de textura
+        
+        glPushMatrix();
+        glRotated(rot_angle, 1, 1, 1); //se acumula en la matriz de TEXTURE
+        glColor3f(1.0f, 1.0f, 1.0f);
+        
+        glBegin(GL_QUADS);
+        glTexCoord2f(0.0f, 0.0f); //se pega la textura con
+        glVertex3f(-0.3, -0.3, 0);
+        glTexCoord2f(1.0f, 0.0f);
+        glVertex3f(0.3, -0.3, 0);
+        glTexCoord2f(1.0f, 1.0f);
+        glVertex3f(0.3, 0.3, 0);
+        glTexCoord2f(0.0f, 1.0f);
+        glVertex3f(-0.3, 0.3, 0);
+        glEnd();
+        glPopMatrix();
+        glPopMatrix(); //pop de camara
+        glDisable(GL_BLEND); //para desactivarlo.
+        glDisable(GL_TEXTURE_2D);
     
-    glPushMatrix();
-    glRotatef(rot_angle_y,0.0,1.0,0.0);
-    glRotatef(rot_angle_x,1.0,0.0,0.0);
-    glLightfv(GL_LIGHT0,GL_POSITION,light_pos);
-    glLightfv(GL_LIGHT0,GL_SPOT_DIRECTION,spot_dir);
-    glTranslatef(light_pos[0],light_pos[1],light_pos[2]);
-    glColorMaterial(GL_FRONT,GL_EMISSION);
-    glEnable(GL_COLOR_MATERIAL);
-    glColor4fv(focus_emission);
-    glColor4fv(mat_emission);
-    glDisable(GL_COLOR_MATERIAL);
-    glPopMatrix();
+        //FONDO DE COLORES
+        
+        glShadeModel(GL_FLAT);
+        glPushMatrix();
+        glMatrixMode(GL_MODELVIEW);//dejar activa son todas las traslaciones, escalaciones
+        glLoadIdentity();//que no tenga ninguna transformación
+        gluLookAt(0, 0, 1, 0, 0, 0, 0, .1, 0);
+        
+        glPushMatrix();
+        glEnable(GL_DEPTH_TEST);
+        glClearColor(1.0,1.0,1.0,0.0);
+        glLightModeli(GL_LIGHT_MODEL_TWO_SIDE,GL_FALSE);
+        glEnable(GL_LIGHTING);
+        glLightfv(GL_LIGHT0,GL_AMBIENT,light_ambient);
+        glLightfv(GL_LIGHT0,GL_DIFFUSE,light_diffuse_specular);
+        glLightfv(GL_LIGHT0,GL_SPECULAR,light_diffuse_specular);
+        glLightf(GL_LIGHT0,GL_SPOT_CUTOFF,spot_cutoff);
+        glLightf(GL_LIGHT0,GL_SPOT_EXPONENT,spot_exponent);
+        glEnable(GL_LIGHT0);
+        glLightfv(GL_LIGHT1,GL_AMBIENT,light_ambient);
+        glLightfv(GL_LIGHT1,GL_DIFFUSE,light_diffuse_specular2);
+        glLightfv(GL_LIGHT1,GL_SPECULAR,light_diffuse_specular2);
+        glLightf(GL_LIGHT1,GL_SPOT_CUTOFF,spot_cutoff);
+        glLightf(GL_LIGHT1,GL_SPOT_EXPONENT,spot_exponent);
+        glEnable(GL_LIGHT1);
+        glMaterialfv(GL_FRONT,GL_AMBIENT_AND_DIFFUSE, mat_ambient_diffuse);
+        glMaterialfv(GL_FRONT,GL_SPECULAR,mat_specular);
+        glMaterialf(GL_FRONT,GL_SHININESS,mat_shininess);
+        
+        glPushMatrix();
+        glRotatef(rot_angle_y,0.0,1.0,0.0);
+        glRotatef(rot_angle_x,1.0,0.0,0.0);
+        glLightfv(GL_LIGHT0,GL_POSITION,light_pos);
+        glLightfv(GL_LIGHT0,GL_SPOT_DIRECTION,spot_dir);
+        glTranslatef(light_pos[0],light_pos[1],light_pos[2]);
+        glColorMaterial(GL_FRONT,GL_EMISSION);
+        glEnable(GL_COLOR_MATERIAL);
+        glColor4fv(focus_emission);
+        glColor4fv(mat_emission);
+        glDisable(GL_COLOR_MATERIAL);
+        glPopMatrix();
+        
+        glPushMatrix();
+        glPushMatrix();
+        glRotatef(-90.0,0.0,0.0,1.0);
+        glRotatef(rot_angle_y,0.0,1.0,0.0);
+        glRotatef(rot_angle_x,1.0,0.0,0.0);
+        glLightfv(GL_LIGHT1,GL_POSITION,light_pos);
+        glLightfv(GL_LIGHT1,GL_SPOT_DIRECTION,spot_dir);
+        //glTranslatef(light_pos2[0],light_pos2[1],light_pos2[2]);
+        glColorMaterial(GL_FRONT,GL_EMISSION);
+        glEnable(GL_COLOR_MATERIAL);
+        glColor4fv(focus_emission2);
+        glColor4fv(mat_emission);
+        glDisable(GL_COLOR_MATERIAL);
+        glPopMatrix();
+        glutSolidSphere(1.0,30,30);
+        glPopMatrix();
+        
+        glPopMatrix();
+        glDisable(GL_LIGHTING);
+        glDisable(GL_LIGHT0);
+        glDisable(GL_LIGHT1);
+        glDisable(GL_COLOR_MATERIAL);
+        glPopMatrix();
+    }
+    else
+    {
+        /*TEXTURA GAME OVER*/
+        float mat_emissionG [] = {1.0,1.0,1.0,1.0};
+        glPushMatrix();
+        glMatrixMode(GL_MODELVIEW);//dejar activa son todas las traslaciones, escalaciones
+        glLoadIdentity();//que no tenga ninguna transformación
+        gluLookAt(0, 0, 1, 0, 0, 0, 0, .1, 0);//movemos camara para que se vea el mapa
+        
+        glEnable(GL_BLEND); // Activamos la transparencia
+        glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA); //GL_DST_COLOR, GL_ONE
+        glEnable(GL_TEXTURE_2D);
+        glColor4fv(mat_emissionG);
+        glMatrixMode(GL_TEXTURE);//Activar matriz de textura
+        glBindTexture(GL_TEXTURE_2D, textures[30]); //Seleccion de textura
+        
+        glPushMatrix();
+        glRotated(rot_angle, 1, 1, 1); //se acumula en la matriz de TEXTURE
+        glColor3f(1.0f, 1.0f, 1.0f);
+        
+        glBegin(GL_QUADS);
+        glTexCoord2f(0.0f, 0.0f); //se pega la textura con
+        glVertex3f(-0.3, -0.3, 0);
+        glTexCoord2f(1.0f, 0.0f);
+        glVertex3f(0.3, -0.3, 0);
+        glTexCoord2f(1.0f, 1.0f);
+        glVertex3f(0.3, 0.3, 0);
+        glTexCoord2f(0.0f, 1.0f);
+        glVertex3f(-0.3, 0.3, 0);
+        glEnd();
+        glPopMatrix();
+        
+        glPopMatrix(); //pop de camara
+        glDisable(GL_BLEND); //para desactivarlo.
+        glDisable(GL_TEXTURE_2D);
+        
+        
+        
+        //FONDO DE COLORES
+        
+        //glShadeModel(GL_FLAT);
+        
+        glPushMatrix();
+        glMatrixMode(GL_MODELVIEW);//dejar activa son todas las traslaciones, escalaciones
+        glLoadIdentity();//que no tenga ninguna transformación
+        gluLookAt(0, 0, 1, 0, 0, 0, 0, .1, 0);
+        
+        
+        
+        glPushMatrix();
+        glEnable(GL_DEPTH_TEST);
+        glClearColor(1.0,1.0,1.0,0.0);
+        glLightModeli(GL_LIGHT_MODEL_TWO_SIDE,GL_FALSE);
+        glEnable(GL_LIGHTING);
+        glLightfv(GL_LIGHT0,GL_AMBIENT,light_ambient);
+        glLightfv(GL_LIGHT0,GL_DIFFUSE,light_diffuse_specular);
+        glLightfv(GL_LIGHT0,GL_SPECULAR,light_diffuse_specular);
+        glLightf(GL_LIGHT0,GL_SPOT_CUTOFF,spot_cutoff);
+        glLightf(GL_LIGHT0,GL_SPOT_EXPONENT,spot_exponent);
+        glEnable(GL_LIGHT0);
+        glLightfv(GL_LIGHT1,GL_AMBIENT,light_ambient);
+        glLightfv(GL_LIGHT1,GL_DIFFUSE,light_diffuse_specular2);
+        glLightfv(GL_LIGHT1,GL_SPECULAR,light_diffuse_specular2);
+        glLightf(GL_LIGHT1,GL_SPOT_CUTOFF,spot_cutoff);
+        glLightf(GL_LIGHT1,GL_SPOT_EXPONENT,spot_exponent);
+        glEnable(GL_LIGHT1);
+        glMaterialfv(GL_FRONT,GL_AMBIENT_AND_DIFFUSE, mat_ambient_diffuse);
+        glMaterialfv(GL_FRONT,GL_SPECULAR,mat_specular);
+        glMaterialf(GL_FRONT,GL_SHININESS,mat_shininess);
+        
+        glPushMatrix();
+        glRotatef(rot_angle_y,0.0,1.0,0.0);
+        glRotatef(rot_angle_x,1.0,0.0,0.0);
+        glLightfv(GL_LIGHT0,GL_POSITION,light_pos);
+        glLightfv(GL_LIGHT0,GL_SPOT_DIRECTION,spot_dir);
+        glTranslatef(light_pos[0],light_pos[1],light_pos[2]);
+        glColorMaterial(GL_FRONT,GL_EMISSION);
+        glEnable(GL_COLOR_MATERIAL);
+        glColor4fv(focus_emission);
+        glColor4fv(mat_emission);
+        glDisable(GL_COLOR_MATERIAL);
+        glPopMatrix();
+        
+        glPushMatrix();
+        glPushMatrix();
+        glRotatef(-90.0,0.0,0.0,1.0);
+        glRotatef(rot_angle_y,0.0,1.0,0.0);
+        glRotatef(rot_angle_x,1.0,0.0,0.0);
+        glLightfv(GL_LIGHT1,GL_POSITION,light_pos);
+        glLightfv(GL_LIGHT1,GL_SPOT_DIRECTION,spot_dir);
+        //glTranslatef(light_pos2[0],light_pos2[1],light_pos2[2]);
+        glColorMaterial(GL_FRONT,GL_EMISSION);
+        glEnable(GL_COLOR_MATERIAL);
+        glColor4fv(focus_emission2);
+        glColor4fv(mat_emission);
+        glDisable(GL_COLOR_MATERIAL);
+        glPopMatrix();
+        glutSolidSphere(1.0,30,30);
+        glPopMatrix();
+        
+        glPopMatrix();
+        glDisable(GL_LIGHTING);
+        glDisable(GL_LIGHT0);
+        glDisable(GL_LIGHT1);
+        glDisable(GL_COLOR_MATERIAL);
+        glPopMatrix();
     
-    glPushMatrix();
-    glPushMatrix();
-    glRotatef(-90.0,0.0,0.0,1.0);
-    glRotatef(rot_angle_y,0.0,1.0,0.0);
-    glRotatef(rot_angle_x,1.0,0.0,0.0);
-    glLightfv(GL_LIGHT1,GL_POSITION,light_pos);
-    glLightfv(GL_LIGHT1,GL_SPOT_DIRECTION,spot_dir);
-    //glTranslatef(light_pos2[0],light_pos2[1],light_pos2[2]);
-    glColorMaterial(GL_FRONT,GL_EMISSION);
-    glEnable(GL_COLOR_MATERIAL);
-    glColor4fv(focus_emission2);
-    glColor4fv(mat_emission);
-    glDisable(GL_COLOR_MATERIAL);
-    glPopMatrix();
+    }
     
-    glutSolidSphere(1.0,30,30);
-    glPopMatrix();
-    
-    glPopMatrix();
-    glDisable(GL_LIGHTING);
-    glDisable(GL_LIGHT0);
-    glDisable(GL_LIGHT1);
-    glDisable(GL_COLOR_MATERIAL);
-    glPopMatrix();
-
-    
-
-    glFlush();
-    
-    
-
-    
-//    if(win)
-//    {
-//    
-//    }
-//    else
-//    {
-//    
-//    }
+        glFlush();
 }
