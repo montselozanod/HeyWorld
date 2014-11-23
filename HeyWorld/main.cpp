@@ -141,6 +141,7 @@ void renderSubWindow()
     desplieganuevopin(pinSelecc);
     rectVerdeRojo();
     drawMenuContinente();
+    game.initReloj();
    
     glutSwapBuffers();
     glutSetWindow(subWindowSprite);
@@ -152,21 +153,17 @@ void renderSubWindowSprite()
 {
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
     
-    //pintar textura de agua
-    
     glPushMatrix();
     glMatrixMode(GL_MODELVIEW);//dejar activa son todas las traslaciones, escalaciones
     glLoadIdentity();//que no tenga ninguna transformación
     gluLookAt(0, 0, 38, 0, 0, 0, 0, 1, 0);//movemos camara para que se vea el mapa
-
     
     glPushMatrix();
     glEnable(GL_TEXTURE_2D);
     glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE_SGIS);
     glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
     glBindTexture(GL_TEXTURE_2D,texName[9]);
-    
-    game.draw(); //Dibujar caja de objetos
+    game.draw(); //Dibujar caja de madera de objetos
     glPopMatrix();
     glPopMatrix();
     glDisable(GL_TEXTURE_2D);

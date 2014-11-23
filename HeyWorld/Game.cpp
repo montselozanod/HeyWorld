@@ -16,8 +16,6 @@
 #include "Game.h"
 
 
-
-
 Game::Game()
 {
     endGame = false;
@@ -135,6 +133,28 @@ void Game::startGame()
     initRenderImages();
     gameSprites[numSprite]->visibility = true;
     playGame();
+    
+}
+
+void Game::initReloj()
+{
+    _num = 0;
+    displayTiempo();
+}
+
+
+void Game::displayTiempo()
+{
+
+    glPushMatrix();
+    glTranslated(-0.6, -0.6, 0);
+    glColor3f(100, 24, 100);
+    glRasterPos2d(0, 0);
+    for(int i= 0; tiempo[i]!='\0'; i++)
+    {
+        glutBitmapCharacter(GLUT_BITMAP_TIMES_ROMAN_24, tiempo[i]);
+    }
+    glPopMatrix();
 }
 
 void Game::shuffleSprites()
@@ -161,6 +181,7 @@ void Game::playGame()
         {
             cubo.closeCube();
             showSprite();
+            displayTiempo();
             cubo.rotateCube();
             answeredCorrect = false;
             countTimer = 0;
@@ -253,6 +274,25 @@ void Game::draw()
     }
 }
 
+
+void formato()
+{
+    int mili = _num % 10;
+    int seg = (_num/10)%60;
+    int min = (_num/10)/60;
+    
+    if(seg < 10)
+    {
+        sprintf(tiempo, "%d : 0%d : %d", min, seg, mili);
+    }
+    else
+    {
+        sprintf(tiempo, "%d : %d : %d", min, seg, mili);
+    }
+    
+}
+
+
 void Game::timerQuestion(int v)
 {
     if(v == numSprite)
@@ -260,7 +300,12 @@ void Game::timerQuestion(int v)
         if(countTimer < 10 && !answeredCorrect && !endGame)
         {
             countTimer++;
+            _num = countTimer;
+            //sprintf(tiempo, "%d : 0%d : %d", 0, 0, _num);
             std::cout<<countTimer<<std::endl;
+            formato();
+            std::cout<<tiempo<<"\n";
+            glutPostRedisplay();
             glutTimerFunc(1000, timerQuestion, numSprite);
         }else if(countTimer == 10 && !answeredCorrect && !endGame)
         {
@@ -467,7 +512,6 @@ void Game::finishGame()
         glDisable(GL_TEXTURE_2D);
         
         
-        
         //FONDO DE COLORES
         
         //glShadeModel(GL_FLAT);
@@ -477,8 +521,7 @@ void Game::finishGame()
         glLoadIdentity();//que no tenga ninguna transformación
         gluLookAt(0, 0, 1, 0, 0, 0, 0, .1, 0);
         
-        
-        
+    
         glPushMatrix();
         glEnable(GL_DEPTH_TEST);
         glClearColor(1.0,1.0,1.0,0.0);

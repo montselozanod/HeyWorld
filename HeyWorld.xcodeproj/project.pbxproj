@@ -98,6 +98,8 @@
 		B0D3069A1A13ACBD00605C44 /* madera.bmp */ = {isa = PBXFileReference; lastKnownFileType = image.bmp; path = madera.bmp; sourceTree = "<group>"; };
 		FD2502BB1A21E89100C17CB4 /* gameoverColor.bmp */ = {isa = PBXFileReference; lastKnownFileType = image.bmp; path = gameoverColor.bmp; sourceTree = "<group>"; };
 		FD2502BC1A21EB0000C17CB4 /* youwon.bmp */ = {isa = PBXFileReference; lastKnownFileType = image.bmp; path = youwon.bmp; sourceTree = "<group>"; };
+		FD2502BD1A226CE900C17CB4 /* verde.bmp */ = {isa = PBXFileReference; lastKnownFileType = image.bmp; path = verde.bmp; sourceTree = "<group>"; };
+		FD2502BE1A226CE900C17CB4 /* amarillo.bmp */ = {isa = PBXFileReference; lastKnownFileType = image.bmp; path = amarillo.bmp; sourceTree = "<group>"; };
 		FDA27E831A0285DE003F4500 /* Mapamundi.bmp */ = {isa = PBXFileReference; lastKnownFileType = image.bmp; path = Mapamundi.bmp; sourceTree = "<group>"; };
 		FDA27E841A0285F7003F4500 /* estrellas.bmp */ = {isa = PBXFileReference; lastKnownFileType = image.bmp; path = estrellas.bmp; sourceTree = "<group>"; };
 		FDA27EBA1A02C429003F4500 /* map.bmp */ = {isa = PBXFileReference; lastKnownFileType = image.bmp; path = map.bmp; sourceTree = "<group>"; };
@@ -210,6 +212,8 @@
 		B068C78419FAF5AA00C57511 /* Fotos */ = {
 			isa = PBXGroup;
 			children = (
+				FD2502BD1A226CE900C17CB4 /* verde.bmp */,
+				FD2502BE1A226CE900C17CB4 /* amarillo.bmp */,
 				FD2502BB1A21E89100C17CB4 /* gameoverColor.bmp */,
 				FD2502BC1A21EB0000C17CB4 /* youwon.bmp */,
 				B069A50C1A1CA57C008F7D83 /* circlealpha.bmp */,
