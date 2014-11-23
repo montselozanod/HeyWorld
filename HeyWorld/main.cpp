@@ -25,6 +25,7 @@ int windowID;
 int subWindowMap;
 int subWindowSprite;
 int gameState = 0;
+int pinSelecc = 100;
 GLuint texture = 0;
 
 
@@ -59,6 +60,7 @@ bool nostart;
 Sound sonido = Sound("song.wav");
 bool musicaOn = true;
 
+
 /**/
 
 // GAMESTATE
@@ -73,6 +75,7 @@ void displayMain();
 void initWindows();
 void despliegaMapa(int i);
 void drawMenuContinente();
+void despliegaPines();
 
 void playSonido(){
     if (musicaOn) {
@@ -165,11 +168,13 @@ void fondoAzul()
     
     
 }
-
+void desplieganuevopin(int i);
 void renderSubWindow()
 {
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
     despliegaMapa(currentIndex);
+    despliegaPines();
+    desplieganuevopin(pinSelecc);
     rectVerdeRojo();
     drawMenuContinente();
    
@@ -304,6 +309,7 @@ void myKeyboard(unsigned char theKey, int mouseX, int mouseY)
 void timer(int value)
 {
     angulo = (angulo +8) % 360;
+
     glutPostRedisplay();
     glutTimerFunc(100,timer,0);
 }
@@ -365,7 +371,6 @@ void init()
     gameState = 0;
     currentIndex = 0;
     showInstructions = false;
-   
     glutTimerFunc(0,sound,0);//timer de la musica
 }
 
@@ -377,8 +382,8 @@ void initRendering()
     
   //  GLfloat directedLight[] = {0.9f, 0.9f, 0.9f, 1.0f};
   //  GLfloat directedLightPos[] = {-10.0f, 15.0f, 20.0f, 0.0f};
-//    glLightfv(GL_LIGHT0, GL_DIFFUSE, directedLight);
-//    glLightfv(GL_LIGHT0, GL_POSITION, directedLightPos);
+  //  glLightfv(GL_LIGHT0, GL_DIFFUSE, directedLight);
+  //  glLightfv(GL_LIGHT0, GL_POSITION, directedLightPos);
     glEnable(GL_DEPTH_TEST);
 
     
@@ -401,6 +406,8 @@ void initRendering()
     image = loadBMP("blocks.bmp");loadTexture(image,i++);
     image = loadBMP("madera.bmp");loadTexture(image,i++);
     image = loadBMP("water.bmp");loadTexture(image,i++);
+    image = loadBMP("verde.bmp");loadTexture(image,i++);
+    image = loadBMP("amarillo.bmp");loadTexture(image,i++);
 
     delete image;
 }
@@ -471,22 +478,82 @@ void fondoPrincipal()
 
 }
 
+void cambiaColorPin(int i)
+{
+    int x = 0.0;
+    int y = 0.0;
+    glPushMatrix();
+    glEnable(GL_BLEND); // Activamos la transparencia
+    glBlendFunc(GL_SRC_ALPHA, GL_SRC_COLOR); //funcion de blending //GL_ONE_MINUS_SRC_ALPHA GL_SRC_COLOR
+    glEnable(GL_TEXTURE_2D);
+    //glBindTexture(GL_TEXTURE_2D, texName[12]); //3
+    glEnable(GL_TEXTURE_GEN_S);
+    glEnable(GL_TEXTURE_GEN_T);
+    glTexGeni(GL_S, GL_TEXTURE_GEN_MODE, GL_SPHERE_MAP);
+    glTexGeni(GL_T, GL_TEXTURE_GEN_MODE, GL_SPHERE_MAP);
+    glBindTexture(GL_TEXTURE_2D, texName[3]); //3
+    glPushMatrix();
+    
+//    switch (currentIndex) {
+//        case 1: //America
+//            //posiciones de los pines
+//            x = continente -> _america[i].posX;
+//            cout << "La x es: "<< continente -> _america[i].posX << "\n";
+//            y = continente -> _america[i].posY;
+//            cout << "La y es: "<< continente -> _america[i].posY << "\n";
+//            break;
+//        case 2: //Asia
+//            //posiciones de los pines
+//            posX = continente -> _asia[i].posX;
+//            posY = continente -> _asia[i].posY;
+//            break;
+//        case 3: //Europa
+//            posX = continente -> _europa[i].posX;
+//            posY = continente -> _europa[i].posY;
+//            break;
+//        case 0: //Africa
+//            posX = continente -> _africa[i].posX;
+//            posY = continente -> _africa[i].posY;
+//            break;
+//        default:
+//            break;
+//    }
+    
+    cout << "La x es: "<< continente -> _america[5].posX << "\n";
+    cout << "La y es: "<< continente -> _america[5].posY << "\n";
+    
+    //glTranslatef(continente -> _america[5].posX, continente -> _america[5].posY, 0);
+    //glColor3f(0.0f, 0.0f, 0.0f);
+    glColor4f(1.0, 1.0, 1.0, 0.1); //color y alpha del cubo
+    glutSolidSphere(.1, 20, 20);
+    
+    glPopMatrix();
+    
+    glPopMatrix();
+    glDisable(GL_BLEND); //para desactivarlo.
+    glDisable(GL_TEXTURE_2D);
+    glDisable(GL_TEXTURE_GEN_S);
+    glDisable(GL_TEXTURE_GEN_T);
+
+    glutPostRedisplay();
+
+}
+
+
 void despliegaPines()
 {
     for (int i = 0; i< contPaises ; i++)
     {
         glPushMatrix();
         glEnable(GL_BLEND); // Activamos la transparencia
-        glBlendFunc(GL_SRC_ALPHA, GL_SRC_COLOR); //funcion de blending //GL_ONE_MINUS_SRC_ALPHA
+        glBlendFunc(GL_ONE_MINUS_SRC_COLOR, GL_SRC_COLOR);
         glEnable(GL_TEXTURE_2D);
-        glBindTexture(GL_TEXTURE_2D, texName[3]);
         glEnable(GL_TEXTURE_GEN_S);
         glEnable(GL_TEXTURE_GEN_T);
         glTexGeni(GL_S, GL_TEXTURE_GEN_MODE, GL_SPHERE_MAP);
         glTexGeni(GL_T, GL_TEXTURE_GEN_MODE, GL_SPHERE_MAP);
-        glBindTexture(GL_TEXTURE_2D, texName[3]);
         glPushMatrix();
-        
+        glBindTexture(GL_TEXTURE_2D, texName[3]); //pin rojo
         switch (currentIndex) {
             case 1: //America
                 //posiciones de los pines
@@ -512,10 +579,8 @@ void despliegaPines()
         
         
         glTranslatef(posX, posY, 0);
-        //glColor3f(0.0f, 0.0f, 0.0f);
         glColor4f(1.0, 1.0, 1.0, 0.1); //color y alpha del cubo
         glutSolidSphere(radiusPin, 20, 20);
-        
         glPopMatrix();
         
         glPopMatrix();
@@ -523,6 +588,7 @@ void despliegaPines()
         glDisable(GL_TEXTURE_2D);
         glDisable(GL_TEXTURE_GEN_S);
         glDisable(GL_TEXTURE_GEN_T);
+        
     }
     
     
@@ -533,6 +599,10 @@ void despliegaPines()
      glVertex2d(-0.22, 0.31);
      glEnd();*/
     
+    
+
+    
+   
 }
 
 void despliegaMapa(int mapa)
@@ -619,7 +689,63 @@ void despliegaMapa(int mapa)
     glPopMatrix();
     
     
-    despliegaPines();
+    //despliegaPines(100);
+    
+    
+}
+
+
+void desplieganuevopin(int i)
+{
+    
+    if (pinSelecc < 100 ) {
+        glPushMatrix();
+        glEnable(GL_BLEND); // Activamos la transparencia
+        glBlendFunc(GL_ONE_MINUS_SRC_COLOR, GL_SRC_COLOR); //funcion de blending //GL_ONE_MINUS_SRC_ALPHA GL_SRC_COLOR
+        glEnable(GL_TEXTURE_2D);
+        glEnable(GL_TEXTURE_GEN_S);
+        glEnable(GL_TEXTURE_GEN_T);
+        glTexGeni(GL_S, GL_TEXTURE_GEN_MODE, GL_SPHERE_MAP);
+        glTexGeni(GL_T, GL_TEXTURE_GEN_MODE, GL_SPHERE_MAP);
+        glBindTexture(GL_TEXTURE_2D, texName[3]); //pin rojo
+        glPushMatrix();
+            switch (currentIndex) {
+                case 1: //America
+                    //posiciones de los pines
+                    posX = continente -> _america[i].posX;
+                    posY = continente -> _america[i].posY;
+                    break;
+                case 2: //Asia
+                    //posiciones de los pines
+                    posX = continente -> _asia[i].posX;
+                    posY = continente -> _asia[i].posY;
+                    break;
+                case 3: //Europa
+                    posX = continente -> _europa[i].posX;
+                    posY = continente -> _europa[i].posY;
+                    break;
+                case 0: //Africa
+                    posX = continente -> _africa[i].posX;
+                    posY = continente -> _africa[i].posY;
+                    break;
+                default:
+                    break;
+            }
+        
+        glTranslatef(posX, posY, 0);
+        glColor4f(1.0, 1.0, 1.0, 0.1); //color y alpha del cubo
+        glutSolidSphere(.05, 20, 20);
+        glPopMatrix();
+        glPopMatrix();
+        glDisable(GL_BLEND); //para desactivarlo.
+        glDisable(GL_TEXTURE_2D);
+        glDisable(GL_TEXTURE_GEN_S);
+        glDisable(GL_TEXTURE_GEN_T);
+        
+        glutPostRedisplay();
+    }
+    
+
     
     
 }
@@ -635,22 +761,30 @@ int verificaPin(float clicx, float clicy)
             case 1: //America
                 if (clicx >= continente -> _america[i].rangoX1 && clicx <= continente -> _america[i].rangoX2 && clicy >= continente -> _america[i].rangoY1 && clicy <= continente -> _america[i].rangoY2
                     ) {
+                    pinSelecc = i;
                     codigo = continente ->_america[i].countryCode;
+                
                 }
                 break;
             case 2: //Asia
                 if (clicx >= continente -> _asia[i].rangoX1 && clicx <= continente -> _asia[i].rangoX2 && clicy >= continente -> _asia[i].rangoY1 && clicy <= continente -> _asia[i].rangoY2  ) {
+                    pinSelecc = i;
                     codigo = continente ->_asia[i].countryCode;
+                    
                 }
                 break;
             case 3: //Europa
                 if (clicx >= continente -> _europa[i].rangoX1 && clicx <= continente -> _europa[i].rangoX2 && clicy >= continente -> _europa[i].rangoY1 && clicy <= continente -> _europa[i].rangoY2  ) {
+                    pinSelecc = i;
                     codigo = continente ->_europa[i].countryCode;
+                   
                 }
                 break;
             case 0: //Africa
                 if (clicx >= continente -> _africa[i].rangoX1 && clicx <= continente -> _africa[i].rangoX2 && clicy >= continente -> _africa[i].rangoY1 && clicy <= continente -> _africa[i].rangoY2  ) {
+                    pinSelecc = i;
                     codigo = continente ->_africa[i].countryCode;
+                    
                 }
                 break;
             default:
@@ -795,6 +929,7 @@ void teclasUPandDown(int tecla, int x, int y)
         switch(tecla){
             case GLUT_KEY_LEFT:
                 menuContinents[currentIndex].setSelected(false);
+                pinSelecc = 100;
                 if(currentIndex > 0)
                     currentIndex--;
                 else
@@ -805,6 +940,7 @@ void teclasUPandDown(int tecla, int x, int y)
         
             case GLUT_KEY_RIGHT:
                 menuContinents[currentIndex].setSelected(false);
+                pinSelecc = 100;
                 if(currentIndex < CONTINENTS)
                     currentIndex++;
                 else

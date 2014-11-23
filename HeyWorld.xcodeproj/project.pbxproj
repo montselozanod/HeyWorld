@@ -128,6 +128,7 @@
 		FDC03B231A1C92F300D8BAA3 /* Sound.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Sound.cpp; sourceTree = "<group>"; };
 		FDC03B241A1C92F300D8BAA3 /* Sound.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Sound.h; sourceTree = "<group>"; };
 		FDC03B261A1C930800D8BAA3 /* song.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = song.wav; sourceTree = "<group>"; };
+		FDC03B271A1D1E3C00D8BAA3 /* gameover.bmp */ = {isa = PBXFileReference; lastKnownFileType = image.bmp; path = gameover.bmp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -213,6 +214,7 @@
 				FDC03B141A1B423700D8BAA3 /* personajes */,
 				FDC03AC61A17F04B00D8BAA3 /* pin2.bmp */,
 				FDC03AC51A17F03100D8BAA3 /* water.bmp */,
+				FDC03B271A1D1E3C00D8BAA3 /* gameover.bmp */,
 				B0D3069A1A13ACBD00605C44 /* madera.bmp */,
 				B0D306981A13AC5B00605C44 /* blocks.bmp */,
 				B0D3067F1A12DDB300605C44 /* banderas */,

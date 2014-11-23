@@ -168,8 +168,6 @@ void Game::playGame()
         {
             endGame = true;
             std::cout<<"LOST ALL GAMEEE::: AM SORRY!!! TRY AGAIN"<<std::endl;
-            //pintar que se perdio
-
         }
     
       }else
@@ -306,28 +304,29 @@ void Game::finishGame()
     glPushMatrix();
     glMatrixMode(GL_MODELVIEW);//dejar activa son todas las traslaciones, escalaciones
     glLoadIdentity();//que no tenga ninguna transformación
-    gluLookAt(0, 0, 20, 0, 0, 0, 0, .1, 0);//movemos camara para que se vea el mapa
+    gluLookAt(0, 0, 1, 0, 0, 0, 0, .1, 0);//movemos camara para que se vea el mapa
     glEnable(GL_TEXTURE_2D);
-    
     glMatrixMode(GL_TEXTURE);//Activar matriz de textura
     glBindTexture(GL_TEXTURE_2D, textures[30]); //Seleccion de textura
     glPushMatrix();
     glTranslated(0.0, 0.0, -2.0);
     glBegin(GL_QUADS);
     glTexCoord2f(0.0f, 0.0f); //se pega la textura con
-    glVertex3f(0,0, 0);
+    glVertex3f(-0.5, -0.5, 0);
     glTexCoord2f(1.0f, 0.0f);
-    glVertex3f(4, 0, 0);
+    glVertex3f(0.5, -0.5, 0);
     glTexCoord2f(1.0f, 1.0f);
-    glVertex3f(4, 4, 0);
+    glVertex3f(0.5, 0.5, 0);
     glTexCoord2f(0.0f, 1.0f);
-    glVertex3f(0, 4, 0);
+    glVertex3f(-0.5, 0.5, 0);
     glEnd();
     glPopMatrix();
     glPopMatrix(); //pop de camara
     glDisable(GL_TEXTURE_2D);
     
     
+    
+
     
 //    if(win)
 //    {
