@@ -76,6 +76,7 @@ void initWindows();
 void despliegaMapa(int i);
 void drawMenuContinente();
 void despliegaPines();
+void desplieganuevopin(int i);
 
 void playSonido(){
     if (musicaOn) {
@@ -131,44 +132,7 @@ void rectVerdeRojo()
     
 }
 
-void fondoAzul()
-{
-    
-    glPushMatrix();
-    glMatrixMode(GL_MODELVIEW);//dejar activa son todas las traslaciones, escalaciones
-    glLoadIdentity();//que no tenga ninguna transformación
-    gluLookAt(0, 0, 7, 0, 0, 0, 0, .1, 0);//movemos camara para que se vea el mapa
-    
-    //glPushMatrix();
-    glEnable(GL_TEXTURE_2D);
-    glMatrixMode(GL_TEXTURE); //Dejar activa la Textura
-    glBindTexture(GL_TEXTURE_2D, texName[10]); //Escogemos la textura
-    
-    glPushMatrix();
-    glRotated(angulo, 0, 1, 0); //se acumula en la matriz de TEXTURE
-    glColor3f(1.0f, 1.0f, 1.0f);
-    
-    glBegin(GL_QUADS);
-    glTexCoord2f(0.0f, 0.0f); //se pega la textura con
-    glVertex3f(-4, -3, 0);
-    glTexCoord2f(4.0f, 0.0f);
-    glVertex3f(4, -3, 0);
-    glTexCoord2f(4.0f, 1.0f);
-    glVertex3f(4, 3, 0);
-    glTexCoord2f(0.0f, 1.0f);
-    glVertex3f(-4, 3, 0);
-    
-    glEnd();
-    
-    //glPopMatrix();
-    glPopMatrix();
-    glPopMatrix();//camara
-    glDisable(GL_TEXTURE_2D);
-    
-    
-    
-}
-void desplieganuevopin(int i);
+
 void renderSubWindow()
 {
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
@@ -189,8 +153,7 @@ void renderSubWindowSprite()
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
     
     //pintar textura de agua
-    //fondoAzul();
-
+    
     glPushMatrix();
     glMatrixMode(GL_MODELVIEW);//dejar activa son todas las traslaciones, escalaciones
     glLoadIdentity();//que no tenga ninguna transformación
