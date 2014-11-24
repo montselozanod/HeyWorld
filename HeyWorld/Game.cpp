@@ -111,12 +111,15 @@ void Game::initRenderImages()
     glEnable(GL_DEPTH_TEST);
 
     glGenTextures(40, textures); //Make room for our texture
-   Image* image;
-    for(int j = 0; j < gameSprites.size(); j++)
-    {
-        std::cout<<gameSprites[j]->getImgName()<<std::endl;
+    Image* image;
+    if(difficulty != 2){
+   
+        for(int j = 0; j < gameSprites.size(); j++)
+        {
+            std::cout<<gameSprites[j]->getImgName()<<std::endl;
         
-        image = loadBMP(gameSprites[j]->getImgName());loadTexture(image,i++);
+            image = loadBMP(gameSprites[j]->getImgName());loadTexture(image,i++);
+        }
     }
     
     image = loadBMP("gameoverColor.bmp");loadTexture(image,30);
@@ -130,8 +133,7 @@ void Game::startGame()
     shuffleSprites();
     numSprite = (int)gameSprites.size()-1;
     
-    if(difficulty != 2)
-        initRenderImages();
+    initRenderImages();
     
     gameSprites[numSprite]->visibility = true;
     playGame();
@@ -407,7 +409,7 @@ void Game::finishGame()
         glEnable(GL_TEXTURE_2D);
         glColor4fv(mat_emissionG);
         glMatrixMode(GL_TEXTURE);//Activar matriz de textura
-        glBindTexture(GL_TEXTURE_2D, textures[30]); //Seleccion de textura
+        glBindTexture(GL_TEXTURE_2D, textures[31]); //Seleccion de textura
         
         glPushMatrix();
         glRotated(rot_angle, 1, 1, 1); //se acumula en la matriz de TEXTURE
@@ -508,7 +510,7 @@ void Game::finishGame()
         glEnable(GL_TEXTURE_2D);
         glColor4fv(mat_emissionG);
         glMatrixMode(GL_TEXTURE);//Activar matriz de textura
-        glBindTexture(GL_TEXTURE_2D, textures[31]); //Seleccion de textura
+        glBindTexture(GL_TEXTURE_2D, textures[30]); //Seleccion de textura
         
         glPushMatrix();
         glRotated(rot_angle, 1, 1, 1); //se acumula en la matriz de TEXTURE

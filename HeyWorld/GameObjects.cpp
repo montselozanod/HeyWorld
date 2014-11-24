@@ -69,7 +69,7 @@ void Monument::drawSprite()
     glScalef(10, 10, 8);
         if(pmodel)
         {
-            glmDraw(pmodel, GLM_MATERIAL | GLM_TEXTURE);
+            glmDraw(pmodel, GLM_MATERIAL | GLM_TEXTURE | GLM_COLOR);
         }
     angle++;
     glPopMatrix();
