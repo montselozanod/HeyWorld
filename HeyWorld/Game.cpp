@@ -130,7 +130,10 @@ void Game::startGame()
     createDeck();
     shuffleSprites();
     numSprite = (int)gameSprites.size()-1;
-    initRenderImages();
+    
+    if(difficulty != 2)
+        initRenderImages();
+    
     gameSprites[numSprite]->visibility = true;
     playGame();
     
@@ -489,7 +492,7 @@ void Game::finishGame()
         glEnable(GL_TEXTURE_2D);
         glColor4fv(mat_emissionG);
         glMatrixMode(GL_TEXTURE);//Activar matriz de textura
-        glBindTexture(GL_TEXTURE_2D, textures[30]); //Seleccion de textura
+        glBindTexture(GL_TEXTURE_2D, textures[31]); //Seleccion de textura
         
         glPushMatrix();
         glRotated(rot_angle, 1, 1, 1); //se acumula en la matriz de TEXTURE
