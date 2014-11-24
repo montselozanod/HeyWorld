@@ -31,6 +31,7 @@ static float rot_angle_x;
 static float rot_angle;
 static int _num;
 static char tiempo[200];
+static char instrucciones[200];
 
 
 class Game
@@ -66,6 +67,7 @@ class Game
     void setDifficultyGame(int dif);
     void startGame();
     void initReloj();
+    void instruccionesTeclado();
     void playGame();
     void finishGame();
     void displayTiempo();

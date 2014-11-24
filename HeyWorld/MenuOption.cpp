@@ -77,6 +77,8 @@ void Menu::draw3dString (int type, float xPos, float yPos, float zPos)
 
 void Menu::drawMenu(int type)
 {//.9999;
+    
+    
     glColor3f(1, 1, 1);
     glPushMatrix();
     glTranslatef(x, y, 0.0);
