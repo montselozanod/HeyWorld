@@ -73,11 +73,13 @@ class Monument: public Sprite
 private:
     GLMmodel *pmodel= NULL;
     std::string monumentName;
+    int angle;
     
     
 public:
     Monument(char *filename, std::string object, int countryCode):Sprite(filename, object, countryCode)
     {
+        angle = 0;
         if(!pmodel)
         {
             pmodel = glmReadOBJ(filename);
