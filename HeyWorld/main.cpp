@@ -142,6 +142,7 @@ void renderSubWindow()
     rectVerdeRojo();
     drawMenuContinente();
     game.initReloj();
+    game.instruccionesTeclado();
    
     glutSwapBuffers();
     glutSetWindow(subWindowSprite);
@@ -253,8 +254,8 @@ void myKeyboard(unsigned char theKey, int mouseX, int mouseY)
         case 27: //esc
             exit(0);
             break;
-        case 'p':
-        case 'P':
+        case 's':
+        case 'S':
             miSonido();
             break;
         case 13: //enter
@@ -352,7 +353,7 @@ void initRendering()
     //glClearColor(1.0,1.0,1.0,1.0);
     
     // glEnable(GL_COLOR_MATERIAL);
-    glGenTextures(11, texName); //Make room for our texture
+    glGenTextures(17, texName); //Make room for our texture
     Image* image;
 
     image = loadBMP("estrellas.bmp");loadTexture(image,i++);
@@ -366,6 +367,12 @@ void initRendering()
     image = loadBMP("blocks.bmp");loadTexture(image,i++);
     image = loadBMP("madera.bmp");loadTexture(image,i++);
     image = loadBMP("water.bmp");loadTexture(image,i++);
+    image = loadBMP("instrucciones1.bmp");loadTexture(image,i++);
+    image = loadBMP("jugar1.bmp");loadTexture(image,i++);
+    image = loadBMP("salir1.bmp");loadTexture(image,i++);
+    image = loadBMP("instrucciones2.bmp");loadTexture(image,i++);
+    image = loadBMP("jugar2.bmp");loadTexture(image,i++);
+    image = loadBMP("salir2.bmp");loadTexture(image,i++);
     
     delete image;
 }

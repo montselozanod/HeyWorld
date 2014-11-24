@@ -121,7 +121,7 @@ void Game::initRenderImages()
     
     image = loadBMP("gameoverColor.bmp");loadTexture(image,30);
     image = loadBMP("youwon.bmp");loadTexture(image,31);
-    image = loadBMP("carafeliz1.bmp");loadTexture(image,32);
+
     
 }
 
@@ -135,6 +135,23 @@ void Game::startGame()
     playGame();
     
 }
+
+void Game::instruccionesTeclado()
+{
+// pintar instrucciones de teclado
+    sprintf(instrucciones, "P-Pausar, R-Reiniciar, S-Sonido");
+    //sprintf(instrucciones, "I-Iniciar, P-Pausar, R-Reiniciar, S-Sound");
+    glPushMatrix();
+    glTranslated(-0.3, -0.6, 0);
+    glColor3f(100, 24, 100);
+    glRasterPos2d(0, 0);
+    for(int i= 0; instrucciones[i]!='\0'; i++)
+    {
+        glutBitmapCharacter(GLUT_BITMAP_TIMES_ROMAN_24, instrucciones[i]);
+    }
+    glPopMatrix();
+}
+
 
 void Game::initReloj()
 {
