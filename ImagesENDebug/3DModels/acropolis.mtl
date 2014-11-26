@@ -1,0 +1,88 @@
+#
+## Alias OBJ Material File
+# Exported from SketchUp, (c) 2000-2012 Trimble Navigation Limited
+
+newmtl Google_Earth_Snapshot
+Ka 0.000000 0.000000 0.000000
+Kd 0.541176 0.498039 0.462745
+Ks 0.330000 0.330000 0.330000
+map_Kd acropolis/Google_Earth_Snapshot.ppm
+
+newmtl _Brick_Antique_2
+Ka 0.000000 0.000000 0.000000
+Kd 0.639216 0.580392 0.505882
+Ks 0.330000 0.330000 0.330000
+map_Kd acropolis/_Brick_Antique_2.ppm
+
+newmtl Google_Earth_Snapshot1
+Ka 0.000000 0.000000 0.000000
+Kd 0.615686 0.600000 0.576471
+Ks 0.330000 0.330000 0.330000
+map_Kd acropolis/Google_Earth_Snapshot1.ppm
+
+newmtl _3
+Ka 0.000000 0.000000 0.000000
+Kd 0.729412 0.690196 0.627451
+Ks 0.330000 0.330000 0.330000
+map_Kd acropolis/_3.ppm
+
+newmtl _Brick_Antique_1
+Ka 0.000000 0.000000 0.000000
+Kd 0.737255 0.698039 0.635294
+Ks 0.330000 0.330000 0.330000
+map_Kd acropolis/_Brick_Antique_1.ppm
+
+newmtl _1
+Ka 0.000000 0.000000 0.000000
+Kd 0.356863 0.337255 0.309804
+Ks 0.330000 0.330000 0.330000
+map_Kd acropolis/_1.ppm
+
+newmtl Asphalt_New
+Ka 0.000000 0.000000 0.000000
+Kd 0.737255 0.678431 0.600000
+Ks 0.330000 0.330000 0.330000
+map_Kd acropolis/Asphalt_New.ppm
+
+newmtl Metal_Corrogated_Shiny
+Ka 0.000000 0.000000 0.000000
+Kd 0.800000 0.756863 0.690196
+Ks 0.330000 0.330000 0.330000
+map_Kd acropolis/Metal_Corrogated_Shiny.ppm
+
+newmtl Carpet_Berber_Pattern_Gray
+Ka 0.000000 0.000000 0.000000
+Kd 0.458824 0.596078 0.639216
+Ks 0.330000 0.330000 0.330000
+map_Kd acropolis/Carpet_Berber_Pattern_Gray.ppm
+
+newmtl Blinds_Cellular_White
+Ka 0.000000 0.000000 0.000000
+Kd 0.854902 0.858824 0.854902
+Ks 0.330000 0.330000 0.330000
+map_Kd acropolis/Blinds_Cellular_White.ppm
+
+newmtl _Brick_Antique_3
+Ka 0.000000 0.000000 0.000000
+Kd 0.666667 0.635294 0.580392
+Ks 0.330000 0.330000 0.330000
+map_Kd acropolis/_Brick_Antique_3.ppm
+
+newmtl _2
+Ka 0.000000 0.000000 0.000000
+Kd 0.690196 0.627451 0.549020
+Ks 0.330000 0.330000 0.330000
+map_Kd acropolis/_2.ppm
+
+newmtl _4
+Ka 0.000000 0.000000 0.000000
+Kd 0.768627 0.725490 0.662745
+Ks 0.330000 0.330000 0.330000
+map_Kd acropolis/_4.ppm
+
+newmtl _Asphalt_New_1
+Ka 0.000000 0.000000 0.000000
+Kd 0.752941 0.764706 0.764706
+Ks 0.330000 0.330000 0.330000
+map_Kd acropolis/_Asphalt_New_1.ppm
+

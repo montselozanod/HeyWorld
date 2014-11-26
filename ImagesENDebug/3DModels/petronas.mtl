@@ -1,0 +1,33 @@
+#
+## Alias OBJ Material File
+# Exported from SketchUp, (c) 2000-2012 Trimble Navigation Limited
+
+newmtl petronas_2
+Ka 0.000000 0.000000 0.000000
+Kd 0.396078 0.419608 0.435294
+Ks 0.330000 0.330000 0.330000
+map_Kd petronas/petronas_2.ppm
+
+newmtl Roofing_Metal_Standing_Seam_Red
+Ka 0.000000 0.000000 0.000000
+Kd 0.427451 0.427451 0.427451
+Ks 0.330000 0.330000 0.330000
+map_Kd petronas/Roofing_Metal_Standing_Seam_Red.ppm
+
+newmtl FrontColor
+Ka 0.000000 0.000000 0.000000
+Kd 1.000000 1.000000 1.000000
+Ks 0.330000 0.330000 0.330000
+
+newmtl petronas_1
+Ka 0.000000 0.000000 0.000000
+Kd 0.278431 0.384314 0.356863
+Ks 0.330000 0.330000 0.330000
+map_Kd petronas/petronas_1.ppm
+
+newmtl petronas_3
+Ka 0.000000 0.000000 0.000000
+Kd 0.380392 0.415686 0.423529
+Ks 0.330000 0.330000 0.330000
+map_Kd petronas/petronas_3.ppm
+
