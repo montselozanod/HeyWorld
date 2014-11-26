@@ -153,7 +153,7 @@ void Game::startGame()
 void Game::instruccionesTeclado()
 {
 // pintar instrucciones de teclado
-    sprintf(instrucciones, "P-Pausar, R-Reiniciar, S-Sonido");
+    sprintf(instrucciones, "  Vidas: %d                R-Reiniciar, S-Sonido", user.howManyLives());
     //sprintf(instrucciones, "I-Iniciar, P-Pausar, R-Reiniciar, S-Sound");
     glPushMatrix();
     glTranslated(-0.3, -0.6, 0);
