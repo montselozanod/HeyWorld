@@ -63,6 +63,17 @@ std::string Monument::getName()
 //override
 void Monument::drawSprite()
 {
+    //primero es el load del modelo .. pmodel
+    glPushMatrix();
+    glRotatef(angle, 0.0f, 1.0f, 0.0f);
+    glScalef(10, 10, 8);
+        if(pmodel)
+        {
+            glmDraw(pmodel, GLM_MATERIAL | GLM_TEXTURE);
+        }
+    angle++;
+    glPopMatrix();
+
     
 }
 

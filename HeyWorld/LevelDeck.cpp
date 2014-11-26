@@ -91,30 +91,31 @@ std::vector<Character>  LevelDeck::getAgentDeck()
 std::vector<Monument> LevelDeck::getGuruDeck()
 {
    
-    guruDeck.push_back(*new Monument("Estatua de la Libertad", 28));
-    guruDeck.push_back(*new Monument("Torre Eiffel", 29));
-    guruDeck.push_back(*new Monument("Cristo Redentor", 14));
-    guruDeck.push_back(*new Monument("Big Ben", 51));
-    guruDeck.push_back(*new Monument("Chichen-Itza", 42));
-    guruDeck.push_back(*new Monument("Piramides de Giza", 25));
-    guruDeck.push_back(*new Monument("Gran Esfinge", 25));
-    guruDeck.push_back(*new Monument("Gran Muralla", 18));
-    guruDeck.push_back(*new Monument("Taj Mahal", 35));
-    guruDeck.push_back(*new Monument("Acropolis", 31));
-    guruDeck.push_back(*new Monument("Coliseo", 36));
+    guruDeck.push_back(*new Monument("3DModels/empire.obj","Empire State", 28));
+    guruDeck.push_back(*new Monument("3DModels/eiffel.obj","Torre Eiffel", 29));
+    //guruDeck.push_back(*new Monument("Cristo Redentor", 14));
+    //guruDeck.push_back(*new Monument("Big Ben", 51));
+    guruDeck.push_back(*new Monument("3DModels/sun.obj","Piramide del Sol", 42));
+    //guruDeck.push_back(*new Monument("Piramides de Giza", 25));
+    //guruDeck.push_back(*new Monument("Gran Esfinge", 25));
+    guruDeck.push_back(*new Monument("3DModels/Greatwall.obj","Gran Muralla", 18));
+    guruDeck.push_back(*new Monument("3DModels/Taj-Mahal.obj","Taj Mahal", 35));
+    guruDeck.push_back(*new Monument("3DModels/acropolis.obj","Acropolis", 31));
+    //guruDeck.push_back(*new Monument("Coliseo", 36));
     
-    guruDeck.push_back(*new Monument("Sagrada Familia", 27));
-    guruDeck.push_back(*new Monument("Puerta de Brandenburgo", 4));
-    guruDeck.push_back(*new Monument("Machu Picchu", 48));
+    guruDeck.push_back(*new Monument("3DModels/alcala.obj","Puerta de Alcala", 27));
+    guruDeck.push_back(*new Monument("3DModels/Brandenburg.obj","Puerta de Brandenburgo", 4));
+     guruDeck.push_back(*new Monument("3DModels/blue.obj","Blue Mosque", 56));
+    //guruDeck.push_back(*new Monument("Machu Picchu", 48));
    
-    guruDeck.push_back(*new Monument("Palacio de Shönbrunn", 9));
-    guruDeck.push_back(*new Monument("Monte Fuji", 38));
-    guruDeck.push_back(*new Monument("Reichstag", 4));
-    guruDeck.push_back(*new Monument("Stonehenge", 51));
-    guruDeck.push_back(*new Monument("Puerta de Alcalá", 27));
+    //guruDeck.push_back(*new Monument("Palacio de Shönbrunn", 9));
+    //guruDeck.push_back(*new Monument("Monte Fuji", 38));
+    //guruDeck.push_back(*new Monument("Reichstag", 4));
+    //guruDeck.push_back(*new Monument("Stonehenge", 51));
+    //guruDeck.push_back(*new Monument("Puerta de Alcalá", 27));
 
-    guruDeck.push_back(*new Monument("Torres Petronas", 41));
-    guruDeck.push_back(*new Monument("Puerta Sur de Jerash", 39));
+    guruDeck.push_back(*new Monument("3DModels/petronas.obj", "Torres Petronas", 41));
+    //guruDeck.push_back(*new Monument("Puerta Sur de Jerash", 39));
 
     return guruDeck;
 }

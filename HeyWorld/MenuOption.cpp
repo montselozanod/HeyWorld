@@ -69,7 +69,7 @@ void Menu::draw3dString (int type, float xPos, float yPos, float zPos)
         glScaled(0.0004, 0.0004, 0.05);
     }
     
-    glColor3f(1, 1, 1);
+    glColor3f(0, 0, 0);
  
     for (i = 0; i < name[i] != '\0'; i++)
         glutStrokeCharacter(GLUT_STROKE_ROMAN, name[i]);

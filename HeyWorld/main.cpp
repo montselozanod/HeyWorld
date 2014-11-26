@@ -243,7 +243,14 @@ void checkDisplayOption()
         
     }else if(gameState == 2)
     {
-        
+        game.resetGame();
+        gameState = 1;
+        menuDif[0].setSelected(true);
+        glutSetWindow(subWindowMap);
+        glutHideWindow();
+        glutSetWindow(subWindowSprite);
+        glutHideWindow();
+        glutSetWindow(windowID);
     }
 }
 
@@ -265,7 +272,11 @@ void myKeyboard(unsigned char theKey, int mouseX, int mouseY)
             break;
         case 13: //enter
             checkDisplayOption();
-
+            break;
+        case 'r':
+        case 'R':
+            checkDisplayOption();
+            break;
         default:
         break;
     }
@@ -372,13 +383,13 @@ void initRendering()
     image = loadBMP("blocks.bmp");loadTexture(image,i++);
     image = loadBMP("madera.bmp");loadTexture(image,i++);
     image = loadBMP("water.bmp");loadTexture(image,i++);
-    image = loadBMP("instrucciones1.bmp");loadTexture(image,i++);
-    image = loadBMP("jugar1.bmp");loadTexture(image,i++);
-    image = loadBMP("salir1.bmp");loadTexture(image,i++);
-    image = loadBMP("instrucciones2.bmp");loadTexture(image,i++);
-    image = loadBMP("jugar2.bmp");loadTexture(image,i++);
-    image = loadBMP("salir2.bmp");loadTexture(image,i++);
-    
+//    image = loadBMP("instrucciones1.bmp");loadTexture(image,i++);
+//    image = loadBMP("jugar1.bmp");loadTexture(image,i++);
+//    image = loadBMP("salir1.bmp");loadTexture(image,i++);
+//    image = loadBMP("instrucciones2.bmp");loadTexture(image,i++);
+//    image = loadBMP("jugar2.bmp");loadTexture(image,i++);
+//    image = loadBMP("salir2.bmp");loadTexture(image,i++);
+//    
     delete image;
 }
 

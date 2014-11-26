@@ -16,6 +16,7 @@
 #endif
 #include <iostream>
 #include "World.h"
+#include "glm.h"
 
 #pragma mark SPRITE BASE CLASS
 class Sprite
@@ -70,13 +71,26 @@ class Monument: public Sprite
 {
     
 private:
+    GLMmodel *pmodel= NULL;
     std::string monumentName;
+    int angle;
     
     
 public:
-    Monument(/*std::string img,*/ std::string object, int countryCode):Sprite(object, countryCode)
+    Monument(char *filename, std::string object, int countryCode):Sprite(filename, object, countryCode)
     {
-    
+        angle = 0;
+        if(!pmodel)
+        {
+            pmodel = glmReadOBJ(filename);
+            if(!pmodel)
+            {
+                printf("error loading obj\n");
+                exit(0);
+            }
+            glmUnitize(pmodel);
+            glmVertexNormals(pmodel, 90.0, GL_TRUE);
+        }
     }
     
     void drawSprite();

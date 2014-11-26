@@ -18,19 +18,29 @@
 
 Game::Game()
 {
+    user = User();
     endGame = false;
     win = false;
     cubo = Cube();
- 
     answeredCorrect = false;
 }
 
 Game::Game(int diff)
 {
     user = User();
+    cubo = Cube();
     difficulty = diff;
     endGame = false;
     win = false;
+    answeredCorrect = false;
+}
+
+void Game::resetGame()
+{
+    user.resetUserSettings();
+    endGame = false;
+    win = false;
+    cubo = Cube();
     answeredCorrect = false;
 }
 
@@ -111,17 +121,24 @@ void Game::initRenderImages()
     glEnable(GL_DEPTH_TEST);
 
     glGenTextures(40, textures); //Make room for our texture
-   Image* image;
-    for(int j = 0; j < gameSprites.size(); j++)
-    {
-        std::cout<<gameSprites[j]->getImgName()<<std::endl;
+    Image* image;
+    if(difficulty != 2){
+   
+        for(int j = 0; j < gameSprites.size(); j++)
+        {
+            std::cout<<gameSprites[j]->getImgName()<<std::endl;
         
-        image = loadBMP(gameSprites[j]->getImgName());loadTexture(image,i++);
+            image = loadBMP(gameSprites[j]->getImgName());loadTexture(image,i++);
+        }
     }
     
     image = loadBMP("gameoverColor.bmp");loadTexture(image,30);
+<<<<<<< HEAD
     //image = loadBMP("carafeliz1.bmp");loadTexture(image,32);
 
+=======
+    image = loadBMP("youwon.bmp");loadTexture(image,31);
+>>>>>>> 0ae457b657d73e9a7904c854bf499d1e2e5b6205
     
 }
 
@@ -130,7 +147,9 @@ void Game::startGame()
     createDeck();
     shuffleSprites();
     numSprite = (int)gameSprites.size()-1;
+    
     initRenderImages();
+    
     gameSprites[numSprite]->visibility = true;
     playGame();
     
@@ -139,7 +158,7 @@ void Game::startGame()
 void Game::instruccionesTeclado()
 {
 // pintar instrucciones de teclado
-    sprintf(instrucciones, "P-Pausar, R-Reiniciar, S-Sonido");
+    sprintf(instrucciones, "  Vidas: %d                R-Reiniciar, S-Sonido", user.howManyLives());
     //sprintf(instrucciones, "I-Iniciar, P-Pausar, R-Reiniciar, S-Sound");
     glPushMatrix();
     glTranslated(-0.3, -0.6, 0);
@@ -155,7 +174,7 @@ void Game::instruccionesTeclado()
 
 void Game::initReloj()
 {
-    _num = 0;
+    _num = 10;
     displayTiempo();
 }
 
@@ -196,12 +215,13 @@ void Game::playGame()
 
         if(user.isPlayerAlive())
         {
+            std::cout<<user.howManyLives()<<std::endl;
             cubo.closeCube();
             showSprite();
             displayTiempo();
             cubo.rotateCube();
             answeredCorrect = false;
-            countTimer = 0;
+            countTimer = 10;
             glutTimerFunc(1000, timerQuestion, numSprite);
 
         }else
@@ -314,17 +334,15 @@ void Game::timerQuestion(int v)
 {
     if(v == numSprite)
     {
-        if(countTimer < 10 && !answeredCorrect && !endGame)
+        if(countTimer > 0 && countTimer <= 10 && !answeredCorrect && !endGame)
         {
-            countTimer++;
+            countTimer--;
             _num = countTimer;
             //sprintf(tiempo, "%d : 0%d : %d", 0, 0, _num);
-            std::cout<<countTimer<<std::endl;
             formato();
-            std::cout<<tiempo<<"\n";
             glutPostRedisplay();
             glutTimerFunc(1000, timerQuestion, numSprite);
-        }else if(countTimer == 10 && !answeredCorrect && !endGame)
+        }else if(countTimer == 0 && !answeredCorrect && !endGame)
         {
             Game* game;
             game->lostQuestion(1);
@@ -358,18 +376,6 @@ void Game::lostQuestion(int type)
     }
 }
 
-//void Game::waitForAnswer()
-//{
-//    while(!answeredCorrect && countTimer < 10)
-//    {
-//        countTimer++;
-//    }
-//    
-//    if(countTimer == 10 && !answeredCorrect)
-//    {
-//        lostQuestion(1);
-//    }
-//}
 
 void Game::finishGame()
 {
@@ -405,7 +411,7 @@ void Game::finishGame()
         glEnable(GL_TEXTURE_2D);
         glColor4fv(mat_emissionG);
         glMatrixMode(GL_TEXTURE);//Activar matriz de textura
-        glBindTexture(GL_TEXTURE_2D, textures[30]); //Seleccion de textura
+        glBindTexture(GL_TEXTURE_2D, textures[31]); //Seleccion de textura
         
         glPushMatrix();
         glRotated(rot_angle, 1, 1, 1); //se acumula en la matriz de TEXTURE
@@ -531,7 +537,7 @@ void Game::finishGame()
         
         //FONDO DE COLORES
         
-        //glShadeModel(GL_FLAT);
+        glShadeModel(GL_FLAT);
         
         glPushMatrix();
         glMatrixMode(GL_MODELVIEW);//dejar activa son todas las traslaciones, escalaciones
