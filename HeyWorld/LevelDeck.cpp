@@ -103,7 +103,7 @@ std::vector<Monument> LevelDeck::getGuruDeck()
     guruDeck.push_back(*new Monument("3DModels/acropolis.obj","Acropolis", 31));
     //guruDeck.push_back(*new Monument("Coliseo", 36));
     
-   // guruDeck.push_back(*new Monument("3DModels/guell.obj","Parc Guell", 27));
+    guruDeck.push_back(*new Monument("3DModels/alcala.obj","Puerta de Alcala", 27));
     guruDeck.push_back(*new Monument("3DModels/Brandenburg.obj","Puerta de Brandenburgo", 4));
      guruDeck.push_back(*new Monument("3DModels/blue.obj","Blue Mosque", 56));
     //guruDeck.push_back(*new Monument("Machu Picchu", 48));
