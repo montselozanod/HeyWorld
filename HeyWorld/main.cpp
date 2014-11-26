@@ -282,7 +282,7 @@ void checkDisplayOption()
         glutSetWindow(subWindowSprite);
         glutHideWindow();
         glutSetWindow(windowID);
-        }
+    }
     
 }
 

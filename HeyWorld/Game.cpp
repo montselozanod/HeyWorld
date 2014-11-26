@@ -33,15 +33,21 @@ Game::Game(int diff)
     endGame = false;
     win = false;
     answeredCorrect = false;
+    _num = 10;
 }
 
 void Game::resetGame()
 {
     user.resetUserSettings();
+    _num = 10;
     endGame = false;
     win = false;
     cubo = Cube();
     answeredCorrect = false;
+    while (!gameSprites.empty())
+    {
+        gameSprites.pop_back();
+    }
 }
 
 void Game::setDifficultyGame(int dif)
