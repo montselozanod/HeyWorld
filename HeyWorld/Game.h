@@ -69,6 +69,7 @@ class Game
     void initReloj();
     void instruccionesTeclado();
     void playGame();
+    void resetGame();
     void finishGame();
     void displayTiempo();
     void draw();

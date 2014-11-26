@@ -242,7 +242,14 @@ void checkDisplayOption()
         
     }else if(gameState == 2)
     {
-        
+        game.resetGame();
+        gameState = 1;
+        menuDif[0].setSelected(true);
+        glutSetWindow(subWindowMap);
+        glutHideWindow();
+        glutSetWindow(subWindowSprite);
+        glutHideWindow();
+        glutSetWindow(windowID);
     }
 }
 
@@ -260,7 +267,11 @@ void myKeyboard(unsigned char theKey, int mouseX, int mouseY)
             break;
         case 13: //enter
             checkDisplayOption();
-
+            break;
+        case 'r':
+        case 'R':
+            checkDisplayOption();
+            break;
         default:
         break;
     }

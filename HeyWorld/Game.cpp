@@ -18,19 +18,29 @@
 
 Game::Game()
 {
+    user = User();
     endGame = false;
     win = false;
     cubo = Cube();
- 
     answeredCorrect = false;
 }
 
 Game::Game(int diff)
 {
     user = User();
+    cubo = Cube();
     difficulty = diff;
     endGame = false;
     win = false;
+    answeredCorrect = false;
+}
+
+void Game::resetGame()
+{
+    user.resetUserSettings();
+    endGame = false;
+    win = false;
+    cubo = Cube();
     answeredCorrect = false;
 }
 
