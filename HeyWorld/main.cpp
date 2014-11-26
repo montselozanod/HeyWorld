@@ -77,6 +77,7 @@ void despliegaMapa(int i);
 void drawMenuContinente();
 void despliegaPines();
 void desplieganuevopin(int i);
+void init();
 
 void playSonido(){
     if (musicaOn) {
@@ -254,6 +255,10 @@ void myKeyboard(unsigned char theKey, int mouseX, int mouseY)
         case 27: //esc
             exit(0);
             break;
+        case 'r':
+        case 'R':
+            init();
+            break;
         case 's':
         case 'S':
             miSonido();
@@ -305,7 +310,7 @@ void loadTexture(Image* image,int k)
 
 void initMenus()
 {
-   
+
     //principal
     menuOptions.push_back(Menu("Instrucciones", 0.0, 0.1 ,0.4, 0.07, 0.9999));
     menuOptions.push_back(Menu("Jugar", 0.0, 0.0 ,0.4, 0.07, 0.9999));
