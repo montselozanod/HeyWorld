@@ -193,7 +193,38 @@ void gameManagement()
     glutPostRedisplay();
     
 }
-void teclasUPandDown(int tecla, int x, int y);
+
+void mostrarInstrucciones()
+{
+    
+    glPushMatrix();
+    glMatrixMode(GL_MODELVIEW);//dejar activa son todas las traslaciones, escalaciones
+    glLoadIdentity();//que no tenga ninguna transformación
+    gluLookAt(0, 0, 2.4, 0, 0, 0, 0, .1, 0);//movemos camara para que se vea el mapa
+    
+    /*Fondo de estrellas*/
+    glPushMatrix();
+    //glTranslated(0, 0, 1);
+    glEnable(GL_TEXTURE_2D);
+    glBindTexture(GL_TEXTURE_2D, texName[11]);
+    glBegin(GL_QUADS);
+    glTexCoord2f(0.0f, 0.0f); //se pega la textura con
+    glVertex3f(-2, -1, 0);
+    glTexCoord2f(1.0f, 0.0f);
+    glVertex3f(2, -1, 0);
+    glTexCoord2f(1.0f, 1.0f);
+    glVertex3f(2, 1, 0);
+    glTexCoord2f(0.0f, 1.0f);
+    glVertex3f(-2, 1, 0);
+    glEnd();
+    glPopMatrix();
+    glDisable(GL_TEXTURE_2D);
+
+    
+    glPopMatrix();
+    
+}
+
 
 void checkDisplayOption()
 {
@@ -380,6 +411,7 @@ void initRendering()
     image = loadBMP("blocks.bmp");loadTexture(image,i++);
     image = loadBMP("madera.bmp");loadTexture(image,i++);
     image = loadBMP("water.bmp");loadTexture(image,i++);
+    image = loadBMP("instrucciones.bmp");loadTexture(image,i++);
 //    image = loadBMP("instrucciones1.bmp");loadTexture(image,i++);
 //    image = loadBMP("jugar1.bmp");loadTexture(image,i++);
 //    image = loadBMP("salir1.bmp");loadTexture(image,i++);
@@ -796,6 +828,29 @@ void callback(int x, int y)
 
 void mouse(int button, int state, int x, int y){
     
+    
+    if(gameState == 0)
+    {
+        if(button == GLUT_LEFT_BUTTON)
+        {
+            if(state == GLUT_DOWN)
+            {
+                if (x >= 437 and x <= 710 and y >=516 and y <= 590) { //Dio clic en Regresar juego
+                    
+                    //Regresar a la pantalla principal
+                    gameState = 0;
+                    menuDif[currentIndex].setSelected(false);
+                    currentIndex = 0;
+                    menuOptions[0].setSelected(true);
+                    showInstructions = false;
+                    std::cout << "En donde di clic: " << x << ", " << y <<"\n";
+                }
+                
+            }
+        }
+    }
+    
+    
     if(gameState == 2)
     {
         if(button == GLUT_LEFT_BUTTON)
@@ -813,9 +868,6 @@ void mouse(int button, int state, int x, int y){
 
 void displayMain()
 {
-    glutSetWindow(windowID);
-
-    GLUquadricObj *qobj;
     //glClear(GL_COLOR_BUFFER_BIT);
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
     glColor3f(1.0f, 1.0f, 1.0f); //resetaear. Esto es para que no se guarden los otros colores activados
@@ -823,9 +875,13 @@ void displayMain()
     if(gameState == 0)
     {
         
-        fondoPrincipal();
-        /*Menu principal*/
-        drawMenuPrincipal();
+        if (showInstructions) {
+            mostrarInstrucciones();
+        } else {
+            fondoPrincipal();
+            /*Menu principal*/
+            drawMenuPrincipal();
+        }
         
     }else if(gameState == 1)
     {
