@@ -56,6 +56,15 @@ void User::addPassportStamp(int stampId)
     }
 }
 
+int User::howManyLives()
+{
+    int lives = 0;
+    for(int i = 0; i < 3; i++)
+        if(userVisas[i].alive)
+            lives++;
+    return lives;
+}
+
 void User::deleteVisa()
 {
     for (int i = 2; i >= 0; i--)

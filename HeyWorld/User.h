@@ -45,6 +45,7 @@ class User
     int numberPoints;
     User();
     User(int sprite);
+    int howManyLives();
     void addPassportStamp(int stampId);
     void deleteVisa();
     bool isPlayerAlive();

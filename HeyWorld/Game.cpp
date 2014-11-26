@@ -159,7 +159,7 @@ void Game::instruccionesTeclado()
 
 void Game::initReloj()
 {
-    _num = 0;
+    _num = 10;
     displayTiempo();
 }
 
@@ -200,12 +200,13 @@ void Game::playGame()
 
         if(user.isPlayerAlive())
         {
+            std::cout<<user.howManyLives()<<std::endl;
             cubo.closeCube();
             showSprite();
             displayTiempo();
             cubo.rotateCube();
             answeredCorrect = false;
-            countTimer = 0;
+            countTimer = 10;
             glutTimerFunc(1000, timerQuestion, numSprite);
 
         }else
@@ -318,17 +319,15 @@ void Game::timerQuestion(int v)
 {
     if(v == numSprite)
     {
-        if(countTimer < 10 && !answeredCorrect && !endGame)
+        if(countTimer > 0 && countTimer <= 10 && !answeredCorrect && !endGame)
         {
-            countTimer++;
+            countTimer--;
             _num = countTimer;
             //sprintf(tiempo, "%d : 0%d : %d", 0, 0, _num);
-            std::cout<<countTimer<<std::endl;
             formato();
-            std::cout<<tiempo<<"\n";
             glutPostRedisplay();
             glutTimerFunc(1000, timerQuestion, numSprite);
-        }else if(countTimer == 10 && !answeredCorrect && !endGame)
+        }else if(countTimer == 0 && !answeredCorrect && !endGame)
         {
             Game* game;
             game->lostQuestion(1);
@@ -362,18 +361,6 @@ void Game::lostQuestion(int type)
     }
 }
 
-//void Game::waitForAnswer()
-//{
-//    while(!answeredCorrect && countTimer < 10)
-//    {
-//        countTimer++;
-//    }
-//    
-//    if(countTimer == 10 && !answeredCorrect)
-//    {
-//        lostQuestion(1);
-//    }
-//}
 
 void Game::finishGame()
 {
@@ -535,7 +522,7 @@ void Game::finishGame()
         
         //FONDO DE COLORES
         
-        //glShadeModel(GL_FLAT);
+        glShadeModel(GL_FLAT);
         
         glPushMatrix();
         glMatrixMode(GL_MODELVIEW);//dejar activa son todas las traslaciones, escalaciones
