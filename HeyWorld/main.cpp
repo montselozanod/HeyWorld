@@ -193,7 +193,7 @@ void gameManagement()
     glutPostRedisplay();
     
 }
-
+void teclasUPandDown(int tecla, int x, int y);
 
 void checkDisplayOption()
 {
@@ -251,7 +251,8 @@ void checkDisplayOption()
         glutSetWindow(subWindowSprite);
         glutHideWindow();
         glutSetWindow(windowID);
-    }
+        }
+    
 }
 
 void myKeyboard(unsigned char theKey, int mouseX, int mouseY)
@@ -261,10 +262,6 @@ void myKeyboard(unsigned char theKey, int mouseX, int mouseY)
     {
         case 27: //esc
             exit(0);
-            break;
-        case 'r':
-        case 'R':
-            init();
             break;
         case 's':
         case 'S':
@@ -817,6 +814,7 @@ void mouse(int button, int state, int x, int y){
 void displayMain()
 {
     glutSetWindow(windowID);
+
     GLUquadricObj *qobj;
     //glClear(GL_COLOR_BUFFER_BIT);
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);

@@ -1,0 +1,21 @@
+#
+## Alias OBJ Material File
+# Exported from SketchUp, (c) 2000-2012 Trimble Navigation Limited
+
+newmtl FrontColor
+Ka 0.000000 0.000000 0.000000
+Kd 1.000000 1.000000 1.000000
+Ks 0.330000 0.330000 0.330000
+
+newmtl Stone_Brushed_Khaki
+Ka 0.000000 0.000000 0.000000
+Kd 0.886275 0.898039 0.827451
+Ks 0.330000 0.330000 0.330000
+map_Kd alcala/Stone_Brushed_Khaki.ppm
+
+newmtl _Stone_Brushed_Khaki_1
+Ka 0.000000 0.000000 0.000000
+Kd 0.827451 0.886275 0.815686
+Ks 0.330000 0.330000 0.330000
+map_Kd alcala/_Stone_Brushed_Khaki_1.ppm
+

@@ -133,12 +133,8 @@ void Game::initRenderImages()
     }
     
     image = loadBMP("gameoverColor.bmp");loadTexture(image,30);
-<<<<<<< HEAD
-    //image = loadBMP("carafeliz1.bmp");loadTexture(image,32);
-
-=======
     image = loadBMP("youwon.bmp");loadTexture(image,31);
->>>>>>> 0ae457b657d73e9a7904c854bf499d1e2e5b6205
+
     
 }
 
